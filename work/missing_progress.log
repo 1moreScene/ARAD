@@ -1,0 +1,30 @@
+chunk0: begin 711 targets
+chunk0: progress 0/711
+chunk1: begin 711 targets
+chunk1: progress 0/711
+chunk2: begin 711 targets
+chunk2: progress 0/711
+chunk0: progress 100/711
+chunk1: progress 100/711
+chunk2: progress 100/711
+chunk0: progress 200/711
+chunk1: progress 200/711
+chunk2: progress 200/711
+chunk1: progress 300/711
+chunk0: progress 300/711
+chunk2: progress 300/711
+chunk1: progress 400/711
+chunk0: progress 400/711
+chunk2: progress 400/711
+chunk1: progress 500/711
+chunk2: progress 500/711
+chunk0: progress 500/711
+chunk1: progress 600/711
+chunk0: progress 600/711
+chunk2: progress 600/711
+chunk1: progress 700/711
+chunk1: DONE 711
+chunk0: progress 700/711
+chunk0: DONE 711
+chunk2: progress 700/711
+chunk2: DONE 711

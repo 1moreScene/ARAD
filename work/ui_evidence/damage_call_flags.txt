@@ -1,0 +1,83 @@
+00448C50 iretd    
+00448C51 call     dword ptr [eax + 0x240]
+00448C57 test     eax, eax
+00448C59 je       0x448c85
+00448C5B mov      edx, dword ptr [edi]
+00448C5D mov      ecx, edi
+00448C5F call     dword ptr [edx + 0x240]
+00448C65 mov      edx, dword ptr [eax]
+00448C67 push     0x111
+00448C6C mov      ecx, eax
+00448C6E call     dword ptr [edx + 0x28]
+00448C71 cmp      al, 1
+00448C73 jne      0x448c85
+00448C75 mov      eax, dword ptr [edi]
+00448C77 mov      ecx, edi
+00448C79 call     dword ptr [eax + 0x240]
+00448C7F mov      dword ptr [ebp - 0xac], eax
+00448C85 movzx    edx, word ptr [ebp - 0xa0]
+00448C8C movzx    eax, word ptr [ebp - 0xcc]
+00448C93 mov      ecx, dword ptr [esi + 0x100014]
+00448C99 mov      ecx, dword ptr [ecx + 0x68]
+00448C9C push     ebx
+00448C9D push     0x77f76c
+00448CA2 push     0x77f844
+00448CA7 push     ebx
+00448CA8 push     edx
+00448CA9 push     eax
+00448CAA call     0x45ebe0
+00448CAF push     eax
+00448CB0 call     0x66d6ca
+00448CB5 mov      edi, eax
+00448CB7 add      esp, 0x14
+00448CBA cmp      edi, ebx
+00448CBC je       0x449de0
+00448CC2 mov      edx, dword ptr [edi]
+00448CC4 mov      ecx, edi
+00448CC6 call     dword ptr [edx + 0x134]
+00448CCC test     al, al
+00448CCE jne      0x448cea
+00448CD0 mov      ecx, dword ptr [ebp - 0xac]
+00448CD6 mov      edx, dword ptr [ebp - 0xd4]
+00448CDC mov      eax, dword ptr [edi]
+00448CDE push     1
+00448CE0 push     ecx
+00448CE1 push     edx
+00448CE2 mov      ecx, edi
+00448CE4 call     dword ptr [eax + 0x2dc]
+00448CEA mov      ecx, dword ptr [ebp - 0xac]
+00448CF0 fld      dword ptr [ebp - 0xdc]
+00448CF6 mov      eax, dword ptr [0x8f7c04]
+00448CFB fmul     dword ptr [0x6c18f8]
+00448D01 cmp      eax, ecx
+00448D03 sete     cl
+00448D06 fadd     dword ptr [ebp - 0xe8]
+00448D0C cmp      eax, edi
+00448D0E sete     dl
+00448D11 xor      eax, eax
+00448D13 fadd     dword ptr [0x6c62ac]
+00448D19 push     ecx
+00448D1A mov      ecx, dword ptr [ebp - 0xd0]
+00448D20 push     edx
+00448D21 cmp      byte ptr [ebp + 0xb], bl
+00448D24 setne    al
+00448D27 push     eax
+00448D28 push     ecx
+00448D29 call     0x66c544
+00448D2E fld      dword ptr [ebp - 0xe0]
+00448D34 fmul     dword ptr [0x6c18f8]
+00448D3A push     eax
+00448D3B fadd     dword ptr [ebp - 0xec]
+00448D41 call     0x66c544
+00448D46 fld      dword ptr [ebp - 0xe4]
+00448D4C fmul     dword ptr [0x6c18f8]
+00448D52 push     eax
+00448D53 fadd     dword ptr [ebp - 0xf0]
+00448D59 call     0x66c544
+00448D5E push     eax
+00448D5F call     0x4d7960
+00448D64 mov      al, byte ptr [ebp + 0xf]
+00448D67 add      esp, 0x1c
+00448D6A cmp      al, bl
+00448D6C je       0x448d80
+00448D6E mov      edx, dword ptr [edi]

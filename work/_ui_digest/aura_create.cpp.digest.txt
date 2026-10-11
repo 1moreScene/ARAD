@@ -1,0 +1,549 @@
+# digest of aura_create.cpp  funcs=294
+# 格式: VA|行数|资源串|TAG串|被调|vt槽
+0x640250 sub_640250 | 38
+   CALL: sub_43C410 sub_69A840
+0x640320 sub_640320 | 122
+   CALL: sub_558090 sub_44BD30 sub_5E51F0 sub_41FEB0 sub_44BD00 sub_63A7C0
+0x640570 sub_640570 | 28
+   CALL: sub_63A7C0 sub_640320
+0x6405E0 CNRDClassChangeWindow__vmtC | 223
+   CALL: sub_6405E0 sub_429830 sub_4CE8A0 sub_47E720 sub_640570 sub_41A5E0 sub_565EE0 sub_418DD0 sub_69A5F0
+0x640990 sub_640990 | 46
+0x640A10 sub_640A10 | 20
+0x640A60 sub_640A60 | 111
+   CALL: sub_418DD0 sub_429830 sub_42B340 sub_491530 sub_42A430 sub_491630 sub_42A410
+0x640C50 sub_640C50 | 38
+   CALL: sub_42B530 sub_423200 sub_423290 sub_423380
+0x640D10 sub_640D10 | 132
+   CALL: sub_43C410 sub_69A5F0 sub_69A840 sub_426BD0 sub_69C780 sub_69C7B0 sub_69CA20 sub_69CA50 sub_43C630
+0x641050 CNRDPVPWarRoomInviteWindow__vmt8 | 36
+   TAG: CLICK_BUTTON2
+   CALL: sub_69C690 sub_640C50 sub_432EA0
+0x6410F0 CNRDPVPWarRoomInviteWindow__vmt0 | 15
+   CALL: sub_640A60
+0x641120 CNRDPVPWarRoomInviteWindow__vmtC | 287
+   CALL: sub_641120 sub_69A5F0 sub_4ED3F0 sub_4A2CF0 sub_429830 sub_41A5E0 sub_52DAA0 sub_468240 sub_430C80 sub_69C680
+0x6414D0 sub_6414D0 | 18
+0x6414F0 sub_6414F0 | 52
+0x6415A0 CNRDFriendListWindow__vmtC | 12
+   CALL: sub_69A5F0
+0x6415C0 CNRDFriendListWindow__vmt10 | 10
+0x6415D0 sub_6415D0 | 25
+0x641630 CNRDFriendListWindow__vmt8 | 83
+   TAG: CLICK_BUTTON2
+   CALL: sub_69A650 sub_432EA0 sub_6415D0 sub_69C690 sub_479240 sub_42B340 sub_526BF0 sub_527A60 sub_44E8D0
+0x6417E0 sub_6417E0 | 174
+   CALL: sub_43C410 sub_69A5F0 sub_69A840 sub_426BD0 sub_69C780 sub_69C7B0 sub_69CA20 sub_69CA50 sub_43C630 sub_699E20 sub_699E40
+0x641C00 sub_641C00 | 148
+   CALL: sub_479110 sub_479240 sub_430C80
+0x641E10 CNRDFriendListWindow__vmt0 | 163
+   CALL: sub_641E10 sub_554930 sub_641C00 sub_418DD0 sub_69C690 sub_6415D0 sub_479240 sub_42B340 sub_4B0EC0 sub_69A110 sub_491530 sub_491630
+0x6421A0 sub_6421A0 | 47
+0x642220 CNRDPVPRoomListWindow__vmt10 | 10
+0x642230 CNRDPVPRoomListWindow__vmt20 | 13
+   CALL: sub_41C590 sub_46ED90 sub_41D520
+0x642270 sub_642270 | 22
+0x6422B0 sub_6422B0 | 50
+   CALL: sub_69A5F0 sub_69C980
+0x642410 sub_642410 | 14
+0x642420 sub_642420 | 127
+   CALL: sub_43C410 sub_69A840 sub_69A5F0 sub_423B30 sub_6422B0 sub_698F90
+0x642770 sub_642770 | 15
+   CALL: sub_4014D0
+0x6427C0 sub_6427C0 | 11
+   CALL: sub_642770
+0x6427E0 sub_6427E0 | 32
+   CALL: sub_4875C0
+0x6428A0 sub_6428A0 | 31
+   CALL: sub_436CA0
+0x642900 sub_642900 | 46
+   CALL: sub_6427E0
+0x642990 sub_642990 | 162
+   CALL: sub_699000 sub_698F90 sub_438820 sub_642900 sub_430C80 sub_4332F0 sub_44E850
+0x642BC0 CNRDPVPRoomListWindow__vmt8 | 108
+   TAG: CLICK_BUTTON2
+   CALL: sub_642270 sub_4873D0 sub_487420 sub_6427C0 sub_44E8D0 sub_432EA0 sub_6422B0 sub_642990 sub_423200 sub_423290 sub_423380
+0x642E20 CNRDPVPRoomListWindow__vmtC | 13
+   CALL: sub_642990 sub_6422B0
+0x642E40 CNRDPVPRoomListWindow__vmt0 | 204
+   CALL: sub_642990 sub_418DD0 sub_642270 sub_69A110 sub_48F4C0 sub_48FBB0 sub_491530 sub_491630
+0x643210 CNRDDungeonMap__vmt8 | 15
+0x643230 CNRDDungeonMap__vmtC | 13
+0x643260 sub_643260 | 18
+   CALL: sub_5542F0
+0x6432D0 CNRDDungeonMap__vmt4 | 13
+   CALL: sub_643260
+0x643300 sub_643300 | 23
+   CALL: sub_43C410 sub_69A840
+0x643390 CNRDDungeonMap__vmt0 | 303
+   CALL: sub_643390 sub_69A5F0 sub_418DD0 sub_40FC80 sub_4D33A0
+0x643910 sub_643910 | 16
+   CALL: sub_5542C0 sub_5548B0 sub_643300
+0x643970 sub_643970 | 32
+0x6439D0 CNRDPayWebWindow__vmtC | 64
+   RES: http://www.d-fighter.com
+   CALL: sub_55CB40 sub_652D30 sub_652DE0 sub_422E70 sub_44E8D0
+0x643B90 CNRDPayWebWindow__vmt10 | 25
+   CALL: sub_55CB50
+0x643BF0 CNRDPayWebWindow__vmt8 | 70
+   TAG: CLICK_BUTTON2
+   CALL: sub_432EA0 sub_652CC0
+0x643CF0 CNRDPayWebWindow__vmt0 | 38
+   RES: Common/Etc/MonoLayer.img
+   CALL: sub_418DD0
+0x643D80 sub_643D80 | 13
+   CALL: sub_643970 sub_5542F0
+0x643DE0 CNRDPayWebWindow__vmt4 | 13
+   CALL: sub_643D80
+0x643E10 sub_643E10 | 38
+   RES: interface/payweb.img
+   CALL: sub_69A5F0 sub_69A840
+0x643EF0 sub_643EF0 | 20
+   CALL: sub_5542C0 sub_5548B0 sub_643E10
+0x643F60 sub_643F60 | 52
+0x644010 CNRDGuildListWindow__vmtC | 13
+   CALL: sub_69A5F0 sub_478EA0
+0x644040 CNRDGuildListWindow__vmt10 | 10
+0x644050 sub_644050 | 25
+0x6440B0 CNRDGuildListWindow__vmt8 | 91
+   TAG: CLICK_BUTTON2
+   CALL: sub_69A650 sub_432EA0 sub_644050 sub_69C690 sub_479240 sub_42B340 sub_526BF0
+0x644260 sub_644260 | 75
+   CALL: sub_643F60 sub_5542F0
+0x6443E0 CNRDGuildListWindow__vmt4 | 13
+   CALL: sub_644260
+0x644410 sub_644410 | 188
+   CALL: sub_43C410 sub_69A5F0 sub_69A840 sub_426BD0 sub_69C780 sub_69C7B0 sub_69CA20 sub_69CA50 sub_43C630 sub_699E20 sub_699E40
+0x644890 sub_644890 | 74
+   CALL: sub_5542C0 sub_5548B0 sub_422E70 sub_644410
+0x644A20 sub_644A20 | 158
+   CALL: sub_479110 sub_479240 sub_430C80
+0x644C60 CNRDGuildListWindow__vmt0 | 309
+   CALL: sub_554930 sub_429830 sub_429900 sub_4BF0F0 sub_644A20 sub_418DD0 sub_4BE300 sub_422E70 sub_4BE1D0 sub_69C690 sub_43BCB0 sub_644050 sub_479240 sub_42B340 sub_4B0EC0 sub_69A110 sub_491530 sub_491630 sub_4649B0
+0x6453A0 sub_6453A0 | 17
+0x6453D0 sub_6453D0 | 26
+0x645410 sub_645410 | 45
+0x6454C0 sub_6454C0 | 78
+0x6455D0 sub_6455D0 | 42
+   RES: Common/Etc/MonoLayer.img
+   CALL: sub_418DD0
+0x645680 sub_645680 | 137
+   CALL: sub_422E70 sub_69A110
+0x645930 sub_645930 | 164
+   CALL: sub_422E70 sub_69A110
+0x645CA0 sub_645CA0 | 12
+0x645CC0 sub_645CC0 | 45
+   CALL: sub_423200 sub_423290 sub_423380 sub_55F160 sub_55D300 sub_55CB40
+0x645DB0 sub_645DB0 | 71
+   CALL: sub_44E850 sub_44E8D0
+0x645EE0 sub_645EE0 | 23
+0x645F20 sub_645F20 | 49
+   CALL: sub_55ECC0 sub_645EE0
+0x645FD0 sub_645FD0 | 155
+   CALL: sub_422E70
+0x646240 sub_646240 | 115
+   CALL: sub_55ECC0 sub_6453D0 sub_6453A0 sub_422E70
+0x6464C0 sub_6464C0 | 44
+   CALL: sub_55CCB0 sub_422E70 sub_4EB900
+0x646590 sub_646590 | 39
+   CALL: sub_55CCB0
+0x646610 sub_646610 | 42
+   CALL: sub_55CCB0 sub_422E70 sub_44E8D0
+0x6466D0 sub_6466D0 | 252
+   RES: interface/cashshop/cashshopdoubleevent.img
+   CALL: sub_667620 sub_4F33A0 sub_4F2C10 sub_418DD0 sub_69A110 sub_422E70 sub_55CCB0 sub_6464C0 sub_646240 sub_645FD0
+0x646C10 sub_646C10 | 30
+   CALL: sub_646240
+0x646C70 sub_646C70 | 186
+   RES: interface/cashshop/cashshopdoubleevent.img
+   CALL: sub_667620 sub_4F33A0 sub_4F2C10 sub_418DD0 sub_69A110 sub_422E70 sub_55CCB0 sub_6464C0 sub_646240 sub_645FD0
+0x6470A0 sub_6470A0 | 123
+   CALL: sub_422E70 sub_44E8D0 sub_55CCB0 sub_646590 sub_646610
+0x6472C0 sub_6472C0 | 137
+   TAG: CLICK_BUTTON1
+   CALL: sub_432EA0
+0x6474A0 sub_6474A0 | 46
+   CALL: sub_645EE0 sub_69A5F0
+0x647550 sub_647550 | 133
+   CALL: sub_55CCB0 sub_645EE0 sub_69A5F0
+0x6477B0 sub_6477B0 | 172
+   CALL: sub_69A5F0 sub_6472C0 sub_646610 sub_646590 sub_422E70 sub_44E8D0
+0x647B60 sub_647B60 | 31
+   CALL: sub_55CCB0 sub_41A5E0
+0x647BF0 sub_647BF0 | 509
+   CALL: sub_426BD0 sub_423B30 sub_43C410 sub_69A840 sub_69C780 sub_69C7B0 sub_69A5F0 sub_699E20 sub_699E40 sub_698F90
+0x648630 sub_648630 | 69
+   CALL: sub_6464C0 sub_647B60 sub_422E70 sub_4649B0
+0x648770 CNRDCashShopBuyWindow__vmt0 | 42
+   CALL: sub_6455D0 sub_6466D0 sub_645680 sub_645930 sub_645DB0 sub_646C70 sub_646C10 sub_648630 sub_422E70 sub_4649B0
+0x648850 sub_648850 | 68
+   CALL: sub_645EE0 sub_4015C0
+0x648980 sub_648980 | 139
+   TAG: CLICK_BUTTON2 CLICK_MOVE COMMAND_SELECT SCROLL_ARROW
+   CALL: sub_432EA0 sub_6470A0 sub_698F90 sub_55E2D0 sub_6472C0 sub_43B500 sub_647550 sub_6474A0 sub_645F20 sub_645EE0 sub_648850
+0x648C10 CNRDCashShopBuyWindow__vmt4 | 17
+   CALL: sub_648980 sub_699000
+0x648C50 sub_648C50 | 36
+0x648CE0 sub_648CE0 | 26
+0x648D40 sub_648D40 | 19
+0x648D80 sub_648D80 | 22
+0x648DD0 sub_648DD0 | 20
+0x648E10 sub_648E10 | 35
+   CALL: sub_648C50 sub_648CE0
+0x648EB0 CFileVersionInfo__vmt0 | 23
+0x648F10 sub_648F10 | 18
+   CALL: sub_648E10
+0x648F90 CNAuraMasterIce__vmt1C | 13
+   RES: Common/Etc/Animation/Aura/IceAuraMaster.ani
+0x648FB0 sub_648FB0 | 79
+   TAG: AURA_ICE_DMG
+   CALL: sub_605840 sub_4E4A50 sub_432FA0
+0x649100 CNAuraMasterCurse__vmt84 | 22
+0x649160 CNDarkDamageFromCurseAura__vmt1C | 10
+   CALL: sub_5F66A0
+0x649170 CNDarkDamageFromCurseAura__vmt78 | 17
+0x6491A0 CNDarkDamageFromCurseAura__vmt4 | 80
+   CALL: sub_605840 sub_4E4A50 sub_699000
+0x649300 sub_649300 | 18
+   CALL: sub_64A880 sub_5F6640
+0x649360 CNRDAuraMinion__vmt0 | 13
+   CALL: sub_649300
+0x649390 sub_649390 | 17
+   CALL: sub_4B1030 sub_64A350
+0x649400 CNIceDamageFromIceAura__vmt0 | 13
+   CALL: sub_649430
+0x649430 sub_649430 | 22
+   CALL: sub_649300
+0x6494B0 sub_6494B0 | 31
+   CALL: sub_4B1030 sub_64A350 sub_698F90
+0x649560 sub_649560 | 19
+   CALL: sub_649300
+0x6495D0 CNAuraMasterIce__vmt78 | 31
+   TAG: AURA_ICE_SET
+   CALL: sub_649390
+0x649670 CNDarkDamageFromCurseAura__vmt0 | 13
+   CALL: sub_649560
+0x6496A0 CNAuraMasterIce__vmt7C | 58
+0x649750 CNAuraMasterCurse__vmt7C | 108
+0x6498E0 CNIceDamageFromIceAura__vmt4 | 62
+   CALL: sub_4600B0
+0x6499A0 CNAuraMasterCurse__vmt4 | 99
+   CALL: sub_699000 sub_698F90 sub_4600B0 sub_41C5E0
+0x649B70 CNAuraMasterCurse__vmt78 | 79
+   CALL: sub_6494B0 sub_5101B0
+0x649CF0 sub_649CF0 | 14
+   CALL: sub_5910D0
+0x649D30 CNAuraMasterIce__vmt0 | 13
+   CALL: sub_649D60
+0x649D60 sub_649D60 | 11
+   CALL: sub_591190
+0x649D70 CNIceDamageFromIceAura__vmt1C | 35
+   RES: Common/Etc/Particle/Aura/IceAuraMinionSnowFlake.ptl ; Common/Etc/Particle/Aura/IceAuraMinionSteam.ptl
+   CALL: sub_428F30 sub_5F66A0
+0x649E40 sub_649E40 | 27
+   CALL: sub_5910D0 sub_698F90
+0x649EE0 sub_649EE0 | 19
+   CALL: sub_591190
+0x649F60 CNAuraMasterCurse__vmt1C | 24
+   RES: Common/Etc/Particle/Aura/CurseAura.ptl
+   CALL: sub_428F30 sub_5F66A0
+0x649FF0 sub_649FF0 | 60
+   RES: Monster/Ghoul/Particle/GhoulCurse.ptl
+   CALL: sub_428F30 sub_4600B0 sub_698F90
+0x64A100 CNAuraMasterCurse__vmt0 | 13
+   CALL: sub_649EE0
+0x64A130 CNDarkDamageFromCurseAura__vmt68 | 14
+   CALL: sub_649FF0
+0x64A150 sub_64A150 | 14
+0x64A160 sub_64A160 | 14
+   CALL: sub_607260
+0x64A190 CNRDAuraMaster__vmt18 | 26
+   CALL: sub_4938F0 sub_491D00
+0x64A1E0 CNRDAuraMinion__vmt18 | 45
+   CALL: sub_4938F0 sub_491D00
+0x64A2A0 CNRDAuraMinion__vmt4 | 41
+0x64A300 CNRDAuraMinion__vmt4C | 28
+0x64A350 sub_64A350 | 14
+0x64A360 CNRDAuraMaster__vmt20 | 40
+   CALL: sub_41C5E0 sub_52E4D0
+0x64A3D0 sub_64A3D0 | 117
+   CALL: sub_4BE520 sub_614810
+0x64A570 CNRDAuraMaster__vmt1C | 18
+   CALL: sub_699000 sub_607290 sub_64A3D0
+0x64A5A0 sub_64A5A0 | 21
+   CALL: sub_4BE520 sub_6148D0
+0x64A5E0 CNRDAuraMaster__vmt30 | 42
+   CALL: sub_64A5A0 sub_41C5E0 sub_52E4D0
+0x64A680 sub_64A680 | 73
+   CALL: sub_699000 sub_6072C0 sub_64A5A0 sub_64A3D0
+0x64A790 CNRDAuraMaster__vmt4 | 13
+   CALL: sub_64A680
+0x64A7C0 sub_64A7C0 | 20
+   CALL: sub_42AF90 sub_657740
+0x64A7F0 CNRDAuraMaster__vmt80 | 27
+   CALL: sub_42AF90 sub_657740 sub_42FCB0 sub_431860
+0x64A880 sub_64A880 | 36
+   CALL: sub_42AF90 sub_657740
+0x64A900 CNRDAuraMinion__vmt30 | 12
+   CALL: sub_64A880
+0x64A930 sub_64A930 | 16
+0x64A960 CNProvocationDollAura__vmt1C | 34
+   CALL: sub_4926A0 sub_4922F0
+0x64A9C0 CNProvocationDollAura__vmt84 | 15
+   CALL: sub_4E4630
+0x64A9F0 CNProvocationDollAura__vmt94 | 12
+0x64AA10 CNProvocationDollAura__vmt18 | 28
+   CALL: sub_4938F0 sub_491D00
+0x64AAB0 CNProvocationDollAura__vmt88 | 10
+0x64AAD0 CNProvocationDollAura__vmt8C | 17
+0x64AB20 CNRDAuraMaster__vmt90 | 13
+0x64AB40 CNProvocationDollAura__vmt7C | 62
+0x64AC30 CNProvocationDollAura__vmt78 | 60
+   CALL: sub_433F60 sub_4B3DF0 sub_60FA60
+0x64AD30 sub_64AD30 | 43
+   RES: Character/Mage/Effect/Animation/ProvocationDollSymbol1.ani ; Character/Mage/Effect/Animation/ProvocationDollSymbol2.ani ; Character/Mage/Effect/Animation/ProvocationDollAreaStart.ani ; Character/Mage/Effect/Animation/ProvocationDollAreaLoop.ani
+   CALL: sub_42FCB0 sub_431860
+0x64AE50 sub_64AE50 | 36
+   CALL: sub_42AF90 sub_657740
+0x64AEC0 j_CNRDAuraMaster__vmt1C | 11
+0x64AED0 CNAuraMasterChilling__vmt20 | 10
+0x64AEE0 CNAuraMasterChilling__vmt78 | 27
+   CALL: sub_41A5E0 sub_41A590
+0x64AF80 CNAuraMasterChilling__vmt7C | 27
+   CALL: sub_41A5E0 sub_41A590
+0x64B020 CNAuraMasterChilling__vmt24 | 24
+   CALL: sub_4926A0
+0x64B080 CNAuraMasterChilling__vmt14 | 25
+   CALL: sub_4938F0 sub_491D00
+0x64B0F0 sub_64B0F0 | 44
+   RES: %s.ani ; %sDamage.ani
+   CALL: sub_5910D0 sub_42FCB0 sub_431860 sub_493400
+0x64B210 CNAuraMasterChilling__vmt0 | 13
+   CALL: sub_64B240
+0x64B240 sub_64B240 | 20
+   CALL: sub_42AF90 sub_42A1B0 sub_591190
+0x64B2C0 CNAuraChangeStatusMaster__vmt84 | 15
+0x64B300 CNAuraChangeStatusMasterSpikeKing__vmt84 | 23
+0x64B360 CNAuraChangeStatusMaster__vmt7C | 69
+   CALL: sub_5F8000
+0x64B480 sub_64B480 | 29
+   CALL: sub_4015C0 sub_4022F0
+0x64B540 CNAuraChangeStatusMaster__vmt78 | 94
+   CALL: sub_5F8000 sub_5101B0
+0x64B6C0 sub_64B6C0 | 16
+   CALL: sub_5910D0
+0x64B730 CNAuraMasterFlame__vmt68 | 10
+0x64B740 sub_64B740 | 64
+   TAG: SIZZLE_HIT
+   CALL: sub_605840 sub_4E4A50
+0x64B850 sub_64B850 | 17
+   CALL: sub_4B1030 sub_64A350
+0x64B8C0 CNFlameDamageFromFlameAura__vmt0 | 13
+   CALL: sub_64B8F0
+0x64B8F0 sub_64B8F0 | 17
+   CALL: sub_649300
+0x64B950 CNAuraMasterFlame__vmt78 | 31
+   TAG: AURA_ICE_SET
+   CALL: sub_64B850
+0x64B9F0 CNAuraMasterFlame__vmt7C | 58
+0x64BAA0 CNAuraMasterFlame__vmt4 | 36
+   CALL: sub_4600B0
+0x64BB50 CNFlameDamageFromFlameAura__vmt4 | 36
+   CALL: sub_4600B0
+0x64BBF0 sub_64BBF0 | 15
+   CALL: sub_5910D0
+0x64BC30 CNAuraMasterFlame__vmt0 | 13
+   CALL: sub_64BC60
+0x64BC60 sub_64BC60 | 17
+   CALL: sub_591190
+0x64BCD0 CNAuraMasterFlame__vmt1C | 24
+   RES: Character/Fighter/Effect/Particle/NenMaster.ptl
+   CALL: sub_428F30 sub_5F66A0
+0x64BD60 CNFlameDamageFromFlameAura__vmt1C | 23
+   RES: Character/Fighter/Effect/Particle/NenMaster.ptl
+   CALL: sub_428F30 sub_5F66A0
+0x64BDF0 sub_64BDF0 | 175
+   CALL: sub_4049C0 sub_4DAB60 sub_4DB200
+0x64C140 CNAuraMasterBattle__vmt1C | 13
+   RES: Common/Etc/Animation/Aura/BattleAuraMaster.ani
+0x64C160 CNAttackUpFromBattleAura__vmtC | 22
+   CALL: sub_41A5E0 sub_41A590
+0x64C1B0 CNAuraMasterBattleGoblinKinol__vmt84 | 22
+0x64C210 CNAuraMasterBattle__vmt7C | 58
+0x64C2C0 sub_64C2C0 | 13
+   CALL: sub_5910D0
+0x64C2F0 sub_64C2F0 | 40
+   RES: Common/Etc/Animation/Aura/BattleAuraMinion.ani ; Common/Etc/Animation/Aura/BattleAuraMinionS.ani ; Common/Etc/Animation/Aura/BattleAuraMinionE.ani
+   CALL: sub_4B1030 sub_64A350 sub_42FCB0 sub_431860
+0x64C3E0 CNAttackUpFromBattleAura__vmt0 | 13
+   CALL: sub_64C410
+0x64C410 sub_64C410 | 11
+   CALL: sub_649300
+0x64C420 CNAuraMasterBattle__vmt78 | 31
+   TAG: AURA_POWER_SET
+   CALL: sub_64C2F0
+0x64C4B0 CNATDFSPEEDUpFromAura__vmtC | 42
+   CALL: sub_41A5E0 sub_41A590
+0x64C5A0 CNAuraMasterATDFSPEEDUpFather__vmt84 | 21
+0x64C600 CNAuraMasterATDFSPEEDUp_KingGalok__vmt84 | 30
+0x64C660 CNAuraMasterATDFSPEEDUp__vmt7C | 58
+0x64C710 sub_64C710 | 16
+   CALL: sub_5910D0
+0x64C760 sub_64C760 | 43
+   RES: Common/Etc/Animation/Aura/BattleAuraMinion.ani ; Common/Etc/Animation/Aura/BattleAuraMinionS.ani ; Common/Etc/Animation/Aura/BattleAuraMinionE.ani
+   CALL: sub_4B1030 sub_64A350 sub_42FCB0 sub_431860
+0x64C860 CNATDFSPEEDUpFromAura__vmt0 | 13
+   CALL: sub_64C890
+0x64C890 sub_64C890 | 11
+   CALL: sub_649300
+0x64C8A0 CNAuraMasterATDFSPEEDUp__vmt78 | 76
+   TAG: AURA_POWER_SET
+   CALL: sub_64C760
+0x64C9F0 sub_64C9F0 | 15
+0x64CA10 sub_64CA10 | 15
+0x64CA40 sub_64CA40 | 17
+0x64CA60 CNChangeDamageBonusRate__vmtC | 57
+   CALL: sub_41A5E0 sub_41A590
+0x64CB10 CNChangeDamageBonusRate__vmt4 | 63
+   RES: Common/CommonEffect/Particle/AttackPowerUp.ptl
+   CALL: sub_428F30 sub_4600B0
+0x64CC30 CNAuraMasterSlow__vmt1C | 13
+   RES: Common/Etc/Animation/Aura/SlowAuraMaster.ani
+0x64CC50 CNAuraMasterIce__vmt84 | 10
+   CALL: sub_4E4630
+0x64CC70 CNSlowFromSlowAura__vmt1C | 25
+   CALL: sub_5F66A0
+0x64CCC0 CNSlowFromSlowAura__vmt68 | 24
+0x64CD00 sub_64CD00 | 17
+   CALL: sub_4B1030 sub_64A350
+0x64CD70 CNSlowFromSlowAura__vmt0 | 13
+   CALL: sub_64CDA0
+0x64CDA0 sub_64CDA0 | 11
+   CALL: sub_649300
+0x64CDB0 CNAuraMasterSlow__vmt78 | 25
+   CALL: sub_64CD00
+0x64CE40 CNAuraMasterSlow__vmt7C | 58
+0x64CEF0 sub_64CEF0 | 15
+   CALL: sub_5910D0
+0x64CF30 CNAuraMasterSlow__vmt0 | 13
+   CALL: sub_64CF60
+0x64CF60 sub_64CF60 | 11
+   CALL: sub_591190
+0x64CF70 sub_64CF70 | 41
+   CALL: sub_41A590
+0x64D030 CNFireBomb__vmt1C | 16
+   CALL: sub_698F90 sub_41A590
+0x64D070 CNFireBomb__vmt14 | 90
+   CALL: sub_41A5E0 sub_4049C0 sub_491DE0 sub_699000 sub_493A60 sub_4938F0 sub_491D00
+0x64D310 sub_64D310 | 60
+   CALL: sub_698F90 sub_41A5E0 sub_41A590 sub_49C620 sub_4E4A50 sub_424120
+0x64D440 CNFireBomb__vmt24 | 20
+0x64D480 CNFireBomb__vmt4 | 40
+   CALL: sub_699000 sub_41A5E0 sub_41A590 sub_698F90
+0x64D510 sub_64D510 | 43
+   RES: Common/CommonEffect/Animation/DarkFire.ani ; Common/CommonEffect/Animation/DarkFireAura.ani ; Common/CommonEffect/Animation/DarkFireExp.ani
+   CALL: sub_41A590 sub_42FCB0 sub_431860
+0x64D610 sub_64D610 | 36
+   CALL: sub_42AF90 sub_657740
+0x64D6A0 sub_64D6A0 | 32
+   CALL: sub_4B1030 sub_41A630 sub_64CF70 sub_64D510
+0x64D7A0 CNFireBomb__vmt0 | 13
+   CALL: sub_64D7D0
+0x64D7D0 sub_64D7D0 | 24
+   CALL: sub_64D610 sub_41A580 sub_5F6640
+0x64D880 sub_64D880 | 18
+0x64D8A0 CNWhipped__vmtC | 24
+   CALL: sub_41A5E0 sub_41A590
+0x64D910 sub_64D910 | 20
+0x64D940 sub_64D940 | 20
+   CALL: sub_47E720 sub_47EF20
+0x64DA00 CNFollowMe__vmtC | 52
+   CALL: sub_4D8FE0 sub_41A5E0 sub_41A590
+0x64DAF0 CNFollowMe__vmt14 | 20
+   CALL: sub_4938F0 sub_491D00
+0x64DB50 CNWhipped__vmt14 | 41
+   CALL: sub_699000 sub_42B420 sub_491690
+0x64DC00 sub_64DC00 | 36
+   CALL: sub_47E720 sub_47EF20 sub_47E9D0
+0x64DD40 sub_64DD40 | 52
+0x64DE20 sub_64DE20 | 119
+0x64DFE0 sub_64DFE0 | 117
+0x64E1A0 CNWhipped__vmt4 | 39
+   CALL: sub_4600B0
+0x64E260 CNWhipped__vmt20 | 127
+   CALL: sub_64E260 sub_64DD40
+0x64E470 sub_64E470 | 43
+   CALL: sub_64DE20 sub_699000 sub_64DFE0
+0x64E520 CNFollowMe__vmt28 | 24
+   CALL: sub_64E470
+0x64E590 CNFollowMe__vmt4 | 45
+   CALL: sub_699000 sub_64DFE0
+0x64E640 CNFollowMe__vmt20 | 33
+   CALL: sub_64DFE0
+0x64E6A0 CNWhipped__vmt1C | 136
+   RES: Common/CommonEffect/Particle/AttackPowerUp.ptl
+   CALL: sub_64E6A0 sub_428F30 sub_64DD40
+0x64E920 sub_64E920 | 26
+   CALL: sub_42AF90 sub_657740
+0x64E960 CNFollowMe__vmt1C | 76
+   RES: Character/Mage/Effect/Animation/FollowMeFlag1.ani ; Character/Mage/Effect/Animation/FollowMeFlag2.ani ; Character/Mage/Effect/Animation/FollowMeFlag3.ani
+   CALL: sub_42FCB0 sub_431860 sub_44B6C0 sub_44E0D0 sub_45FE80 sub_4A06D0 sub_4922F0
+0x64EB30 CNAuraShield__vmt4 | 47
+   CALL: sub_491C10 sub_699000 sub_4926A0
+0x64EBC0 CNAuraShield__vmt14 | 23
+   CALL: sub_4938F0 sub_491D00
+0x64EC30 CNAuraShield__vmt1C | 24
+   TAG: AURA_SHIELD_LOOP
+   CALL: sub_4926A0
+0x64EC70 CNAuraShield__vmt20 | 15
+0x64EC90 CNAuraShield__vmt78 | 21
+   CALL: sub_4926A0
+0x64ECE0 CNAuraShield__vmt34 | 15
+   TAG: AURA_SHIELD_LOOP
+0x64ED00 sub_64ED00 | 56
+   RES: Character/Mage/Effect/Animation/AuraShieldStart.ani ; Character/Mage/Effect/Animation/AuraShieldLoop.ani ; Character/Mage/Effect/Animation/AuraShieldEnd.ani ; Character/Mage/Effect/Animation/AuraShieldHit1.ani ; Character/Mage/Effect/Animation/AuraShieldHit2.ani
+   CALL: sub_42FCB0 sub_431860
+0x64EE40 sub_64EE40 | 26
+   CALL: sub_42AF90 sub_657740
+0x64EE80 sub_64EE80 | 13
+0x64EEA0 CNSummonMonsterAura__vmt84 | 14
+0x64EF00 CNSummonMonsterAura__vmt18 | 18
+   CALL: sub_4938F0 sub_491D00
+0x64EF50 CNSummonMonsterAura__vmt88 | 10
+0x64EF70 CNSummonMonsterAura__vmt7C | 65
+0x64F060 CNSummonMonsterAura__vmt8C | 18
+0x64F0B0 CNSummonMonsterAura__vmt78 | 27
+   CALL: sub_4B3C90
+0x64F170 sub_64F170 | 19
+   RES: Character/Mage/Effect/Animation/SummonMonsterAuraArea.ani
+   CALL: sub_42FCB0 sub_431860
+0x64F1F0 sub_64F1F0 | 20
+   CALL: sub_42AF90 sub_657740
+0x64F230 sub_64F230 | 13
+0x64F250 sub_64F250 | 21
+   CALL: sub_47EF20 sub_607260 sub_607280
+0x64F2B0 CNTargetIt__vmt14 | 20
+   CALL: sub_4938F0 sub_491D00
+0x64F300 CNTargetIt__vmt84 | 15
+0x64F340 sub_64F340 | 23
+0x64F390 sub_64F390 | 20
+   CALL: sub_4920E0
+0x64F3E0 CNTargetIt__vmt24 | 102
+   CALL: sub_4AED00 sub_47EFD0 sub_605840 sub_64F340 sub_5C6A50 sub_5C6A90 sub_41C5A0 sub_5DAE20 sub_4E4A50
+0x64F600 CNTargetIt__vmt78 | 31
+   CALL: sub_60FA60
+0x64F690 CNTargetIt__vmt4 | 134
+   CALL: sub_64F690 sub_64A790 sub_699000 sub_64F390 sub_6072C0 sub_47EFD0 sub_605840 sub_64F340 sub_5C6A50 sub_5C6A90 sub_41C5A0 sub_5DAE20 sub_4E4A50
+0x64F940 CNTargetIt__vmt1C | 15
+0x64F980 CNTargetIt__vmt20 | 15
+0x64F9D0 CNTargetIt__vmt7C | 65
+0x64FAC0 sub_64FAC0 | 49
+   CALL: sub_699000 sub_430C80 sub_47E9D0 sub_64F390
+0x64FB80 sub_64FB80 | 22
+   RES: Character/Mage/Effect/Animation/TargetIt.ani
+   CALL: sub_42FCB0 sub_431860 sub_47E720
+0x64FC00 sub_64FC00 | 20
+   CALL: sub_42AF90 sub_657740
+0x64FC40 sub_64FC40 | 18
+0x64FC60 CNSuplexed__vmt10 | 191
+   CALL: sub_4938F0 sub_432E50

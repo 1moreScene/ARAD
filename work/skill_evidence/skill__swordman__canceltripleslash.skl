@@ -1,0 +1,38 @@
+[name2]  `Cancel - Triple Slash`
+[purchase cost] 
+30
+[/purchase cost]
+[required level]  12			// ｽｺﾅｳﾀｻ ｹ霑�ｱ� ﾀｧﾇﾘ ﾇﾊｿ萇ﾑ ﾄｳｸｯﾅﾍﾀﾇ ﾃﾖｼﾒ ｷｹｺｧ.
+
+[pre required skill] 			// ｽｺﾅｳﾀｻ ｹ霑�ｱ� ﾀｧﾇﾘ ｸﾕﾀ� ｹ霑ﾟ ﾇﾒ ｽｺﾅｳﾀﾇ ｸﾏ
+8 5				// ｻ�ｴﾜｺ｣ｱ� 5ｷｹｺｧ
+[/pre required skill]
+[type]  `[passive]`
+[skill class]  1
+[maximum level]  1
+[growtype maximum level]  1 1 1 1 1
+[skill fitness growtype] 
+0
+1
+2
+3
+4
+[/skill fitness growtype]
+[icon] 
+`Character/Swordman/Effect/SkillIcon.img` 56
+`Character/Swordman/Effect/SkillIcon.img` 57
+
+[static data] 
+[/static data]
+
+
+
+
+[name]  <12::name_17455>
+[explain] 
+<12::explain_17460>
+ 
+
+ 
+
+

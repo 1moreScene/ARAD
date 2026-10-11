@@ -1,0 +1,58 @@
+{
+  "attack1": {
+    "delays_ms": [
+      50,
+      50,
+      50,
+      50,
+      50,
+      50,
+      50,
+      50,
+      50,
+      150
+    ],
+    "attack_info": "// \u00b0\u00cb\u00bb\u00e7 1\u00b0\u00f8\u00b0\u00dd \r\n\r\n[damage bonus] -15\t\t// \u00b1\u00e2\u00bc\u00fa \u00b0\u00ed\u00c0\u00af\u00c0\u00c7 \u00b0\u00f8\u00b0\u00dd\u00b7\u00c2\r\n[attack type] `[physic]`\t\t// \u00b0\u00f8\u00b0\u00dd\u00c0\u00c7 \u00c5\u00b8\u00c0\u00d4. `[physic]` `[magic]` \u00c1\u00df \u00c5\u00c31\r\n[weapon damage apply] 1\r\n[attack enemy] 1\t\t\t// \u00c0\u00fb(\u00c0\u00da\u00bd\u00c5\u00b0\u00fa \u00be\u00c6\u00b1\u00ba\u00c0\u00bb \u00c1\u00a6\u00bf\u00dc\u00c7\u00d1 \u00b8\u00f0\u00b5\u00ce)\u00c0\u00bb \u00b0\u00f8\u00b0\u00dd\u00c7\u00d2\u00c1\u00f6 \u00bf\u00a9\u00ba\u00ce. \u00b1\u00e2\u00ba\u00bb\u00b0\u00aa 1\r\n[elemental property] `[no element]`\t\t\t// \u00b0\u00f8\u00b0\u00dd\u00c0\u00c7 \u00bf\u00f8\u00bc\u00d2\u00bc\u00d3\u00bc\u00ba. `[no element]` `[fire element]` `[water element]` `[dark element]` `[light element]` \u00c1\u00df \u00c5\u00c31. \u00be\u00c8\u00be\u00b2\u00b8\u00e9 \u00b1\u00e2\u00ba\u00bb\u00b0\u00aa `[no element]`\r\n[damage reaction] `[damage]`\t\t// \u00b0\u00f8\u00b0\u00dd\u00bf\u00a1 \u00b8\u00c2\u00be\u00d2\u00c0\u00bb \u00b6\u00a7\u00c0\u00c7 \u00b9\u00dd\u00c0\u00c0 `[none]` `[damage]` `[down]` \u00c1\u00df \u00c5\u00c31\r\n[push aside] 30\t\t\t// \u00b5\u00da\u00b7\u00ce \u00b3\u00af\u00b8\u00ae\u00b4\u00c2 \u00c8\u00fb\r\n[lift up] 30\t\t\t// \u00c0\u00a7\u00b7\u00ce \u00b6\u00e7\u00bf\u00ec\u00b4\u00c2 \u00c8\u00fb\r\n\r\n[attack direction] `[hit down]`"
+  },
+  "attack2": {
+    "delays_ms": [
+      50,
+      50,
+      50,
+      50,
+      50,
+      50,
+      50,
+      50,
+      50,
+      50,
+      150
+    ],
+    "attack_info": "// \u00b0\u00cb\u00bb\u00e7 2\u00b0\u00f8\u00b0\u00dd\r\n[attack type] `[physic]`\t\t// \u00b0\u00f8\u00b0\u00dd\u00c0\u00c7 \u00c5\u00b8\u00c0\u00d4. `[physic]` `[magic]` \u00c1\u00df \u00c5\u00c31\r\n[weapon damage apply] 1\r\n[attack enemy] 1\t\t\t// \u00c0\u00fb(\u00c0\u00da\u00bd\u00c5\u00b0\u00fa \u00be\u00c6\u00b1\u00ba\u00c0\u00bb \u00c1\u00a6\u00bf\u00dc\u00c7\u00d1 \u00b8\u00f0\u00b5\u00ce)\u00c0\u00bb \u00b0\u00f8\u00b0\u00dd\u00c7\u00d2\u00c1\u00f6 \u00bf\u00a9\u00ba\u00ce. \u00b1\u00e2\u00ba\u00bb\u00b0\u00aa 1\r\n[elemental property] `[no element]`\t\t\t// \u00b0\u00f8\u00b0\u00dd\u00c0\u00c7 \u00bf\u00f8\u00bc\u00d2\u00bc\u00d3\u00bc\u00ba. `[no element]` `[fire element]` `[water element]` `[dark element]` `[light element]` \u00c1\u00df \u00c5\u00c31. \u00be\u00c8\u00be\u00b2\u00b8\u00e9 \u00b1\u00e2\u00ba\u00bb\u00b0\u00aa `[no element]`\r\n[damage reaction] `[damage]`\t\t// \u00b0\u00f8\u00b0\u00dd\u00bf\u00a1 \u00b8\u00c2\u00be\u00d2\u00c0\u00bb \u00b6\u00a7\u00c0\u00c7 \u00b9\u00dd\u00c0\u00c0 `[none]` `[damage]` `[down]` \u00c1\u00df \u00c5\u00c31\r\n[push aside] 30\t\t\t// \u00b5\u00da\u00b7\u00ce \u00b3\u00af\u00b8\u00ae\u00b4\u00c2 \u00c8\u00fb\r\n[lift up] 0\t\t\t// \u00c0\u00a7\u00b7\u00ce \u00b6\u00e7\u00bf\u00ec\u00b4\u00c2 \u00c8\u00fb\r\n\r\n[attack direction] `[hit horizon]`"
+  },
+  "attack3": {
+    "delays_ms": [
+      50,
+      50,
+      50,
+      50,
+      50,
+      50,
+      50,
+      50,
+      150
+    ],
+    "attack_info": "// \u00b0\u00cb\u00bb\u00e7 3\u00b0\u00f8\u00b0\u00dd\r\n\r\n[damage bonus] 20\t\t// \u00b1\u00e2\u00bc\u00fa \u00b0\u00ed\u00c0\u00af\u00c0\u00c7 \u00b0\u00f8\u00b0\u00dd\u00b7\u00c2\r\n[attack type] `[physic]`\t\t// \u00b0\u00f8\u00b0\u00dd\u00c0\u00c7 \u00c5\u00b8\u00c0\u00d4. `[physic]` `[magic]` \u00c1\u00df \u00c5\u00c31\r\n[weapon damage apply] 1\r\n[attack enemy] 1\t\t\t// \u00c0\u00fb(\u00c0\u00da\u00bd\u00c5\u00b0\u00fa \u00be\u00c6\u00b1\u00ba\u00c0\u00bb \u00c1\u00a6\u00bf\u00dc\u00c7\u00d1 \u00b8\u00f0\u00b5\u00ce)\u00c0\u00bb \u00b0\u00f8\u00b0\u00dd\u00c7\u00d2\u00c1\u00f6 \u00bf\u00a9\u00ba\u00ce. \u00b1\u00e2\u00ba\u00bb\u00b0\u00aa 1\r\n[elemental property] `[no element]`\t\t\t// \u00b0\u00f8\u00b0\u00dd\u00c0\u00c7 \u00bf\u00f8\u00bc\u00d2\u00bc\u00d3\u00bc\u00ba. `[no element]` `[fire element]` `[water element]` `[dark element]` `[light element]` \u00c1\u00df \u00c5\u00c31. \u00be\u00c8\u00be\u00b2\u00b8\u00e9 \u00b1\u00e2\u00ba\u00bb\u00b0\u00aa `[no element]`\r\n[damage reaction] `[down]`\t\t// \u00b0\u00f8\u00b0\u00dd\u00bf\u00a1 \u00b8\u00c2\u00be\u00d2\u00c0\u00bb \u00b6\u00a7\u00c0\u00c7 \u00b9\u00dd\u00c0\u00c0 `[none]` `[damage]` `[down]` \u00c1\u00df \u00c5\u00c31\r\n[push aside] 40\t\t\t// \u00b5\u00da\u00b7\u00ce \u00b3\u00af\u00b8\u00ae\u00b4\u00c2 \u00c8\u00fb\r\n[lift up] 300\t\t\t// \u00c0\u00a7\u00b7\u00ce \u00b6\u00e7\u00bf\u00ec\u00b4\u00c2 \u00c8\u00fb\r\n[attack direction] `[hit lift up]`"
+  },
+  "jumpattack": {
+    "delays_ms": [
+      100,
+      50,
+      50,
+      40,
+      30,
+      30
+    ],
+    "attack_info": "// \u00b0\u00cb\u00bb\u00e7 \u00c1\u00a1\u00c7\u00c1 \u00b0\u00f8\u00b0\u00dd\r\n\r\n[damage bonus] 10\t\t// \u00b1\u00e2\u00bc\u00fa \u00b0\u00ed\u00c0\u00af\u00c0\u00c7 \u00b0\u00f8\u00b0\u00dd\u00b7\u00c2\r\n[attack type] `[physic]`\t\t// \u00b0\u00f8\u00b0\u00dd\u00c0\u00c7 \u00c5\u00b8\u00c0\u00d4. `[physic]` `[magic]` \u00c1\u00df \u00c5\u00c31\r\n[weapon damage apply] 1\r\n[attack enemy] 1\t\t\t// \u00c0\u00fb(\u00c0\u00da\u00bd\u00c5\u00b0\u00fa \u00be\u00c6\u00b1\u00ba\u00c0\u00bb \u00c1\u00a6\u00bf\u00dc\u00c7\u00d1 \u00b8\u00f0\u00b5\u00ce)\u00c0\u00bb \u00b0\u00f8\u00b0\u00dd\u00c7\u00d2\u00c1\u00f6 \u00bf\u00a9\u00ba\u00ce. \u00b1\u00e2\u00ba\u00bb\u00b0\u00aa 1\r\n[elemental property] `[no element]`\t\t\t// \u00b0\u00f8\u00b0\u00dd\u00c0\u00c7 \u00bf\u00f8\u00bc\u00d2\u00bc\u00d3\u00bc\u00ba. `[no element]` `[fire element]` `[water element]` `[dark element]` `[light element]` \u00c1\u00df \u00c5\u00c31. \u00be\u00c8\u00be\u00b2\u00b8\u00e9 \u00b1\u00e2\u00ba\u00bb\u00b0\u00aa `[no element]`\r\n[damage reaction] `[down]`\t\t// \u00b0\u00f8\u00b0\u00dd\u00bf\u00a1 \u00b8\u00c2\u00be\u00d2\u00c0\u00bb \u00b6\u00a7\u00c0\u00c7 \u00b9\u00dd\u00c0\u00c0 `[none]` `[damage]` `[down]` \u00c1\u00df \u00c5\u00c31\r\n[push aside] 270\t\t\t// \u00b5\u00da\u00b7\u00ce \u00b3\u00af\u00b8\u00ae\u00b4\u00c2 \u00c8\u00fb\r\n[lift up] 180\t\t\t// \u00c0\u00a7\u00b7\u00ce \u00b6\u00e7\u00bf\u00ec\u00b4\u00c2 \u00c8\u00fb\r\n[attack direction] `[hit down]`"
+  }
+}

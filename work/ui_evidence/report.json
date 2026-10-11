@@ -1,0 +1,4325 @@
+{
+  "exe_sha256": "09d45918d5ca7d67532329f4fa8ac2c5519454ebe4615c3c0ddb27e33a34e4ed",
+  "assets": {
+    "sprite/common/etc/combo.img": {
+      "pack": "sprite_common_etc.NPK",
+      "sha256": "398f73f984dccbbed2a821f7a60b86642eaf6c7a1ae5b525d31ad3f8aafccbca",
+      "frames": [
+        {
+          "index": 0,
+          "tag": 15,
+          "width": 30,
+          "height": 27,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            30,
+            27
+          ]
+        },
+        {
+          "index": 1,
+          "tag": 15,
+          "width": 19,
+          "height": 27,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            19,
+            27
+          ]
+        },
+        {
+          "index": 2,
+          "tag": 15,
+          "width": 32,
+          "height": 27,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            32,
+            27
+          ]
+        },
+        {
+          "index": 3,
+          "tag": 15,
+          "width": 30,
+          "height": 27,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            30,
+            27
+          ]
+        },
+        {
+          "index": 4,
+          "tag": 15,
+          "width": 31,
+          "height": 27,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            31,
+            27
+          ]
+        },
+        {
+          "index": 5,
+          "tag": 15,
+          "width": 32,
+          "height": 27,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            32,
+            27
+          ]
+        },
+        {
+          "index": 6,
+          "tag": 15,
+          "width": 30,
+          "height": 27,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            30,
+            27
+          ]
+        },
+        {
+          "index": 7,
+          "tag": 15,
+          "width": 34,
+          "height": 27,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            34,
+            27
+          ]
+        },
+        {
+          "index": 8,
+          "tag": 15,
+          "width": 30,
+          "height": 27,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            30,
+            27
+          ]
+        },
+        {
+          "index": 9,
+          "tag": 15,
+          "width": 30,
+          "height": 27,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            30,
+            27
+          ]
+        },
+        {
+          "index": 10,
+          "tag": 15,
+          "width": 100,
+          "height": 19,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            100,
+            19
+          ]
+        },
+        {
+          "index": 11,
+          "tag": 15,
+          "width": 30,
+          "height": 27,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            30,
+            27
+          ]
+        },
+        {
+          "index": 12,
+          "tag": 15,
+          "width": 19,
+          "height": 27,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            19,
+            27
+          ]
+        },
+        {
+          "index": 13,
+          "tag": 15,
+          "width": 32,
+          "height": 27,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            32,
+            27
+          ]
+        },
+        {
+          "index": 14,
+          "tag": 15,
+          "width": 30,
+          "height": 27,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            30,
+            27
+          ]
+        },
+        {
+          "index": 15,
+          "tag": 15,
+          "width": 31,
+          "height": 27,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            31,
+            27
+          ]
+        },
+        {
+          "index": 16,
+          "tag": 15,
+          "width": 32,
+          "height": 27,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            32,
+            27
+          ]
+        },
+        {
+          "index": 17,
+          "tag": 15,
+          "width": 30,
+          "height": 27,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            30,
+            27
+          ]
+        },
+        {
+          "index": 18,
+          "tag": 15,
+          "width": 34,
+          "height": 27,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            34,
+            27
+          ]
+        },
+        {
+          "index": 19,
+          "tag": 15,
+          "width": 30,
+          "height": 27,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            30,
+            27
+          ]
+        },
+        {
+          "index": 20,
+          "tag": 15,
+          "width": 30,
+          "height": 27,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            30,
+            27
+          ]
+        },
+        {
+          "index": 21,
+          "tag": 15,
+          "width": 100,
+          "height": 19,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            100,
+            19
+          ]
+        },
+        {
+          "index": 22,
+          "tag": 15,
+          "width": 30,
+          "height": 27,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            30,
+            27
+          ]
+        },
+        {
+          "index": 23,
+          "tag": 15,
+          "width": 19,
+          "height": 27,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            19,
+            27
+          ]
+        },
+        {
+          "index": 24,
+          "tag": 15,
+          "width": 32,
+          "height": 27,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            32,
+            27
+          ]
+        },
+        {
+          "index": 25,
+          "tag": 15,
+          "width": 30,
+          "height": 27,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            30,
+            27
+          ]
+        },
+        {
+          "index": 26,
+          "tag": 15,
+          "width": 31,
+          "height": 27,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            31,
+            27
+          ]
+        },
+        {
+          "index": 27,
+          "tag": 15,
+          "width": 32,
+          "height": 27,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            32,
+            27
+          ]
+        },
+        {
+          "index": 28,
+          "tag": 15,
+          "width": 30,
+          "height": 27,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            30,
+            27
+          ]
+        },
+        {
+          "index": 29,
+          "tag": 15,
+          "width": 34,
+          "height": 27,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            34,
+            27
+          ]
+        },
+        {
+          "index": 30,
+          "tag": 15,
+          "width": 30,
+          "height": 27,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            30,
+            27
+          ]
+        },
+        {
+          "index": 31,
+          "tag": 15,
+          "width": 30,
+          "height": 27,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            30,
+            27
+          ]
+        },
+        {
+          "index": 32,
+          "tag": 15,
+          "width": 100,
+          "height": 19,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            100,
+            19
+          ]
+        },
+        {
+          "index": 33,
+          "tag": 15,
+          "width": 19,
+          "height": 18,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            19,
+            18
+          ]
+        },
+        {
+          "index": 34,
+          "tag": 15,
+          "width": 13,
+          "height": 18,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            13,
+            18
+          ]
+        },
+        {
+          "index": 35,
+          "tag": 15,
+          "width": 20,
+          "height": 18,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            20,
+            18
+          ]
+        },
+        {
+          "index": 36,
+          "tag": 15,
+          "width": 19,
+          "height": 18,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            19,
+            18
+          ]
+        },
+        {
+          "index": 37,
+          "tag": 15,
+          "width": 20,
+          "height": 18,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            20,
+            18
+          ]
+        },
+        {
+          "index": 38,
+          "tag": 15,
+          "width": 22,
+          "height": 18,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            22,
+            18
+          ]
+        },
+        {
+          "index": 39,
+          "tag": 15,
+          "width": 19,
+          "height": 18,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            19,
+            18
+          ]
+        },
+        {
+          "index": 40,
+          "tag": 15,
+          "width": 21,
+          "height": 18,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            21,
+            18
+          ]
+        },
+        {
+          "index": 41,
+          "tag": 15,
+          "width": 20,
+          "height": 18,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            20,
+            18
+          ]
+        },
+        {
+          "index": 42,
+          "tag": 15,
+          "width": 21,
+          "height": 18,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            21,
+            18
+          ]
+        },
+        {
+          "index": 43,
+          "tag": 15,
+          "width": 74,
+          "height": 22,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            74,
+            22
+          ]
+        },
+        {
+          "index": 44,
+          "tag": 15,
+          "width": 17,
+          "height": 16,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            17,
+            16
+          ]
+        },
+        {
+          "index": 45,
+          "tag": 15,
+          "width": 11,
+          "height": 16,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            11,
+            16
+          ]
+        },
+        {
+          "index": 46,
+          "tag": 15,
+          "width": 17,
+          "height": 16,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            17,
+            16
+          ]
+        },
+        {
+          "index": 47,
+          "tag": 15,
+          "width": 17,
+          "height": 16,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            17,
+            16
+          ]
+        },
+        {
+          "index": 48,
+          "tag": 15,
+          "width": 17,
+          "height": 16,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            17,
+            16
+          ]
+        },
+        {
+          "index": 49,
+          "tag": 15,
+          "width": 18,
+          "height": 16,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            18,
+            16
+          ]
+        },
+        {
+          "index": 50,
+          "tag": 15,
+          "width": 17,
+          "height": 16,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            17,
+            16
+          ]
+        },
+        {
+          "index": 51,
+          "tag": 15,
+          "width": 19,
+          "height": 16,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            19,
+            16
+          ]
+        },
+        {
+          "index": 52,
+          "tag": 15,
+          "width": 17,
+          "height": 16,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            17,
+            16
+          ]
+        },
+        {
+          "index": 53,
+          "tag": 15,
+          "width": 17,
+          "height": 16,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            17,
+            16
+          ]
+        },
+        {
+          "index": 54,
+          "tag": 15,
+          "width": 17,
+          "height": 16,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            17,
+            16
+          ]
+        },
+        {
+          "index": 55,
+          "tag": 15,
+          "width": 12,
+          "height": 16,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            12,
+            16
+          ]
+        },
+        {
+          "index": 56,
+          "tag": 15,
+          "width": 18,
+          "height": 16,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            18,
+            16
+          ]
+        },
+        {
+          "index": 57,
+          "tag": 15,
+          "width": 17,
+          "height": 16,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            17,
+            16
+          ]
+        },
+        {
+          "index": 58,
+          "tag": 15,
+          "width": 18,
+          "height": 16,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            18,
+            16
+          ]
+        },
+        {
+          "index": 59,
+          "tag": 15,
+          "width": 18,
+          "height": 16,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            18,
+            16
+          ]
+        },
+        {
+          "index": 60,
+          "tag": 15,
+          "width": 17,
+          "height": 16,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            17,
+            16
+          ]
+        },
+        {
+          "index": 61,
+          "tag": 15,
+          "width": 19,
+          "height": 16,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            19,
+            16
+          ]
+        },
+        {
+          "index": 62,
+          "tag": 15,
+          "width": 17,
+          "height": 16,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            17,
+            16
+          ]
+        },
+        {
+          "index": 63,
+          "tag": 15,
+          "width": 17,
+          "height": 16,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            17,
+            16
+          ]
+        },
+        {
+          "index": 64,
+          "tag": 15,
+          "width": 17,
+          "height": 16,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            17,
+            16
+          ]
+        },
+        {
+          "index": 65,
+          "tag": 15,
+          "width": 12,
+          "height": 16,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            12,
+            16
+          ]
+        },
+        {
+          "index": 66,
+          "tag": 15,
+          "width": 18,
+          "height": 16,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            18,
+            16
+          ]
+        },
+        {
+          "index": 67,
+          "tag": 15,
+          "width": 17,
+          "height": 16,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            17,
+            16
+          ]
+        },
+        {
+          "index": 68,
+          "tag": 15,
+          "width": 18,
+          "height": 16,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            18,
+            16
+          ]
+        },
+        {
+          "index": 69,
+          "tag": 15,
+          "width": 18,
+          "height": 16,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            18,
+            16
+          ]
+        },
+        {
+          "index": 70,
+          "tag": 15,
+          "width": 17,
+          "height": 16,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            17,
+            16
+          ]
+        },
+        {
+          "index": 71,
+          "tag": 15,
+          "width": 19,
+          "height": 16,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            19,
+            16
+          ]
+        },
+        {
+          "index": 72,
+          "tag": 15,
+          "width": 17,
+          "height": 16,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            17,
+            16
+          ]
+        },
+        {
+          "index": 73,
+          "tag": 15,
+          "width": 17,
+          "height": 16,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            17,
+            16
+          ]
+        },
+        {
+          "index": 74,
+          "tag": 15,
+          "width": 17,
+          "height": 16,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            17,
+            16
+          ]
+        },
+        {
+          "index": 75,
+          "tag": 15,
+          "width": 12,
+          "height": 16,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            12,
+            16
+          ]
+        },
+        {
+          "index": 76,
+          "tag": 15,
+          "width": 18,
+          "height": 16,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            18,
+            16
+          ]
+        },
+        {
+          "index": 77,
+          "tag": 15,
+          "width": 17,
+          "height": 16,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            17,
+            16
+          ]
+        },
+        {
+          "index": 78,
+          "tag": 15,
+          "width": 18,
+          "height": 16,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            18,
+            16
+          ]
+        },
+        {
+          "index": 79,
+          "tag": 15,
+          "width": 18,
+          "height": 16,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            18,
+            16
+          ]
+        },
+        {
+          "index": 80,
+          "tag": 15,
+          "width": 17,
+          "height": 16,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            17,
+            16
+          ]
+        },
+        {
+          "index": 81,
+          "tag": 15,
+          "width": 19,
+          "height": 16,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            19,
+            16
+          ]
+        },
+        {
+          "index": 82,
+          "tag": 15,
+          "width": 17,
+          "height": 16,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            17,
+            16
+          ]
+        },
+        {
+          "index": 83,
+          "tag": 15,
+          "width": 17,
+          "height": 16,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            17,
+            16
+          ]
+        },
+        {
+          "index": 84,
+          "tag": 15,
+          "width": 65,
+          "height": 16,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            65,
+            16
+          ]
+        },
+        {
+          "index": 85,
+          "tag": 15,
+          "width": 72,
+          "height": 15,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            72,
+            15
+          ]
+        },
+        {
+          "index": 86,
+          "tag": 15,
+          "width": 113,
+          "height": 15,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            113,
+            15
+          ]
+        },
+        {
+          "index": 87,
+          "tag": 15,
+          "width": 78,
+          "height": 16,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            78,
+            16
+          ]
+        },
+        {
+          "index": 88,
+          "tag": 15,
+          "width": 20,
+          "height": 18,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            20,
+            18
+          ]
+        },
+        {
+          "index": 89,
+          "tag": 15,
+          "width": 14,
+          "height": 18,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            14,
+            18
+          ]
+        },
+        {
+          "index": 90,
+          "tag": 15,
+          "width": 20,
+          "height": 18,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            20,
+            18
+          ]
+        },
+        {
+          "index": 91,
+          "tag": 15,
+          "width": 20,
+          "height": 18,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            20,
+            18
+          ]
+        },
+        {
+          "index": 92,
+          "tag": 15,
+          "width": 21,
+          "height": 18,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            21,
+            18
+          ]
+        },
+        {
+          "index": 93,
+          "tag": 15,
+          "width": 21,
+          "height": 18,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            21,
+            18
+          ]
+        },
+        {
+          "index": 94,
+          "tag": 15,
+          "width": 20,
+          "height": 18,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            20,
+            18
+          ]
+        },
+        {
+          "index": 95,
+          "tag": 15,
+          "width": 22,
+          "height": 18,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            22,
+            18
+          ]
+        },
+        {
+          "index": 96,
+          "tag": 15,
+          "width": 20,
+          "height": 18,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            20,
+            18
+          ]
+        },
+        {
+          "index": 97,
+          "tag": 15,
+          "width": 20,
+          "height": 18,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            20,
+            18
+          ]
+        },
+        {
+          "index": 98,
+          "tag": 15,
+          "width": 50,
+          "height": 18,
+          "x": 39,
+          "y": 0,
+          "canvas": [
+            89,
+            21
+          ]
+        },
+        {
+          "index": 99,
+          "tag": 15,
+          "width": 87,
+          "height": 17,
+          "x": 0,
+          "y": 1,
+          "canvas": [
+            107,
+            21
+          ]
+        },
+        {
+          "index": 100,
+          "tag": 15,
+          "width": 70,
+          "height": 18,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            70,
+            18
+          ]
+        },
+        {
+          "index": 101,
+          "tag": 15,
+          "width": 53,
+          "height": 18,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            53,
+            18
+          ]
+        },
+        {
+          "index": 102,
+          "tag": 15,
+          "width": 114,
+          "height": 25,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            114,
+            25
+          ]
+        },
+        {
+          "index": 103,
+          "tag": 15,
+          "width": 132,
+          "height": 30,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            132,
+            30
+          ]
+        },
+        {
+          "index": 104,
+          "tag": 15,
+          "width": 68,
+          "height": 25,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            68,
+            25
+          ]
+        },
+        {
+          "index": 105,
+          "tag": 15,
+          "width": 79,
+          "height": 30,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            79,
+            30
+          ]
+        },
+        {
+          "index": 106,
+          "tag": 15,
+          "width": 138,
+          "height": 25,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            138,
+            25
+          ]
+        },
+        {
+          "index": 107,
+          "tag": 15,
+          "width": 158,
+          "height": 30,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            158,
+            30
+          ]
+        },
+        {
+          "index": 108,
+          "tag": 16,
+          "width": 343,
+          "height": 29,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            343,
+            29
+          ]
+        },
+        {
+          "index": 109,
+          "tag": 16,
+          "width": 343,
+          "height": 29,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            343,
+            29
+          ]
+        },
+        {
+          "index": 110,
+          "tag": 15,
+          "width": 343,
+          "height": 29,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            343,
+            29
+          ]
+        },
+        {
+          "index": 111,
+          "tag": 14,
+          "width": 66,
+          "height": 62,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            66,
+            62
+          ]
+        },
+        {
+          "index": 112,
+          "tag": 14,
+          "width": 66,
+          "height": 62,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            66,
+            62
+          ]
+        },
+        {
+          "index": 113,
+          "tag": 14,
+          "width": 66,
+          "height": 62,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            66,
+            62
+          ]
+        },
+        {
+          "index": 114,
+          "tag": 14,
+          "width": 66,
+          "height": 62,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            66,
+            62
+          ]
+        },
+        {
+          "index": 115,
+          "tag": 14,
+          "width": 66,
+          "height": 62,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            66,
+            62
+          ]
+        },
+        {
+          "index": 116,
+          "tag": 14,
+          "width": 66,
+          "height": 62,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            66,
+            62
+          ]
+        },
+        {
+          "index": 117,
+          "tag": 14,
+          "width": 66,
+          "height": 62,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            66,
+            62
+          ]
+        },
+        {
+          "index": 118,
+          "tag": 14,
+          "width": 66,
+          "height": 62,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            66,
+            62
+          ]
+        },
+        {
+          "index": 119,
+          "tag": 14,
+          "width": 66,
+          "height": 62,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            66,
+            62
+          ]
+        },
+        {
+          "index": 120,
+          "tag": 14,
+          "width": 66,
+          "height": 62,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            66,
+            62
+          ]
+        },
+        {
+          "index": 121,
+          "tag": 14,
+          "width": 66,
+          "height": 62,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            66,
+            62
+          ]
+        },
+        {
+          "index": 122,
+          "tag": 15,
+          "width": 34,
+          "height": 33,
+          "x": 17,
+          "y": 17,
+          "canvas": [
+            66,
+            62
+          ]
+        },
+        {
+          "index": 123,
+          "tag": 15,
+          "width": 41,
+          "height": 38,
+          "x": 15,
+          "y": 12,
+          "canvas": [
+            66,
+            62
+          ]
+        },
+        {
+          "index": 124,
+          "tag": 15,
+          "width": 27,
+          "height": 38,
+          "x": 21,
+          "y": 12,
+          "canvas": [
+            66,
+            62
+          ]
+        },
+        {
+          "index": 125,
+          "tag": 15,
+          "width": 44,
+          "height": 38,
+          "x": 10,
+          "y": 12,
+          "canvas": [
+            66,
+            62
+          ]
+        },
+        {
+          "index": 126,
+          "tag": 15,
+          "width": 42,
+          "height": 38,
+          "x": 12,
+          "y": 12,
+          "canvas": [
+            66,
+            62
+          ]
+        },
+        {
+          "index": 127,
+          "tag": 15,
+          "width": 44,
+          "height": 38,
+          "x": 9,
+          "y": 12,
+          "canvas": [
+            66,
+            62
+          ]
+        },
+        {
+          "index": 128,
+          "tag": 15,
+          "width": 46,
+          "height": 38,
+          "x": 8,
+          "y": 12,
+          "canvas": [
+            66,
+            62
+          ]
+        },
+        {
+          "index": 129,
+          "tag": 15,
+          "width": 42,
+          "height": 38,
+          "x": 13,
+          "y": 12,
+          "canvas": [
+            66,
+            62
+          ]
+        },
+        {
+          "index": 130,
+          "tag": 15,
+          "width": 48,
+          "height": 38,
+          "x": 8,
+          "y": 12,
+          "canvas": [
+            66,
+            62
+          ]
+        },
+        {
+          "index": 131,
+          "tag": 15,
+          "width": 43,
+          "height": 38,
+          "x": 12,
+          "y": 12,
+          "canvas": [
+            66,
+            62
+          ]
+        },
+        {
+          "index": 132,
+          "tag": 15,
+          "width": 42,
+          "height": 38,
+          "x": 11,
+          "y": 12,
+          "canvas": [
+            66,
+            62
+          ]
+        },
+        {
+          "index": 133,
+          "tag": 15,
+          "width": 41,
+          "height": 38,
+          "x": 15,
+          "y": 12,
+          "canvas": [
+            66,
+            62
+          ]
+        },
+        {
+          "index": 134,
+          "tag": 14,
+          "width": 144,
+          "height": 54,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            144,
+            54
+          ]
+        },
+        {
+          "index": 135,
+          "tag": 15,
+          "width": 109,
+          "height": 26,
+          "x": 16,
+          "y": 13,
+          "canvas": [
+            144,
+            54
+          ]
+        },
+        {
+          "index": 136,
+          "tag": 14,
+          "width": 135,
+          "height": 54,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            135,
+            54
+          ]
+        },
+        {
+          "index": 137,
+          "tag": 15,
+          "width": 91,
+          "height": 31,
+          "x": 20,
+          "y": 13,
+          "canvas": [
+            135,
+            54
+          ]
+        },
+        {
+          "index": 138,
+          "tag": 14,
+          "width": 208,
+          "height": 54,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            208,
+            54
+          ]
+        },
+        {
+          "index": 139,
+          "tag": 15,
+          "width": 161,
+          "height": 31,
+          "x": 24,
+          "y": 13,
+          "canvas": [
+            208,
+            54
+          ]
+        },
+        {
+          "index": 140,
+          "tag": 16,
+          "width": 654,
+          "height": 29,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            654,
+            29
+          ]
+        },
+        {
+          "index": 141,
+          "tag": 16,
+          "width": 654,
+          "height": 29,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            654,
+            29
+          ]
+        },
+        {
+          "index": 142,
+          "tag": 15,
+          "width": 654,
+          "height": 29,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            654,
+            29
+          ]
+        },
+        {
+          "index": 143,
+          "tag": 15,
+          "width": 17,
+          "height": 16,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            17,
+            16
+          ]
+        },
+        {
+          "index": 144,
+          "tag": 15,
+          "width": 12,
+          "height": 16,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            12,
+            16
+          ]
+        },
+        {
+          "index": 145,
+          "tag": 15,
+          "width": 17,
+          "height": 16,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            17,
+            16
+          ]
+        },
+        {
+          "index": 146,
+          "tag": 15,
+          "width": 16,
+          "height": 16,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            16,
+            16
+          ]
+        },
+        {
+          "index": 147,
+          "tag": 15,
+          "width": 18,
+          "height": 16,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            18,
+            16
+          ]
+        },
+        {
+          "index": 148,
+          "tag": 15,
+          "width": 18,
+          "height": 16,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            18,
+            16
+          ]
+        },
+        {
+          "index": 149,
+          "tag": 15,
+          "width": 17,
+          "height": 16,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            17,
+            16
+          ]
+        },
+        {
+          "index": 150,
+          "tag": 15,
+          "width": 18,
+          "height": 16,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            18,
+            16
+          ]
+        },
+        {
+          "index": 151,
+          "tag": 15,
+          "width": 18,
+          "height": 16,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            18,
+            16
+          ]
+        },
+        {
+          "index": 152,
+          "tag": 15,
+          "width": 17,
+          "height": 16,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            17,
+            16
+          ]
+        }
+      ]
+    },
+    "sprite/interface/iteminventorywindow.img": {
+      "pack": "sprite_interface.NPK",
+      "sha256": "0e2dd1b7ee8c5cb22d6ec3febd4ff0165be7915a6cd72d23aaefcffbfc070b90",
+      "frames": [
+        {
+          "index": 0,
+          "tag": 14,
+          "width": 291,
+          "height": 410,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            291,
+            410
+          ]
+        },
+        {
+          "index": 1,
+          "tag": 14,
+          "width": 44,
+          "height": 20,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            44,
+            20
+          ]
+        },
+        {
+          "index": 2,
+          "tag": 14,
+          "width": 44,
+          "height": 20,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            44,
+            20
+          ]
+        },
+        {
+          "index": 3,
+          "tag": 14,
+          "width": 44,
+          "height": 20,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            44,
+            20
+          ]
+        },
+        {
+          "index": 4,
+          "tag": 14,
+          "width": 28,
+          "height": 28,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            28,
+            28
+          ]
+        },
+        {
+          "index": 5,
+          "tag": 14,
+          "width": 90,
+          "height": 10,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            90,
+            10
+          ]
+        },
+        {
+          "index": 6,
+          "tag": 14,
+          "width": 30,
+          "height": 30,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            30,
+            30
+          ]
+        },
+        {
+          "index": 7,
+          "tag": 14,
+          "width": 131,
+          "height": 30,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            131,
+            30
+          ]
+        },
+        {
+          "index": 8,
+          "tag": 14,
+          "width": 131,
+          "height": 30,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            131,
+            30
+          ]
+        },
+        {
+          "index": 9,
+          "tag": 14,
+          "width": 1,
+          "height": 1,
+          "x": 68,
+          "y": 0,
+          "canvas": [
+            68,
+            21
+          ]
+        },
+        {
+          "index": 10,
+          "tag": 14,
+          "width": 64,
+          "height": 20,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            64,
+            20
+          ]
+        },
+        {
+          "index": 11,
+          "tag": 14,
+          "width": 64,
+          "height": 20,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            64,
+            20
+          ]
+        },
+        {
+          "index": 12,
+          "tag": 14,
+          "width": 64,
+          "height": 20,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            64,
+            20
+          ]
+        },
+        {
+          "index": 13,
+          "tag": 14,
+          "width": 64,
+          "height": 20,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            64,
+            20
+          ]
+        },
+        {
+          "index": 14,
+          "tag": 14,
+          "width": 64,
+          "height": 20,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            64,
+            20
+          ]
+        },
+        {
+          "index": 15,
+          "tag": 14,
+          "width": 64,
+          "height": 20,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            64,
+            20
+          ]
+        },
+        {
+          "index": 16,
+          "tag": 14,
+          "width": 64,
+          "height": 20,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            64,
+            20
+          ]
+        },
+        {
+          "index": 17,
+          "tag": 14,
+          "width": 64,
+          "height": 20,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            64,
+            20
+          ]
+        },
+        {
+          "index": 18,
+          "tag": 14,
+          "width": 64,
+          "height": 20,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            64,
+            20
+          ]
+        },
+        {
+          "index": 19,
+          "tag": 14,
+          "width": 64,
+          "height": 20,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            64,
+            20
+          ]
+        },
+        {
+          "index": 20,
+          "tag": 14,
+          "width": 64,
+          "height": 20,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            64,
+            20
+          ]
+        },
+        {
+          "index": 21,
+          "tag": 14,
+          "width": 64,
+          "height": 20,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            64,
+            20
+          ]
+        },
+        {
+          "index": 22,
+          "tag": 14,
+          "width": 64,
+          "height": 20,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            64,
+            20
+          ]
+        },
+        {
+          "index": 23,
+          "tag": 14,
+          "width": 64,
+          "height": 20,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            64,
+            20
+          ]
+        },
+        {
+          "index": 24,
+          "tag": 14,
+          "width": 64,
+          "height": 20,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            64,
+            20
+          ]
+        },
+        {
+          "index": 25,
+          "tag": 14,
+          "width": 64,
+          "height": 20,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            64,
+            20
+          ]
+        },
+        {
+          "index": 26,
+          "tag": 14,
+          "width": 11,
+          "height": 15,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            11,
+            15
+          ]
+        },
+        {
+          "index": 27,
+          "tag": 14,
+          "width": 7,
+          "height": 15,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            7,
+            15
+          ]
+        },
+        {
+          "index": 28,
+          "tag": 14,
+          "width": 10,
+          "height": 15,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            10,
+            15
+          ]
+        },
+        {
+          "index": 29,
+          "tag": 14,
+          "width": 9,
+          "height": 15,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            9,
+            15
+          ]
+        },
+        {
+          "index": 30,
+          "tag": 14,
+          "width": 12,
+          "height": 15,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            12,
+            15
+          ]
+        },
+        {
+          "index": 31,
+          "tag": 14,
+          "width": 10,
+          "height": 15,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            10,
+            15
+          ]
+        },
+        {
+          "index": 32,
+          "tag": 14,
+          "width": 10,
+          "height": 15,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            10,
+            15
+          ]
+        },
+        {
+          "index": 33,
+          "tag": 14,
+          "width": 11,
+          "height": 15,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            11,
+            15
+          ]
+        },
+        {
+          "index": 34,
+          "tag": 14,
+          "width": 10,
+          "height": 15,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            10,
+            15
+          ]
+        },
+        {
+          "index": 35,
+          "tag": 14,
+          "width": 11,
+          "height": 15,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            11,
+            15
+          ]
+        }
+      ]
+    },
+    "sprite/interface/skillbuywindow.img": {
+      "pack": "sprite_interface.NPK",
+      "sha256": "bcdd40b63183078b5f3f5ae1e9ad972996a7de8616a5d4f45cd92a4466931c0e",
+      "frames": [
+        {
+          "index": 0,
+          "tag": 14,
+          "width": 291,
+          "height": 380,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            291,
+            380
+          ]
+        },
+        {
+          "index": 1,
+          "tag": 14,
+          "width": 228,
+          "height": 38,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            228,
+            38
+          ]
+        },
+        {
+          "index": 2,
+          "tag": 14,
+          "width": 11,
+          "height": 233,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            11,
+            233
+          ]
+        },
+        {
+          "index": 3,
+          "tag": 14,
+          "width": 11,
+          "height": 16,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            11,
+            16
+          ]
+        },
+        {
+          "index": 4,
+          "tag": 14,
+          "width": 11,
+          "height": 15,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            11,
+            15
+          ]
+        },
+        {
+          "index": 5,
+          "tag": 14,
+          "width": 11,
+          "height": 15,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            11,
+            15
+          ]
+        },
+        {
+          "index": 6,
+          "tag": 14,
+          "width": 11,
+          "height": 15,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            11,
+            15
+          ]
+        },
+        {
+          "index": 7,
+          "tag": 14,
+          "width": 11,
+          "height": 15,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            11,
+            15
+          ]
+        },
+        {
+          "index": 8,
+          "tag": 14,
+          "width": 65,
+          "height": 20,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            65,
+            20
+          ]
+        },
+        {
+          "index": 9,
+          "tag": 14,
+          "width": 65,
+          "height": 20,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            65,
+            20
+          ]
+        },
+        {
+          "index": 10,
+          "tag": 14,
+          "width": 65,
+          "height": 20,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            65,
+            20
+          ]
+        },
+        {
+          "index": 11,
+          "tag": 14,
+          "width": 19,
+          "height": 19,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            19,
+            19
+          ]
+        },
+        {
+          "index": 12,
+          "tag": 14,
+          "width": 19,
+          "height": 19,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            19,
+            19
+          ]
+        },
+        {
+          "index": 13,
+          "tag": 14,
+          "width": 19,
+          "height": 19,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            19,
+            19
+          ]
+        },
+        {
+          "index": 14,
+          "tag": 14,
+          "width": 6,
+          "height": 9,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            6,
+            9
+          ]
+        },
+        {
+          "index": 15,
+          "tag": 14,
+          "width": 4,
+          "height": 9,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            4,
+            9
+          ]
+        },
+        {
+          "index": 16,
+          "tag": 14,
+          "width": 6,
+          "height": 9,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            6,
+            9
+          ]
+        },
+        {
+          "index": 17,
+          "tag": 14,
+          "width": 6,
+          "height": 9,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            6,
+            9
+          ]
+        },
+        {
+          "index": 18,
+          "tag": 14,
+          "width": 6,
+          "height": 9,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            6,
+            9
+          ]
+        },
+        {
+          "index": 19,
+          "tag": 14,
+          "width": 6,
+          "height": 9,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            6,
+            9
+          ]
+        },
+        {
+          "index": 20,
+          "tag": 14,
+          "width": 6,
+          "height": 9,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            6,
+            9
+          ]
+        },
+        {
+          "index": 21,
+          "tag": 14,
+          "width": 6,
+          "height": 9,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            6,
+            9
+          ]
+        },
+        {
+          "index": 22,
+          "tag": 14,
+          "width": 6,
+          "height": 9,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            6,
+            9
+          ]
+        },
+        {
+          "index": 23,
+          "tag": 14,
+          "width": 6,
+          "height": 9,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            6,
+            9
+          ]
+        },
+        {
+          "index": 24,
+          "tag": 14,
+          "width": 51,
+          "height": 23,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            51,
+            23
+          ]
+        },
+        {
+          "index": 25,
+          "tag": 14,
+          "width": 51,
+          "height": 23,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            51,
+            23
+          ]
+        },
+        {
+          "index": 26,
+          "tag": 14,
+          "width": 51,
+          "height": 23,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            51,
+            23
+          ]
+        },
+        {
+          "index": 27,
+          "tag": 14,
+          "width": 51,
+          "height": 23,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            51,
+            23
+          ]
+        },
+        {
+          "index": 28,
+          "tag": 14,
+          "width": 51,
+          "height": 23,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            51,
+            23
+          ]
+        },
+        {
+          "index": 29,
+          "tag": 14,
+          "width": 51,
+          "height": 23,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            51,
+            23
+          ]
+        },
+        {
+          "index": 30,
+          "tag": 14,
+          "width": 51,
+          "height": 23,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            51,
+            23
+          ]
+        },
+        {
+          "index": 31,
+          "tag": 14,
+          "width": 51,
+          "height": 23,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            51,
+            23
+          ]
+        },
+        {
+          "index": 32,
+          "tag": 14,
+          "width": 51,
+          "height": 23,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            51,
+            23
+          ]
+        },
+        {
+          "index": 33,
+          "tag": 14,
+          "width": 51,
+          "height": 23,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            51,
+            23
+          ]
+        },
+        {
+          "index": 34,
+          "tag": 14,
+          "width": 51,
+          "height": 23,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            51,
+            23
+          ]
+        },
+        {
+          "index": 35,
+          "tag": 14,
+          "width": 51,
+          "height": 23,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            51,
+            23
+          ]
+        },
+        {
+          "index": 36,
+          "tag": 14,
+          "width": 51,
+          "height": 23,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            51,
+            23
+          ]
+        },
+        {
+          "index": 37,
+          "tag": 14,
+          "width": 51,
+          "height": 23,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            51,
+            23
+          ]
+        },
+        {
+          "index": 38,
+          "tag": 14,
+          "width": 51,
+          "height": 23,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            51,
+            23
+          ]
+        },
+        {
+          "index": 39,
+          "tag": 14,
+          "width": 51,
+          "height": 23,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            51,
+            23
+          ]
+        },
+        {
+          "index": 40,
+          "tag": 14,
+          "width": 6,
+          "height": 9,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            6,
+            9
+          ]
+        },
+        {
+          "index": 41,
+          "tag": 14,
+          "width": 4,
+          "height": 9,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            4,
+            9
+          ]
+        },
+        {
+          "index": 42,
+          "tag": 14,
+          "width": 6,
+          "height": 9,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            6,
+            9
+          ]
+        },
+        {
+          "index": 43,
+          "tag": 14,
+          "width": 6,
+          "height": 9,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            6,
+            9
+          ]
+        },
+        {
+          "index": 44,
+          "tag": 14,
+          "width": 6,
+          "height": 9,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            6,
+            9
+          ]
+        },
+        {
+          "index": 45,
+          "tag": 14,
+          "width": 6,
+          "height": 9,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            6,
+            9
+          ]
+        },
+        {
+          "index": 46,
+          "tag": 14,
+          "width": 6,
+          "height": 9,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            6,
+            9
+          ]
+        },
+        {
+          "index": 47,
+          "tag": 14,
+          "width": 6,
+          "height": 9,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            6,
+            9
+          ]
+        },
+        {
+          "index": 48,
+          "tag": 14,
+          "width": 6,
+          "height": 9,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            6,
+            9
+          ]
+        },
+        {
+          "index": 49,
+          "tag": 14,
+          "width": 6,
+          "height": 9,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            6,
+            9
+          ]
+        },
+        {
+          "index": 50,
+          "tag": 14,
+          "width": 6,
+          "height": 9,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            6,
+            9
+          ]
+        },
+        {
+          "index": 51,
+          "tag": 14,
+          "width": 4,
+          "height": 9,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            4,
+            9
+          ]
+        },
+        {
+          "index": 52,
+          "tag": 14,
+          "width": 6,
+          "height": 9,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            6,
+            9
+          ]
+        },
+        {
+          "index": 53,
+          "tag": 14,
+          "width": 6,
+          "height": 9,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            6,
+            9
+          ]
+        },
+        {
+          "index": 54,
+          "tag": 14,
+          "width": 6,
+          "height": 9,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            6,
+            9
+          ]
+        },
+        {
+          "index": 55,
+          "tag": 14,
+          "width": 6,
+          "height": 9,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            6,
+            9
+          ]
+        },
+        {
+          "index": 56,
+          "tag": 14,
+          "width": 6,
+          "height": 9,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            6,
+            9
+          ]
+        },
+        {
+          "index": 57,
+          "tag": 14,
+          "width": 6,
+          "height": 9,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            6,
+            9
+          ]
+        },
+        {
+          "index": 58,
+          "tag": 14,
+          "width": 6,
+          "height": 9,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            6,
+            9
+          ]
+        },
+        {
+          "index": 59,
+          "tag": 14,
+          "width": 6,
+          "height": 9,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            6,
+            9
+          ]
+        },
+        {
+          "index": 60,
+          "tag": 14,
+          "width": 11,
+          "height": 7,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            11,
+            7
+          ]
+        },
+        {
+          "index": 61,
+          "tag": 14,
+          "width": 5,
+          "height": 7,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            5,
+            7
+          ]
+        },
+        {
+          "index": 62,
+          "tag": 14,
+          "width": 4,
+          "height": 7,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            4,
+            7
+          ]
+        },
+        {
+          "index": 63,
+          "tag": 14,
+          "width": 5,
+          "height": 7,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            5,
+            7
+          ]
+        },
+        {
+          "index": 64,
+          "tag": 14,
+          "width": 5,
+          "height": 7,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            5,
+            7
+          ]
+        },
+        {
+          "index": 65,
+          "tag": 14,
+          "width": 5,
+          "height": 7,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            5,
+            7
+          ]
+        },
+        {
+          "index": 66,
+          "tag": 14,
+          "width": 5,
+          "height": 7,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            5,
+            7
+          ]
+        },
+        {
+          "index": 67,
+          "tag": 14,
+          "width": 5,
+          "height": 7,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            5,
+            7
+          ]
+        },
+        {
+          "index": 68,
+          "tag": 14,
+          "width": 5,
+          "height": 7,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            5,
+            7
+          ]
+        },
+        {
+          "index": 69,
+          "tag": 14,
+          "width": 5,
+          "height": 7,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            5,
+            7
+          ]
+        },
+        {
+          "index": 70,
+          "tag": 14,
+          "width": 5,
+          "height": 7,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            5,
+            7
+          ]
+        },
+        {
+          "index": 71,
+          "tag": 14,
+          "width": 11,
+          "height": 7,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            11,
+            7
+          ]
+        },
+        {
+          "index": 72,
+          "tag": 14,
+          "width": 5,
+          "height": 7,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            5,
+            7
+          ]
+        },
+        {
+          "index": 73,
+          "tag": 14,
+          "width": 4,
+          "height": 7,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            4,
+            7
+          ]
+        },
+        {
+          "index": 74,
+          "tag": 14,
+          "width": 5,
+          "height": 7,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            5,
+            7
+          ]
+        },
+        {
+          "index": 75,
+          "tag": 14,
+          "width": 5,
+          "height": 7,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            5,
+            7
+          ]
+        },
+        {
+          "index": 76,
+          "tag": 14,
+          "width": 5,
+          "height": 7,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            5,
+            7
+          ]
+        },
+        {
+          "index": 77,
+          "tag": 14,
+          "width": 5,
+          "height": 7,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            5,
+            7
+          ]
+        },
+        {
+          "index": 78,
+          "tag": 14,
+          "width": 5,
+          "height": 7,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            5,
+            7
+          ]
+        },
+        {
+          "index": 79,
+          "tag": 14,
+          "width": 5,
+          "height": 7,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            5,
+            7
+          ]
+        },
+        {
+          "index": 80,
+          "tag": 14,
+          "width": 5,
+          "height": 7,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            5,
+            7
+          ]
+        },
+        {
+          "index": 81,
+          "tag": 14,
+          "width": 5,
+          "height": 7,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            5,
+            7
+          ]
+        },
+        {
+          "index": 82,
+          "tag": 14,
+          "width": 69,
+          "height": 14,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            69,
+            14
+          ]
+        },
+        {
+          "index": 83,
+          "tag": 14,
+          "width": 11,
+          "height": 7,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            11,
+            7
+          ]
+        },
+        {
+          "index": 84,
+          "tag": 14,
+          "width": 5,
+          "height": 7,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            5,
+            7
+          ]
+        },
+        {
+          "index": 85,
+          "tag": 14,
+          "width": 4,
+          "height": 7,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            4,
+            7
+          ]
+        },
+        {
+          "index": 86,
+          "tag": 14,
+          "width": 5,
+          "height": 7,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            5,
+            7
+          ]
+        },
+        {
+          "index": 87,
+          "tag": 14,
+          "width": 5,
+          "height": 7,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            5,
+            7
+          ]
+        },
+        {
+          "index": 88,
+          "tag": 14,
+          "width": 5,
+          "height": 7,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            5,
+            7
+          ]
+        },
+        {
+          "index": 89,
+          "tag": 14,
+          "width": 5,
+          "height": 7,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            5,
+            7
+          ]
+        },
+        {
+          "index": 90,
+          "tag": 14,
+          "width": 5,
+          "height": 7,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            5,
+            7
+          ]
+        },
+        {
+          "index": 91,
+          "tag": 14,
+          "width": 5,
+          "height": 7,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            5,
+            7
+          ]
+        },
+        {
+          "index": 92,
+          "tag": 14,
+          "width": 5,
+          "height": 7,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            5,
+            7
+          ]
+        },
+        {
+          "index": 93,
+          "tag": 14,
+          "width": 5,
+          "height": 7,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            5,
+            7
+          ]
+        },
+        {
+          "index": 94,
+          "tag": 14,
+          "width": 55,
+          "height": 23,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            55,
+            23
+          ]
+        },
+        {
+          "index": 95,
+          "tag": 14,
+          "width": 55,
+          "height": 23,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            55,
+            23
+          ]
+        },
+        {
+          "index": 96,
+          "tag": 14,
+          "width": 62,
+          "height": 14,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            62,
+            14
+          ]
+        },
+        {
+          "index": 97,
+          "tag": 14,
+          "width": 37,
+          "height": 23,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            37,
+            23
+          ]
+        },
+        {
+          "index": 98,
+          "tag": 14,
+          "width": 37,
+          "height": 23,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            37,
+            23
+          ]
+        },
+        {
+          "index": 99,
+          "tag": 14,
+          "width": 62,
+          "height": 23,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            62,
+            23
+          ]
+        },
+        {
+          "index": 100,
+          "tag": 14,
+          "width": 62,
+          "height": 23,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            62,
+            23
+          ]
+        },
+        {
+          "index": 101,
+          "tag": 14,
+          "width": 78,
+          "height": 23,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            78,
+            23
+          ]
+        },
+        {
+          "index": 102,
+          "tag": 14,
+          "width": 78,
+          "height": 23,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            78,
+            23
+          ]
+        },
+        {
+          "index": 103,
+          "tag": 14,
+          "width": 44,
+          "height": 23,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            44,
+            23
+          ]
+        },
+        {
+          "index": 104,
+          "tag": 14,
+          "width": 44,
+          "height": 23,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            44,
+            23
+          ]
+        },
+        {
+          "index": 105,
+          "tag": 14,
+          "width": 38,
+          "height": 23,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            38,
+            23
+          ]
+        },
+        {
+          "index": 106,
+          "tag": 14,
+          "width": 38,
+          "height": 23,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            38,
+            23
+          ]
+        },
+        {
+          "index": 107,
+          "tag": 14,
+          "width": 11,
+          "height": 7,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            11,
+            7
+          ]
+        },
+        {
+          "index": 108,
+          "tag": 14,
+          "width": 5,
+          "height": 7,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            5,
+            7
+          ]
+        },
+        {
+          "index": 109,
+          "tag": 14,
+          "width": 4,
+          "height": 7,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            4,
+            7
+          ]
+        },
+        {
+          "index": 110,
+          "tag": 14,
+          "width": 5,
+          "height": 7,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            5,
+            7
+          ]
+        },
+        {
+          "index": 111,
+          "tag": 14,
+          "width": 5,
+          "height": 7,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            5,
+            7
+          ]
+        },
+        {
+          "index": 112,
+          "tag": 14,
+          "width": 5,
+          "height": 7,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            5,
+            7
+          ]
+        },
+        {
+          "index": 113,
+          "tag": 14,
+          "width": 5,
+          "height": 7,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            5,
+            7
+          ]
+        },
+        {
+          "index": 114,
+          "tag": 14,
+          "width": 5,
+          "height": 7,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            5,
+            7
+          ]
+        },
+        {
+          "index": 115,
+          "tag": 14,
+          "width": 5,
+          "height": 7,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            5,
+            7
+          ]
+        },
+        {
+          "index": 116,
+          "tag": 14,
+          "width": 5,
+          "height": 7,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            5,
+            7
+          ]
+        },
+        {
+          "index": 117,
+          "tag": 14,
+          "width": 5,
+          "height": 7,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            5,
+            7
+          ]
+        },
+        {
+          "index": 118,
+          "tag": 14,
+          "width": 51,
+          "height": 23,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            51,
+            23
+          ]
+        },
+        {
+          "index": 119,
+          "tag": 14,
+          "width": 51,
+          "height": 23,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            51,
+            23
+          ]
+        },
+        {
+          "index": 120,
+          "tag": 14,
+          "width": 51,
+          "height": 23,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            51,
+            23
+          ]
+        },
+        {
+          "index": 121,
+          "tag": 14,
+          "width": 51,
+          "height": 23,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            51,
+            23
+          ]
+        },
+        {
+          "index": 122,
+          "tag": 14,
+          "width": 51,
+          "height": 23,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            51,
+            23
+          ]
+        },
+        {
+          "index": 123,
+          "tag": 14,
+          "width": 51,
+          "height": 23,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            51,
+            23
+          ]
+        },
+        {
+          "index": 124,
+          "tag": 14,
+          "width": 51,
+          "height": 23,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            51,
+            23
+          ]
+        },
+        {
+          "index": 125,
+          "tag": 14,
+          "width": 51,
+          "height": 23,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            51,
+            23
+          ]
+        }
+      ]
+    },
+    "sprite/interface/statusillust.img": {
+      "pack": "sprite_interface.NPK",
+      "sha256": "f2fd8db9dcc12ba1a7f0aeba59331f8edddd7e0be3050ea821fb4bcaba649229",
+      "frames": [
+        {
+          "index": 0,
+          "tag": 14,
+          "width": 59,
+          "height": 81,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            59,
+            81
+          ]
+        },
+        {
+          "index": 1,
+          "tag": 14,
+          "width": 59,
+          "height": 81,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            59,
+            81
+          ]
+        },
+        {
+          "index": 2,
+          "tag": 14,
+          "width": 59,
+          "height": 81,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            59,
+            81
+          ]
+        },
+        {
+          "index": 3,
+          "tag": 14,
+          "width": 59,
+          "height": 81,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            59,
+            81
+          ]
+        }
+      ]
+    },
+    "sprite/interface/statuswindow.img": {
+      "pack": "sprite_interface.NPK",
+      "sha256": "4aac3691669139d563cddc71cb89eef7659da6acf792300d20fecc6dfc804551",
+      "frames": [
+        {
+          "index": 0,
+          "tag": 14,
+          "width": 291,
+          "height": 380,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            291,
+            380
+          ]
+        },
+        {
+          "index": 1,
+          "tag": 14,
+          "width": 7,
+          "height": 7,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            7,
+            7
+          ]
+        },
+        {
+          "index": 2,
+          "tag": 14,
+          "width": 7,
+          "height": 7,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            7,
+            7
+          ]
+        }
+      ]
+    },
+    "sprite/item/weapon/swordman/sswd.img": {
+      "pack": "sprite_item_weapon_swordman.NPK",
+      "sha256": "0987f55e6d0df109c5436b152e800c8a87d55fdae2db8e5bc0000f57769f387a",
+      "frames": [
+        {
+          "index": 0,
+          "tag": 14,
+          "width": 28,
+          "height": 28,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            28,
+            28
+          ]
+        },
+        {
+          "index": 1,
+          "tag": 14,
+          "width": 28,
+          "height": 28,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            28,
+            28
+          ]
+        },
+        {
+          "index": 2,
+          "tag": 14,
+          "width": 28,
+          "height": 28,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            28,
+            28
+          ]
+        },
+        {
+          "index": 3,
+          "tag": 14,
+          "width": 28,
+          "height": 28,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            28,
+            28
+          ]
+        },
+        {
+          "index": 4,
+          "tag": 14,
+          "width": 28,
+          "height": 28,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            28,
+            28
+          ]
+        },
+        {
+          "index": 5,
+          "tag": 14,
+          "width": 28,
+          "height": 28,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            28,
+            28
+          ]
+        },
+        {
+          "index": 6,
+          "tag": 15,
+          "width": 28,
+          "height": 28,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            28,
+            28
+          ]
+        },
+        {
+          "index": 7,
+          "tag": 14,
+          "width": 28,
+          "height": 28,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            28,
+            28
+          ]
+        },
+        {
+          "index": 8,
+          "tag": 14,
+          "width": 28,
+          "height": 28,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            28,
+            28
+          ]
+        },
+        {
+          "index": 9,
+          "tag": 14,
+          "width": 28,
+          "height": 28,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            28,
+            28
+          ]
+        },
+        {
+          "index": 10,
+          "tag": 14,
+          "width": 28,
+          "height": 28,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            28,
+            28
+          ]
+        },
+        {
+          "index": 11,
+          "tag": 14,
+          "width": 28,
+          "height": 28,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            28,
+            28
+          ]
+        },
+        {
+          "index": 12,
+          "tag": 14,
+          "width": 28,
+          "height": 28,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            28,
+            28
+          ]
+        },
+        {
+          "index": 13,
+          "tag": 14,
+          "width": 28,
+          "height": 28,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            28,
+            28
+          ]
+        },
+        {
+          "index": 14,
+          "tag": 14,
+          "width": 28,
+          "height": 28,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            28,
+            28
+          ]
+        },
+        {
+          "index": 15,
+          "tag": 14,
+          "width": 28,
+          "height": 28,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            28,
+            28
+          ]
+        },
+        {
+          "index": 16,
+          "tag": 14,
+          "width": 28,
+          "height": 28,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            28,
+            28
+          ]
+        },
+        {
+          "index": 17,
+          "tag": 14,
+          "width": 28,
+          "height": 28,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            28,
+            28
+          ]
+        },
+        {
+          "index": 18,
+          "tag": 14,
+          "width": 28,
+          "height": 28,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            28,
+            28
+          ]
+        },
+        {
+          "index": 19,
+          "tag": 14,
+          "width": 28,
+          "height": 28,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            28,
+            28
+          ]
+        },
+        {
+          "index": 20,
+          "tag": 14,
+          "width": 28,
+          "height": 28,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            28,
+            28
+          ]
+        },
+        {
+          "index": 21,
+          "tag": 14,
+          "width": 28,
+          "height": 28,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            28,
+            28
+          ]
+        },
+        {
+          "index": 22,
+          "tag": 14,
+          "width": 28,
+          "height": 28,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            28,
+            28
+          ]
+        },
+        {
+          "index": 23,
+          "tag": 14,
+          "width": 28,
+          "height": 28,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            28,
+            28
+          ]
+        },
+        {
+          "index": 24,
+          "tag": 14,
+          "width": 28,
+          "height": 28,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            28,
+            28
+          ]
+        },
+        {
+          "index": 25,
+          "tag": 14,
+          "width": 28,
+          "height": 28,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            28,
+            28
+          ]
+        },
+        {
+          "index": 26,
+          "tag": 14,
+          "width": 28,
+          "height": 28,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            28,
+            28
+          ]
+        },
+        {
+          "index": 27,
+          "tag": 14,
+          "width": 28,
+          "height": 28,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            28,
+            28
+          ]
+        },
+        {
+          "index": 28,
+          "tag": 14,
+          "width": 28,
+          "height": 28,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            28,
+            28
+          ]
+        },
+        {
+          "index": 29,
+          "tag": 14,
+          "width": 28,
+          "height": 28,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            28,
+            28
+          ]
+        },
+        {
+          "index": 30,
+          "tag": 14,
+          "width": 28,
+          "height": 28,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            28,
+            28
+          ]
+        },
+        {
+          "index": 31,
+          "tag": 14,
+          "width": 28,
+          "height": 28,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            28,
+            28
+          ]
+        },
+        {
+          "index": 32,
+          "tag": 14,
+          "width": 28,
+          "height": 28,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            28,
+            28
+          ]
+        },
+        {
+          "index": 33,
+          "tag": 14,
+          "width": 28,
+          "height": 28,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            28,
+            28
+          ]
+        },
+        {
+          "index": 34,
+          "tag": 15,
+          "width": 28,
+          "height": 28,
+          "x": 0,
+          "y": 0,
+          "canvas": [
+            28,
+            28
+          ]
+        }
+      ]
+    }
+  }
+}

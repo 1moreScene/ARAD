@@ -1,0 +1,56 @@
+004AF8E0 55                   push     ebp
+004AF8E1 8bec                 mov      ebp, esp
+004AF8E3 8b4508               mov      eax, dword ptr [ebp + 8]
+004AF8E6 56                   push     esi
+004AF8E7 50                   push     eax
+004AF8E8 8bf1                 mov      esi, ecx
+004AF8EA e8f1530200           call     0x4d4ce0
+004AF8EF 83be0002000004       cmp      dword ptr [esi + 0x200], 4
+004AF8F6 7520                 jne      0x4af918
+004AF8F8 8b16                 mov      edx, dword ptr [esi]
+004AF8FA 8bce                 mov      ecx, esi
+004AF8FC ff9298040000         call     dword ptr [edx + 0x498]
+004AF902 898600020000         mov      dword ptr [esi + 0x200], eax
+004AF908 8b06                 mov      eax, dword ptr [esi]
+004AF90A 8bce                 mov      ecx, esi
+004AF90C ff909c040000         call     dword ptr [eax + 0x49c]
+004AF912 888604020000         mov      byte ptr [esi + 0x204], al
+004AF918 83be08020000ff       cmp      dword ptr [esi + 0x208], -1
+004AF91F 7510                 jne      0x4af931
+004AF921 8b16                 mov      edx, dword ptr [esi]
+004AF923 8bce                 mov      ecx, esi
+004AF925 ff92a0040000         call     dword ptr [edx + 0x4a0]
+004AF92B 898608020000         mov      dword ptr [esi + 0x208], eax
+004AF931 81be0c020000000080bf cmp      dword ptr [esi + 0x20c], 0xbf800000
+004AF93B 7510                 jne      0x4af94d
+004AF93D 8b06                 mov      eax, dword ptr [esi]
+004AF93F 8bce                 mov      ecx, esi
+004AF941 ff90a4040000         call     dword ptr [eax + 0x4a4]
+004AF947 d99e0c020000         fstp     dword ptr [esi + 0x20c]
+004AF94D 8b8608020000         mov      eax, dword ptr [esi + 0x208]
+004AF953 85c0                 test     eax, eax
+004AF955 7e35                 jle      0x4af98c
+004AF957 8b16                 mov      edx, dword ptr [esi]
+004AF959 6a03                 push     3
+004AF95B 8bce                 mov      ecx, esi
+004AF95D ff92a0020000         call     dword ptr [edx + 0x2a0]
+004AF963 050c050000           add      eax, 0x50c
+004AF968 8bc8                 mov      ecx, eax
+004AF96A e871acf6ff           call     0x41a5e0
+004AF96F d905e05c6f00         fld      dword ptr [0x6f5ce0]
+004AF975 894508               mov      dword ptr [ebp + 8], eax
+004AF978 d86508               fsub     dword ptr [ebp + 8]
+004AF97B da8e08020000         fimul    dword ptr [esi + 0x208]
+004AF981 e8becb1b00           call     0x66c544
+004AF986 898608020000         mov      dword ptr [esi + 0x208], eax
+004AF98C 5e                   pop      esi
+004AF98D 5d                   pop      ebp
+004AF98E c20400               ret      4
+004AF991 cc                   int3     
+004AF992 cc                   int3     
+004AF993 cc                   int3     
+004AF994 cc                   int3     
+004AF995 cc                   int3     
+004AF996 cc                   int3     
+004AF997 cc                   int3     
+004AF998 cc                   int3     

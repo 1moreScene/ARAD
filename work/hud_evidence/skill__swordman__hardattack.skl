@@ -1,0 +1,82 @@
+[purchase cost] 
+10
+20
+30
+
+[/purchase cost]
+[type]  `[active]`
+[skill class]  3
+[maximum level]  30
+[growtype maximum level]  20 20 20 20 20
+[skill fitness growtype] 
+0
+1
+2
+3
+4
+[/skill fitness growtype]
+[required level]  1			// ｽｺﾅｳﾀｻ ｹ霑�ｱ� ﾀｧﾇﾘ ﾇﾊｿ萇ﾑ ﾄｳｸｯﾅﾍﾀﾇ ﾃﾖｼﾒ ｷｹｺｧ.
+[required level range]  2
+[consume MP]  23 73
+
+[cool time]  8000 8000
+
+
+[icon] 
+`Character/Swordman/Effect/SkillIcon.img` 10
+`Character/Swordman/Effect/SkillIcon.img` 11
+
+[level info]
+1
+// 0.ﾃﾟｰ｡ ｵ･ｹﾌﾁ�
+40 
+89 
+138 
+188 
+237 
+286 
+335 
+385 
+434 
+483 
+532 
+582 
+631 
+680 
+729 
+779 
+828 
+877 
+926 
+976 
+1025 
+1074 
+1123 
+1173 
+1222 
+1271 
+1320 
+1370 
+1419 
+1468 
+[/level info]
+[command] 
+(SKILL)
+[/command]
+
+
+
+
+[name]  <12::name_17745>
+[explain] 
+<12::explain_17750>
+[name2]  <12::name2_17755>
+[command key explain]  <12::command_key_explain_15430>
+
+[level property] 
+1 99
+<12::level_property_17760>
+-1 0 1.0
+[/level property]
+
+

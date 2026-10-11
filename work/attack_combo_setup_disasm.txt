@@ -1,0 +1,99 @@
+ARAD.exe size=3948544 sha256=09d45918d5ca7d67532329f4fa8ac2c5519454ebe4615c3c0ddb27e33a34e4ed
+005EEE40 55                   push     ebp
+005EEE41 8bec                 mov      ebp, esp
+005EEE43 51                   push     ecx
+005EEE44 56                   push     esi
+005EEE45 8bf1                 mov      esi, ecx
+005EEE47 b802000000           mov      eax, 2
+005EEE4C 57                   push     edi
+005EEE4D 8dbed41e0000         lea      edi, [esi + 0x1ed4]
+005EEE53 8986881a0000         mov      dword ptr [esi + 0x1a88], eax
+005EEE59 89868c1a0000         mov      dword ptr [esi + 0x1a8c], eax
+005EEE5F 8986901a0000         mov      dword ptr [esi + 0x1a90], eax
+005EEE65 c786941a000003000000 mov      dword ptr [esi + 0x1a94], 3
+005EEE6F c786981a000004000000 mov      dword ptr [esi + 0x1a98], 4
+005EEE79 c786d01a000001000000 mov      dword ptr [esi + 0x1ad0], 1
+005EEE83 c786d41a000008000000 mov      dword ptr [esi + 0x1ad4], 8
+005EEE8D c786d81a00000f000000 mov      dword ptr [esi + 0x1ad8], 0xf
+005EEE97 8b4704               mov      eax, dword ptr [edi + 4]
+005EEE9A 85c0                 test     eax, eax
+005EEE9C c745fc05000000       mov      dword ptr [ebp - 4], 5
+005EEEA3 7504                 jne      0x5eeea9
+005EEEA5 33d2                 xor      edx, edx
+005EEEA7 eb08                 jmp      0x5eeeb1
+005EEEA9 8b5708               mov      edx, dword ptr [edi + 8]
+005EEEAC 2bd0                 sub      edx, eax
+005EEEAE c1fa02               sar      edx, 2
+005EEEB1 85c0                 test     eax, eax
+005EEEB3 741d                 je       0x5eeed2
+005EEEB5 8b4f0c               mov      ecx, dword ptr [edi + 0xc]
+005EEEB8 2bc8                 sub      ecx, eax
+005EEEBA c1f902               sar      ecx, 2
+005EEEBD 3bd1                 cmp      edx, ecx
+005EEEBF 7311                 jae      0x5eeed2
+005EEEC1 8b4708               mov      eax, dword ptr [edi + 8]
+005EEEC4 c70005000000         mov      dword ptr [eax], 5
+005EEECA 83c004               add      eax, 4
+005EEECD 894708               mov      dword ptr [edi + 8], eax
+005EEED0 eb11                 jmp      0x5eeee3
+005EEED2 8b4708               mov      eax, dword ptr [edi + 8]
+005EEED5 8d4dfc               lea      ecx, [ebp - 4]
+005EEED8 51                   push     ecx
+005EEED9 6a01                 push     1
+005EEEDB 50                   push     eax
+005EEEDC 8bcf                 mov      ecx, edi
+005EEEDE e89d1de4ff           call     0x430c80
+005EEEE3 8b5704               mov      edx, dword ptr [edi + 4]
+005EEEE6 85d2                 test     edx, edx
+005EEEE8 c745fc04000000       mov      dword ptr [ebp - 4], 4
+005EEEEF 7504                 jne      0x5eeef5
+005EEEF1 33c9                 xor      ecx, ecx
+005EEEF3 eb08                 jmp      0x5eeefd
+005EEEF5 8b4f08               mov      ecx, dword ptr [edi + 8]
+005EEEF8 2bca                 sub      ecx, edx
+005EEEFA c1f902               sar      ecx, 2
+005EEEFD 85d2                 test     edx, edx
+005EEEFF 741d                 je       0x5eef1e
+005EEF01 8b470c               mov      eax, dword ptr [edi + 0xc]
+005EEF04 2bc2                 sub      eax, edx
+005EEF06 c1f802               sar      eax, 2
+005EEF09 3bc8                 cmp      ecx, eax
+005EEF0B 7311                 jae      0x5eef1e
+005EEF0D 8b4708               mov      eax, dword ptr [edi + 8]
+005EEF10 c70004000000         mov      dword ptr [eax], 4
+005EEF16 83c004               add      eax, 4
+005EEF19 894708               mov      dword ptr [edi + 8], eax
+005EEF1C eb11                 jmp      0x5eef2f
+005EEF1E 8b4708               mov      eax, dword ptr [edi + 8]
+005EEF21 8d55fc               lea      edx, [ebp - 4]
+005EEF24 52                   push     edx
+005EEF25 6a01                 push     1
+005EEF27 50                   push     eax
+005EEF28 8bcf                 mov      ecx, edi
+005EEF2A e8511de4ff           call     0x430c80
+005EEF2F 8b5704               mov      edx, dword ptr [edi + 4]
+005EEF32 85d2                 test     edx, edx
+005EEF34 c745fc05000000       mov      dword ptr [ebp - 4], 5
+005EEF3B 7504                 jne      0x5eef41
+005EEF3D 33c9                 xor      ecx, ecx
+005EEF3F eb08                 jmp      0x5eef49
+005EEF41 8b4f08               mov      ecx, dword ptr [edi + 8]
+005EEF44 2bca                 sub      ecx, edx
+005EEF46 c1f902               sar      ecx, 2
+005EEF49 85d2                 test     edx, edx
+005EEF4B 741d                 je       0x5eef6a
+005EEF4D 8b470c               mov      eax, dword ptr [edi + 0xc]
+005EEF50 2bc2                 sub      eax, edx
+005EEF52 c1f802               sar      eax, 2
+005EEF55 3bc8                 cmp      ecx, eax
+005EEF57 7311                 jae      0x5eef6a
+005EEF59 8b4708               mov      eax, dword ptr [edi + 8]
+005EEF5C c70005000000         mov      dword ptr [eax], 5
+005EEF62 83c004               add      eax, 4
+005EEF65 894708               mov      dword ptr [edi + 8], eax
+005EEF68 eb11                 jmp      0x5eef7b
+005EEF6A 8b4708               mov      eax, dword ptr [edi + 8]
+005EEF6D 8d4dfc               lea      ecx, [ebp - 4]
+005EEF70 51                   push     ecx
+005EEF71 6a01                 push     1
+005EEF73 50                   push     eax

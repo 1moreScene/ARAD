@@ -1,0 +1,41 @@
+00412C20 push     ebp
+00412C21 mov      ebp, esp
+00412C23 push     ebx
+00412C24 mov      ebx, dword ptr [ebp + 8]
+00412C27 push     esi
+00412C28 push     edi
+00412C29 mov      edi, dword ptr [ebp + 0xc]
+00412C2C mov      esi, ecx
+00412C2E lea      eax, [esi + 0x30]
+00412C31 push     eax
+00412C32 push     edi
+00412C33 push     ebx
+00412C34 call     0x40f530
+00412C39 test     al, al
+00412C3B jne      0x412c76
+00412C3D mov      eax, dword ptr [ebp + 0x10]
+00412C40 mov      ecx, eax
+00412C42 mov      edx, eax
+00412C44 shr      edx, 8
+00412C47 shr      ecx, 0x10
+00412C4A and      edx, 0xf0
+00412C50 and      ecx, 0xf000
+00412C56 or       ecx, edx
+00412C58 mov      edx, eax
+00412C5A shr      edx, 0x14
+00412C5D and      edx, 0xf
+00412C60 and      eax, 0xf0
+00412C65 or       ecx, edx
+00412C67 shl      eax, 4
+00412C6A or       ecx, eax
+00412C6C mov      eax, dword ptr [esi + 0x10]
+00412C6F mov      edx, dword ptr [eax + edi*4]
+00412C72 mov      word ptr [edx + ebx*2], cx
+00412C76 pop      edi
+00412C77 pop      esi
+00412C78 pop      ebx
+00412C79 pop      ebp
+00412C7A ret      0xc
+00412C7D int3     
+00412C7E int3     
+00412C7F int3     

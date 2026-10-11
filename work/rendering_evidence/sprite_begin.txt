@@ -1,0 +1,409 @@
+0067F1C6 push     ebp
+0067F1C7 mov      ebp, esp
+0067F1C9 sub      esp, 0x58
+0067F1CC push     esi
+0067F1CD mov      esi, dword ptr [ebp + 8]
+0067F1D0 push     edi
+0067F1D1 xor      edi, edi
+0067F1D3 cmp      dword ptr [esi + 0xc], edi
+0067F1D6 je       0x67f1e2
+0067F1D8 mov      eax, 0x80004005
+0067F1DD jmp      0x67f5f4
+0067F1E2 push     ebx
+0067F1E3 xor      ebx, ebx
+0067F1E5 inc      ebx
+0067F1E6 cmp      dword ptr [esi + 0x10], edi
+0067F1E9 jne      0x67f53f
+0067F1EF mov      dword ptr [ebp + 8], edi
+0067F1F2 mov      eax, dword ptr [esi + 8]
+0067F1F5 mov      ecx, dword ptr [eax]
+0067F1F7 push     eax
+0067F1F8 call     dword ptr [ecx + 0xd0]
+0067F1FE mov      eax, dword ptr [esi + 8]
+0067F201 mov      ecx, dword ptr [eax]
+0067F203 xor      edx, edx
+0067F205 cmp      dword ptr [esi + 0x1c], edi
+0067F208 setne    dl
+0067F20B lea      edx, [edx + edx + 0x142]
+0067F212 push     edx
+0067F213 push     eax
+0067F214 call     dword ptr [ecx + 0x130]
+0067F21A cmp      dword ptr [esi + 0x1c], edi
+0067F21D jne      0x67f2b1
+0067F223 fldz     
+0067F225 mov      eax, dword ptr [esi + 8]
+0067F228 fstp     dword ptr [ebp - 0x20]
+0067F22B lea      edx, [ebp - 0x58]
+0067F22E fldz     
+0067F230 push     edx
+0067F231 fstp     dword ptr [ebp - 0x24]
+0067F234 push     2
+0067F236 fldz     
+0067F238 push     eax
+0067F239 fstp     dword ptr [ebp - 0x28]
+0067F23C fldz     
+0067F23E fstp     dword ptr [ebp - 0x2c]
+0067F241 fldz     
+0067F243 fstp     dword ptr [ebp - 0x34]
+0067F246 fldz     
+0067F248 fstp     dword ptr [ebp - 0x38]
+0067F24B fldz     
+0067F24D fstp     dword ptr [ebp - 0x3c]
+0067F250 fldz     
+0067F252 fstp     dword ptr [ebp - 0x40]
+0067F255 fldz     
+0067F257 fstp     dword ptr [ebp - 0x48]
+0067F25A fldz     
+0067F25C fstp     dword ptr [ebp - 0x4c]
+0067F25F fldz     
+0067F261 fstp     dword ptr [ebp - 0x50]
+0067F264 fldz     
+0067F266 fstp     dword ptr [ebp - 0x54]
+0067F269 fld1     
+0067F26B fstp     dword ptr [ebp - 0x1c]
+0067F26E fld1     
+0067F270 fstp     dword ptr [ebp - 0x30]
+0067F273 fld1     
+0067F275 fstp     dword ptr [ebp - 0x44]
+0067F278 fld1     
+0067F27A fstp     dword ptr [ebp - 0x58]
+0067F27D mov      ecx, dword ptr [eax]
+0067F27F call     dword ptr [ecx + 0x94]
+0067F285 mov      eax, dword ptr [esi + 8]
+0067F288 mov      ecx, dword ptr [eax]
+0067F28A lea      edx, [ebp - 0x58]
+0067F28D push     edx
+0067F28E push     3
+0067F290 push     eax
+0067F291 call     dword ptr [ecx + 0x94]
+0067F297 cmp      dword ptr [ebp + 8], edi
+0067F29A jne      0x67f2b1
+0067F29C mov      eax, dword ptr [esi + 8]
+0067F29F mov      ecx, dword ptr [eax]
+0067F2A1 lea      edx, [ebp - 0x58]
+0067F2A4 push     edx
+0067F2A5 push     0x100
+0067F2AA push     eax
+0067F2AB call     dword ptr [ecx + 0x94]
+0067F2B1 mov      eax, dword ptr [esi + 8]
+0067F2B4 mov      ecx, dword ptr [eax]
+0067F2B6 push     edi
+0067F2B7 push     7
+0067F2B9 push     eax
+0067F2BA call     dword ptr [ecx + 0xc8]
+0067F2C0 mov      eax, dword ptr [esi + 8]
+0067F2C3 mov      ecx, dword ptr [eax]
+0067F2C5 push     3
+0067F2C7 push     8
+0067F2C9 push     eax
+0067F2CA call     dword ptr [ecx + 0xc8]
+0067F2D0 mov      eax, dword ptr [esi + 8]
+0067F2D3 mov      ecx, dword ptr [eax]
+0067F2D5 push     ebx
+0067F2D6 push     0x16
+0067F2D8 push     eax
+0067F2D9 call     dword ptr [ecx + 0xc8]
+0067F2DF mov      eax, dword ptr [esi + 8]
+0067F2E2 mov      ecx, dword ptr [eax]
+0067F2E4 push     edi
+0067F2E5 push     0x80
+0067F2EA push     eax
+0067F2EB call     dword ptr [ecx + 0xc8]
+0067F2F1 mov      eax, dword ptr [esi + 8]
+0067F2F4 mov      ecx, dword ptr [eax]
+0067F2F6 push     ebx
+0067F2F7 push     0x88
+0067F2FC push     eax
+0067F2FD call     dword ptr [ecx + 0xc8]
+0067F303 mov      eax, dword ptr [esi + 8]
+0067F306 mov      ecx, dword ptr [eax]
+0067F308 push     edi
+0067F309 push     0x97
+0067F30E push     eax
+0067F30F call     dword ptr [ecx + 0xc8]
+0067F315 mov      eax, dword ptr [esi + 8]
+0067F318 mov      ecx, dword ptr [eax]
+0067F31A push     edi
+0067F31B push     0x98
+0067F320 push     eax
+0067F321 call     dword ptr [ecx + 0xc8]
+0067F327 mov      eax, dword ptr [esi + 8]
+0067F32A mov      ecx, dword ptr [eax]
+0067F32C push     ebx
+0067F32D push     0xa4
+0067F332 push     eax
+0067F333 call     dword ptr [ecx + 0xc8]
+0067F339 mov      eax, dword ptr [esi + 8]
+0067F33C mov      ecx, dword ptr [eax]
+0067F33E push     edi
+0067F33F push     0xa7
+0067F344 push     eax
+0067F345 call     dword ptr [ecx + 0xc8]
+0067F34B cmp      dword ptr [esi + 0x1c], edi
+0067F34E jne      0x67f3a1
+0067F350 mov      eax, dword ptr [esi + 8]
+0067F353 mov      ecx, dword ptr [eax]
+0067F355 push     edi
+0067F356 push     0x1c
+0067F358 push     eax
+0067F359 call     dword ptr [ecx + 0xc8]
+0067F35F mov      eax, dword ptr [esi + 8]
+0067F362 mov      ecx, dword ptr [eax]
+0067F364 push     edi
+0067F365 push     0x1d
+0067F367 push     eax
+0067F368 call     dword ptr [ecx + 0xc8]
+0067F36E mov      eax, dword ptr [esi + 8]
+0067F371 mov      ecx, dword ptr [eax]
+0067F373 push     edi
+0067F374 push     0x34
+0067F376 push     eax
+0067F377 call     dword ptr [ecx + 0xc8]
+0067F37D mov      eax, dword ptr [esi + 8]
+0067F380 mov      ecx, dword ptr [eax]
+0067F382 push     edi
+0067F383 push     0x89
+0067F388 push     eax
+0067F389 call     dword ptr [ecx + 0xc8]
+0067F38F mov      eax, dword ptr [esi + 8]
+0067F392 mov      ecx, dword ptr [eax]
+0067F394 push     ebx
+0067F395 push     0x91
+0067F39A push     eax
+0067F39B call     dword ptr [ecx + 0xc8]
+0067F3A1 mov      eax, dword ptr [esi + 8]
+0067F3A4 mov      ecx, dword ptr [eax]
+0067F3A6 push     4
+0067F3A8 push     ebx
+0067F3A9 push     edi
+0067F3AA push     eax
+0067F3AB call     dword ptr [ecx + 0xfc]
+0067F3B1 mov      eax, dword ptr [esi + 8]
+0067F3B4 mov      ecx, dword ptr [eax]
+0067F3B6 push     2
+0067F3B8 push     2
+0067F3BA push     edi
+0067F3BB push     eax
+0067F3BC call     dword ptr [ecx + 0xfc]
+0067F3C2 mov      eax, dword ptr [esi + 8]
+0067F3C5 mov      ecx, dword ptr [eax]
+0067F3C7 push     edi
+0067F3C8 push     3
+0067F3CA push     edi
+0067F3CB push     eax
+0067F3CC call     dword ptr [ecx + 0xfc]
+0067F3D2 mov      eax, dword ptr [esi + 8]
+0067F3D5 mov      ecx, dword ptr [eax]
+0067F3D7 push     4
+0067F3D9 push     4
+0067F3DB push     edi
+0067F3DC push     eax
+0067F3DD call     dword ptr [ecx + 0xfc]
+0067F3E3 mov      eax, dword ptr [esi + 8]
+0067F3E6 mov      ecx, dword ptr [eax]
+0067F3E8 push     2
+0067F3EA push     5
+0067F3EC push     edi
+0067F3ED push     eax
+0067F3EE call     dword ptr [ecx + 0xfc]
+0067F3F4 mov      eax, dword ptr [esi + 8]
+0067F3F7 mov      ecx, dword ptr [eax]
+0067F3F9 push     edi
+0067F3FA push     6
+0067F3FC push     edi
+0067F3FD push     eax
+0067F3FE call     dword ptr [ecx + 0xfc]
+0067F404 mov      eax, dword ptr [esi + 8]
+0067F407 mov      ecx, dword ptr [eax]
+0067F409 push     ebx
+0067F40A push     ebx
+0067F40B push     ebx
+0067F40C push     eax
+0067F40D call     dword ptr [ecx + 0xfc]
+0067F413 mov      eax, dword ptr [esi + 8]
+0067F416 mov      ecx, dword ptr [eax]
+0067F418 push     ebx
+0067F419 push     4
+0067F41B push     ebx
+0067F41C push     eax
+0067F41D call     dword ptr [ecx + 0xfc]
+0067F423 mov      eax, dword ptr [esi + 8]
+0067F426 mov      ecx, dword ptr [eax]
+0067F428 push     2
+0067F42A push     0x10
+0067F42C push     edi
+0067F42D push     eax
+0067F42E call     dword ptr [ecx + 0xfc]
+0067F434 mov      eax, dword ptr [esi + 8]
+0067F437 mov      ecx, dword ptr [eax]
+0067F439 push     2
+0067F43B push     0x11
+0067F43D push     edi
+0067F43E push     eax
+0067F43F call     dword ptr [ecx + 0xfc]
+0067F445 mov      eax, dword ptr [esi + 8]
+0067F448 mov      ecx, dword ptr [eax]
+0067F44A push     edi
+0067F44B push     0x12
+0067F44D push     edi
+0067F44E push     eax
+0067F44F call     dword ptr [ecx + 0xfc]
+0067F455 mov      eax, dword ptr [esi + 8]
+0067F458 mov      ecx, dword ptr [eax]
+0067F45A push     edi
+0067F45B push     0xb
+0067F45D push     edi
+0067F45E push     eax
+0067F45F call     dword ptr [ecx + 0xfc]
+0067F465 mov      eax, dword ptr [esi + 8]
+0067F468 mov      ecx, dword ptr [eax]
+0067F46A push     3
+0067F46C push     0xd
+0067F46E push     edi
+0067F46F push     eax
+0067F470 call     dword ptr [ecx + 0xfc]
+0067F476 mov      eax, dword ptr [esi + 8]
+0067F479 mov      ecx, dword ptr [eax]
+0067F47B push     3
+0067F47D push     0xe
+0067F47F push     edi
+0067F480 push     eax
+0067F481 call     dword ptr [ecx + 0xfc]
+0067F487 mov      eax, dword ptr [esi + 8]
+0067F48A mov      ecx, dword ptr [eax]
+0067F48C push     edi
+0067F48D push     0x18
+0067F48F push     edi
+0067F490 push     eax
+0067F491 call     dword ptr [ecx + 0xfc]
+0067F497 cmp      dword ptr [esi + 0x18], edi
+0067F49A mov      eax, dword ptr [esi + 8]
+0067F49D mov      ecx, dword ptr [eax]
+0067F49F push     ebx
+0067F4A0 je       0x67f4d3
+0067F4A2 push     0x1b
+0067F4A4 push     eax
+0067F4A5 call     dword ptr [ecx + 0xc8]
+0067F4AB mov      eax, dword ptr [esi + 8]
+0067F4AE mov      ecx, dword ptr [eax]
+0067F4B0 push     5
+0067F4B2 push     0x13
+0067F4B4 push     eax
+0067F4B5 call     dword ptr [ecx + 0xc8]
+0067F4BB mov      eax, dword ptr [esi + 8]
+0067F4BE mov      ecx, dword ptr [eax]
+0067F4C0 push     6
+0067F4C2 push     0x14
+0067F4C4 push     eax
+0067F4C5 call     dword ptr [ecx + 0xc8]
+0067F4CB push     ebx
+0067F4CC push     0xab
+0067F4D1 jmp      0x67f4f0
+0067F4D3 push     0xf
+0067F4D5 push     eax
+0067F4D6 call     dword ptr [ecx + 0xc8]
+0067F4DC mov      eax, dword ptr [esi + 8]
+0067F4DF mov      ecx, dword ptr [eax]
+0067F4E1 push     7
+0067F4E3 push     0x19
+0067F4E5 push     eax
+0067F4E6 call     dword ptr [ecx + 0xc8]
+0067F4EC push     0x7f
+0067F4EE push     0x18
+0067F4F0 mov      eax, dword ptr [esi + 8]
+0067F4F3 mov      ecx, dword ptr [eax]
+0067F4F5 push     eax
+0067F4F6 call     dword ptr [ecx + 0xc8]
+0067F4FC cmp      dword ptr [ebp + 8], edi
+0067F4FF jne      0x67f5fa
+0067F505 mov      eax, dword ptr [esi + 8]
+0067F508 mov      ecx, dword ptr [eax]
+0067F50A push     edi
+0067F50B push     edi
+0067F50C push     eax
+0067F50D call     dword ptr [ecx + 0xf4]
+0067F513 mov      eax, dword ptr [esi + 8]
+0067F516 mov      ecx, dword ptr [eax]
+0067F518 push     edi
+0067F519 push     edi
+0067F51A push     edi
+0067F51B push     eax
+0067F51C call     dword ptr [ecx + 0x14c]
+0067F522 lea      ecx, [esi + 0x10]
+0067F525 mov      eax, dword ptr [esi + 8]
+0067F528 mov      edx, dword ptr [eax]
+0067F52A push     ecx
+0067F52B push     eax
+0067F52C call     dword ptr [edx + 0xd4]
+0067F532 inc      dword ptr [ebp + 8]
+0067F535 cmp      dword ptr [ebp + 8], 2
+0067F539 jb       0x67f1f2
+0067F53F mov      eax, dword ptr [esi + 8]
+0067F542 push     dword ptr [esi + 0x10]
+0067F545 mov      ecx, dword ptr [eax]
+0067F547 push     eax
+0067F548 call     dword ptr [ecx + 0xdc]
+0067F54E mov      eax, dword ptr [esi + 8]
+0067F551 push     dword ptr [esi + 0x14]
+0067F554 mov      ecx, dword ptr [eax]
+0067F556 push     eax
+0067F557 call     dword ptr [ecx + 0xd8]
+0067F55D cmp      dword ptr [esi + 0x1c], edi
+0067F560 jne      0x67f5ee
+0067F566 mov      eax, dword ptr [esi + 8]
+0067F569 mov      ecx, dword ptr [eax]
+0067F56B lea      edx, [ebp - 0x18]
+0067F56E push     edx
+0067F56F push     eax
+0067F570 call     dword ptr [ecx + 0xa4]
+0067F576 fld      dword ptr [0x6c2738]
+0067F57C mov      eax, dword ptr [ebp - 0x10]
+0067F57F test     eax, eax
+0067F581 mov      dword ptr [ebp + 8], eax
+0067F584 fild     dword ptr [ebp + 8]
+0067F587 jge      0x67f58f
+0067F589 fadd     dword ptr [0x6c2304]
+0067F58F mov      eax, dword ptr [ebp - 0xc]
+0067F592 fdivr    st(1)
+0067F594 test     eax, eax
+0067F596 fild     dword ptr [ebp - 0xc]
+0067F599 jge      0x67f5a1
+0067F59B fadd     dword ptr [0x6c2304]
+0067F5A1 fdivr    st(2)
+0067F5A3 push     0x10
+0067F5A5 pop      ecx
+0067F5A6 xor      eax, eax
+0067F5A8 lea      edi, [ebp - 0x58]
+0067F5AB rep stosd dword ptr es:[edi], eax
+0067F5AD mov      eax, dword ptr [esi + 8]
+0067F5B0 lea      edx, [ebp - 0x58]
+0067F5B3 push     edx
+0067F5B4 push     0x100
+0067F5B9 push     eax
+0067F5BA fstp     dword ptr [ebp + 8]
+0067F5BD fld      st(0)
+0067F5BF fadd     st(1)
+0067F5C1 fstp     dword ptr [ebp - 0x58]
+0067F5C4 fchs     
+0067F5C6 fsub     st(1)
+0067F5C8 fstp     dword ptr [ebp - 0x28]
+0067F5CB fld      dword ptr [ebp + 8]
+0067F5CE fmul     dword ptr [0x746b9c]
+0067F5D4 fstp     dword ptr [ebp - 0x44]
+0067F5D7 fld      dword ptr [ebp + 8]
+0067F5DA fadd     st(1)
+0067F5DC fstp     dword ptr [ebp - 0x24]
+0067F5DF fstp     st(0)
+0067F5E1 fld1     
+0067F5E3 fstp     dword ptr [ebp - 0x1c]
+0067F5E6 mov      ecx, dword ptr [eax]
+0067F5E8 call     dword ptr [ecx + 0x94]
+0067F5EE mov      dword ptr [esi + 0xc], ebx
+0067F5F1 xor      eax, eax
+0067F5F3 pop      ebx
+0067F5F4 pop      edi
+0067F5F5 pop      esi
+0067F5F6 leave    
+0067F5F7 ret      4
+0067F5FA lea      ecx, [esi + 0x14]
+0067F5FD jmp      0x67f525

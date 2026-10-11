@@ -1,0 +1,214 @@
+ARAD.exe size=3948544 sha256=09d45918d5ca7d67532329f4fa8ac2c5519454ebe4615c3c0ddb27e33a34e4ed
+0049FD80 55                   push     ebp
+0049FD81 8bec                 mov      ebp, esp
+0049FD83 83ec10               sub      esp, 0x10
+0049FD86 d9053c276c00         fld      dword ptr [0x6c273c]
+0049FD8C 56                   push     esi
+0049FD8D 57                   push     edi
+0049FD8E 8b7d08               mov      edi, dword ptr [ebp + 8]
+0049FD91 8bf1                 mov      esi, ecx
+0049FD93 d944be10             fld      dword ptr [esi + edi*4 + 0x10]
+0049FD97 dae9                 fucompp  
+0049FD99 dfe0                 fnstsw   ax
+0049FD9B f6c444               test     ah, 0x44
+0049FD9E 7a12                 jp       0x49fdb2
+0049FDA0 8b44be1c             mov      eax, dword ptr [esi + edi*4 + 0x1c]
+0049FDA4 85c0                 test     eax, eax
+0049FDA6 750a                 jne      0x49fdb2
+0049FDA8 5f                   pop      edi
+0049FDA9 33c0                 xor      eax, eax
+0049FDAB 5e                   pop      esi
+0049FDAC 8be5                 mov      esp, ebp
+0049FDAE 5d                   pop      ebp
+0049FDAF c20800               ret      8
+0049FDB2 8b44be1c             mov      eax, dword ptr [esi + edi*4 + 0x1c]
+0049FDB6 d944be10             fld      dword ptr [esi + edi*4 + 0x10]
+0049FDBA 85c0                 test     eax, eax
+0049FDBC 8b54be28             mov      edx, dword ptr [esi + edi*4 + 0x28]
+0049FDC0 53                   push     ebx
+0049FDC1 8955fc               mov      dword ptr [ebp - 4], edx
+0049FDC4 0f8487000000         je       0x49fe51
+0049FDCA 83faff               cmp      edx, -1
+0049FDCD 8b4d0c               mov      ecx, dword ptr [ebp + 0xc]
+0049FDD0 7449                 je       0x49fe1b
+0049FDD2 3bd1                 cmp      edx, ecx
+0049FDD4 7d45                 jge      0x49fe1b
+0049FDD6 8bda                 mov      ebx, edx
+0049FDD8 0fafd8               imul     ebx, eax
+0049FDDB 895d08               mov      dword ptr [ebp + 8], ebx
+0049FDDE 2bca                 sub      ecx, edx
+0049FDE0 33c0                 xor      eax, eax
+0049FDE2 db4508               fild     dword ptr [ebp + 8]
+0049FDE5 894d08               mov      dword ptr [ebp + 8], ecx
+0049FDE8 8944be28             mov      dword ptr [esi + edi*4 + 0x28], eax
+0049FDEC 8944be1c             mov      dword ptr [esi + edi*4 + 0x1c], eax
+0049FDF0 d80d705c6c00         fmul     dword ptr [0x6c5c70]
+0049FDF6 d844be10             fadd     dword ptr [esi + edi*4 + 0x10]
+0049FDFA d954be10             fst      dword ptr [esi + edi*4 + 0x10]
+0049FDFE d9c0                 fld      st(0)
+0049FE00 dec2                 faddp    st(2)
+0049FE02 d9c9                 fxch     st(1)
+0049FE04 d80df8186c00         fmul     dword ptr [0x6c18f8]
+0049FE0A da4dfc               fimul    dword ptr [ebp - 4]
+0049FE0D db4508               fild     dword ptr [ebp + 8]
+0049FE10 d8ca                 fmul     st(2)
+0049FE12 dec1                 faddp    st(1)
+0049FE14 da750c               fidiv    dword ptr [ebp + 0xc]
+0049FE17 ddd9                 fstp     st(1)
+0049FE19 eb36                 jmp      0x49fe51
+0049FE1B 0fafc1               imul     eax, ecx
+0049FE1E 83faff               cmp      edx, -1
+0049FE21 894508               mov      dword ptr [ebp + 8], eax
+0049FE24 db4508               fild     dword ptr [ebp + 8]
+0049FE27 d80d705c6c00         fmul     dword ptr [0x6c5c70]
+0049FE2D d844be10             fadd     dword ptr [esi + edi*4 + 0x10]
+0049FE31 d954be10             fst      dword ptr [esi + edi*4 + 0x10]
+0049FE35 dec1                 faddp    st(1)
+0049FE37 d80df8186c00         fmul     dword ptr [0x6c18f8]
+0049FE3D 7412                 je       0x49fe51
+0049FE3F 8bc2                 mov      eax, edx
+0049FE41 2bc1                 sub      eax, ecx
+0049FE43 8944be28             mov      dword ptr [esi + edi*4 + 0x28], eax
+0049FE47 7508                 jne      0x49fe51
+0049FE49 c744be1c00000000     mov      dword ptr [esi + edi*4 + 0x1c], 0
+0049FE51 db450c               fild     dword ptr [ebp + 0xc]
+0049FE54 8b4668               mov      eax, dword ptr [esi + 0x68]
+0049FE57 33db                 xor      ebx, ebx
+0049FE59 3bc3                 cmp      eax, ebx
+0049FE5B d8c9                 fmul     st(1)
+0049FE5D d80d705c6c00         fmul     dword ptr [0x6c5c70]
+0049FE63 d95d08               fstp     dword ptr [ebp + 8]
+0049FE66 ddd8                 fstp     st(0)
+0049FE68 740b                 je       0x49fe75
+0049FE6A 8a466c               mov      al, byte ptr [esi + 0x6c]
+0049FE6D 84c0                 test     al, al
+0049FE6F 0f85a6000000         jne      0x49ff1b
+0049FE75 391e                 cmp      dword ptr [esi], ebx
+0049FE77 0f849e000000         je       0x49ff1b
+0049FE7D 8d4604               lea      eax, [esi + 4]
+0049FE80 895df0               mov      dword ptr [ebp - 0x10], ebx
+0049FE83 895df4               mov      dword ptr [ebp - 0xc], ebx
+0049FE86 895df8               mov      dword ptr [ebp - 8], ebx
+0049FE89 89450c               mov      dword ptr [ebp + 0xc], eax
+0049FE8C 8d642400             lea      esp, [esp]
+0049FE90 8b4d0c               mov      ecx, dword ptr [ebp + 0xc]
+0049FE93 8b11                 mov      edx, dword ptr [ecx]
+0049FE95 52                   push     edx
+0049FE96 e8a530f9ff           call     0x432f40
+0049FE9B 8b4d0c               mov      ecx, dword ptr [ebp + 0xc]
+0049FE9E 83c404               add      esp, 4
+0049FEA1 89449df0             mov      dword ptr [ebp + ebx*4 - 0x10], eax
+0049FEA5 43                   inc      ebx
+0049FEA6 83c104               add      ecx, 4
+0049FEA9 83fb03               cmp      ebx, 3
+0049FEAC 894d0c               mov      dword ptr [ebp + 0xc], ecx
+0049FEAF 7cdf                 jl       0x49fe90
+0049FEB1 d94508               fld      dword ptr [ebp + 8]
+0049FEB4 51                   push     ecx
+0049FEB5 d844be04             fadd     dword ptr [esi + edi*4 + 4]
+0049FEB9 d91c24               fstp     dword ptr [esp]
+0049FEBC e87f30f9ff           call     0x432f40
+0049FEC1 8bd8                 mov      ebx, eax
+0049FEC3 8b44bdf0             mov      eax, dword ptr [ebp + edi*4 - 0x10]
+0049FEC7 83c404               add      esp, 4
+0049FECA 3bc3                 cmp      eax, ebx
+0049FECC 744d                 je       0x49ff1b
+0049FECE 8bff                 mov      edi, edi
+0049FED0 8b44bdf0             mov      eax, dword ptr [ebp + edi*4 - 0x10]
+0049FED4 3bc3                 cmp      eax, ebx
+0049FED6 8945fc               mov      dword ptr [ebp - 4], eax
+0049FED9 7d03                 jge      0x49fede
+0049FEDB 40                   inc      eax
+0049FEDC eb01                 jmp      0x49fedf
+0049FEDE 48                   dec      eax
+0049FEDF 83ff02               cmp      edi, 2
+0049FEE2 8b0e                 mov      ecx, dword ptr [esi]
+0049FEE4 8944bdf0             mov      dword ptr [ebp + edi*4 - 0x10], eax
+0049FEE8 c7450c00000000       mov      dword ptr [ebp + 0xc], 0
+0049FEEF 8b01                 mov      eax, dword ptr [ecx]
+0049FEF1 750c                 jne      0x49feff
+0049FEF3 8b55f8               mov      edx, dword ptr [ebp - 8]
+0049FEF6 52                   push     edx
+0049FEF7 ff9084000000         call     dword ptr [eax + 0x84]
+0049FEFD eb12                 jmp      0x49ff11
+0049FEFF 8d550c               lea      edx, [ebp + 0xc]
+0049FF02 52                   push     edx
+0049FF03 8b55f4               mov      edx, dword ptr [ebp - 0xc]
+0049FF06 52                   push     edx
+0049FF07 8b55f0               mov      edx, dword ptr [ebp - 0x10]
+0049FF0A 52                   push     edx
+0049FF0B ff9088000000         call     dword ptr [eax + 0x88]
+0049FF11 84c0                 test     al, al
+0049FF13 743a                 je       0x49ff4f
+0049FF15 395cbdf0             cmp      dword ptr [ebp + edi*4 - 0x10], ebx
+0049FF19 75b5                 jne      0x49fed0
+0049FF1B d94508               fld      dword ptr [ebp + 8]
+0049FF1E 8b44be1c             mov      eax, dword ptr [esi + edi*4 + 0x1c]
+0049FF22 85c0                 test     eax, eax
+0049FF24 d844be04             fadd     dword ptr [esi + edi*4 + 4]
+0049FF28 89450c               mov      dword ptr [ebp + 0xc], eax
+0049FF2B d95cbe04             fstp     dword ptr [esi + edi*4 + 4]
+0049FF2F 7562                 jne      0x49ff93
+0049FF31 d9053c276c00         fld      dword ptr [0x6c273c]
+0049FF37 d944be10             fld      dword ptr [esi + edi*4 + 0x10]
+0049FF3B dae9                 fucompp  
+0049FF3D dfe0                 fnstsw   ax
+0049FF3F f6c444               test     ah, 0x44
+0049FF42 7a41                 jp       0x49ff85
+0049FF44 5b                   pop      ebx
+0049FF45 5f                   pop      edi
+0049FF46 33c0                 xor      eax, eax
+0049FF48 5e                   pop      esi
+0049FF49 8be5                 mov      esp, ebp
+0049FF4B 5d                   pop      ebp
+0049FF4C c20800               ret      8
+0049FF4F db45fc               fild     dword ptr [ebp - 4]
+0049FF52 6a01                 push     1
+0049FF54 d95cbe04             fstp     dword ptr [esi + edi*4 + 4]
+0049FF58 8b0e                 mov      ecx, dword ptr [esi]
+0049FF5A 8b01                 mov      eax, dword ptr [ecx]
+0049FF5C ff5028               call     dword ptr [eax + 0x28]
+0049FF5F 84c0                 test     al, al
+0049FF61 7414                 je       0x49ff77
+0049FF63 8b450c               mov      eax, dword ptr [ebp + 0xc]
+0049FF66 8b0e                 mov      ecx, dword ptr [esi]
+0049FF68 8b11                 mov      edx, dword ptr [ecx]
+0049FF6A 50                   push     eax
+0049FF6B 8b44be10             mov      eax, dword ptr [esi + edi*4 + 0x10]
+0049FF6F 50                   push     eax
+0049FF70 57                   push     edi
+0049FF71 ff9214020000         call     dword ptr [edx + 0x214]
+0049FF77 5b                   pop      ebx
+0049FF78 5f                   pop      edi
+0049FF79 b804000000           mov      eax, 4
+0049FF7E 5e                   pop      esi
+0049FF7F 8be5                 mov      esp, ebp
+0049FF81 5d                   pop      ebp
+0049FF82 c20800               ret      8
+0049FF85 5b                   pop      ebx
+0049FF86 5f                   pop      edi
+0049FF87 b802000000           mov      eax, 2
+0049FF8C 5e                   pop      esi
+0049FF8D 8be5                 mov      esp, ebp
+0049FF8F 5d                   pop      ebp
+0049FF90 c20800               ret      8
+0049FF93 db450c               fild     dword ptr [ebp + 0xc]
+0049FF96 d84cbe10             fmul     dword ptr [esi + edi*4 + 0x10]
+0049FF9A d81d3c276c00         fcomp    dword ptr [0x6c273c]
+0049FFA0 dfe0                 fnstsw   ax
+0049FFA2 f6c405               test     ah, 5
+0049FFA5 b801000000           mov      eax, 1
+0049FFAA 7b05                 jnp      0x49ffb1
+0049FFAC b803000000           mov      eax, 3
+0049FFB1 5b                   pop      ebx
+0049FFB2 5f                   pop      edi
+0049FFB3 5e                   pop      esi
+0049FFB4 8be5                 mov      esp, ebp
+0049FFB6 5d                   pop      ebp
+0049FFB7 c20800               ret      8
+0049FFBA cc                   int3     
+0049FFBB cc                   int3     
+0049FFBC cc                   int3     
+0049FFBD cc                   int3     
+0049FFBE cc                   int3     
+0049FFBF cc                   int3     

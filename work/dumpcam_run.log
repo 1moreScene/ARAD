@@ -1,0 +1,50 @@
+
+  bytes   pages size description
+--------- ----- ---- --------------------------------------------
+ 34217984  4177 8192 allocating memory for b-tree...
+ 15171584  1852 8192 allocating memory for virtual array...
+   262144    32 8192 allocating memory for name pointers...
+-----------------------------------------------------------------
+ 49651712            total memory allocated
+
+Loading processor module G:\Program Files\IDA Professional 9.4\procs\pc.dll for metapc...OK
+Loading type libraries...
+Autoanalysis subsystem has been initialized.
+Database for file 'ARAD.exe' has been loaded.
+Hex-Rays Decompiler plugin has been loaded (v9.4.0.260714)
+  License: 14-0000-FFFF-88  (1 user)
+  The hotkeys are F5: decompile, Ctrl-F5: decompile all.
+
+  Please check the Edit/Plugins menu for more information.
+Hex-rays version 9.4.0.260714 has been detected, gooMBA plugin ready to use
+Using type parser: legacy
+423200: restored microcode from idb
+423200: restored pseudocode from idb
+423380: restored microcode from idb
+423380: restored pseudocode from idb
+424120: restored microcode from idb
+424120: restored pseudocode from idb
+424170: restored microcode from idb
+424170: restored pseudocode from idb
+424270: restored microcode from idb
+424270: restored pseudocode from idb
+424530: restored microcode from idb
+424530: restored pseudocode from idb
+424AB0: restored microcode from idb
+424AB0: restored pseudocode from idb
+424B40: restored microcode from idb
+424B40: restored pseudocode from idb
+424BB0: restored microcode from idb
+424BB0: restored pseudocode from idb
+424C50: restored microcode from idb
+424C50: restored pseudocode from idb
+424D80: restored microcode from idb
+424D80: restored pseudocode from idb
+424EA0: restored microcode from idb
+424EA0: restored pseudocode from idb
+433690: restored microcode from idb
+433690: restored pseudocode from idb
+41CC80: restored microcode from idb
+41CC80: restored pseudocode from idb
+Flushing buffers, please wait...ok
+Unloading IDP module G:\Program Files\IDA Professional 9.4\procs\pc.dll...

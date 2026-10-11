@@ -1,0 +1,101 @@
+ARAD.exe size=3948544 sha256=09d45918d5ca7d67532329f4fa8ac2c5519454ebe4615c3c0ddb27e33a34e4ed
+00420190 55                   push     ebp
+00420191 8bec                 mov      ebp, esp
+00420193 6aff                 push     -1
+00420195 6898206a00           push     0x6a2098
+0042019A 64a100000000         mov      eax, dword ptr fs:[0]
+004201A0 50                   push     eax
+004201A1 64892500000000       mov      dword ptr fs:[0], esp
+004201A8 83ec5c               sub      esp, 0x5c
+004201AB a1506e7900           mov      eax, dword ptr [0x796e50]
+004201B0 8945f0               mov      dword ptr [ebp - 0x10], eax
+004201B3 e8b82d0100           call     0x432f70
+004201B8 84c0                 test     al, al
+004201BA 750a                 jne      0x4201c6
+004201BC b800000080           mov      eax, 0x80000000
+004201C1 e96f030000           jmp      0x420535
+004201C6 8b0da0c07900         mov      ecx, dword ptr [0x79c0a0]
+004201CC 8b01                 mov      eax, dword ptr [ecx]
+004201CE 53                   push     ebx
+004201CF 56                   push     esi
+004201D0 68a4c07900           push     0x79c0a4
+004201D5 6a03                 push     3
+004201D7 ff5004               call     dword ptr [eax + 4]
+004201DA 33db                 xor      ebx, ebx
+004201DC 53                   push     ebx
+004201DD 6898366c00           push     0x6c3698
+004201E2 8bf0                 mov      esi, eax
+004201E4 e80dc82400           call     0x66c9f6
+004201E9 53                   push     ebx
+004201EA 688c366c00           push     0x6c368c
+004201EF e802c82400           call     0x66c9f6
+004201F4 83c410               add      esp, 0x10
+004201F7 85c0                 test     eax, eax
+004201F9 7454                 je       0x42024f
+004201FB 6a0c                 push     0xc
+004201FD 687c366c00           push     0x6c367c
+00420202 8d4d9c               lea      ecx, [ebp - 0x64]
+00420205 c745b40f000000       mov      dword ptr [ebp - 0x4c], 0xf
+0042020C 895db0               mov      dword ptr [ebp - 0x50], ebx
+0042020F 885da0               mov      byte ptr [ebp - 0x60], bl
+00420212 e8a913feff           call     0x4015c0
+00420217 8d4d9c               lea      ecx, [ebp - 0x64]
+0042021A 51                   push     ecx
+0042021B 8b0da4c07900         mov      ecx, dword ptr [0x79c0a4]
+00420221 895dfc               mov      dword ptr [ebp - 4], ebx
+00420224 e8877afeff           call     0x407cb0
+00420229 837db410             cmp      dword ptr [ebp - 0x4c], 0x10
+0042022D c745fcffffffff       mov      dword ptr [ebp - 4], 0xffffffff
+00420234 720c                 jb       0x420242
+00420236 8b55a0               mov      edx, dword ptr [ebp - 0x60]
+00420239 52                   push     edx
+0042023A e83ea82400           call     0x66aa7d
+0042023F 83c404               add      esp, 4
+00420242 c745b40f000000       mov      dword ptr [ebp - 0x4c], 0xf
+00420249 895db0               mov      dword ptr [ebp - 0x50], ebx
+0042024C 885da0               mov      byte ptr [ebp - 0x60], bl
+0042024F 3bf3                 cmp      esi, ebx
+00420251 7d2b                 jge      0x42027e
+00420253 53                   push     ebx
+00420254 684d020000           push     0x24d
+00420259 e8122c0000           call     0x422e70
+0042025E 83c404               add      esp, 4
+00420261 50                   push     eax
+00420262 684c020000           push     0x24c
+00420267 e8042c0000           call     0x422e70
+0042026C 83c404               add      esp, 4
+0042026F 50                   push     eax
+00420270 53                   push     ebx
+00420271 ff15b4126c00         call     dword ptr [0x6c12b4]
+00420277 8bc6                 mov      eax, esi
+00420279 e9b5020000           jmp      0x420533
+0042027E 8b0da0c07900         mov      ecx, dword ptr [0x79c0a0]
+00420284 68e0010000           push     0x1e0
+00420289 6880020000           push     0x280
+0042028E e89d40feff           call     0x404330
+00420293 a1247a8f00           mov      eax, dword ptr [0x8f7a24]
+00420298 8a4870               mov      cl, byte ptr [eax + 0x70]
+0042029B 884d98               mov      byte ptr [ebp - 0x68], cl
+0042029E 8b5598               mov      edx, dword ptr [ebp - 0x68]
+004202A1 8b0da4c07900         mov      ecx, dword ptr [0x79c0a4]
+004202A7 52                   push     edx
+004202A8 6a10                 push     0x10
+004202AA 68e0010000           push     0x1e0
+004202AF 6880020000           push     0x280
+004202B4 e88779feff           call     0x407c40
+004202B9 8bf0                 mov      esi, eax
+004202BB 3bf3                 cmp      esi, ebx
+004202BD 7d16                 jge      0x4202d5
+004202BF 53                   push     ebx
+004202C0 684f020000           push     0x24f
+004202C5 e8a62b0000           call     0x422e70
+004202CA 83c404               add      esp, 4
+004202CD 50                   push     eax
+004202CE 684e020000           push     0x24e
+004202D3 eb92                 jmp      0x420267
+004202D5 8b35a4c07900         mov      esi, dword ptr [0x79c0a4]
+004202DB 6870366c00           push     0x6c3670
+004202E0 8d4db8               lea      ecx, [ebp - 0x48]
+004202E3 e82814feff           call     0x401710
+004202E8 6870366c00           push     0x6c3670
+004202ED 8d4dd4               lea      ecx, [ebp - 0x2c]

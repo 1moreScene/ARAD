@@ -1,0 +1,283 @@
+004BF910 push     ebp
+004BF911 mov      ebp, esp
+004BF913 sub      esp, 0x14
+004BF916 push     ebx
+004BF917 mov      ebx, dword ptr [ebp + 8]
+004BF91A mov      ecx, dword ptr [ebx + 4]
+004BF91D test     ecx, ecx
+004BF91F push     esi
+004BF920 push     edi
+004BF921 jne      0x4bf927
+004BF923 xor      esi, esi
+004BF925 jmp      0x4bf93d
+004BF927 mov      edx, dword ptr [ebx + 8]
+004BF92A sub      edx, ecx
+004BF92C mov      eax, 0x2aaaaaab
+004BF931 imul     edx
+004BF933 sar      edx, 2
+004BF936 mov      esi, edx
+004BF938 shr      esi, 0x1f
+004BF93B add      esi, edx
+004BF93D mov      eax, dword ptr [ebp + 0xc]
+004BF940 mov      edi, dword ptr [eax + 4]
+004BF943 test     edi, edi
+004BF945 jne      0x4bf94b
+004BF947 xor      eax, eax
+004BF949 jmp      0x4bf961
+004BF94B mov      edx, dword ptr [eax + 8]
+004BF94E sub      edx, edi
+004BF950 mov      eax, 0x2aaaaaab
+004BF955 imul     edx
+004BF957 sar      edx, 2
+004BF95A mov      eax, edx
+004BF95C shr      eax, 0x1f
+004BF95F add      eax, edx
+004BF961 cmp      esi, eax
+004BF963 jbe      0x4bf973
+004BF965 pop      edi
+004BF966 pop      esi
+004BF967 mov      eax, 1
+004BF96C pop      ebx
+004BF96D mov      esp, ebp
+004BF96F pop      ebp
+004BF970 ret      8
+004BF973 test     edi, edi
+004BF975 jne      0x4bf97b
+004BF977 xor      esi, esi
+004BF979 jmp      0x4bf994
+004BF97B mov      eax, dword ptr [ebp + 0xc]
+004BF97E mov      edx, dword ptr [eax + 8]
+004BF981 sub      edx, edi
+004BF983 mov      eax, 0x2aaaaaab
+004BF988 imul     edx
+004BF98A sar      edx, 2
+004BF98D mov      esi, edx
+004BF98F shr      esi, 0x1f
+004BF992 add      esi, edx
+004BF994 test     ecx, ecx
+004BF996 jne      0x4bf99c
+004BF998 xor      eax, eax
+004BF99A jmp      0x4bf9b2
+004BF99C mov      edx, dword ptr [ebx + 8]
+004BF99F sub      edx, ecx
+004BF9A1 mov      eax, 0x2aaaaaab
+004BF9A6 imul     edx
+004BF9A8 sar      edx, 2
+004BF9AB mov      eax, edx
+004BF9AD shr      eax, 0x1f
+004BF9B0 add      eax, edx
+004BF9B2 cmp      esi, eax
+004BF9B4 jbe      0x4bf9c4
+004BF9B6 pop      edi
+004BF9B7 pop      esi
+004BF9B8 mov      eax, 2
+004BF9BD pop      ebx
+004BF9BE mov      esp, ebp
+004BF9C0 pop      ebp
+004BF9C1 ret      8
+004BF9C4 xor      eax, eax
+004BF9C6 xor      esi, esi
+004BF9C8 cmp      ecx, eax
+004BF9CA mov      dword ptr [ebp - 0xc], esi
+004BF9CD mov      dword ptr [ebp - 0x10], eax
+004BF9D0 je       0x4bf9e8
+004BF9D2 mov      edx, dword ptr [ebx + 8]
+004BF9D5 sub      edx, ecx
+004BF9D7 mov      eax, 0x2aaaaaab
+004BF9DC imul     edx
+004BF9DE sar      edx, 2
+004BF9E1 mov      eax, edx
+004BF9E3 shr      eax, 0x1f
+004BF9E6 add      eax, edx
+004BF9E8 dec      eax
+004BF9E9 mov      dword ptr [ebp - 0x14], eax
+004BF9EC js       0x4bfadb
+004BF9F2 lea      eax, [eax + eax*2]
+004BF9F5 shl      eax, 3
+004BF9F8 lea      esi, [ecx + eax + 4]
+004BF9FC sub      ecx, edi
+004BF9FE lea      ebx, [edi + eax]
+004BFA01 mov      dword ptr [ebp - 4], esi
+004BFA04 mov      dword ptr [ebp - 8], ecx
+004BFA07 mov      edx, dword ptr [esi]
+004BFA09 test     edx, edx
+004BFA0B jne      0x4bfa11
+004BFA0D xor      ecx, ecx
+004BFA0F jmp      0x4bfa19
+004BFA11 mov      ecx, dword ptr [esi + 4]
+004BFA14 sub      ecx, edx
+004BFA16 sar      ecx, 2
+004BFA19 mov      edi, dword ptr [ebx + 4]
+004BFA1C test     edi, edi
+004BFA1E jne      0x4bfa24
+004BFA20 xor      eax, eax
+004BFA22 jmp      0x4bfa2c
+004BFA24 mov      eax, dword ptr [ebx + 8]
+004BFA27 sub      eax, edi
+004BFA29 sar      eax, 2
+004BFA2C cmp      ecx, eax
+004BFA2E jne      0x4bfae6
+004BFA34 mov      edi, dword ptr [esi + 4]
+004BFA37 cmp      edx, edi
+004BFA39 je       0x4bfa7f
+004BFA3B mov      ecx, dword ptr [ebx + 8]
+004BFA3E mov      edi, edi
+004BFA40 mov      eax, dword ptr [ebx + 4]
+004BFA43 cmp      eax, ecx
+004BFA45 je       0x4bfa5b
+004BFA47 mov      esi, dword ptr [edx]
+004BFA49 lea      esp, [esp]
+004BFA50 cmp      dword ptr [eax], esi
+004BFA52 je       0x4bfa71
+004BFA54 add      eax, 4
+004BFA57 cmp      eax, ecx
+004BFA59 jne      0x4bfa50
+004BFA5B mov      eax, dword ptr [ebp - 8]
+004BFA5E mov      esi, dword ptr [ebx + eax + 4]
+004BFA62 test     esi, esi
+004BFA64 jne      0x4bfaf1
+004BFA6A xor      ecx, ecx
+004BFA6C jmp      0x4bfafd
+004BFA71 cmp      eax, ecx
+004BFA73 je       0x4bfa5b
+004BFA75 add      edx, 4
+004BFA78 cmp      edx, edi
+004BFA7A jne      0x4bfa40
+004BFA7C mov      esi, dword ptr [ebp - 4]
+004BFA7F mov      eax, dword ptr [ebp - 0xc]
+004BFA82 test     eax, eax
+004BFA84 jne      0x4bfa9e
+004BFA86 mov      eax, dword ptr [esi + 0xc]
+004BFA89 mov      ecx, dword ptr [ebx + 0x10]
+004BFA8C cmp      eax, ecx
+004BFA8E je       0x4bfa9e
+004BFA90 mov      esi, dword ptr [ebp - 4]
+004BFA93 xor      edx, edx
+004BFA95 cmp      eax, ecx
+004BFA97 setle    dl
+004BFA9A inc      edx
+004BFA9B mov      dword ptr [ebp - 0xc], edx
+004BFA9E mov      eax, dword ptr [ebp - 0x10]
+004BFAA1 test     eax, eax
+004BFAA3 jne      0x4bfabd
+004BFAA5 mov      eax, dword ptr [esi + 0x10]
+004BFAA8 mov      ecx, dword ptr [ebx + 0x14]
+004BFAAB cmp      eax, ecx
+004BFAAD je       0x4bfabd
+004BFAAF mov      esi, dword ptr [ebp - 4]
+004BFAB2 xor      edx, edx
+004BFAB4 cmp      eax, ecx
+004BFAB6 setg     dl
+004BFAB9 inc      edx
+004BFABA mov      dword ptr [ebp - 0x10], edx
+004BFABD mov      eax, dword ptr [ebp - 0x14]
+004BFAC0 dec      eax
+004BFAC1 sub      esi, 0x18
+004BFAC4 sub      ebx, 0x18
+004BFAC7 test     eax, eax
+004BFAC9 mov      dword ptr [ebp - 0x14], eax
+004BFACC mov      dword ptr [ebp - 4], esi
+004BFACF jge      0x4bfa07
+004BFAD5 mov      ebx, dword ptr [ebp + 8]
+004BFAD8 mov      esi, dword ptr [ebp - 0xc]
+004BFADB mov      eax, dword ptr [ebx + 0x14]
+004BFADE test     eax, eax
+004BFAE0 jne      0x4bfb5a
+004BFAE2 xor      ecx, ecx
+004BFAE4 jmp      0x4bfb62
+004BFAE6 pop      edi
+004BFAE7 pop      esi
+004BFAE8 xor      eax, eax
+004BFAEA pop      ebx
+004BFAEB mov      esp, ebp
+004BFAED pop      ebp
+004BFAEE ret      8
+004BFAF1 mov      ecx, dword ptr [ebp - 8]
+004BFAF4 mov      ecx, dword ptr [ebx + ecx + 8]
+004BFAF8 sub      ecx, esi
+004BFAFA sar      ecx, 2
+004BFAFD mov      edx, dword ptr [ebx + 4]
+004BFB00 test     edx, edx
+004BFB02 jne      0x4bfb08
+004BFB04 xor      eax, eax
+004BFB06 jmp      0x4bfb10
+004BFB08 mov      eax, dword ptr [ebx + 8]
+004BFB0B sub      eax, edx
+004BFB0D sar      eax, 2
+004BFB10 cmp      ecx, eax
+004BFB12 ja       0x4bf965
+004BFB18 test     edx, edx
+004BFB1A jne      0x4bfb20
+004BFB1C xor      ecx, ecx
+004BFB1E jmp      0x4bfb28
+004BFB20 mov      ecx, dword ptr [ebx + 8]
+004BFB23 sub      ecx, edx
+004BFB25 sar      ecx, 2
+004BFB28 test     esi, esi
+004BFB2A jne      0x4bfb3e
+004BFB2C xor      eax, eax
+004BFB2E cmp      eax, ecx
+004BFB30 pop      edi
+004BFB31 sbb      eax, eax
+004BFB33 pop      esi
+004BFB34 and      eax, 2
+004BFB37 pop      ebx
+004BFB38 mov      esp, ebp
+004BFB3A pop      ebp
+004BFB3B ret      8
+004BFB3E mov      edx, dword ptr [ebp - 8]
+004BFB41 mov      eax, dword ptr [ebx + edx + 8]
+004BFB45 sub      eax, esi
+004BFB47 sar      eax, 2
+004BFB4A cmp      eax, ecx
+004BFB4C pop      edi
+004BFB4D sbb      eax, eax
+004BFB4F pop      esi
+004BFB50 and      eax, 2
+004BFB53 pop      ebx
+004BFB54 mov      esp, ebp
+004BFB56 pop      ebp
+004BFB57 ret      8
+004BFB5A mov      ecx, dword ptr [ebx + 0x18]
+004BFB5D sub      ecx, eax
+004BFB5F sar      ecx, 2
+004BFB62 mov      eax, dword ptr [ebp + 0xc]
+004BFB65 mov      edx, dword ptr [eax + 0x14]
+004BFB68 test     edx, edx
+004BFB6A mov      edi, eax
+004BFB6C jne      0x4bfb72
+004BFB6E xor      eax, eax
+004BFB70 jmp      0x4bfb7a
+004BFB72 mov      eax, dword ptr [edi + 0x18]
+004BFB75 sub      eax, edx
+004BFB77 sar      eax, 2
+004BFB7A cmp      ecx, eax
+004BFB7C ja       0x4bf965
+004BFB82 mov      eax, dword ptr [ebx + 0x14]
+004BFB85 test     eax, eax
+004BFB87 jne      0x4bfb8d
+004BFB89 xor      ecx, ecx
+004BFB8B jmp      0x4bfb95
+004BFB8D mov      ecx, dword ptr [ebx + 0x18]
+004BFB90 sub      ecx, eax
+004BFB92 sar      ecx, 2
+004BFB95 mov      edx, dword ptr [edi + 0x14]
+004BFB98 test     edx, edx
+004BFB9A je       0x4bfbac
+004BFB9C mov      eax, dword ptr [edi + 0x18]
+004BFB9F sub      eax, edx
+004BFBA1 sar      eax, 2
+004BFBA4 cmp      ecx, eax
+004BFBA6 jb       0x4bf9b6
+004BFBAC test     esi, esi
+004BFBAE mov      eax, esi
+004BFBB0 jne      0x4bfbb5
+004BFBB2 mov      eax, dword ptr [ebp - 0x10]
+004BFBB5 pop      edi
+004BFBB6 pop      esi
+004BFBB7 pop      ebx
+004BFBB8 mov      esp, ebp
+004BFBBA pop      ebp
+004BFBBB ret      8
+004BFBBE int3     
+004BFBBF int3     

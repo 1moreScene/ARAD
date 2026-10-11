@@ -1,0 +1,29 @@
+0058E6D0 55                   push     ebp
+0058E6D1 8bec                 mov      ebp, esp
+0058E6D3 83ec08               sub      esp, 8
+0058E6D6 56                   push     esi
+0058E6D7 8bf1                 mov      esi, ecx
+0058E6D9 8d8e84030000         lea      ecx, [esi + 0x384]
+0058E6DF e8fcbee8ff           call     0x41a5e0
+0058E6E4 8d8e92030000         lea      ecx, [esi + 0x392]
+0058E6EA 8945fc               mov      dword ptr [ebp - 4], eax
+0058E6ED e8eebee8ff           call     0x41a5e0
+0058E6F2 db45fc               fild     dword ptr [ebp - 4]
+0058E6F5 8945f8               mov      dword ptr [ebp - 8], eax
+0058E6F8 d84df8               fmul     dword ptr [ebp - 8]
+0058E6FB e844de0d00           call     0x66c544
+0058E700 5e                   pop      esi
+0058E701 8be5                 mov      esp, ebp
+0058E703 5d                   pop      ebp
+0058E704 c3                   ret      
+0058E705 cc                   int3     
+0058E706 cc                   int3     
+0058E707 cc                   int3     
+0058E708 cc                   int3     
+0058E709 cc                   int3     
+0058E70A cc                   int3     
+0058E70B cc                   int3     
+0058E70C cc                   int3     
+0058E70D cc                   int3     
+0058E70E cc                   int3     
+0058E70F cc                   int3     

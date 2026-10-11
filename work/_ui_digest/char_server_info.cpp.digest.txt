@@ -1,0 +1,156 @@
+# digest of char_server_info.cpp  funcs=88
+# 格式: VA|行数|资源串|TAG串|被调|vt槽
+0x583A40 sub_583A40 | 15
+   CALL: sub_698F90
+0x583A60 sub_583A60 | 15
+   CALL: sub_5512D0
+0x583A80 sub_583A80 | 22
+0x583AB0 sub_583AB0 | 15
+   CALL: sub_46B080
+0x583B30 sub_583B30 | 15
+0x583B50 sub_583B50 | 14
+0x58A9D0 sub_58A9D0 | 13
+0x58AA00 sub_58AA00 | 35
+0x58AA80 sub_58AA80 | 33
+0x58AAC0 sub_58AAC0 | 154
+0x58ACE0 sub_58ACE0 | 13
+0x58AD30 sub_58AD30 | 25
+0x58AD80 sub_58AD80 | 112
+   CALL: sub_58AAC0 sub_58ACE0 sub_58AA80
+0x58AEC0 sub_58AEC0 | 146
+   CALL: sub_58AD80
+0x58B140 sub_58B140 | 41
+   CALL: sub_58ACE0 sub_58AEC0
+0x58B200 sub_58B200 | 31
+   CALL: sub_58AA00 sub_58B140
+0x58B2A0 sub_58B2A0 | 27
+0x58B310 sub_58B310 | 27
+0x58B380 sub_58B380 | 81
+   CALL: sub_699000 sub_58B310
+0x58B450 sub_58B450 | 26
+   CALL: sub_698F90
+0x58B4D0 sub_58B4D0 | 12
+0x58B570 sub_58B570 | 22
+   CALL: sub_49C800
+0x58B5F0 CNMonsterFriendShip__vmt4 | 41
+   CALL: sub_45EBE0 sub_4D84F0 sub_4DB200
+0x58B6C0 CNZealotFriendShip__vmt8 | 10
+0x58B6F0 CNStarFishFriendShip__vmt8 | 10
+0x58B720 CNTauFriendShip__vmt8 | 28
+0x58B750 CNMonsterFriendShip__vmt0 | 126
+   CALL: sub_58B750 sub_4049C0
+0x58BA00 sub_58BA00 | 27
+0x58BA60 CNGhoul__vmt200 | 38
+0x58BB00 CNGhoul__vmt444 | 50
+0x58BC10 CNGhoul__vmt520 | 52
+   CALL: sub_493400 sub_4939E0 sub_4E7F30 sub_4926A0
+0x58BD00 CNGhoul__vmt14C | 29
+0x58BD80 CNGhoul__vmt1D8 | 14
+0x58BDA0 CNGhoulThrower__vmt4A8 | 16
+0x58BDE0 sub_58BDE0 | 74
+   RES: Particle/GhoulThrowerSkull.ptl
+   CALL: sub_423A20
+0x58BF30 CNGhoulMorgan__vmt4A8 | 10
+0x58BF40 sub_58BF40 | 76
+   RES: Particle/GhoulMorganSkullBomb.ptl
+   CALL: sub_423A20
+0x58C090 CNGhoulNoMercy__vmt4A8 | 23
+0x58C0F0 CNGhoulNoMercy__vmt12C | 40
+0x58C1D0 sub_58C1D0 | 53
+   CALL: sub_4924C0 sub_4918E0
+0x58C300 j_CNGhoul__vmt444 | 11
+0x58C310 CNThrowNoMercyGrabEnemy__vmt10 | 101
+   CALL: sub_4938F0 sub_432E50
+0x58C4E0 CNThrowNoMercyGrabEnemy__vmt1C | 26
+0x58C540 CNGhoulOilSellerOlrek__vmt444 | 20
+   CALL: sub_4DB200
+0x58C570 CNGhoulOilSellerOlrek__vmt52C | 72
+   RES: ../../PassiveObject/Monster/Magma/Particle/RedRock.ptl ; ../../PassiveObject/Monster/Magma/Particle/RedOilFlask.ptl
+   CALL: sub_41A5E0
+0x58C6B0 CNMagmaGhoul__vmt4A8 | 20
+   CALL: sub_698F90
+0x58C6F0 CNMagmaGhoul__vmt200 | 12
+   CALL: sub_4DB130
+0x58C730 CNMagmaGhoul__vmt1D8 | 17
+   CALL: sub_4DB200
+0x58C780 sub_58C780 | 19
+   CALL: sub_4B1030
+0x58C7C0 CNThrowNoMercyGrabEnemy__vmt0 | 13
+   CALL: sub_58C7F0
+0x58C7F0 sub_58C7F0 | 16
+   CALL: sub_5F6640
+0x58C840 sub_58C840 | 79
+   CALL: sub_45EBE0 sub_58C1D0
+0x58C990 CNGhoul__vmt524 | 27
+   CALL: sub_4926A0
+0x58CA00 CNGhoul__vmt528 | 11
+0x58CA30 CNGhoulThrower__vmt1D8 | 45
+   CALL: sub_4926A0
+0x58CB00 CNGhoulThrower__vmt14C | 17
+   CALL: sub_41A5E0
+0x58CB70 CNGhoulThrower__vmt52C | 50
+   CALL: sub_41A5E0 sub_58BDE0
+0x58CC20 CNGhoulMorgan__vmt1D8 | 74
+   TAG: GHOUL_ARM_ATK
+   CALL: sub_53F6A0 sub_649E40 sub_4926A0
+0x58CD80 CNGhoulMorgan__vmt14C | 55
+   CALL: sub_41A5E0 sub_58BF40
+0x58CE90 CNGhoulMorgan__vmt524 | 19
+   CALL: sub_4926A0
+0x58CED0 CNGhoulNoMercy__vmt1D8 | 135
+   TAG: GHOUL_ARM_ATK
+   CALL: sub_58CED0 sub_4926A0 sub_45EBE0 sub_58C780 sub_58C840 sub_4E33D0
+0x58D1A0 CNGhoulOilSellerOlrek__vmt1D8 | 15
+   CALL: sub_4DB200
+0x58D1E0 sub_58D1E0 | 46
+0x58D280 sub_58D280 | 57
+0x58D350 sub_58D350 | 117
+   CALL: sub_699000 sub_58D1E0 sub_698F90 sub_58D280
+0x58D560 CNMagmaGhoul__vmt14C | 11
+   CALL: sub_58D350
+0x58D570 sub_58D570 | 60
+   CALL: sub_699000 sub_698F90 sub_4E0CD0
+0x58D690 sub_58D690 | 71
+   CALL: sub_4E5F70 sub_431230
+0x58D7F0 sub_58D7F0 | 117
+   CALL: sub_4049C0 sub_58D690 sub_432E50 sub_41A5E0
+0x58DB10 CNGhoulNoMercy__vmt14C | 111
+   CALL: sub_58D7F0 sub_58D570 sub_58D690 sub_432E50 sub_41A5E0
+0x58DD70 CNGhoulNoMercy__vmt1F4 | 92
+   CALL: sub_431230 sub_5E5260 sub_432E50
+0x58DFE0 sub_58DFE0 | 33
+   TAG: R_GHOUL R_GHOUL_ATK R_GHOUL_DIE R_GHOUL_DMG
+   CALL: sub_4A4EA0 sub_58BA00 sub_4015C0
+0x58E0D0 sub_58E0D0 | 11
+   CALL: sub_4A50F0
+0x58E0E0 sub_58E0E0 | 40
+   CALL: sub_58DFE0
+0x58E1D0 sub_58E1D0 | 37
+   CALL: sub_58DFE0
+0x58E2B0 sub_58E2B0 | 13
+   CALL: sub_4A50F0
+0x58E2D0 CNGhoul__vmt0 | 13
+   CALL: sub_58E0D0
+0x58E300 CNGhoulNoMercy__vmt0 | 13
+   CALL: sub_58E2B0
+0x58E330 CNGhoulMorgan__vmt51C | 22
+   CALL: sub_4BA9E0
+0x58E3B0 CNGhoulOilSellerOlrek__vmt51C | 33
+   CALL: sub_4BA9E0
+0x58E480 sub_58E480 | 32
+   CALL: sub_58DFE0
+0x58E550 IRDActiveObject__vmt144 | 40
+   CALL: sub_53F9D0
+0x58E660 sub_58E660 | 29
+0x58E6D0 sub_58E6D0 | 13
+   CALL: sub_41A5E0
+0x58E710 sub_58E710 | 13
+   CALL: sub_41A5E0
+0x58E750 IRDActiveObject__vmt148 | 68
+   CALL: sub_53FAB0 sub_48F620 sub_491530 sub_418DD0 sub_424760 sub_491630
+0x58E920 IRDActiveObject__vmt1D8 | 874
+   TAG: CONDITION_STUN DOWN_HEAVY DOWN_LIGHT DOWN_MIDDLE JUMP_END JUMP_START
+   CALL: sub_58E920 sub_495890 sub_4A0550 sub_4A0600 sub_494F20 sub_49C620 sub_49C5F0 sub_58E6D0 sub_432E50 sub_4B0D20 sub_495430 sub_4957F0 sub_4600B0 sub_5E5260 sub_432FA0 sub_423A80 sub_4DB0E0 sub_4939E0 sub_4AECE0 sub_698F90 sub_4926A0 sub_4910E0 sub_4910A0 sub_699000
+0x58FC30 IRDActiveObject__vmt14C | 505
+   TAG: G_WALK_FLOOR_LOOP WALK_SOIL_LOOP WALK_STONE_LOOP
+   CALL: sub_58FC30 sub_4E5410 sub_4924C0 sub_4918E0 sub_431230 sub_5E5260 sub_495920 sub_699000 sub_41A5E0 sub_53FF00 sub_4926A0 sub_41C6E0 sub_4600B0 sub_698F90 sub_4AECE0 sub_494F20 sub_58E660 sub_58E710

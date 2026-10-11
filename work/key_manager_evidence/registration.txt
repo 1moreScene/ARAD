@@ -1,0 +1,86 @@
+004C0090 push     ebp
+004C0091 mov      ebp, esp
+004C0093 push     ebx
+004C0094 mov      ebx, ecx
+004C0096 mov      ecx, dword ptr [ebx + 0x54]
+004C0099 push     esi
+004C009A mov      esi, dword ptr [ecx]
+004C009C mov      eax, esi
+004C009E cmp      eax, ecx
+004C00A0 push     edi
+004C00A1 je       0x4c00b3
+004C00A3 mov      edi, dword ptr [ebp + 8]
+004C00A6 cmp      dword ptr [eax + 8], edi
+004C00A9 je       0x4c00b6
+004C00AB mov      eax, dword ptr [eax]
+004C00AD cmp      eax, ecx
+004C00AF jne      0x4c00a3
+004C00B1 jmp      0x4c00b6
+004C00B3 mov      edi, dword ptr [ebp + 8]
+004C00B6 cmp      eax, ecx
+004C00B8 jne      0x4c012a
+004C00BA cmp      esi, ecx
+004C00BC je       0x4c00d8
+004C00BE mov      edi, edi
+004C00C0 mov      ecx, dword ptr [esi + 8]
+004C00C3 mov      eax, dword ptr [ebx]
+004C00C5 push     ecx
+004C00C6 push     edi
+004C00C7 mov      ecx, ebx
+004C00C9 call     dword ptr [eax + 0x78]
+004C00CC cmp      eax, 1
+004C00CF je       0x4c00d8
+004C00D1 mov      esi, dword ptr [esi]
+004C00D3 cmp      esi, dword ptr [ebx + 0x54]
+004C00D6 jne      0x4c00c0
+004C00D8 mov      eax, dword ptr [esi + 4]
+004C00DB lea      edx, [ebp + 8]
+004C00DE push     edx
+004C00DF push     eax
+004C00E0 lea      ecx, [ebx + 0x50]
+004C00E3 push     esi
+004C00E4 call     0x40c0f0
+004C00E9 push     1
+004C00EB lea      ecx, [ebx + 0x50]
+004C00EE mov      edi, eax
+004C00F0 call     0x4bfcb0
+004C00F5 mov      dword ptr [esi + 4], edi
+004C00F8 mov      ecx, dword ptr [edi + 4]
+004C00FB mov      dword ptr [ecx], edi
+004C00FD mov      ecx, dword ptr [ebp + 8]
+004C0100 mov      eax, dword ptr [ecx + 4]
+004C0103 mov      ecx, dword ptr [ecx + 8]
+004C0106 xor      edx, edx
+004C0108 cmp      eax, ecx
+004C010A je       0x4c0122
+004C010C lea      esp, [esp]
+004C0110 mov      esi, dword ptr [eax + 0x10]
+004C0113 mov      edi, dword ptr [eax + 0x14]
+004C0116 lea      esi, [edi + esi*2]
+004C0119 add      eax, 0x18
+004C011C add      edx, esi
+004C011E cmp      eax, ecx
+004C0120 jne      0x4c0110
+004C0122 cmp      edx, dword ptr [ebx + 0x3c]
+004C0125 jle      0x4c012a
+004C0127 mov      dword ptr [ebx + 0x3c], edx
+004C012A pop      edi
+004C012B pop      esi
+004C012C pop      ebx
+004C012D pop      ebp
+004C012E ret      4
+004C0131 int3     
+004C0132 int3     
+004C0133 int3     
+004C0134 int3     
+004C0135 int3     
+004C0136 int3     
+004C0137 int3     
+004C0138 int3     
+004C0139 int3     
+004C013A int3     
+004C013B int3     
+004C013C int3     
+004C013D int3     
+004C013E int3     
+004C013F int3     

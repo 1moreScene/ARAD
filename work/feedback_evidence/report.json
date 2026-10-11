@@ -1,0 +1,67 @@
+{
+  "exe_sha256": "09d45918d5ca7d67532329f4fa8ac2c5519454ebe4615c3c0ddb27e33a34e4ed",
+  "pvf_sha256": "6a65b5422dead9f9ec6462aebd6fe8b1e9174263a2e51420e2b4bb579a746c46",
+  "scripts": {
+    "monster/goblin/goblin.mob": {
+      "sha256": "fc08419d1ccc6aaf632a094a7a1db0ebe9d343c617f3fd66b49b526f41681ddf"
+    },
+    "equipment/monster/goblin/gcc1.equ": {
+      "sha256": "62f5f08b8fc60a1807b5a30892c90344631d45cbbeb612878d2b148e0b197e03"
+    },
+    "equipment/monster/goblin/weapon01.equ": {
+      "sha256": "35504ee4830a09fb91284683fd7f8bb6d46e74102c0047bd58f1298d82543f07"
+    },
+    "character/swordman/swordman.chr": {
+      "sha256": "882321bd7813a8391919cd08ca1c52eedfc189988a95452ceed961069eacf27e"
+    }
+  },
+  "verified_functions": {
+    "goblin_frame_setup": {
+      "begin": "0059A990",
+      "end": "0059AA1A"
+    },
+    "hit_recovery_getter": {
+      "begin": "0058E6D0",
+      "end": "0058E710"
+    },
+    "weapon_stop_getter": {
+      "begin": "004B1910",
+      "end": "004B195A"
+    },
+    "context_stop_scale": {
+      "begin": "004AF8E0",
+      "end": "004AF999"
+    },
+    "height_to_velocity": {
+      "begin": "004A0550",
+      "end": "004A05BD"
+    }
+  },
+  "key_results": {
+    "mob_hit_recovery": 500,
+    "mob_weight": 45000,
+    "short_sword_hit_info": [
+      "cut",
+      "blood",
+      100,
+      1.0
+    ],
+    "normal_stun_ms": 375,
+    "goblin_down_gates": [
+      2,
+      2,
+      2,
+      3,
+      4
+    ],
+    "runtime_hit_stop_scale": "(2 - attribute_float_at_1292) * context_stop",
+    "ordinary_damage_ignores_lift_up": "4D71B0 selects state3 on ground; only state4 reads push/lift",
+    "state4_first_landing": "height = recorded_peak/5; starts bounce; apex advances2->3; second landing4",
+    "dead_fade_ms": [
+      100,
+      250
+    ],
+    "default_attribute_float_at_1292": 1.0,
+    "default_effective_short_stop_ms": 100
+  }
+}

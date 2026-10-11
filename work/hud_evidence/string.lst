@@ -1,0 +1,22 @@
+// ｹｮﾀﾚｿｭ ﾀ惕� ﾆﾄﾀﾏ ｸｮｽｺﾆｮ
+
+// ｰ暲ｯｹ｣ `ﾆﾄﾀﾏﾀﾌｸｧ` ﾀｸｷﾎ ｵﾈ ｸｮｽｺﾆｮｸｦ ﾀﾛｼｺﾇﾑｴﾙ.
+// ｰ暲ｯｹ｣ｴﾂ ｹﾝｵ蠖ﾃ ｿｬｼﾓﾀ釥ﾌｰﾅｳｪ ｼｭｴ�ｷﾎ ﾁ､ｷﾄﾇﾒ ﾇﾊｿ莇ﾂ ｾｸｸ�, ﾁﾟｺｹｵﾇﾁ� ｸｻｾﾆｾﾟ ﾇﾑｴﾙ.
+
+0	`Character/Character.jap.str`
+1	`Common/Common.jap.str`
+2	`Dungeon/Dungeon.jap.str`
+3	`Equipment/equipment.jap.str`
+4	`Etc/Etc.jap.str`
+5	`ItemShop/ItemShop.jap.str`
+6	`Map/Map.jap.str`
+7	`Monster/Monster.jap.str`
+8	`Npc/Npc.jap.str`
+9	`PassiveObject/PassiveObject.jap.str`
+10	`Pet/Pet.jap.str`
+11	`Quest/Quest.jap.str`
+12	`Skill/Skill.jap.str`
+13	`stackable/Stackable.jap.str`
+14	`Town/Town.jap.str`
+15	`WorldMap/WorldMap.jap.str`
+//16	`Creature/Creature.jap.str`

@@ -1,0 +1,54 @@
+00415770 push     ebp
+00415771 mov      ebp, esp
+00415773 push     ecx
+00415774 push     ebx
+00415775 mov      ebx, ecx
+00415777 mov      al, byte ptr [ebx + 4]
+0041577A test     al, al
+0041577C je       0x4157cd
+0041577E mov      eax, dword ptr [ebx + 0xc10]
+00415784 push     esi
+00415785 push     edi
+00415786 lea      esi, [ebx + 0x10d]
+0041578C lea      edi, [ebx + 0x20d]
+00415792 mov      ecx, 0x40
+00415797 mov      dword ptr [ebp - 4], esi
+0041579A rep movsd dword ptr es:[edi], dword ptr [esi]
+0041579C mov      ecx, dword ptr [eax]
+0041579E push     eax
+0041579F call     dword ptr [ecx + 0x1c]
+004157A2 test     eax, eax
+004157A4 pop      edi
+004157A5 pop      esi
+004157A6 jl       0x4157cd
+004157A8 mov      eax, dword ptr [ebx + 0xc10]
+004157AE mov      edx, dword ptr [eax]
+004157B0 push     eax
+004157B1 call     dword ptr [edx + 0x64]
+004157B4 test     eax, eax
+004157B6 jl       0x4157cd
+004157B8 mov      ecx, dword ptr [ebp - 4]
+004157BB mov      ebx, dword ptr [ebx + 0xc10]
+004157C1 mov      eax, dword ptr [ebx]
+004157C3 push     ecx
+004157C4 push     0x100
+004157C9 push     ebx
+004157CA call     dword ptr [eax + 0x24]
+004157CD pop      ebx
+004157CE mov      esp, ebp
+004157D0 pop      ebp
+004157D1 ret      
+004157D2 int3     
+004157D3 int3     
+004157D4 int3     
+004157D5 int3     
+004157D6 int3     
+004157D7 int3     
+004157D8 int3     
+004157D9 int3     
+004157DA int3     
+004157DB int3     
+004157DC int3     
+004157DD int3     
+004157DE int3     
+004157DF int3     

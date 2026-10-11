@@ -1,0 +1,40 @@
+[name2]  `Cancel - Punisher`
+[purchase cost] 
+30
+[/purchase cost]
+[required level]  17			// ｽｺﾅｳﾀｻ ｹ霑�ｱ� ﾀｧﾇﾘ ﾇﾊｿ萇ﾑ ﾄｳｸｯﾅﾍﾀﾇ ﾃﾖｼﾒ ｷｹｺｧ.
+
+[type]  `[passive]`
+[skill class]  0
+[maximum level]  1
+[growtype maximum level]  1 1 1 1 1
+[skill fitness growtype] 
+0
+1
+2
+3
+4
+[/skill fitness growtype]
+[pre required skill] 
+6 5
+[/pre required skill]
+[icon] 
+`Character/Gunner/Effect/SkillIcon.img` 64
+`Character/Gunner/Effect/SkillIcon.img` 65
+
+[command] 
+[/command]
+[static data] 
+[/static data]
+
+
+
+
+[name]  <12::name_16005>
+[explain] 
+<12::explain_16010>
+ 
+
+ 
+
+

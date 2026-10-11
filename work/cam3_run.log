@@ -1,0 +1,22 @@
+
+  bytes   pages size description
+--------- ----- ---- --------------------------------------------
+ 34217984  4177 8192 allocating memory for b-tree...
+ 15171584  1852 8192 allocating memory for virtual array...
+   262144    32 8192 allocating memory for name pointers...
+-----------------------------------------------------------------
+ 49651712            total memory allocated
+
+Loading processor module G:\Program Files\IDA Professional 9.4\procs\pc.dll for metapc...OK
+Loading type libraries...
+Autoanalysis subsystem has been initialized.
+Database for file 'ARAD.exe' has been loaded.
+Hex-Rays Decompiler plugin has been loaded (v9.4.0.260714)
+  License: 14-0000-FFFF-88  (1 user)
+  The hotkeys are F5: decompile, Ctrl-F5: decompile all.
+
+  Please check the Edit/Plugins menu for more information.
+Hex-rays version 9.4.0.260714 has been detected, gooMBA plugin ready to use
+Using type parser: legacy
+Flushing buffers, please wait...ok
+Unloading IDP module G:\Program Files\IDA Professional 9.4\procs\pc.dll...

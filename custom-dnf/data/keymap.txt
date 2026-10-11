@@ -1,0 +1,51 @@
+# ============================================================================
+# DNF 同人客户端 · 键位覆盖表
+# ----------------------------------------------------------------------------
+# 格式：<命令名> = <DirectInput 扫描码（十进制或 0x 十六进制）>
+# 命令名见 crates/dnf-core/src/keymap.rs 的 command_name()。
+#
+# 本文件当前内容 = 程序内建的官方默认键位；改这里即可覆盖。
+# 每一条的证据等级见下表（`dnf-app --info` 也会打印）。
+#
+#   命令          键        DIK       证据等级
+#   ------------  --------  --------  --------------------------------------
+#   Up            ↑         0xC8      确证：ARAD.exe sub_415240 槽 2
+#   Down          ↓         0xD0      确证：ARAD.exe sub_415240 槽 3
+#   Left          ←         0xCB      确证：ARAD.exe sub_415240 槽 0
+#   Right         →         0xCD      确证：ARAD.exe sub_415240 槽 1
+#   Skill         Z         0x2C      确证：439AB0 slot80 -> 415240
+#   Attack        X         0x2D      确证：439AB0 slot78 -> 415240
+#   Jump          C         0x2E      确证：439AB0 slot57 -> 415240
+#   Creature      V         0x2F      确证：439AB0 slot76 -> 415240
+#   Buff          Space     0x39      确证：439AB0 slot13 -> 415240（旧B为错误占位）
+#   SkillSlot1..6 A S D F G H         确证：439AB0 slots55/73/58/60/61/62
+#   ItemSlot1..6  1 2 3 4 5 6         确证：439AB0 slots46..51
+#
+# 取证过程与失败路径见 custom-dnf/docs/01_键位取证.md
+# ============================================================================
+
+Up          = 0xC8
+Down        = 0xD0
+Left        = 0xCB
+Right       = 0xCD
+
+Skill       = 0x2C
+Attack      = 0x2D
+Jump        = 0x2E
+
+Creature    = 0x2F
+Buff        = 0x39
+
+SkillSlot1  = 0x1E
+SkillSlot2  = 0x1F
+SkillSlot3  = 0x20
+SkillSlot4  = 0x21
+SkillSlot5  = 0x22
+SkillSlot6  = 0x23
+
+ItemSlot1   = 0x02
+ItemSlot2   = 0x03
+ItemSlot3   = 0x04
+ItemSlot4   = 0x05
+ItemSlot5   = 0x06
+ItemSlot6   = 0x07

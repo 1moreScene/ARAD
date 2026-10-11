@@ -1,0 +1,83 @@
+004F2E80 push     ebp
+004F2E81 mov      ebp, esp
+004F2E83 push     edi
+004F2E84 mov      edi, dword ptr [ebp + 0x10]
+004F2E87 test     edi, edi
+004F2E89 je       0x4f2f69
+004F2E8F push     esi
+004F2E90 mov      esi, dword ptr [ebp + 0x14]
+004F2E93 test     esi, esi
+004F2E95 jle      0x4f2f10
+004F2E97 mov      eax, esi
+004F2E99 imul     eax, eax, 0x1c
+004F2E9C cdq      
+004F2E9D idiv     edi
+004F2E9F mov      ecx, dword ptr [0x79c0b0]
+004F2EA5 mov      dword ptr [ecx + 0x30], 0
+004F2EAC mov      dword ptr [ecx + 0x34], 0
+004F2EB3 mov      dword ptr [ecx + 0x38], 0x280
+004F2EBA mov      edx, eax
+004F2EBC mov      eax, dword ptr [ebp + 0xc]
+004F2EBF add      edx, eax
+004F2EC1 mov      dword ptr [ecx + 0x3c], edx
+004F2EC4 mov      ecx, dword ptr [0x9b0c68]
+004F2ECA test     ecx, ecx
+004F2ECC je       0x4f2efd
+004F2ECE mov      esi, dword ptr [0x79c0b0]
+004F2ED4 mov      edx, dword ptr [ecx]
+004F2ED6 push     0x4f800000
+004F2EDB push     0x4f800000
+004F2EE0 push     0x80ffffff
+004F2EE5 push     0
+004F2EE7 push     0x3f800000
+004F2EEC push     0x3f800000
+004F2EF1 push     esi
+004F2EF2 push     eax
+004F2EF3 mov      eax, dword ptr [ebp + 8]
+004F2EF6 push     eax
+004F2EF7 call     dword ptr [edx + 0x80]
+004F2EFD mov      ecx, dword ptr [0x79c0b0]
+004F2F03 push     ecx
+004F2F04 call     0x488670
+004F2F09 add      esp, 4
+004F2F0C pop      esi
+004F2F0D pop      edi
+004F2F0E pop      ebp
+004F2F0F ret      
+004F2F10 cmp      esi, 0xfffffe3e
+004F2F16 jle      0x4f2f68
+004F2F18 push     0
+004F2F1A push     2
+004F2F1C call     0x491530
+004F2F21 mov      ecx, dword ptr [0x9b0c6c]
+004F2F27 mov      eax, 0xae147ae1
+004F2F2C imul     esi
+004F2F2E sar      edx, 4
+004F2F31 mov      eax, edx
+004F2F33 shr      eax, 0x1f
+004F2F36 add      esp, 8
+004F2F39 add      eax, edx
+004F2F3B push     eax
+004F2F3C call     0x418dd0
+004F2F41 test     eax, eax
+004F2F43 je       0x4f2f5e
+004F2F45 mov      ecx, dword ptr [0x79c0b0]
+004F2F4B mov      edx, dword ptr [eax]
+004F2F4D push     ecx
+004F2F4E mov      ecx, dword ptr [ebp + 0xc]
+004F2F51 push     ecx
+004F2F52 mov      ecx, dword ptr [ebp + 8]
+004F2F55 push     ecx
+004F2F56 mov      ecx, eax
+004F2F58 call     dword ptr [edx + 0x98]
+004F2F5E push     2
+004F2F60 call     0x491630
+004F2F65 add      esp, 4
+004F2F68 pop      esi
+004F2F69 pop      edi
+004F2F6A pop      ebp
+004F2F6B ret      
+004F2F6C int3     
+004F2F6D int3     
+004F2F6E int3     
+004F2F6F int3     

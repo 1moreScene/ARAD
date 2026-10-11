@@ -1,0 +1,293 @@
+{
+  "system_dpi": 120,
+  "windows": [
+    {
+      "pid": 31440,
+      "path": "C:\\Users\\11156\\source\\repos\\40jp\\40jp-client\\40jp单机版\\ARAD.exe",
+      "title": "DIEmWin",
+      "class": "DIEmWin",
+      "dpi": 96,
+      "awareness": 0,
+      "physical": {
+        "client_rect": [
+          150,
+          0
+        ],
+        "client_screen_pixels": [
+          150,
+          0
+        ],
+        "window_rect": [
+          170,
+          49
+        ]
+      },
+      "virtual_96dpi": {
+        "client_rect": [
+          120,
+          0
+        ],
+        "client_screen_pixels": [
+          120,
+          0
+        ],
+        "window_rect": [
+          136,
+          39
+        ]
+      }
+    },
+    {
+      "pid": 31440,
+      "path": "C:\\Users\\11156\\source\\repos\\40jp\\40jp-client\\40jp单机版\\ARAD.exe",
+      "title": "傾儔僪愴婰",
+      "class": "傾儔僪愴婰",
+      "dpi": 96,
+      "awareness": 0,
+      "physical": {
+        "client_rect": [
+          800,
+          600
+        ],
+        "client_screen_pixels": [
+          800,
+          600
+        ],
+        "window_rect": [
+          800,
+          600
+        ]
+      },
+      "virtual_96dpi": {
+        "client_rect": [
+          640,
+          480
+        ],
+        "client_screen_pixels": [
+          640,
+          480
+        ],
+        "window_rect": [
+          640,
+          480
+        ]
+      }
+    },
+    {
+      "pid": 31440,
+      "path": "C:\\Users\\11156\\source\\repos\\40jp\\40jp-client\\40jp单机版\\ARAD.exe",
+      "title": "ARAD helper",
+      "class": "AradStatdumpWnd",
+      "dpi": 96,
+      "awareness": 0,
+      "physical": {
+        "client_rect": [
+          0,
+          0
+        ],
+        "client_screen_pixels": [
+          0,
+          0
+        ],
+        "window_rect": [
+          249,
+          43
+        ]
+      },
+      "virtual_96dpi": {
+        "client_rect": [
+          0,
+          0
+        ],
+        "client_screen_pixels": [
+          0,
+          0
+        ],
+        "window_rect": [
+          199,
+          34
+        ]
+      }
+    },
+    {
+      "pid": 31440,
+      "path": "C:\\Users\\11156\\source\\repos\\40jp\\40jp-client\\40jp单机版\\ARAD.exe",
+      "title": "Default IME",
+      "class": "IME",
+      "dpi": 96,
+      "awareness": 0,
+      "physical": {
+        "client_rect": [
+          0,
+          0
+        ],
+        "client_screen_pixels": [
+          0,
+          0
+        ],
+        "window_rect": [
+          0,
+          0
+        ]
+      },
+      "virtual_96dpi": {
+        "client_rect": [
+          0,
+          0
+        ],
+        "client_screen_pixels": [
+          0,
+          0
+        ],
+        "window_rect": [
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "pid": 31440,
+      "path": "C:\\Users\\11156\\source\\repos\\40jp\\40jp-client\\40jp单机版\\ARAD.exe",
+      "title": "MSCTFIME UI",
+      "class": "MSCTFIME UI",
+      "dpi": 96,
+      "awareness": 0,
+      "physical": {
+        "client_rect": [
+          0,
+          0
+        ],
+        "client_screen_pixels": [
+          0,
+          0
+        ],
+        "window_rect": [
+          0,
+          0
+        ]
+      },
+      "virtual_96dpi": {
+        "client_rect": [
+          0,
+          0
+        ],
+        "client_screen_pixels": [
+          0,
+          0
+        ],
+        "window_rect": [
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "pid": 31440,
+      "path": "C:\\Users\\11156\\source\\repos\\40jp\\40jp-client\\40jp单机版\\ARAD.exe",
+      "title": "Default IME",
+      "class": "IME",
+      "dpi": 96,
+      "awareness": 0,
+      "physical": {
+        "client_rect": [
+          0,
+          0
+        ],
+        "client_screen_pixels": [
+          0,
+          0
+        ],
+        "window_rect": [
+          0,
+          0
+        ]
+      },
+      "virtual_96dpi": {
+        "client_rect": [
+          0,
+          0
+        ],
+        "client_screen_pixels": [
+          0,
+          0
+        ],
+        "window_rect": [
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "pid": 31440,
+      "path": "C:\\Users\\11156\\source\\repos\\40jp\\40jp-client\\40jp单机版\\ARAD.exe",
+      "title": "MSCTFIME UI",
+      "class": "MSCTFIME UI",
+      "dpi": 96,
+      "awareness": 0,
+      "physical": {
+        "client_rect": [
+          0,
+          0
+        ],
+        "client_screen_pixels": [
+          0,
+          0
+        ],
+        "window_rect": [
+          0,
+          0
+        ]
+      },
+      "virtual_96dpi": {
+        "client_rect": [
+          0,
+          0
+        ],
+        "client_screen_pixels": [
+          0,
+          0
+        ],
+        "window_rect": [
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "pid": 31440,
+      "path": "C:\\Users\\11156\\source\\repos\\40jp\\40jp-client\\40jp单机版\\ARAD.exe",
+      "title": "Default IME",
+      "class": "IME",
+      "dpi": 96,
+      "awareness": 0,
+      "physical": {
+        "client_rect": [
+          0,
+          0
+        ],
+        "client_screen_pixels": [
+          0,
+          0
+        ],
+        "window_rect": [
+          0,
+          0
+        ]
+      },
+      "virtual_96dpi": {
+        "client_rect": [
+          0,
+          0
+        ],
+        "client_screen_pixels": [
+          0,
+          0
+        ],
+        "window_rect": [
+          0,
+          0
+        ]
+      }
+    }
+  ]
+}

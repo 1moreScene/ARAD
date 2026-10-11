@@ -1,0 +1,58 @@
+[name2]  `Upper Slash`
+
+[purchase cost] 
+20
+[/purchase cost]
+[pre required skill] 
+[/pre required skill]
+[type]  `[active]`
+[skill class]  1
+[maximum level]  8
+[growtype maximum level]  5 5 5 5 5
+
+[skill fitness growtype] 
+0
+1
+2
+3
+4
+[/skill fitness growtype]
+[required level]  1
+[required level range]  3
+
+[consume MP]  7 13
+
+[cool time]  2000 2000
+
+[icon] 
+`Character/Swordman/Effect/SkillIcon.img` 94
+`Character/Swordman/Effect/SkillIcon.img` 95
+
+[level info]
+3
+// 0.ｵ･ｹﾌﾁ� ﾃﾟｰ｡ 1.ｶ鄙�ｴﾂ ﾈ� : ｼ､ﾇﾒ ｰ豼� [level property]ﾀｻ ｼ､ﾇﾘｾﾟ ﾇﾔ
+// 2.ｵﾚｷﾎ ｳｯｸｮｴﾂ ﾈ�
+10 	300 	100 
+20 	341 	100 
+30 	383 	100 
+40 	424 	100 
+50 	466 	100 
+60 	507 	100 
+70 	549 	100 
+80 	590 	100 
+[/level info]
+
+
+
+
+[name]  <12::name_18105>
+[explain] 
+<12::explain_18110>
+[level property] 
+1 99
+<12::level_property_18115>
+-1 0 1.0
+-1 1 0.33333333333334	     // 0.4 ｴﾂ (100 / 1ｷｾｶｧ ｶ鄙�ｴﾂ ﾈ�)ﾀｻ ﾀ釮﨨ﾟ ﾇﾔ. ｰ｡ｴﾉﾇﾏｸ� ｵ� ｶｳｾ錝ﾂ ｼﾎ ﾀ釥ﾚ
+[/level property]
+
+

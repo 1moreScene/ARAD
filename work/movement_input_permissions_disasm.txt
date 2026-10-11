@@ -1,0 +1,133 @@
+ARAD.exe size=3948544 sha256=09d45918d5ca7d67532329f4fa8ac2c5519454ebe4615c3c0ddb27e33a34e4ed
+004AFEC0 a1047c8f00           mov      eax, dword ptr [0x8f7c04]
+004AFEC5 56                   push     esi
+004AFEC6 8bf1                 mov      esi, ecx
+004AFEC8 3bc6                 cmp      eax, esi
+004AFECA 0f8583010000         jne      0x4b0053
+004AFED0 8b0d3c858f00         mov      ecx, dword ptr [0x8f853c]
+004AFED6 53                   push     ebx
+004AFED7 6a00                 push     0
+004AFED9 e8123ffdff           call     0x483df0
+004AFEDE c60558039a0000       mov      byte ptr [0x9a0358], 0
+004AFEE5 c60584039a0000       mov      byte ptr [0x9a0384], 0
+004AFEEC c605b0039a0000       mov      byte ptr [0x9a03b0], 0
+004AFEF3 c605dc039a0000       mov      byte ptr [0x9a03dc], 0
+004AFEFA 8b9e9c190000         mov      ebx, dword ptr [esi + 0x199c]
+004AFF00 b805000000           mov      eax, 5
+004AFF05 3bd8                 cmp      ebx, eax
+004AFF07 0f95c1               setne    cl
+004AFF0A 880d08049a00         mov      byte ptr [0x9a0408], cl
+004AFF10 39869c190000         cmp      dword ptr [esi + 0x199c], eax
+004AFF16 0f95c2               setne    dl
+004AFF19 881534049a00         mov      byte ptr [0x9a0434], dl
+004AFF1F 39869c190000         cmp      dword ptr [esi + 0x199c], eax
+004AFF25 0f95c0               setne    al
+004AFF28 a260049a00           mov      byte ptr [0x9a0460], al
+004AFF2D 8a86321e0000         mov      al, byte ptr [esi + 0x1e32]
+004AFF33 84c0                 test     al, al
+004AFF35 0f84e8000000         je       0x4b0023
+004AFF3B 8b869c190000         mov      eax, dword ptr [esi + 0x199c]
+004AFF41 83f80b               cmp      eax, 0xb
+004AFF44 0f8708010000         ja       0x4b0052
+004AFF4A 0fb6886c004b00       movzx    ecx, byte ptr [eax + 0x4b006c]
+004AFF51 bb01000000           mov      ebx, 1
+004AFF56 ff248d58004b00       jmp      dword ptr [ecx*4 + 0x4b0058]
+004AFF5D 881db0039a00         mov      byte ptr [0x9a03b0], bl
+004AFF63 881ddc039a00         mov      byte ptr [0x9a03dc], bl
+004AFF69 53                   push     ebx
+004AFF6A 881d58039a00         mov      byte ptr [0x9a0358], bl
+004AFF70 881d84039a00         mov      byte ptr [0x9a0384], bl
+004AFF76 8b16                 mov      edx, dword ptr [esi]
+004AFF78 68a9000000           push     0xa9
+004AFF7D 8bce                 mov      ecx, esi
+004AFF7F ff9288040000         call     dword ptr [edx + 0x488]
+004AFF85 8bc8                 mov      ecx, eax
+004AFF87 e8b4e4fcff           call     0x47e440
+004AFF8C 8b06                 mov      eax, dword ptr [esi]
+004AFF8E 53                   push     ebx
+004AFF8F 68af000000           push     0xaf
+004AFF94 8bce                 mov      ecx, esi
+004AFF96 ff9088040000         call     dword ptr [eax + 0x488]
+004AFF9C 8bc8                 mov      ecx, eax
+004AFF9E e89de4fcff           call     0x47e440
+004AFFA3 8b16                 mov      edx, dword ptr [esi]
+004AFFA5 53                   push     ebx
+004AFFA6 68b0000000           push     0xb0
+004AFFAB 8bce                 mov      ecx, esi
+004AFFAD ff9288040000         call     dword ptr [edx + 0x488]
+004AFFB3 8bc8                 mov      ecx, eax
+004AFFB5 e886e4fcff           call     0x47e440
+004AFFBA 8b06                 mov      eax, dword ptr [esi]
+004AFFBC 53                   push     ebx
+004AFFBD 68b4000000           push     0xb4
+004AFFC2 8bce                 mov      ecx, esi
+004AFFC4 ff9088040000         call     dword ptr [eax + 0x488]
+004AFFCA 8bc8                 mov      ecx, eax
+004AFFCC e86fe4fcff           call     0x47e440
+004AFFD1 5b                   pop      ebx
+004AFFD2 5e                   pop      esi
+004AFFD3 c3                   ret      
+004AFFD4 bb01000000           mov      ebx, 1
+004AFFD9 881d58039a00         mov      byte ptr [0x9a0358], bl
+004AFFDF 881d84039a00         mov      byte ptr [0x9a0384], bl
+004AFFE5 8b16                 mov      edx, dword ptr [esi]
+004AFFE7 53                   push     ebx
+004AFFE8 8bce                 mov      ecx, esi
+004AFFEA ff9230050000         call     dword ptr [edx + 0x530]
+004AFFF0 5b                   pop      ebx
+004AFFF1 5e                   pop      esi
+004AFFF2 c3                   ret      
+004AFFF3 8b86ec1a0000         mov      eax, dword ptr [esi + 0x1aec]
+004AFFF9 bb01000000           mov      ebx, 1
+004AFFFE 3bc3                 cmp      eax, ebx
+004B0000 7550                 jne      0x4b0052
+004B0002 8b86f01a0000         mov      eax, dword ptr [esi + 0x1af0]
+004B0008 3b86f41a0000         cmp      eax, dword ptr [esi + 0x1af4]
+004B000E 7d42                 jge      0x4b0052
+004B0010 8a864c1b0000         mov      al, byte ptr [esi + 0x1b4c]
+004B0016 84c0                 test     al, al
+004B0018 7538                 jne      0x4b0052
+004B001A 881d58039a00         mov      byte ptr [0x9a0358], bl
+004B0020 5b                   pop      ebx
+004B0021 5e                   pop      esi
+004B0022 c3                   ret      
+004B0023 8bb69c190000         mov      esi, dword ptr [esi + 0x199c]
+004B0029 85f6                 test     esi, esi
+004B002B bb01000000           mov      ebx, 1
+004B0030 740e                 je       0x4b0040
+004B0032 83fe0b               cmp      esi, 0xb
+004B0035 751b                 jne      0x4b0052
+004B0037 881d84039a00         mov      byte ptr [0x9a0384], bl
+004B003D 5b                   pop      ebx
+004B003E 5e                   pop      esi
+004B003F c3                   ret      
+004B0040 881db0039a00         mov      byte ptr [0x9a03b0], bl
+004B0046 881ddc039a00         mov      byte ptr [0x9a03dc], bl
+004B004C 881d84039a00         mov      byte ptr [0x9a0384], bl
+004B0052 5b                   pop      ebx
+004B0053 5e                   pop      esi
+004B0054 c3                   ret      
+004B0055 8d4900               lea      ecx, [ecx]
+004B0058 5d                   pop      ebp
+004B0059 ff4a00               dec      dword ptr [edx]
+004B005C f3ff4a00             dec      dword ptr [edx]
+004B0060 d4ff                 aam      0xff
+004B0062 4a                   dec      edx
+004B0063 0069ff               add      byte ptr [ecx - 1], ch
+004B0066 4a                   dec      edx
+004B0067 005200               add      byte ptr [edx], dl
+004B006A 4b                   dec      ebx
+004B006B 0000                 add      byte ptr [eax], al
+004B006D 0404                 add      al, 4
+004B006F 0404                 add      al, 4
+004B0071 0401                 add      al, 1
+004B0073 0402                 add      al, 2
+004B0075 0404                 add      al, 4
+004B0077 03cc                 add      ecx, esp
+004B0079 cc                   int3     
+004B007A cc                   int3     
+004B007B cc                   int3     
+004B007C cc                   int3     
+004B007D cc                   int3     
+004B007E cc                   int3     
+004B007F cc                   int3     

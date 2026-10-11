@@ -1,0 +1,64 @@
+
+  bytes   pages size description
+--------- ----- ---- --------------------------------------------
+ 44777472  5466 8192 allocating memory for b-tree...
+ 15171584  1852 8192 allocating memory for virtual array...
+   262144    32 8192 allocating memory for name pointers...
+-----------------------------------------------------------------
+ 60211200            total memory allocated
+
+Loading processor module G:\Program Files\IDA Professional 9.4\procs\pc.dll for metapc...OK
+Loading type libraries...
+Autoanalysis subsystem has been initialized.
+Database for file 'ARAD.exe' has been loaded.
+Hex-Rays Decompiler plugin has been loaded (v9.4.0.260714)
+  License: 14-0000-FFFF-88  (1 user)
+  The hotkeys are F5: decompile, Ctrl-F5: decompile all.
+
+  Please check the Edit/Plugins menu for more information.
+Hex-rays version 9.4.0.260714 has been detected, gooMBA plugin ready to use
+Using type parser: legacy
+The decompiler assumes that the segment '.idata' is read-only because of its NAME.
+All data references to the segment will be replaced by constant values.
+This may lead to drastic changes in the decompiler output.
+If the segment is not read-only, please change the segment NAME.
+
+In general, the decompiler checks the segment permissions, class, and name
+to determine if it is read-only.
+ -> OK
+408360: restored microcode from idb
+408360: restored pseudocode from idb
+433E90: restored microcode from idb
+433E90: restored pseudocode from idb
+4A0E80: restored microcode from idb
+4A0E80: restored pseudocode from idb
+4D0F00: restored microcode from idb
+4D0F00: restored pseudocode from idb
+The decompiler assumes that the segment '.rdata' is read-only because of its NAME.
+All data references to the segment will be replaced by constant values.
+This may lead to drastic changes in the decompiler output.
+If the segment is not read-only, please change the segment NAME.
+
+In general, the decompiler checks the segment permissions, class, and name
+to determine if it is read-only.
+ -> OK
+65E8A0: restored microcode from idb
+65E8A0: restored pseudocode from idb
+65F4A0: restored microcode from idb
+65F4A0: restored pseudocode from idb
+65FAF0: restored microcode from idb
+65FAF0: restored pseudocode from idb
+65FE10: restored microcode from idb
+65FE10: restored pseudocode from idb
+660D90: restored microcode from idb
+660D90: restored pseudocode from idb
+6794D4: restored microcode from idb
+6794D4: restored pseudocode from idb
+67BA36: restored microcode from idb
+67BA36: restored pseudocode from idb
+67BAC4: restored microcode from idb
+67BAC4: restored pseudocode from idb
+682953: restored microcode from idb
+682953: restored pseudocode from idb
+Flushing buffers, please wait...ok
+Unloading IDP module G:\Program Files\IDA Professional 9.4\procs\pc.dll...

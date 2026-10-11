@@ -1,0 +1,40 @@
+[name2]  `Cancel - Mach Kick`
+[purchase cost] 
+30
+[/purchase cost]
+[required level]  23			// ｽｺﾅｳﾀｻ ｹ霑�ｱ� ﾀｧﾇﾘ ﾇﾊｿ萇ﾑ ﾄｳｸｯﾅﾍﾀﾇ ﾃﾖｼﾒ ｷｹｺｧ.
+
+[type]  `[passive]`
+[skill class]  1
+[maximum level]  1
+[growtype maximum level]  1 1 1 1 1
+[skill fitness growtype] 
+0
+1
+2
+3
+4
+[/skill fitness growtype]
+[pre required skill] 
+7 5 //ｸｶﾇﾏﾅｱ ｷｹｺｧ 5
+[/pre required skill]
+[icon] 
+`Character/Gunner/Effect/SkillIcon.img` 62
+`Character/Gunner/Effect/SkillIcon.img` 63
+
+[command] 
+[/command]
+[static data] 
+[/static data]
+
+
+
+
+[name]  <12::name_15965>
+[explain] 
+<12::explain_15970>
+ 
+
+ 
+
+

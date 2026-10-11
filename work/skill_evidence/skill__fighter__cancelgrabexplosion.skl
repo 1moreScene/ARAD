@@ -1,0 +1,34 @@
+[purchase cost] 
+40
+[/purchase cost]
+[pre required skill] 			// ｽｺﾅｳﾀｻ ｹ霑�ｱ� ﾀｧﾇﾘ ｸﾕﾀ� ｹ霑ﾟ ﾇﾒ ｽｺﾅｳﾀﾇ ｸﾏ
+3 5	// ﾀﾏｹﾟﾈｭｾ狆ｺ 5ｷｾ
+[/pre required skill]
+[required level]  26			// ｽｺﾅｳﾀｻ ｹ霑�ｱ� ﾀｧﾇﾘ ﾇﾊｿ萇ﾑ ﾄｳｸｯﾅﾍﾀﾇ ﾃﾖｼﾒ ｷｹｺｧ.
+
+[type]  `[passive]`
+[skill class]  2
+[maximum level]  1
+[growtype maximum level]  0 0 0 1 0
+[skill fitness growtype] 
+3
+[/skill fitness growtype]
+[icon] 
+`Character/Fighter/Effect/SkillIcon.img` 104
+`Character/Fighter/Effect/SkillIcon.img` 105
+
+[static data] 
+[/static data]
+
+
+
+
+[name]  <12::name_14985>
+[explain] 
+<12::explain_14990>
+[name2]  <12::name2_14995>
+ 
+
+ 
+
+

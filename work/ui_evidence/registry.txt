@@ -1,0 +1,195 @@
+0041F2C0 push     ebp
+0041F2C1 mov      ebp, esp
+0041F2C3 push     -1
+0041F2C5 push     0x6a1eeb
+0041F2CA mov      eax, dword ptr fs:[0]
+0041F2D0 push     eax
+0041F2D1 mov      dword ptr fs:[0], esp
+0041F2D8 push     ecx
+0041F2D9 push     0x30
+0041F2DB call     0x668444
+0041F2E0 add      esp, 4
+0041F2E3 mov      dword ptr [ebp - 0x10], eax
+0041F2E6 test     eax, eax
+0041F2E8 mov      dword ptr [ebp - 4], 0
+0041F2EF je       0x41f2fa
+0041F2F1 mov      ecx, eax
+0041F2F3 call     0x41f190
+0041F2F8 jmp      0x41f2fc
+0041F2FA xor      eax, eax
+0041F2FC mov      ecx, dword ptr [0x79c0a4]
+0041F302 push     ecx
+0041F303 mov      ecx, eax
+0041F305 mov      dword ptr [ebp - 4], 0xffffffff
+0041F30C mov      dword ptr [0x99fcc8], eax
+0041F311 call     0x6990d0
+0041F316 mov      ecx, dword ptr [0x99fcc8]
+0041F31C push     0x6c360c
+0041F321 call     0x6992c0
+0041F326 mov      ecx, dword ptr [0x99fcc8]
+0041F32C push     0x6c35e4
+0041F331 call     0x6992c0
+0041F336 mov      ecx, dword ptr [0x99fcc8]
+0041F33C push     0x6c35bc
+0041F341 call     0x6992c0
+0041F346 mov      ecx, dword ptr [0x99fcc8]
+0041F34C push     0x6c35a0
+0041F351 call     0x6992c0
+0041F356 mov      ecx, dword ptr [0x99fcc8]
+0041F35C push     0x6c3574
+0041F361 call     0x6992c0
+0041F366 mov      ecx, dword ptr [0x99fcc8]
+0041F36C push     0x6c3548
+0041F371 call     0x6992c0
+0041F376 mov      ecx, dword ptr [0x99fcc8]
+0041F37C push     0x6c3520
+0041F381 call     0x6992c0
+0041F386 mov      ecx, dword ptr [0x99fcc8]
+0041F38C push     0x6c34f4
+0041F391 call     0x6992c0
+0041F396 mov      ecx, dword ptr [0x99fcc8]
+0041F39C push     0x6c34c8
+0041F3A1 call     0x6992c0
+0041F3A6 mov      ecx, dword ptr [0x99fcc8]
+0041F3AC push     0x6c34a0
+0041F3B1 call     0x6992c0
+0041F3B6 mov      ecx, dword ptr [0x99fcc8]
+0041F3BC push     0x6c347c
+0041F3C1 call     0x6992c0
+0041F3C6 mov      ecx, dword ptr [0x99fcc8]
+0041F3CC push     0x6c3458
+0041F3D1 call     0x6992c0
+0041F3D6 mov      ecx, dword ptr [0x99fcc8]
+0041F3DC push     0x6c342c
+0041F3E1 call     0x6992c0
+0041F3E6 mov      ecx, dword ptr [0x99fcc8]
+0041F3EC push     0x6c3408
+0041F3F1 call     0x6992c0
+0041F3F6 mov      ecx, dword ptr [0x99fcc8]
+0041F3FC push     0x6c33e4
+0041F401 call     0x6992c0
+0041F406 mov      ecx, dword ptr [0x99fcc8]
+0041F40C push     0x6c33c8
+0041F411 call     0x6992c0
+0041F416 mov      ecx, dword ptr [0x99fcc8]
+0041F41C push     0x6c33a0
+0041F421 call     0x6992c0
+0041F426 mov      ecx, dword ptr [0x99fcc8]
+0041F42C push     0x6c3380
+0041F431 call     0x6992c0
+0041F436 mov      ecx, dword ptr [0x99fcc8]
+0041F43C push     0x6c3364
+0041F441 call     0x6992c0
+0041F446 mov      ecx, dword ptr [0x99fcc8]
+0041F44C push     0x6c3340
+0041F451 call     0x6992c0
+0041F456 mov      ecx, dword ptr [0x99fcc8]
+0041F45C push     0x6c3314
+0041F461 call     0x6992c0
+0041F466 mov      ecx, dword ptr [0x99fcc8]
+0041F46C push     0x6c32f4
+0041F471 call     0x6992c0
+0041F476 mov      ecx, dword ptr [0x99fcc8]
+0041F47C push     0x6c32d0
+0041F481 call     0x6992c0
+0041F486 mov      ecx, dword ptr [0x99fcc8]
+0041F48C push     0x6c32b0
+0041F491 call     0x6992c0
+0041F496 mov      ecx, dword ptr [0x99fcc8]
+0041F49C push     0x6c3290
+0041F4A1 call     0x6992c0
+0041F4A6 mov      ecx, dword ptr [0x99fcc8]
+0041F4AC push     0x6c3274
+0041F4B1 call     0x6992c0
+0041F4B6 mov      ecx, dword ptr [0x99fcc8]
+0041F4BC push     0x6c3250
+0041F4C1 call     0x6992c0
+0041F4C6 mov      ecx, dword ptr [0x99fcc8]
+0041F4CC push     0x6c322c
+0041F4D1 call     0x6992c0
+0041F4D6 mov      ecx, dword ptr [0x99fcc8]
+0041F4DC push     0x6c320c
+0041F4E1 call     0x6992c0
+0041F4E6 mov      ecx, dword ptr [0x99fcc8]
+0041F4EC push     0x6c31ec
+0041F4F1 call     0x6992c0
+0041F4F6 mov      ecx, dword ptr [0x99fcc8]
+0041F4FC push     0x6c31d0
+0041F501 call     0x6992c0
+0041F506 mov      ecx, dword ptr [0x99fcc8]
+0041F50C push     0x6c31ac
+0041F511 call     0x6992c0
+0041F516 mov      ecx, dword ptr [0x99fcc8]
+0041F51C push     0x6c3184
+0041F521 call     0x6992c0
+0041F526 mov      ecx, dword ptr [0x99fcc8]
+0041F52C push     0x6c3164
+0041F531 call     0x6992c0
+0041F536 mov      ecx, dword ptr [0x99fcc8]
+0041F53C push     0x6c3138
+0041F541 call     0x6992c0
+0041F546 mov      ecx, dword ptr [0x99fcc8]
+0041F54C push     0x6c3114
+0041F551 call     0x6992c0
+0041F556 mov      ecx, dword ptr [0x99fcc8]
+0041F55C push     0x6c30ec
+0041F561 call     0x6992c0
+0041F566 mov      ecx, dword ptr [0x99fcc8]
+0041F56C push     0x6c30c8
+0041F571 call     0x6992c0
+0041F576 mov      ecx, dword ptr [0x99fcc8]
+0041F57C push     0x6c30a8
+0041F581 call     0x6992c0
+0041F586 mov      ecx, dword ptr [0x99fcc8]
+0041F58C push     0x6c307c
+0041F591 call     0x6992c0
+0041F596 mov      ecx, dword ptr [0x99fcc8]
+0041F59C push     0x6c3050
+0041F5A1 call     0x6992c0
+0041F5A6 mov      ecx, dword ptr [0x99fcc8]
+0041F5AC push     0x6c3020
+0041F5B1 call     0x6992c0
+0041F5B6 mov      ecx, dword ptr [0x99fcc8]
+0041F5BC push     0x6c2ff0
+0041F5C1 call     0x6992c0
+0041F5C6 mov      ecx, dword ptr [0x99fcc8]
+0041F5CC push     0x6c2fcc
+0041F5D1 call     0x6992c0
+0041F5D6 mov      ecx, dword ptr [0x99fcc8]
+0041F5DC push     0x6c2fa8
+0041F5E1 call     0x6992c0
+0041F5E6 mov      ecx, dword ptr [0x99fcc8]
+0041F5EC push     0x6c2f80
+0041F5F1 call     0x6992c0
+0041F5F6 mov      ecx, dword ptr [0x99fcc8]
+0041F5FC push     0x6c2f64
+0041F601 call     0x6992c0
+0041F606 mov      ecx, dword ptr [0x99fcc8]
+0041F60C push     0x6c2f44
+0041F611 call     0x6992c0
+0041F616 mov      ecx, dword ptr [0x99fcc8]
+0041F61C push     0x6c2f14
+0041F621 call     0x6992c0
+0041F626 mov      ecx, dword ptr [0x99fcc8]
+0041F62C push     0x6c2ee0
+0041F631 call     0x6992c0
+0041F636 mov      ecx, dword ptr [0x99fcc8]
+0041F63C push     0x6c2eb8
+0041F641 call     0x6992c0
+0041F646 mov      ecx, dword ptr [0x99fcc8]
+0041F64C push     0x6c2e90
+0041F651 call     0x6992c0
+0041F656 mov      ecx, dword ptr [0x99fcc8]
+0041F65C push     0x6c2e58
+0041F661 call     0x6992c0
+0041F666 mov      ecx, dword ptr [0x99fcc8]
+0041F66C push     0x6c2e38
+0041F671 call     0x6992c0
+0041F676 mov      ecx, dword ptr [0x99fcc8]
+0041F67C call     0x699100
+0041F681 mov      ecx, dword ptr [ebp - 0xc]
+0041F684 mov      dword ptr fs:[0], ecx
+0041F68B mov      esp, ebp
+0041F68D pop      ebp
+0041F68E ret      
+0041F68F int3     

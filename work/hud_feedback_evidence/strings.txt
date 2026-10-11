@@ -1,0 +1,74 @@
+00421300 push     ebp
+00421301 mov      ebp, esp
+00421303 sub      esp, 0x20
+00421306 push     ebx
+00421307 push     esi
+00421308 push     edi
+00421309 push     eax
+0042130A xor      eax, eax
+0042130C call     0x421311
+00421311 mov      eax, dword ptr [esp]
+00421314 mov      dword ptr [ebp - 4], eax
+00421317 pop      eax
+00421318 pop      eax
+00421319 mov      ecx, dword ptr [ebp - 4]
+0042131C push     0x1c
+0042131E lea      eax, [ebp - 0x20]
+00421321 push     eax
+00421322 push     ecx
+00421323 call     dword ptr [0x6c10b8]
+00421329 mov      ebx, dword ptr [ebp - 0x1c]
+0042132C push     0x6c3714
+00421331 push     0x73
+00421333 push     ebx
+00421334 call     dword ptr [0x6c10b4]
+0042133A mov      esi, eax
+0042133C test     esi, esi
+0042133E jne      0x42134a
+00421340 or       eax, 0xffffffff
+00421343 pop      edi
+00421344 pop      esi
+00421345 pop      ebx
+00421346 mov      esp, ebp
+00421348 pop      ebp
+00421349 ret      
+0042134A push     esi
+0042134B push     ebx
+0042134C call     dword ptr [0x6c10b0]
+00421352 mov      edi, eax
+00421354 test     edi, edi
+00421356 jne      0x421364
+00421358 mov      eax, 0xfffffffe
+0042135D pop      edi
+0042135E pop      esi
+0042135F pop      ebx
+00421360 mov      esp, ebp
+00421362 pop      ebp
+00421363 ret      
+00421364 push     esi
+00421365 push     ebx
+00421366 call     dword ptr [0x6c10ac]
+0042136C mov      edx, dword ptr [ebp + 8]
+0042136F push     0x6c16dc
+00421374 push     edx
+00421375 mov      ebx, eax
+00421377 call     0x66b88b
+0042137C mov      esi, eax
+0042137E push     esi
+0042137F push     1
+00421381 push     ebx
+00421382 push     edi
+00421383 call     0x66bc25
+00421388 push     esi
+00421389 call     0x66b780
+0042138E add      esp, 0x1c
+00421391 pop      edi
+00421392 pop      esi
+00421393 mov      eax, 1
+00421398 pop      ebx
+00421399 mov      esp, ebp
+0042139B pop      ebp
+0042139C ret      
+0042139D int3     
+0042139E int3     
+0042139F int3     

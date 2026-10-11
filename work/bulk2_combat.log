@@ -1,0 +1,375 @@
+
+  bytes   pages size description
+--------- ----- ---- --------------------------------------------
+ 34217984  4177 8192 allocating memory for b-tree...
+ 15171584  1852 8192 allocating memory for virtual array...
+   262144    32 8192 allocating memory for name pointers...
+-----------------------------------------------------------------
+ 49651712            total memory allocated
+
+Loading processor module G:\Program Files\IDA Professional 9.4\procs\pc.dll for metapc...OK
+Loading type libraries...
+Autoanalysis subsystem has been initialized.
+Database for file 'ARAD.exe' has been loaded.
+Hex-Rays Decompiler plugin has been loaded (v9.4.0.260714)
+  License: 14-0000-FFFF-88  (1 user)
+  The hotkeys are F5: decompile, Ctrl-F5: decompile all.
+
+  Please check the Edit/Plugins menu for more information.
+Hex-rays version 9.4.0.260714 has been detected, gooMBA plugin ready to use
+Using type parser: legacy
+E:\DOF LX\【40JP逆向源代码工程】\tools\idar_bulk_dump2.py:42: DeprecationWarning: get_func() is deprecated, use get_func_start or get_func_entry_info()
+  f = ida_funcs.get_func(ea)
+The decompiler assumes that the segment '.idata' is read-only because of its NAME.
+All data references to the segment will be replaced by constant values.
+This may lead to drastic changes in the decompiler output.
+If the segment is not read-only, please change the segment NAME.
+
+In general, the decompiler checks the segment permissions, class, and name
+to determine if it is read-only.
+ -> OK
+The decompiler assumes that the segment '.rdata' is read-only because of its NAME.
+All data references to the segment will be replaced by constant values.
+This may lead to drastic changes in the decompiler output.
+If the segment is not read-only, please change the segment NAME.
+
+In general, the decompiler checks the segment permissions, class, and name
+to determine if it is read-only.
+ -> OK
+423200: restored microcode from idb
+423200: restored pseudocode from idb
+423380: restored microcode from idb
+423380: restored pseudocode from idb
+4238E0: restored microcode from idb
+4238E0: restored pseudocode from idb
+423910: restored microcode from idb
+423910: restored pseudocode from idb
+423A80: restored microcode from idb
+423A80: restored pseudocode from idb
+424100: restored microcode from idb
+424100: restored pseudocode from idb
+424120: restored microcode from idb
+424120: restored pseudocode from idb
+424170: restored microcode from idb
+424170: restored pseudocode from idb
+424270: restored microcode from idb
+424270: restored pseudocode from idb
+424530: restored microcode from idb
+424530: restored pseudocode from idb
+424680: restored microcode from idb
+424680: restored pseudocode from idb
+424760: restored microcode from idb
+424760: restored pseudocode from idb
+424980: restored microcode from idb
+424980: restored pseudocode from idb
+424A40: restored microcode from idb
+424A40: restored pseudocode from idb
+424A60: restored microcode from idb
+424A60: restored pseudocode from idb
+424AB0: restored microcode from idb
+424AB0: restored pseudocode from idb
+424B40: restored microcode from idb
+424B40: restored pseudocode from idb
+424BB0: restored microcode from idb
+424BB0: restored pseudocode from idb
+424C50: restored microcode from idb
+424C50: restored pseudocode from idb
+424D80: restored microcode from idb
+424D80: restored pseudocode from idb
+424EA0: restored microcode from idb
+424EA0: restored pseudocode from idb
+424F00: restored microcode from idb
+424F00: restored pseudocode from idb
+4253E0: restored microcode from idb
+4253E0: restored pseudocode from idb
+425570: restored microcode from idb
+425570: restored pseudocode from idb
+425A30: restored microcode from idb
+425A30: restored pseudocode from idb
+426820: restored microcode from idb
+426820: restored pseudocode from idb
+426BD0: restored microcode from idb
+426BD0: restored pseudocode from idb
+426D20: restored microcode from idb
+426D20: restored pseudocode from idb
+4271B0: restored microcode from idb
+4271B0: restored pseudocode from idb
+428050: restored microcode from idb
+428050: restored pseudocode from idb
+428F30: restored microcode from idb
+428F30: restored pseudocode from idb
+4290D0: restored microcode from idb
+4290D0: restored pseudocode from idb
+42A510: restored microcode from idb
+42A510: restored pseudocode from idb
+42A5B0: restored microcode from idb
+42A5B0: restored pseudocode from idb
+42A5C0: restored microcode from idb
+42A5C0: restored pseudocode from idb
+42A5D0: restored microcode from idb
+42A5D0: restored pseudocode from idb
+42A5F0: restored microcode from idb
+42A5F0: restored pseudocode from idb
+42A620: restored microcode from idb
+42A620: restored pseudocode from idb
+42A640: restored microcode from idb
+42A640: restored pseudocode from idb
+42A670: restored microcode from idb
+42A670: restored pseudocode from idb
+42A6A0: restored microcode from idb
+42A6A0: restored pseudocode from idb
+42A6E0: restored microcode from idb
+42A6E0: restored pseudocode from idb
+42A730: restored microcode from idb
+42A730: restored pseudocode from idb
+42A790: restored microcode from idb
+42A790: restored pseudocode from idb
+42A7D0: restored microcode from idb
+42A7D0: restored pseudocode from idb
+42A7E0: restored microcode from idb
+42A7E0: restored pseudocode from idb
+42A7F0: restored microcode from idb
+42A7F0: restored pseudocode from idb
+42A810: restored microcode from idb
+42A810: restored pseudocode from idb
+42A830: restored microcode from idb
+42A830: restored pseudocode from idb
+42A840: restored microcode from idb
+42A840: restored pseudocode from idb
+42A860: restored microcode from idb
+42A860: restored pseudocode from idb
+42A880: restored microcode from idb
+42A880: restored pseudocode from idb
+42A8A0: restored microcode from idb
+42A8A0: restored pseudocode from idb
+42A8D0: restored microcode from idb
+42A8D0: restored pseudocode from idb
+42A930: restored microcode from idb
+42A930: restored pseudocode from idb
+42A970: restored microcode from idb
+42A970: restored pseudocode from idb
+42ABC0: restored microcode from idb
+42ABC0: restored pseudocode from idb
+42AF90: restored microcode from idb
+42AF90: restored pseudocode from idb
+42B1E0: restored microcode from idb
+42B1E0: restored pseudocode from idb
+42B420: restored microcode from idb
+42B420: restored pseudocode from idb
+42B7E0: restored microcode from idb
+42B7E0: restored pseudocode from idb
+42C710: restored microcode from idb
+42C710: restored pseudocode from idb
+42CC40: restored microcode from idb
+42CC40: restored pseudocode from idb
+42D6A0: restored microcode from idb
+42D6A0: restored pseudocode from idb
+42F250: restored microcode from idb
+42F250: restored pseudocode from idb
+42F910: restored microcode from idb
+42F910: restored pseudocode from idb
+42FCB0: restored microcode from idb
+42FCB0: restored pseudocode from idb
+42FDA0: restored microcode from idb
+42FDA0: restored pseudocode from idb
+431230: restored microcode from idb
+431230: restored pseudocode from idb
+4319E0: restored microcode from idb
+4319E0: restored pseudocode from idb
+432CF0: restored microcode from idb
+432CF0: restored pseudocode from idb
+432D70: restored microcode from idb
+432D70: restored pseudocode from idb
+432EA0: restored microcode from idb
+432EA0: restored pseudocode from idb
+432F40: restored microcode from idb
+432F40: restored pseudocode from idb
+4335D0: restored microcode from idb
+4335D0: restored pseudocode from idb
+433640: restored microcode from idb
+433640: restored pseudocode from idb
+433690: restored microcode from idb
+433690: restored pseudocode from idb
+435850: restored microcode from idb
+435850: restored pseudocode from idb
+436310: restored microcode from idb
+436310: restored pseudocode from idb
+43B5A0: restored microcode from idb
+43B5A0: restored pseudocode from idb
+43BCF0: restored microcode from idb
+43BCF0: restored pseudocode from idb
+43BEE0: restored microcode from idb
+43BEE0: restored pseudocode from idb
+43C410: restored microcode from idb
+43C410: restored pseudocode from idb
+4423D0: restored microcode from idb
+4423D0: restored pseudocode from idb
+442480: restored microcode from idb
+442480: restored pseudocode from idb
+442E10: restored microcode from idb
+442E10: restored pseudocode from idb
+443370: restored microcode from idb
+443370: restored pseudocode from idb
+444B60: restored microcode from idb
+444B60: restored pseudocode from idb
+444C20: restored microcode from idb
+444C20: restored pseudocode from idb
+444C60: restored microcode from idb
+444C60: restored pseudocode from idb
+445B90: restored microcode from idb
+445B90: restored pseudocode from idb
+44A9A0: restored microcode from idb
+44A9A0: restored pseudocode from idb
+44B6C0: restored microcode from idb
+44B6C0: restored pseudocode from idb
+44D530: restored microcode from idb
+44D530: restored pseudocode from idb
+44E0D0: restored microcode from idb
+44E0D0: restored pseudocode from idb
+44E850: restored microcode from idb
+44E850: restored pseudocode from idb
+44E8D0: restored microcode from idb
+44E8D0: restored pseudocode from idb
+44FF60: restored microcode from idb
+44FF60: restored pseudocode from idb
+450130: restored microcode from idb
+450130: restored pseudocode from idb
+450340: restored microcode from idb
+450340: restored pseudocode from idb
+4504F0: restored microcode from idb
+4504F0: restored pseudocode from idb
+450620: restored microcode from idb
+450620: restored pseudocode from idb
+450970: restored microcode from idb
+450970: restored pseudocode from idb
+453DD0: restored microcode from idb
+453DD0: restored pseudocode from idb
+454BC0: restored microcode from idb
+454BC0: restored pseudocode from idb
+454F00: restored microcode from idb
+454F00: restored pseudocode from idb
+457160: restored microcode from idb
+457160: restored pseudocode from idb
+457370: restored microcode from idb
+457370: restored pseudocode from idb
+4575F0: restored microcode from idb
+4575F0: restored pseudocode from idb
+457890: restored microcode from idb
+457890: restored pseudocode from idb
+457AA0: restored microcode from idb
+457AA0: restored pseudocode from idb
+457CB0: restored microcode from idb
+457CB0: restored pseudocode from idb
+4581C0: restored microcode from idb
+4581C0: restored pseudocode from idb
+4587C0: restored microcode from idb
+4587C0: restored pseudocode from idb
+458930: restored microcode from idb
+458930: restored pseudocode from idb
+459ED0: restored microcode from idb
+459ED0: restored pseudocode from idb
+45D890: restored microcode from idb
+45D890: restored pseudocode from idb
+45EC70: restored microcode from idb
+45EC70: restored pseudocode from idb
+45ED10: restored microcode from idb
+45ED10: restored pseudocode from idb
+45FE80: restored microcode from idb
+45FE80: restored pseudocode from idb
+4600B0: restored microcode from idb
+4600B0: restored pseudocode from idb
+4611D0: restored microcode from idb
+4611D0: restored pseudocode from idb
+461C20: restored microcode from idb
+461C20: restored pseudocode from idb
+462A90: restored microcode from idb
+462A90: restored pseudocode from idb
+462FD0: restored microcode from idb
+462FD0: restored pseudocode from idb
+4665D0: restored microcode from idb
+4665D0: restored pseudocode from idb
+466BA0: restored microcode from idb
+466BA0: restored pseudocode from idb
+4684F0: restored microcode from idb
+4684F0: restored pseudocode from idb
+469DD0: restored microcode from idb
+469DD0: restored pseudocode from idb
+46B310: restored microcode from idb
+46B310: restored pseudocode from idb
+46BD70: restored microcode from idb
+46BD70: restored pseudocode from idb
+46D4A0: restored microcode from idb
+46D4A0: restored pseudocode from idb
+46F0E0: restored microcode from idb
+46F0E0: restored pseudocode from idb
+46F990: restored microcode from idb
+46F990: restored pseudocode from idb
+470ED0: restored microcode from idb
+470ED0: restored pseudocode from idb
+471DB0: restored microcode from idb
+471DB0: restored pseudocode from idb
+475810: restored microcode from idb
+475810: restored pseudocode from idb
+476000: restored microcode from idb
+476000: restored pseudocode from idbIDA has found an unpacked version of database: E:\DOF LX\【40JP逆向源代码工程】\work\ARAD_work3.i64
+on the disk.
+It appears IDA did not close properly;
+it is probably safer to restart your work from the packed database -> ~R~estore packed base
+E:\DOF LX\【40JP逆向源代码工程】\work\ARAD_work3.id0: Permission denied -> OK
+Database initialization failed with error 4
+Open database failed with result: 4
+ -> OK
+476F50: restored microcode from idb
+476F50: restored pseudocode from idb
+477060: restored microcode from idb
+477060: restored pseudocode from idb
+4773E0: restored microcode from idb
+4773E0: restored pseudocode from idb
+47DC00: restored microcode from idb
+47DC00: restored pseudocode from idb
+47E4F0: restored microcode from idb
+47E4F0: restored pseudocode from idb
+47E9D0: restored microcode from idb
+47E9D0: restored pseudocode from idb
+47EFD0: restored microcode from idb
+47EFD0: restored pseudocode from idb
+5144A0: restored microcode from idb
+5144A0: restored pseudocode from idb
+529D20: restored microcode from idb
+529D20: restored pseudocode from idb
+52CA40: restored microcode from idb
+52CA40: restored pseudocode from idb
+52D550: restored microcode from idb
+52D550: restored pseudocode from idb
+52D5A0: restored microcode from idb
+52D5A0: restored pseudocode from idb
+52D6D0: restored microcode from idb
+52D6D0: restored pseudocode from idb
+52D720: restored microcode from idb
+52D720: restored pseudocode from idb
+52D860: restored microcode from idb
+52D860: restored pseudocode from idb
+52D8F0: restored microcode from idb
+52D8F0: restored pseudocode from idb
+52D920: restored microcode from idb
+52D920: restored pseudocode from idb
+52D940: restored microcode from idb
+52D940: restored pseudocode from idb
+52DAD0: restored microcode from idb
+52DAD0: restored pseudocode from idb
+52DBC0: restored microcode from idb
+52DBC0: restored pseudocode from idb
+52DC70: restored microcode from idb
+52DC70: restored pseudocode from idb
+52DE60: restored microcode from idb
+52DE60: restored pseudocode from idb
+52E020: restored microcode from idb
+52E020: restored pseudocode from idb
+52E1C0: restored microcode from idb
+52E1C0: restored pseudocode from idb
+53F720: restored microcode from idb
+53F720: restored pseudocode from idb
+53FB90: restored microcode from idb
+53FB90: restored pseudocode from idb
+Flushing buffers, please wait...ok
+Unloading IDP module G:\Program Files\IDA Professional 9.4\procs\pc.dll...

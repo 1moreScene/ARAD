@@ -1,0 +1,138 @@
+0058BDF0 cwde     
+0058BDF1 mov      dword ptr [ebp - 4], eax
+0058BDF4 call     0x423a20
+0058BDF9 mov      eax, dword ptr [ebx + 0x1c54]
+0058BDFF test     eax, eax
+0058BE01 je       0x58bf14
+0058BE07 mov      edx, dword ptr [ebx]
+0058BE09 push     eax
+0058BE0A mov      ecx, ebx
+0058BE0C call     dword ptr [edx + 0x4dc]
+0058BE12 test     al, al
+0058BE14 je       0x58bf14
+0058BE1A mov      eax, dword ptr [ebx]
+0058BE1C push     esi
+0058BE1D push     edi
+0058BE1E push     0x72bd20
+0058BE23 mov      ecx, ebx
+0058BE25 call     dword ptr [eax + 0x24c]
+0058BE2B mov      esi, eax
+0058BE2D mov      ecx, 0x18
+0058BE32 lea      edi, [ebp - 0x68]
+0058BE35 rep movsd dword ptr es:[edi], dword ptr [esi]
+0058BE37 movsw    word ptr es:[edi], word ptr [esi]
+0058BE39 mov      ecx, dword ptr [ebp - 0x49]
+0058BE3C lea      edx, [ecx + ecx]
+0058BE3F mov      dword ptr [ebp - 0x6c], edx
+0058BE42 fild     dword ptr [ebp - 0x6c]
+0058BE45 fidiv    dword ptr [ebp - 0x24]
+0058BE48 fmul     qword ptr [0x72bd18]
+0058BE4E call     0x66c544
+0058BE53 mov      ecx, dword ptr [ebx + 0x1c54]
+0058BE59 push     0
+0058BE5B mov      esi, eax
+0058BE5D mov      eax, dword ptr [ebx]
+0058BE5F push     ecx
+0058BE60 mov      ecx, ebx
+0058BE62 shl      esi, 1
+0058BE64 call     dword ptr [eax + 0xa4]
+0058BE6A call     0x66c544
+0058BE6F mov      edx, dword ptr [ebx]
+0058BE71 mov      dword ptr [ebp - 0x20], eax
+0058BE74 mov      eax, dword ptr [ebx + 0x1c54]
+0058BE7A push     0
+0058BE7C push     eax
+0058BE7D mov      ecx, ebx
+0058BE7F call     dword ptr [edx + 8]
+0058BE82 imul     eax, eax, 0x3e8
+0058BE88 cdq      
+0058BE89 idiv     esi
+0058BE8B mov      edx, dword ptr [ebx]
+0058BE8D push     0
+0058BE8F mov      ecx, ebx
+0058BE91 mov      dword ptr [ebp - 0x59], eax
+0058BE94 mov      eax, dword ptr [ebx + 0x1c54]
+0058BE9A push     eax
+0058BE9B call     dword ptr [edx + 8]
+0058BE9E imul     eax, eax, 0x3e8
+0058BEA4 cdq      
+0058BEA5 idiv     esi
+0058BEA7 mov      edx, dword ptr [ebx]
+0058BEA9 push     0
+0058BEAB mov      ecx, ebx
+0058BEAD mov      dword ptr [ebp - 0x55], eax
+0058BEB0 mov      eax, dword ptr [ebx + 0x1c54]
+0058BEB6 push     eax
+0058BEB7 call     dword ptr [edx + 8]
+0058BEBA cmp      eax, 0x64
+0058BEBD pop      edi
+0058BEBE pop      esi
+0058BEBF jge      0x58bec8
+0058BEC1 mov      eax, 0x64
+0058BEC6 jmp      0x58bede
+0058BEC8 xor      ecx, ecx
+0058BECA cmp      eax, 0xc8
+0058BECF setge    cl
+0058BED2 dec      ecx
+0058BED3 and      ecx, 0xffffff9c
+0058BED6 add      ecx, 0x12c
+0058BEDC mov      eax, ecx
+0058BEDE mov      edx, dword ptr [ebx]
+0058BEE0 mov      ecx, ebx
+0058BEE2 mov      dword ptr [ebp - 0x49], eax
+0058BEE5 call     dword ptr [edx + 0x134]
+0058BEEB test     al, al
+0058BEED je       0x58bf14
+0058BEEF mov      eax, dword ptr [ebx]
+0058BEF1 push     0
+0058BEF3 push     0
+0058BEF5 push     0
+0058BEF7 push     1
+0058BEF9 push     0x28
+0058BEFB push     0
+0058BEFD push     0x14
+0058BEFF push     0
+0058BF01 lea      ecx, [ebp - 0x68]
+0058BF04 push     ecx
+0058BF05 push     0
+0058BF07 push     0x7589
+0058BF0C mov      ecx, ebx
+0058BF0E call     dword ptr [eax + 0x244]
+0058BF14 mov      ecx, dword ptr [ebp - 4]
+0058BF17 pop      ebx
+0058BF18 call     0x66b49b
+0058BF1D mov      esp, ebp
+0058BF1F pop      ebp
+0058BF20 ret      
+0058BF21 int3     
+0058BF22 int3     
+0058BF23 int3     
+0058BF24 int3     
+0058BF25 int3     
+0058BF26 int3     
+0058BF27 int3     
+0058BF28 int3     
+0058BF29 int3     
+0058BF2A int3     
+0058BF2B int3     
+0058BF2C int3     
+0058BF2D int3     
+0058BF2E int3     
+0058BF2F int3     
+0058BF30 mov      dword ptr [ecx + 0x21ac], 1
+0058BF3A ret      
+0058BF3B int3     
+0058BF3C int3     
+0058BF3D int3     
+0058BF3E int3     
+0058BF3F int3     
+0058BF40 push     ebp
+0058BF41 mov      ebp, esp
+0058BF43 sub      esp, 0x6c
+0058BF46 mov      eax, dword ptr [0x796e50]
+0058BF4B push     ebx
+0058BF4C mov      ebx, ecx
+0058BF4E lea      ecx, [ebp - 0x68]
+0058BF51 mov      dword ptr [ebp - 4], eax
+0058BF54 call     0x423a20
+0058BF59 mov      eax, dword ptr [ebx + 0x1c54]

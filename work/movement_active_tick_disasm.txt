@@ -1,0 +1,708 @@
+ARAD.exe size=3948544 sha256=09d45918d5ca7d67532329f4fa8ac2c5519454ebe4615c3c0ddb27e33a34e4ed
+0058FC30 55                   push     ebp
+0058FC31 8bec                 mov      ebp, esp
+0058FC33 6aff                 push     -1
+0058FC35 68b8576b00           push     0x6b57b8
+0058FC3A 64a100000000         mov      eax, dword ptr fs:[0]
+0058FC40 50                   push     eax
+0058FC41 64892500000000       mov      dword ptr fs:[0], esp
+0058FC48 83ec24               sub      esp, 0x24
+0058FC4B 53                   push     ebx
+0058FC4C 56                   push     esi
+0058FC4D 57                   push     edi
+0058FC4E 8bf1                 mov      esi, ecx
+0058FC50 e8bb57f5ff           call     0x4e5410
+0058FC55 8b86a0000000         mov      eax, dword ptr [esi + 0xa0]
+0058FC5B 83cbff               or       ebx, 0xffffffff
+0058FC5E 33ff                 xor      edi, edi
+0058FC60 3bc3                 cmp      eax, ebx
+0058FC62 754c                 jne      0x58fcb0
+0058FC64 8b8e10180000         mov      ecx, dword ptr [esi + 0x1810]
+0058FC6A 3bcf                 cmp      ecx, edi
+0058FC6C 7416                 je       0x58fc84
+0058FC6E 6a02                 push     2
+0058FC70 57                   push     edi
+0058FC71 e84a28f0ff           call     0x4924c0
+0058FC76 50                   push     eax
+0058FC77 e8641cf0ff           call     0x4918e0
+0058FC7C 8986a0000000         mov      dword ptr [esi + 0xa0], eax
+0058FC82 eb29                 jmp      0x58fcad
+0058FC84 83be3801000010       cmp      dword ptr [esi + 0x138], 0x10
+0058FC8B 7208                 jb       0x58fc95
+0058FC8D 8b8624010000         mov      eax, dword ptr [esi + 0x124]
+0058FC93 eb06                 jmp      0x58fc9b
+0058FC95 8d8624010000         lea      eax, [esi + 0x124]
+0058FC9B 50                   push     eax
+0058FC9C 6898d47200           push     0x72d498
+0058FCA1 ff15fcf37700         call     dword ptr [0x77f3fc]
+0058FCA7 89bea0000000         mov      dword ptr [esi + 0xa0], edi
+0058FCAD 83c408               add      esp, 8
+0058FCB0 8b06                 mov      eax, dword ptr [esi]
+0058FCB2 8bce                 mov      ecx, esi
+0058FCB4 ff9034010000         call     dword ptr [eax + 0x134]
+0058FCBA 84c0                 test     al, al
+0058FCBC 0f8422010000         je       0x58fde4
+0058FCC2 8b16                 mov      edx, dword ptr [esi]
+0058FCC4 8bce                 mov      ecx, esi
+0058FCC6 ff92d4020000         call     dword ptr [edx + 0x2d4]
+0058FCCC 84c0                 test     al, al
+0058FCCE 0f8410010000         je       0x58fde4
+0058FCD4 8b8e9c190000         mov      ecx, dword ptr [esi + 0x199c]
+0058FCDA 83f904               cmp      ecx, 4
+0058FCDD 0f8401010000         je       0x58fde4
+0058FCE3 8b8668020000         mov      eax, dword ptr [esi + 0x268]
+0058FCE9 83f804               cmp      eax, 4
+0058FCEC 0f84f2000000         je       0x58fde4
+0058FCF2 83f905               cmp      ecx, 5
+0058FCF5 0f84e9000000         je       0x58fde4
+0058FCFB 83f805               cmp      eax, 5
+0058FCFE 0f84e0000000         je       0x58fde4
+0058FD04 83f909               cmp      ecx, 9
+0058FD07 0f84d7000000         je       0x58fde4
+0058FD0D 83f809               cmp      eax, 9
+0058FD10 0f84ce000000         je       0x58fde4
+0058FD16 897de4               mov      dword ptr [ebp - 0x1c], edi
+0058FD19 897de8               mov      dword ptr [ebp - 0x18], edi
+0058FD1C 897dec               mov      dword ptr [ebp - 0x14], edi
+0058FD1F 39be24180000         cmp      dword ptr [esi + 0x1824], edi
+0058FD25 897dfc               mov      dword ptr [ebp - 4], edi
+0058FD28 7464                 je       0x58fd8e
+0058FD2A 8d45f0               lea      eax, [ebp - 0x10]
+0058FD2D 50                   push     eax
+0058FD2E 8d4de0               lea      ecx, [ebp - 0x20]
+0058FD31 c745f004000000       mov      dword ptr [ebp - 0x10], 4
+0058FD38 e8f314eaff           call     0x431230
+0058FD3D 8d4df0               lea      ecx, [ebp - 0x10]
+0058FD40 51                   push     ecx
+0058FD41 8d4de0               lea      ecx, [ebp - 0x20]
+0058FD44 897df0               mov      dword ptr [ebp - 0x10], edi
+0058FD47 e8e414eaff           call     0x431230
+0058FD4C 8d55f0               lea      edx, [ebp - 0x10]
+0058FD4F 52                   push     edx
+0058FD50 8d4de0               lea      ecx, [ebp - 0x20]
+0058FD53 c745f001000000       mov      dword ptr [ebp - 0x10], 1
+0058FD5A e8d114eaff           call     0x431230
+0058FD5F 68fcd37200           push     0x72d3fc
+0058FD64 8d4de0               lea      ecx, [ebp - 0x20]
+0058FD67 e8c414eaff           call     0x431230
+0058FD6C 6800d47200           push     0x72d400
+0058FD71 8d4de0               lea      ecx, [ebp - 0x20]
+0058FD74 e8b714eaff           call     0x431230
+0058FD79 8b06                 mov      eax, dword ptr [esi]
+0058FD7B 57                   push     edi
+0058FD7C 6a02                 push     2
+0058FD7E 8d4de0               lea      ecx, [ebp - 0x20]
+0058FD81 51                   push     ecx
+0058FD82 6a04                 push     4
+0058FD84 8bce                 mov      ecx, esi
+0058FD86 ff9030020000         call     dword ptr [eax + 0x230]
+0058FD8C eb4b                 jmp      0x58fdd9
+0058FD8E 8b16                 mov      edx, dword ptr [esi]
+0058FD90 6811020000           push     0x211
+0058FD95 8bce                 mov      ecx, esi
+0058FD97 ff5228               call     dword ptr [edx + 0x28]
+0058FD9A 84c0                 test     al, al
+0058FD9C 7409                 je       0x58fda7
+0058FD9E c745f002000000       mov      dword ptr [ebp - 0x10], 2
+0058FDA5 eb13                 jmp      0x58fdba
+0058FDA7 8b16                 mov      edx, dword ptr [esi]
+0058FDA9 6811010000           push     0x111
+0058FDAE 8bce                 mov      ecx, esi
+0058FDB0 ff5228               call     dword ptr [edx + 0x28]
+0058FDB3 84c0                 test     al, al
+0058FDB5 740f                 je       0x58fdc6
+0058FDB7 897df0               mov      dword ptr [ebp - 0x10], edi
+0058FDBA 8d45f0               lea      eax, [ebp - 0x10]
+0058FDBD 8d4de0               lea      ecx, [ebp - 0x20]
+0058FDC0 50                   push     eax
+0058FDC1 e86a14eaff           call     0x431230
+0058FDC6 8b16                 mov      edx, dword ptr [esi]
+0058FDC8 57                   push     edi
+0058FDC9 6a02                 push     2
+0058FDCB 8d45e0               lea      eax, [ebp - 0x20]
+0058FDCE 50                   push     eax
+0058FDCF 6a05                 push     5
+0058FDD1 8bce                 mov      ecx, esi
+0058FDD3 ff9230020000         call     dword ptr [edx + 0x230]
+0058FDD9 8d4de0               lea      ecx, [ebp - 0x20]
+0058FDDC 895dfc               mov      dword ptr [ebp - 4], ebx
+0058FDDF e87c540500           call     0x5e5260
+0058FDE4 8b16                 mov      edx, dword ptr [esi]
+0058FDE6 8bce                 mov      ecx, esi
+0058FDE8 ff92d4020000         call     dword ptr [edx + 0x2d4]
+0058FDEE 84c0                 test     al, al
+0058FDF0 740b                 je       0x58fdfd
+0058FDF2 8b06                 mov      eax, dword ptr [esi]
+0058FDF4 57                   push     edi
+0058FDF5 8bce                 mov      ecx, esi
+0058FDF7 ff9054020000         call     dword ptr [eax + 0x254]
+0058FDFD 8bce                 mov      ecx, esi
+0058FDFF e81c5bf0ff           call     0x495920
+0058FE04 8b16                 mov      edx, dword ptr [esi]
+0058FE06 8bce                 mov      ecx, esi
+0058FE08 ff92c0030000         call     dword ptr [edx + 0x3c0]
+0058FE0E 399ec8190000         cmp      dword ptr [esi + 0x19c8], ebx
+0058FE14 7431                 je       0x58fe47
+0058FE16 8d4e08               lea      ecx, [esi + 8]
+0058FE19 e8e2911000           call     0x699000
+0058FE1E 8b8ec8190000         mov      ecx, dword ptr [esi + 0x19c8]
+0058FE24 81c1e8030000         add      ecx, 0x3e8
+0058FE2A 3bc1                 cmp      eax, ecx
+0058FE2C 7e19                 jle      0x58fe47
+0058FE2E 8d8ef4170000         lea      ecx, [esi + 0x17f4]
+0058FE34 e8a7a7e8ff           call     0x41a5e0
+0058FE39 8b16                 mov      edx, dword ptr [esi]
+0058FE3B 57                   push     edi
+0058FE3C 6a01                 push     1
+0058FE3E 50                   push     eax
+0058FE3F 8bce                 mov      ecx, esi
+0058FE41 ff92d8020000         call     dword ptr [edx + 0x2d8]
+0058FE47 399ecc190000         cmp      dword ptr [esi + 0x19cc], ebx
+0058FE4D 7430                 je       0x58fe7f
+0058FE4F 8d4e08               lea      ecx, [esi + 8]
+0058FE52 e8a9911000           call     0x699000
+0058FE57 8b8ecc190000         mov      ecx, dword ptr [esi + 0x19cc]
+0058FE5D 81c1e8030000         add      ecx, 0x3e8
+0058FE63 3bc1                 cmp      eax, ecx
+0058FE65 7e18                 jle      0x58fe7f
+0058FE67 8d8e02180000         lea      ecx, [esi + 0x1802]
+0058FE6D e86ea7e8ff           call     0x41a5e0
+0058FE72 8b16                 mov      edx, dword ptr [esi]
+0058FE74 6a01                 push     1
+0058FE76 50                   push     eax
+0058FE77 8bce                 mov      ecx, esi
+0058FE79 ff92e8020000         call     dword ptr [edx + 0x2e8]
+0058FE7F 8dbe54180000         lea      edi, [esi + 0x1854]
+0058FE85 bb11000000           mov      ebx, 0x11
+0058FE8A 8d9b00000000         lea      ebx, [ebx]
+0058FE90 8b07                 mov      eax, dword ptr [edi]
+0058FE92 85c0                 test     eax, eax
+0058FE94 7412                 je       0x58fea8
+0058FE96 8bc8                 mov      ecx, eax
+0058FE98 8b01                 mov      eax, dword ptr [ecx]
+0058FE9A ff5018               call     dword ptr [eax + 0x18]
+0058FE9D 84c0                 test     al, al
+0058FE9F 7407                 je       0x58fea8
+0058FEA1 8b0f                 mov      ecx, dword ptr [edi]
+0058FEA3 8b11                 mov      edx, dword ptr [ecx]
+0058FEA5 ff522c               call     dword ptr [edx + 0x2c]
+0058FEA8 83c704               add      edi, 4
+0058FEAB 4b                   dec      ebx
+0058FEAC 75e2                 jne      0x58fe90
+0058FEAE 8b8e98180000         mov      ecx, dword ptr [esi + 0x1898]
+0058FEB4 e84700fbff           call     0x53ff00
+0058FEB9 8b06                 mov      eax, dword ptr [esi]
+0058FEBB 6a02                 push     2
+0058FEBD 8bce                 mov      ecx, esi
+0058FEBF ff90a4020000         call     dword ptr [eax + 0x2a4]
+0058FEC5 8b86f4190000         mov      eax, dword ptr [esi + 0x19f4]
+0058FECB 33db                 xor      ebx, ebx
+0058FECD 3bc3                 cmp      eax, ebx
+0058FECF 741e                 je       0x58feef
+0058FED1 8b16                 mov      edx, dword ptr [esi]
+0058FED3 50                   push     eax
+0058FED4 8bce                 mov      ecx, esi
+0058FED6 ff92d0030000         call     dword ptr [edx + 0x3d0]
+0058FEDC 3b86fc190000         cmp      eax, dword ptr [esi + 0x19fc]
+0058FEE2 740b                 je       0x58feef
+0058FEE4 8b16                 mov      edx, dword ptr [esi]
+0058FEE6 50                   push     eax
+0058FEE7 8bce                 mov      ecx, esi
+0058FEE9 ff92d4030000         call     dword ptr [edx + 0x3d4]
+0058FEEF 8b86f8190000         mov      eax, dword ptr [esi + 0x19f8]
+0058FEF5 3bc3                 cmp      eax, ebx
+0058FEF7 741e                 je       0x58ff17
+0058FEF9 8b16                 mov      edx, dword ptr [esi]
+0058FEFB 50                   push     eax
+0058FEFC 8bce                 mov      ecx, esi
+0058FEFE ff92d0030000         call     dword ptr [edx + 0x3d0]
+0058FF04 3b86001a0000         cmp      eax, dword ptr [esi + 0x1a00]
+0058FF0A 740b                 je       0x58ff17
+0058FF0C 8b16                 mov      edx, dword ptr [esi]
+0058FF0E 50                   push     eax
+0058FF0F 8bce                 mov      ecx, esi
+0058FF11 ff92d8030000         call     dword ptr [edx + 0x3d8]
+0058FF17 8b06                 mov      eax, dword ptr [esi]
+0058FF19 8bce                 mov      ecx, esi
+0058FF1B ff90cc030000         call     dword ptr [eax + 0x3cc]
+0058FF21 8b16                 mov      edx, dword ptr [esi]
+0058FF23 8bce                 mov      ecx, esi
+0058FF25 ff92b8000000         call     dword ptr [edx + 0xb8]
+0058FF2B 8bf8                 mov      edi, eax
+0058FF2D 8b06                 mov      eax, dword ptr [esi]
+0058FF2F 8bce                 mov      ecx, esi
+0058FF31 ff90bc000000         call     dword ptr [eax + 0xbc]
+0058FF37 8b8e9c190000         mov      ecx, dword ptr [esi + 0x199c]
+0058FF3D 83f908               cmp      ecx, 8
+0058FF40 0f8742090000         ja       0x590888
+0058FF46 ff248d9c085900       jmp      dword ptr [ecx*4 + 0x59089c]
+0058FF4D 399ec8000000         cmp      dword ptr [esi + 0xc8], ebx
+0058FF53 0f852f090000         jne      0x590888
+0058FF59 83ff04               cmp      edi, 4
+0058FF5C 756a                 jne      0x58ffc8
+0058FF5E 3bc7                 cmp      eax, edi
+0058FF60 7566                 jne      0x58ffc8
+0058FF62 8a86601a0000         mov      al, byte ptr [esi + 0x1a60]
+0058FF68 84c0                 test     al, al
+0058FF6A 0f8518090000         jne      0x590888
+0058FF70 8b16                 mov      edx, dword ptr [esi]
+0058FF72 68e8030000           push     0x3e8
+0058FF77 68e8030000           push     0x3e8
+0058FF7C 53                   push     ebx
+0058FF7D 6a01                 push     1
+0058FF7F 8bce                 mov      ecx, esi
+0058FF81 c686601a000001       mov      byte ptr [esi + 0x1a60], 1
+0058FF88 ff9278030000         call     dword ptr [edx + 0x378]
+0058FF8E 8b8e10180000         mov      ecx, dword ptr [esi + 0x1810]
+0058FF94 8b06                 mov      eax, dword ptr [esi]
+0058FF96 51                   push     ecx
+0058FF97 8bce                 mov      ecx, esi
+0058FF99 ff90c4000000         call     dword ptr [eax + 0xc4]
+0058FF9F 8b4e78               mov      ecx, dword ptr [esi + 0x78]
+0058FFA2 3bcb                 cmp      ecx, ebx
+0058FFA4 7405                 je       0x58ffab
+0058FFA6 e8f526f0ff           call     0x4926a0
+0058FFAB 8b16                 mov      edx, dword ptr [esi]
+0058FFAD 6a01                 push     1
+0058FFAF 8bce                 mov      ecx, esi
+0058FFB1 ff92d8000000         call     dword ptr [edx + 0xd8]
+0058FFB7 5f                   pop      edi
+0058FFB8 5e                   pop      esi
+0058FFB9 5b                   pop      ebx
+0058FFBA 8b4df4               mov      ecx, dword ptr [ebp - 0xc]
+0058FFBD 64890d00000000       mov      dword ptr fs:[0], ecx
+0058FFC4 8be5                 mov      esp, ebp
+0058FFC6 5d                   pop      ebp
+0058FFC7 c3                   ret      
+0058FFC8 8a86601a0000         mov      al, byte ptr [esi + 0x1a60]
+0058FFCE 84c0                 test     al, al
+0058FFD0 0f84ab000000         je       0x590081
+0058FFD6 8b06                 mov      eax, dword ptr [esi]
+0058FFD8 68e8030000           push     0x3e8
+0058FFDD 68e8030000           push     0x3e8
+0058FFE2 6a01                 push     1
+0058FFE4 6a01                 push     1
+0058FFE6 8bce                 mov      ecx, esi
+0058FFE8 c686601a000000       mov      byte ptr [esi + 0x1a60], 0
+0058FFEF ff9078030000         call     dword ptr [eax + 0x378]
+0058FFF5 8b8614180000         mov      eax, dword ptr [esi + 0x1814]
+0058FFFB 8b16                 mov      edx, dword ptr [esi]
+0058FFFD 50                   push     eax
+0058FFFE 8bce                 mov      ecx, esi
+00590000 ff92c4000000         call     dword ptr [edx + 0xc4]
+00590006 8b4e78               mov      ecx, dword ptr [esi + 0x78]
+00590009 3bcb                 cmp      ecx, ebx
+0059000B 7405                 je       0x590012
+0059000D e88e26f0ff           call     0x4926a0
+00590012 8b16                 mov      edx, dword ptr [esi]
+00590014 6811010000           push     0x111
+00590019 8bce                 mov      ecx, esi
+0059001B ff5228               call     dword ptr [edx + 0x28]
+0059001E 84c0                 test     al, al
+00590020 745f                 je       0x590081
+00590022 391d2c019a00         cmp      dword ptr [0x9a012c], ebx
+00590028 8bce                 mov      ecx, esi
+0059002A 7413                 je       0x59003f
+0059002C 8b06                 mov      eax, dword ptr [esi]
+0059002E 53                   push     ebx
+0059002F 53                   push     ebx
+00590030 6a01                 push     1
+00590032 6884d47200           push     0x72d484
+00590037 ff90d4000000         call     dword ptr [eax + 0xd4]
+0059003D eb42                 jmp      0x590081
+0059003F 8b16                 mov      edx, dword ptr [esi]
+00590041 ff5250               call     dword ptr [edx + 0x50]
+00590044 8b8084000000         mov      eax, dword ptr [eax + 0x84]
+0059004A 8b406c               mov      eax, dword ptr [eax + 0x6c]
+0059004D 8b00                 mov      eax, dword ptr [eax]
+0059004F 83f80b               cmp      eax, 0xb
+00590052 7c1a                 jl       0x59006e
+00590054 83f81a               cmp      eax, 0x1a
+00590057 7f15                 jg       0x59006e
+00590059 8b06                 mov      eax, dword ptr [esi]
+0059005B 53                   push     ebx
+0059005C 53                   push     ebx
+0059005D 6a01                 push     1
+0059005F 6898426c00           push     0x6c4298
+00590064 8bce                 mov      ecx, esi
+00590066 ff90d4000000         call     dword ptr [eax + 0xd4]
+0059006C eb13                 jmp      0x590081
+0059006E 8b16                 mov      edx, dword ptr [esi]
+00590070 53                   push     ebx
+00590071 53                   push     ebx
+00590072 6a01                 push     1
+00590074 6874d47200           push     0x72d474
+00590079 8bce                 mov      ecx, esi
+0059007B ff92d4000000         call     dword ptr [edx + 0xd4]
+00590081 83beb01b000007       cmp      dword ptr [esi + 0x1bb0], 7
+00590088 0f85fa070000         jne      0x590888
+0059008E 395e74               cmp      dword ptr [esi + 0x74], ebx
+00590091 0f84f1070000         je       0x590888
+00590097 8d8ecc1b0000         lea      ecx, [esi + 0x1bcc]
+0059009D 894df0               mov      dword ptr [ebp - 0x10], ecx
+005900A0 e83bc6e8ff           call     0x41c6e0
+005900A5 84c0                 test     al, al
+005900A7 0f84db070000         je       0x590888
+005900AD 8b06                 mov      eax, dword ptr [esi]
+005900AF 6a02                 push     2
+005900B1 8bce                 mov      ecx, esi
+005900B3 ff909c030000         call     dword ptr [eax + 0x39c]
+005900B9 8b16                 mov      edx, dword ptr [esi]
+005900BB 8b3c8570828f00       mov      edi, dword ptr [eax*4 + 0x8f8270]
+005900C2 8bce                 mov      ecx, esi
+005900C4 ff9298000000         call     dword ptr [edx + 0x98]
+005900CA 8bd8                 mov      ebx, eax
+005900CC 8b07                 mov      eax, dword ptr [edi]
+005900CE f7db                 neg      ebx
+005900D0 1adb                 sbb      bl, bl
+005900D2 8bcf                 mov      ecx, edi
+005900D4 fec3                 inc      bl
+005900D6 ff501c               call     dword ptr [eax + 0x1c]
+005900D9 885854               mov      byte ptr [eax + 0x54], bl
+005900DC 8b16                 mov      edx, dword ptr [esi]
+005900DE 8b1f                 mov      ebx, dword ptr [edi]
+005900E0 8bce                 mov      ecx, esi
+005900E2 ff9280000000         call     dword ptr [edx + 0x80]
+005900E8 50                   push     eax
+005900E9 8b06                 mov      eax, dword ptr [esi]
+005900EB 8bce                 mov      ecx, esi
+005900ED ff507c               call     dword ptr [eax + 0x7c]
+005900F0 8b16                 mov      edx, dword ptr [esi]
+005900F2 50                   push     eax
+005900F3 8bce                 mov      ecx, esi
+005900F5 ff5278               call     dword ptr [edx + 0x78]
+005900F8 50                   push     eax
+005900F9 8bcf                 mov      ecx, edi
+005900FB ff5328               call     dword ptr [ebx + 0x28]
+005900FE 8b07                 mov      eax, dword ptr [edi]
+00590100 33db                 xor      ebx, ebx
+00590102 53                   push     ebx
+00590103 8bcf                 mov      ecx, edi
+00590105 ff500c               call     dword ptr [eax + 0xc]
+00590108 8b17                 mov      edx, dword ptr [edi]
+0059010A 8d45d0               lea      eax, [ebp - 0x30]
+0059010D 50                   push     eax
+0059010E 8bcf                 mov      ecx, edi
+00590110 ff525c               call     dword ptr [edx + 0x5c]
+00590113 8d4dd0               lea      ecx, [ebp - 0x30]
+00590116 51                   push     ecx
+00590117 8b4e74               mov      ecx, dword ptr [esi + 0x74]
+0059011A 53                   push     ebx
+0059011B 6a02                 push     2
+0059011D c745fc01000000       mov      dword ptr [ebp - 4], 1
+00590124 e887ffecff           call     0x4600b0
+00590129 8b4df0               mov      ecx, dword ptr [ebp - 0x10]
+0059012C 53                   push     ebx
+0059012D 68c8000000           push     0xc8
+00590132 88590d               mov      byte ptr [ecx + 0xd], bl
+00590135 88590e               mov      byte ptr [ecx + 0xe], bl
+00590138 e8538e1000           call     0x698f90
+0059013D 8d4dd0               lea      ecx, [ebp - 0x30]
+00590140 e81b510500           call     0x5e5260
+00590145 5f                   pop      edi
+00590146 5e                   pop      esi
+00590147 5b                   pop      ebx
+00590148 8b4df4               mov      ecx, dword ptr [ebp - 0xc]
+0059014B 64890d00000000       mov      dword ptr fs:[0], ecx
+00590152 8be5                 mov      esp, ebp
+00590154 5d                   pop      ebp
+00590155 c3                   ret      
+00590156 8d8ea0190000         lea      ecx, [esi + 0x19a0]
+0059015C e89f8e1000           call     0x699000
+00590161 3b86681a0000         cmp      eax, dword ptr [esi + 0x1a68]
+00590167 0f8c1b070000         jl       0x590888
+0059016D 8b06                 mov      eax, dword ptr [esi]
+0059016F 6a03                 push     3
+00590171 8bce                 mov      ecx, esi
+00590173 ff9008030000         call     dword ptr [eax + 0x308]
+00590179 84c0                 test     al, al
+0059017B 8bce                 mov      ecx, esi
+0059017D 53                   push     ebx
+0059017E 740a                 je       0x59018a
+00590180 6a02                 push     2
+00590182 53                   push     ebx
+00590183 6a09                 push     9
+00590185 e9f6060000           jmp      0x590880
+0059018A 8b06                 mov      eax, dword ptr [esi]
+0059018C 53                   push     ebx
+0059018D 53                   push     ebx
+0059018E 53                   push     ebx
+0059018F ff9030020000         call     dword ptr [eax + 0x230]
+00590195 5f                   pop      edi
+00590196 5e                   pop      esi
+00590197 5b                   pop      ebx
+00590198 8b4df4               mov      ecx, dword ptr [ebp - 0xc]
+0059019B 64890d00000000       mov      dword ptr fs:[0], ecx
+005901A2 8be5                 mov      esp, ebp
+005901A4 5d                   pop      ebp
+005901A5 c3                   ret      
+005901A6 8b16                 mov      edx, dword ptr [esi]
+005901A8 8bce                 mov      ecx, esi
+005901AA ff9280000000         call     dword ptr [edx + 0x80]
+005901B0 3b86a81a0000         cmp      eax, dword ptr [esi + 0x1aa8]
+005901B6 7e10                 jle      0x5901c8
+005901B8 8b06                 mov      eax, dword ptr [esi]
+005901BA 8bce                 mov      ecx, esi
+005901BC ff9080000000         call     dword ptr [eax + 0x80]
+005901C2 8986a81a0000         mov      dword ptr [esi + 0x1aa8], eax
+005901C8 8b86b01a0000         mov      eax, dword ptr [esi + 0x1ab0]
+005901CE 3bc3                 cmp      eax, ebx
+005901D0 0f8597010000         jne      0x59036d
+005901D6 8b4e70               mov      ecx, dword ptr [esi + 0x70]
+005901D9 d94118               fld      dword ptr [ecx + 0x18]
+005901DC 8b4e78               mov      ecx, dword ptr [esi + 0x78]
+005901DF 3bcb                 cmp      ecx, ebx
+005901E1 742e                 je       0x590211
+005901E3 dc1d08196c00         fcomp    qword ptr [0x6c1908]
+005901E9 8b9194000000         mov      edx, dword ptr [ecx + 0x94]
+005901EF dfe0                 fnstsw   ax
+005901F1 f6c441               test     ah, 0x41
+005901F4 741d                 je       0x590213
+005901F6 8b86881a0000         mov      eax, dword ptr [esi + 0x1a88]
+005901FC 3bd0                 cmp      edx, eax
+005901FE 7513                 jne      0x590213
+00590200 3b868c1a0000         cmp      eax, dword ptr [esi + 0x1a8c]
+00590206 740b                 je       0x590213
+00590208 40                   inc      eax
+00590209 50                   push     eax
+0059020A e8d1eaf1ff           call     0x4aece0
+0059020F eb02                 jmp      0x590213
+00590211 ddd8                 fstp     st(0)
+00590213 8b5670               mov      edx, dword ptr [esi + 0x70]
+00590216 8b82b8000000         mov      eax, dword ptr [edx + 0xb8]
+0059021C bb04000000           mov      ebx, 4
+00590221 83cfff               or       edi, 0xffffffff
+00590224 3bc3                 cmp      eax, ebx
+00590226 754d                 jne      0x590275
+00590228 39beac1a0000         cmp      dword ptr [esi + 0x1aac], edi
+0059022E 7445                 je       0x590275
+00590230 8b06                 mov      eax, dword ptr [esi]
+00590232 8bce                 mov      ecx, esi
+00590234 ff5078               call     dword ptr [eax + 0x78]
+00590237 3986ac1a0000         cmp      dword ptr [esi + 0x1aac], eax
+0059023D 7436                 je       0x590275
+0059023F 8b8ea41a0000         mov      ecx, dword ptr [esi + 0x1aa4]
+00590245 b899999999           mov      eax, 0x99999999
+0059024A f7e9                 imul     ecx
+0059024C d1fa                 sar      edx, 1
+0059024E 8bc2                 mov      eax, edx
+00590250 c1e81f               shr      eax, 0x1f
+00590253 03c2                 add      eax, edx
+00590255 8945f0               mov      dword ptr [ebp - 0x10], eax
+00590258 51                   push     ecx
+00590259 db45f0               fild     dword ptr [ebp - 0x10]
+0059025C 8b4e70               mov      ecx, dword ptr [esi + 0x70]
+0059025F 8986a41a0000         mov      dword ptr [esi + 0x1aa4], eax
+00590265 d91c24               fstp     dword ptr [esp]
+00590268 6a00                 push     0
+0059026A e8b14cf0ff           call     0x494f20
+0059026F 89beac1a0000         mov      dword ptr [esi + 0x1aac], edi
+00590275 8b16                 mov      edx, dword ptr [esi]
+00590277 8bce                 mov      ecx, esi
+00590279 ff9234010000         call     dword ptr [edx + 0x134]
+0059027F 84c0                 test     al, al
+00590281 0f8401060000         je       0x590888
+00590287 8b4e70               mov      ecx, dword ptr [esi + 0x70]
+0059028A d94118               fld      dword ptr [ecx + 0x18]
+0059028D d81d3c276c00         fcomp    dword ptr [0x6c273c]
+00590293 dfe0                 fnstsw   ax
+00590295 f6c405               test     ah, 5
+00590298 0f8aea050000         jp       0x590888
+0059029E 3999c0000000         cmp      dword ptr [ecx + 0xc0], ebx
+005902A4 0f85de050000         jne      0x590888
+005902AA 8b8ec8000000         mov      ecx, dword ptr [esi + 0xc8]
+005902B0 33c0                 xor      eax, eax
+005902B2 3bc8                 cmp      ecx, eax
+005902B4 0f85ce050000         jne      0x590888
+005902BA 39be201a0000         cmp      dword ptr [esi + 0x1a20], edi
+005902C0 7424                 je       0x5902e6
+005902C2 8d4e40               lea      ecx, [esi + 0x40]
+005902C5 e8368d1000           call     0x699000
+005902CA 3b86201a0000         cmp      eax, dword ptr [esi + 0x1a20]
+005902D0 7c12                 jl       0x5902e4
+005902D2 8b06                 mov      eax, dword ptr [esi]
+005902D4 8bce                 mov      ecx, esi
+005902D6 ff90d4020000         call     dword ptr [eax + 0x2d4]
+005902DC 84c0                 test     al, al
+005902DE 0f8470020000         je       0x590554
+005902E4 33c0                 xor      eax, eax
+005902E6 8945e4               mov      dword ptr [ebp - 0x1c], eax
+005902E9 8945e8               mov      dword ptr [ebp - 0x18], eax
+005902EC 8945ec               mov      dword ptr [ebp - 0x14], eax
+005902EF 8d4df0               lea      ecx, [ebp - 0x10]
+005902F2 51                   push     ecx
+005902F3 8d4de0               lea      ecx, [ebp - 0x20]
+005902F6 c745fc02000000       mov      dword ptr [ebp - 4], 2
+005902FD 895df0               mov      dword ptr [ebp - 0x10], ebx
+00590300 e82b0feaff           call     0x431230
+00590305 8d55f0               lea      edx, [ebp - 0x10]
+00590308 52                   push     edx
+00590309 8d4de0               lea      ecx, [ebp - 0x20]
+0059030C c745f001000000       mov      dword ptr [ebp - 0x10], 1
+00590313 e8180feaff           call     0x431230
+00590318 8d45f0               lea      eax, [ebp - 0x10]
+0059031B 50                   push     eax
+0059031C 8d4de0               lea      ecx, [ebp - 0x20]
+0059031F c745f000000000       mov      dword ptr [ebp - 0x10], 0
+00590326 e8050feaff           call     0x431230
+0059032B 8d8ea41a0000         lea      ecx, [esi + 0x1aa4]
+00590331 51                   push     ecx
+00590332 8d4de0               lea      ecx, [ebp - 0x20]
+00590335 e8f60eeaff           call     0x431230
+0059033A 8b8ea81a0000         mov      ecx, dword ptr [esi + 0x1aa8]
+00590340 b867666666           mov      eax, 0x66666667
+00590345 f7e9                 imul     ecx
+00590347 d1fa                 sar      edx, 1
+00590349 8bc2                 mov      eax, edx
+0059034B c1e81f               shr      eax, 0x1f
+0059034E 8d4df0               lea      ecx, [ebp - 0x10]
+00590351 03c2                 add      eax, edx
+00590353 51                   push     ecx
+00590354 8d4de0               lea      ecx, [ebp - 0x20]
+00590357 8945f0               mov      dword ptr [ebp - 0x10], eax
+0059035A e8d10eeaff           call     0x431230
+0059035F 6a00                 push     0
+00590361 6a02                 push     2
+00590363 8d45e0               lea      eax, [ebp - 0x20]
+00590366 50                   push     eax
+00590367 53                   push     ebx
+00590368 e964040000           jmp      0x5907d1
+0059036D 83f801               cmp      eax, 1
+00590370 0f853a010000         jne      0x5904b0
+00590376 8b4e70               mov      ecx, dword ptr [esi + 0x70]
+00590379 d94118               fld      dword ptr [ecx + 0x18]
+0059037C 8b4e78               mov      ecx, dword ptr [esi + 0x78]
+0059037F 3bcb                 cmp      ecx, ebx
+00590381 742e                 je       0x5903b1
+00590383 dc1d08196c00         fcomp    qword ptr [0x6c1908]
+00590389 8b9194000000         mov      edx, dword ptr [ecx + 0x94]
+0059038F dfe0                 fnstsw   ax
+00590391 f6c441               test     ah, 0x41
+00590394 741d                 je       0x5903b3
+00590396 8b86901a0000         mov      eax, dword ptr [esi + 0x1a90]
+0059039C 3bd0                 cmp      edx, eax
+0059039E 7513                 jne      0x5903b3
+005903A0 3b86941a0000         cmp      eax, dword ptr [esi + 0x1a94]
+005903A6 740b                 je       0x5903b3
+005903A8 40                   inc      eax
+005903A9 50                   push     eax
+005903AA e831e9f1ff           call     0x4aece0
+005903AF eb02                 jmp      0x5903b3
+005903B1 ddd8                 fstp     st(0)
+005903B3 8b16                 mov      edx, dword ptr [esi]
+005903B5 8bce                 mov      ecx, esi
+005903B7 ff9234010000         call     dword ptr [edx + 0x134]
+005903BD 84c0                 test     al, al
+005903BF 0f84c3040000         je       0x590888
+005903C5 8b4e70               mov      ecx, dword ptr [esi + 0x70]
+005903C8 d94118               fld      dword ptr [ecx + 0x18]
+005903CB d81d3c276c00         fcomp    dword ptr [0x6c273c]
+005903D1 dfe0                 fnstsw   ax
+005903D3 f6c405               test     ah, 5
+005903D6 0f8aac040000         jp       0x590888
+005903DC 8b81c0000000         mov      eax, dword ptr [ecx + 0xc0]
+005903E2 bf04000000           mov      edi, 4
+005903E7 3bc7                 cmp      eax, edi
+005903E9 0f8599040000         jne      0x590888
+005903EF 399ec8000000         cmp      dword ptr [esi + 0xc8], ebx
+005903F5 0f858d040000         jne      0x590888
+005903FB 83be201a0000ff       cmp      dword ptr [esi + 0x1a20], -1
+00590402 7422                 je       0x590426
+00590404 8d4e40               lea      ecx, [esi + 0x40]
+00590407 e8f48b1000           call     0x699000
+0059040C 3b86201a0000         cmp      eax, dword ptr [esi + 0x1a20]
+00590412 7c12                 jl       0x590426
+00590414 8b06                 mov      eax, dword ptr [esi]
+00590416 8bce                 mov      ecx, esi
+00590418 ff90d4020000         call     dword ptr [eax + 0x2d4]
+0059041E 84c0                 test     al, al
+00590420 0f842e010000         je       0x590554
+00590426 895de4               mov      dword ptr [ebp - 0x1c], ebx
+00590429 895de8               mov      dword ptr [ebp - 0x18], ebx
+0059042C 895dec               mov      dword ptr [ebp - 0x14], ebx
+0059042F 8d4df0               lea      ecx, [ebp - 0x10]
+00590432 51                   push     ecx
+00590433 8d4de0               lea      ecx, [ebp - 0x20]
+00590436 c745fc03000000       mov      dword ptr [ebp - 4], 3
+0059043D 897df0               mov      dword ptr [ebp - 0x10], edi
+00590440 e8eb0deaff           call     0x431230
+00590445 8d55f0               lea      edx, [ebp - 0x10]
+00590448 52                   push     edx
+00590449 8d4de0               lea      ecx, [ebp - 0x20]
+0059044C c745f002000000       mov      dword ptr [ebp - 0x10], 2
+00590453 e8d80deaff           call     0x431230
+00590458 8d45f0               lea      eax, [ebp - 0x10]
+0059045B 50                   push     eax
+0059045C 8d4de0               lea      ecx, [ebp - 0x20]
+0059045F 895df0               mov      dword ptr [ebp - 0x10], ebx
+00590462 e8c90deaff           call     0x431230
+00590467 8d4df0               lea      ecx, [ebp - 0x10]
+0059046A 51                   push     ecx
+0059046B 8d4de0               lea      ecx, [ebp - 0x20]
+0059046E 895df0               mov      dword ptr [ebp - 0x10], ebx
+00590471 e8ba0deaff           call     0x431230
+00590476 8d55f0               lea      edx, [ebp - 0x10]
+00590479 52                   push     edx
+0059047A 8d4de0               lea      ecx, [ebp - 0x20]
+0059047D 895df0               mov      dword ptr [ebp - 0x10], ebx
+00590480 e8ab0deaff           call     0x431230
+00590485 8b06                 mov      eax, dword ptr [esi]
+00590487 53                   push     ebx
+00590488 6a02                 push     2
+0059048A 8d4de0               lea      ecx, [ebp - 0x20]
+0059048D 51                   push     ecx
+0059048E 57                   push     edi
+0059048F 8bce                 mov      ecx, esi
+00590491 ff9030020000         call     dword ptr [eax + 0x230]
+00590497 8d4de0               lea      ecx, [ebp - 0x20]
+0059049A e8c14d0500           call     0x5e5260
+0059049F 5f                   pop      edi
+005904A0 5e                   pop      esi
+005904A1 5b                   pop      ebx
+005904A2 8b4df4               mov      ecx, dword ptr [ebp - 0xc]
+005904A5 64890d00000000       mov      dword ptr fs:[0], ecx
+005904AC 8be5                 mov      esp, ebp
+005904AE 5d                   pop      ebp
+005904AF c3                   ret      
+005904B0 83f802               cmp      eax, 2
+005904B3 0f85cf030000         jne      0x590888
+005904B9 8b16                 mov      edx, dword ptr [esi]
+005904BB 8bce                 mov      ecx, esi
+005904BD ff9234010000         call     dword ptr [edx + 0x134]
+005904C3 84c0                 test     al, al
+005904C5 0f84bd030000         je       0x590888
+005904CB 8b06                 mov      eax, dword ptr [esi]
+005904CD 8bce                 mov      ecx, esi
+005904CF ff90d4020000         call     dword ptr [eax + 0x2d4]
+005904D5 84c0                 test     al, al
+005904D7 7449                 je       0x590522
+005904D9 8b8668020000         mov      eax, dword ptr [esi + 0x268]
+005904DF 83f805               cmp      eax, 5
+005904E2 743e                 je       0x590522
+005904E4 83f804               cmp      eax, 4
+005904E7 7439                 je       0x590522
+005904E9 399ec8000000         cmp      dword ptr [esi + 0xc8], ebx
+005904EF 7531                 jne      0x590522
+005904F1 895de4               mov      dword ptr [ebp - 0x1c], ebx
+005904F4 895de8               mov      dword ptr [ebp - 0x18], ebx
+005904F7 895dec               mov      dword ptr [ebp - 0x14], ebx
+005904FA 8d4df0               lea      ecx, [ebp - 0x10]
+005904FD 51                   push     ecx
+005904FE 8d4de0               lea      ecx, [ebp - 0x20]
+00590501 c745fc04000000       mov      dword ptr [ebp - 4], 4
+00590508 c745f001000000       mov      dword ptr [ebp - 0x10], 1
+0059050F e81c0deaff           call     0x431230
+00590514 53                   push     ebx
+00590515 6a02                 push     2
+00590517 8d45e0               lea      eax, [ebp - 0x20]
+0059051A 50                   push     eax
+0059051B 6a05                 push     5
+0059051D e9af020000           jmp      0x5907d1
+00590522 8b4678               mov      eax, dword ptr [esi + 0x78]
+00590525 3bc3                 cmp      eax, ebx
+00590527 740a                 je       0x590533
+00590529 8a88aa000000         mov      cl, byte ptr [eax + 0xaa]
+0059052F 84c9                 test     cl, cl
+00590531 7521                 jne      0x590554
+00590533 83be201a0000ff       cmp      dword ptr [esi + 0x1a20], -1
+0059053A 0f8448030000         je       0x590888

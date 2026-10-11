@@ -1,0 +1,245 @@
+004919D0 push     ebp
+004919D1 mov      ebp, esp
+004919D3 sub      esp, 0x1c
+004919D6 push     edi
+004919D7 mov      edi, ecx
+004919D9 mov      al, byte ptr [edi + 0x60]
+004919DC test     al, al
+004919DE je       0x491c01
+004919E4 mov      eax, dword ptr [edi + 0x2c]
+004919E7 test     eax, eax
+004919E9 jne      0x4919ef
+004919EB xor      ecx, ecx
+004919ED jmp      0x491a05
+004919EF mov      ecx, dword ptr [edi + 0x30]
+004919F2 sub      ecx, eax
+004919F4 mov      eax, 0x2e8ba2e9
+004919F9 imul     ecx
+004919FB sar      edx, 4
+004919FE mov      ecx, edx
+00491A00 shr      ecx, 0x1f
+00491A03 add      ecx, edx
+00491A05 mov      eax, dword ptr [edi + 0x94]
+00491A0B dec      ecx
+00491A0C cmp      eax, ecx
+00491A0E push     ebx
+00491A0F jne      0x491a26
+00491A11 mov      cl, byte ptr [edi + 0xa0]
+00491A17 test     cl, cl
+00491A19 je       0x491c00
+00491A1F mov      ecx, dword ptr [edi + 0x2c]
+00491A22 mov      ebx, ecx
+00491A24 jmp      0x491a31
+00491A26 mov      ecx, dword ptr [edi + 0x2c]
+00491A29 lea      ebx, [eax + 1]
+00491A2C imul     ebx, ebx, 0x58
+00491A2F add      ebx, ecx
+00491A31 imul     eax, eax, 0x58
+00491A34 add      eax, ecx
+00491A36 mov      ecx, dword ptr [edi + 0xd4]
+00491A3C test     ecx, ecx
+00491A3E mov      dword ptr [ebp - 4], eax
+00491A41 je       0x491a4a
+00491A43 call     0x4910a0
+00491A48 jmp      0x491a4d
+00491A4A mov      eax, dword ptr [edi + 0x20]
+00491A4D mov      ecx, dword ptr [edi + 0x98]
+00491A53 mov      edx, dword ptr [ebp - 4]
+00491A56 push     esi
+00491A57 mov      esi, dword ptr [edi + 0x9c]
+00491A5D sub      eax, ecx
+00491A5F sub      esi, ecx
+00491A61 mov      ecx, dword ptr [ebx + 0xc]
+00491A64 mov      dword ptr [ebp - 0xc], ecx
+00491A67 mov      ecx, dword ptr [edx + 0xc]
+00491A6A fild     dword ptr [ebp - 0xc]
+00491A6D push     esi
+00491A6E push     eax
+00491A6F sub      esp, 8
+00491A72 fstp     dword ptr [esp + 4]
+00491A76 mov      dword ptr [ebp - 0x10], ecx
+00491A79 fild     dword ptr [ebp - 0x10]
+00491A7C mov      dword ptr [ebp - 8], eax
+00491A7F fstp     dword ptr [esp]
+00491A82 call     0x4049c0
+00491A87 add      esp, 0x10
+00491A8A call     0x66c544
+00491A8F mov      dword ptr [edi + 0x48], eax
+00491A92 mov      edx, dword ptr [ebx + 0x10]
+00491A95 mov      eax, dword ptr [ebp - 4]
+00491A98 mov      ecx, dword ptr [eax + 0x10]
+00491A9B mov      dword ptr [ebp - 0x10], edx
+00491A9E mov      edx, dword ptr [ebp - 8]
+00491AA1 fild     dword ptr [ebp - 0x10]
+00491AA4 push     esi
+00491AA5 push     edx
+00491AA6 sub      esp, 8
+00491AA9 fstp     dword ptr [esp + 4]
+00491AAD mov      dword ptr [ebp - 0xc], ecx
+00491AB0 fild     dword ptr [ebp - 0xc]
+00491AB3 fstp     dword ptr [esp]
+00491AB6 call     0x4049c0
+00491ABB call     0x66c544
+00491AC0 mov      edx, dword ptr [ebp - 4]
+00491AC3 mov      dword ptr [edi + 0x4c], eax
+00491AC6 mov      eax, dword ptr [ebp - 8]
+00491AC9 mov      ecx, dword ptr [ebx + 0x14]
+00491ACC push     esi
+00491ACD push     eax
+00491ACE mov      eax, dword ptr [edx + 0x14]
+00491AD1 push     ecx
+00491AD2 push     eax
+00491AD3 call     0x4049c0
+00491AD8 fstp     dword ptr [edi + 0x50]
+00491ADB mov      ecx, dword ptr [ebp - 8]
+00491ADE mov      edx, dword ptr [ebx + 0x18]
+00491AE1 mov      eax, dword ptr [ebp - 4]
+00491AE4 push     esi
+00491AE5 push     ecx
+00491AE6 mov      ecx, dword ptr [eax + 0x18]
+00491AE9 push     edx
+00491AEA push     ecx
+00491AEB call     0x4049c0
+00491AF0 fstp     dword ptr [edi + 0x54]
+00491AF3 mov      edx, dword ptr [ebp - 8]
+00491AF6 mov      eax, dword ptr [ebx + 0x1c]
+00491AF9 mov      ecx, dword ptr [ebp - 4]
+00491AFC push     esi
+00491AFD push     edx
+00491AFE mov      edx, dword ptr [ecx + 0x1c]
+00491B01 push     eax
+00491B02 push     edx
+00491B03 call     0x4049c0
+00491B08 fstp     dword ptr [edi + 0x58]
+00491B0B movzx    eax, byte ptr [ebx + 0x20]
+00491B0F mov      ecx, dword ptr [ebp - 4]
+00491B12 movzx    edx, byte ptr [ecx + 0x20]
+00491B16 add      esp, 0x40
+00491B19 mov      dword ptr [ebp - 0x10], eax
+00491B1C mov      eax, dword ptr [ebp - 8]
+00491B1F push     esi
+00491B20 fild     dword ptr [ebp - 0x10]
+00491B23 push     eax
+00491B24 sub      esp, 8
+00491B27 mov      dword ptr [ebp - 0xc], edx
+00491B2A fstp     dword ptr [esp + 4]
+00491B2E fild     dword ptr [ebp - 0xc]
+00491B31 fstp     dword ptr [esp]
+00491B34 call     0x4049c0
+00491B39 add      esp, 0x10
+00491B3C call     0x66c544
+00491B41 movzx    ecx, byte ptr [ebx + 0x21]
+00491B45 mov      edx, dword ptr [ebp - 4]
+00491B48 mov      dword ptr [ebp - 0x10], ecx
+00491B4B mov      ecx, dword ptr [ebp - 8]
+00491B4E mov      dword ptr [ebp - 0x1c], eax
+00491B51 movzx    eax, byte ptr [edx + 0x21]
+00491B55 fild     dword ptr [ebp - 0x10]
+00491B58 push     esi
+00491B59 push     ecx
+00491B5A sub      esp, 8
+00491B5D mov      dword ptr [ebp - 0xc], eax
+00491B60 fstp     dword ptr [esp + 4]
+00491B64 fild     dword ptr [ebp - 0xc]
+00491B67 fstp     dword ptr [esp]
+00491B6A call     0x4049c0
+00491B6F add      esp, 0x10
+00491B72 call     0x66c544
+00491B77 movzx    edx, byte ptr [ebx + 0x22]
+00491B7B mov      dword ptr [ebp - 0x18], eax
+00491B7E mov      eax, dword ptr [ebp - 4]
+00491B81 movzx    ecx, byte ptr [eax + 0x22]
+00491B85 mov      dword ptr [ebp - 0x10], edx
+00491B88 mov      edx, dword ptr [ebp - 8]
+00491B8B push     esi
+00491B8C fild     dword ptr [ebp - 0x10]
+00491B8F push     edx
+00491B90 sub      esp, 8
+00491B93 mov      dword ptr [ebp - 0xc], ecx
+00491B96 fstp     dword ptr [esp + 4]
+00491B9A fild     dword ptr [ebp - 0xc]
+00491B9D fstp     dword ptr [esp]
+00491BA0 call     0x4049c0
+00491BA5 add      esp, 0x10
+00491BA8 call     0x66c544
+00491BAD mov      ecx, dword ptr [ebp - 4]
+00491BB0 movzx    edx, byte ptr [ecx + 0x23]
+00491BB4 mov      dword ptr [ebp - 0x14], eax
+00491BB7 movzx    eax, byte ptr [ebx + 0x23]
+00491BBB mov      dword ptr [ebp - 0x10], eax
+00491BBE mov      eax, dword ptr [ebp - 8]
+00491BC1 push     esi
+00491BC2 fild     dword ptr [ebp - 0x10]
+00491BC5 push     eax
+00491BC6 sub      esp, 8
+00491BC9 mov      dword ptr [ebp - 0xc], edx
+00491BCC fstp     dword ptr [esp + 4]
+00491BD0 fild     dword ptr [ebp - 0xc]
+00491BD3 fstp     dword ptr [esp]
+00491BD6 call     0x4049c0
+00491BDB add      esp, 0x10
+00491BDE call     0x66c544
+00491BE3 movzx    edx, byte ptr [ebp - 0x18]
+00491BE7 xor      ecx, ecx
+00491BE9 mov      ch, al
+00491BEB movzx    eax, byte ptr [ebp - 0x1c]
+00491BEF pop      esi
+00491BF0 mov      cl, byte ptr [ebp - 0x14]
+00491BF3 shl      ecx, 8
+00491BF6 or       ecx, edx
+00491BF8 shl      ecx, 8
+00491BFB or       ecx, eax
+00491BFD mov      dword ptr [edi + 0x5c], ecx
+00491C00 pop      ebx
+00491C01 pop      edi
+00491C02 mov      esp, ebp
+00491C04 pop      ebp
+00491C05 ret      
+00491C06 int3     
+00491C07 int3     
+00491C08 int3     
+00491C09 int3     
+00491C0A int3     
+00491C0B int3     
+00491C0C int3     
+00491C0D int3     
+00491C0E int3     
+00491C0F int3     
+00491C10 mov      eax, dword ptr [ecx + 0x2c]
+00491C13 push     ebx
+00491C14 xor      ebx, ebx
+00491C16 test     eax, eax
+00491C18 je       0x491c30
+00491C1A mov      edx, dword ptr [ecx + 0x30]
+00491C1D sub      edx, eax
+00491C1F mov      eax, 0x2e8ba2e9
+00491C24 imul     edx
+00491C26 sar      edx, 4
+00491C29 mov      eax, edx
+00491C2B shr      eax, 0x1f
+00491C2E add      eax, edx
+00491C30 test     eax, eax
+00491C32 jle      0x491c6b
+00491C34 fld      dword ptr [0x6c2738]
+00491C3A push     esi
+00491C3B mov      esi, dword ptr [ecx + 0x2c]
+00491C3E fdiv     dword ptr [ecx + 0xa4]
+00491C44 push     edi
+00491C45 add      esi, 0x30
+00491C48 mov      edi, eax
+00491C4A lea      ebx, [ebx]
+00491C50 fild     dword ptr [esi]
+00491C52 fmul     st(1)
+00491C54 fmul     dword ptr [0x6c18fc]
+00491C5A call     0x66c544
+00491C5F add      ebx, eax
+00491C61 add      esi, 0x58
+00491C64 dec      edi
+00491C65 jne      0x491c50
+00491C67 pop      edi
+00491C68 fstp     st(0)
+00491C6A pop      esi
+00491C6B mov      eax, ebx
+00491C6D pop      ebx
+00491C6E ret      
+00491C6F int3     

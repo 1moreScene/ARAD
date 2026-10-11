@@ -1,0 +1,525 @@
+# digest of window_party.cpp  funcs=266
+# 格式: VA|行数|资源串|TAG串|被调|vt槽
+0x630060 sub_630060 | 25
+   CALL: sub_62FFF0 sub_62FBB0
+0x6300F0 CNRDCompoundItemWindow__vmtC | 245
+   TAG: RECIPE_OPEN
+   CALL: sub_6300F0 sub_69C340 sub_69C360 sub_4F6390 sub_62FA00 sub_55A090 sub_4F33A0 sub_47DC90 sub_41A5E0 sub_41ACF0 sub_4015C0 sub_630060 sub_484E00 sub_4F2CE0 sub_4F2D60 sub_4F2DF0 sub_69A5F0 sub_667620 sub_69C500 sub_432EA0
+0x6305E0 sub_6305E0 | 21
+0x630610 sub_630610 | 47
+0x630690 CNRDPartyListWindow__vmt10 | 10
+0x6306A0 sub_6306A0 | 57
+0x630750 sub_630750 | 25
+   CALL: sub_456480 sub_429830 sub_456390 sub_69C980
+0x6307E0 sub_6307E0 | 17
+0x630810 CNRDPartyListWindow__vmt0 | 353
+   CALL: sub_554930 sub_418DD0 sub_429830 sub_43BCB0 sub_6306A0 sub_636190 sub_42B340 sub_41A5E0 sub_4B0EC0 sub_491530 sub_491630 sub_456390 sub_422E70 sub_4649B0 sub_4569F0 sub_69A110 sub_56A720
+0x630F80 sub_630F80 | 121
+   CALL: sub_43C410 sub_69A5F0 sub_69A840 sub_423B30
+0x6312F0 sub_6312F0 | 251
+   CALL: sub_4A2CF0 sub_429830 sub_41A5E0 sub_56A720 sub_56A680 sub_52DAA0 sub_468240 sub_430C80
+0x631630 sub_631630 | 36
+   CALL: sub_630750 sub_6312F0
+0x6316A0 CNRDPartyListWindow__vmt8 | 137
+   TAG: CLICK_BUTTON2
+   CALL: sub_6316A0 sub_69A650 sub_429830 sub_423B10 sub_44E8D0 sub_432EA0 sub_6306A0 sub_636190 sub_42B340 sub_526BF0 sub_423200 sub_423380 sub_6312F0
+0x631980 CNRDPartyListWindow__vmtC | 56
+   CALL: sub_429830 sub_69A5F0 sub_630750 sub_6312F0
+0x631A90 sub_631A90 | 19
+0x631AC0 sub_631AC0 | 26
+0x631B10 sub_631B10 | 23
+0x631B70 sub_631B70 | 11
+0x631B90 sub_631B90 | 95
+   CALL: sub_69C980 sub_69A5F0
+0x631D70 sub_631D70 | 23
+   CALL: sub_429830
+0x631E40 sub_631E40 | 74
+   CALL: sub_43C410 sub_69A5F0 sub_69A840 sub_426BD0 sub_69C780
+0x631FF0 CNRDPVPChannelListWindow__vmt0 | 171
+   CALL: sub_631FF0 sub_554930 sub_418DD0 sub_43BCB0 sub_491530 sub_491630 sub_42A210 sub_631B10 sub_631D70 sub_631B70 sub_422E70 sub_4649B0
+0x6323B0 sub_6323B0 | 33
+   TAG: CLICK_BUTTON2
+   CALL: sub_631D70 sub_46EAA0 sub_41D520 sub_432EA0
+0x632470 sub_632470 | 54
+   CALL: sub_631D70 sub_631B10
+0x632540 CNRDPVPChannelListWindow__vmt8 | 48
+   TAG: CLICK_BUTTON2
+   CALL: sub_69A650 sub_432EA0 sub_46E350 sub_632470 sub_6323B0 sub_471CC0
+0x6325F0 CNRDPVPChannelListWindow__vmtC | 16
+   CALL: sub_69A5F0 sub_631B90 sub_632470 sub_46F3E0
+0x632630 sub_632630 | 37
+0x6326A0 CNRDPartyRecommendUserWindow__vmt10 | 10
+0x6326B0 sub_6326B0 | 27
+0x632710 CNRDPartyRecommendUserWindow__vmt8 | 54
+   TAG: CLICK_BUTTON2
+   CALL: sub_69A650 sub_432EA0 sub_6326B0 sub_69C690 sub_429830 sub_526BF0
+0x632830 CNRDPartyRecommendUserWindow__vmt0 | 132
+   CALL: sub_632830 sub_554930 sub_418DD0 sub_69C690 sub_6326B0 sub_429830 sub_42B340 sub_41A5E0 sub_4B0EC0 sub_491530 sub_491630
+0x632AA0 sub_632AA0 | 117
+   CALL: sub_43C410 sub_69A5F0 sub_69A840 sub_426BD0 sub_69C780 sub_69C7B0 sub_69CA20 sub_69CA50 sub_43C630
+0x632D40 sub_632D40 | 178
+   CALL: sub_429830 sub_41A5E0 sub_4A2CF0 sub_52DAA0 sub_468240 sub_430C80
+0x632FB0 CNRDPartyRecommendUserWindow__vmtC | 14
+   CALL: sub_69A5F0 sub_69C680 sub_632D40
+0x632FE0 CNRDYesNoConfirmWindow__vmt8 | 28
+   TAG: CLICK_BUTTON2
+   CALL: sub_69A650 sub_432EA0
+0x633060 CNRDYesNoConfirmWindow__vmt14 | 12
+0x633080 CNRDCashShopBuyConfirmWindow__vmt38 | 15
+   CALL: sub_645CC0
+0x6330A0 CNRDCashShopBuyConfirmWindow__vmt3C | 14
+0x6330B0 CNRDCashShopNoDoubleEventConfirmWindow__vmt38 | 12
+   CALL: sub_44E8D0
+0x6330E0 CNRDCashShopNoDoubleEventConfirmWindow__vmt3C | 10
+   CALL: sub_645CA0
+0x6330F0 CNRDImportantItemUseConfirmWindow__vmt38 | 31
+   CALL: sub_484E80 sub_602C00
+0x633150 CNRDTradeLastConfirmWindow__vmt38 | 19
+   CALL: sub_423200 sub_423290 sub_423380 sub_422E70 sub_44E8D0
+0x6331B0 CNRDTradeLastConfirmWindow__vmt3C | 16
+   CALL: sub_423200 sub_423290 sub_423380
+0x6331F0 CNRDYesNoConfirmWindow__vmtC | 40
+   CALL: sub_69C340 sub_69C440 sub_69C360 sub_69C500 sub_69A5F0 sub_406DF0
+0x6332F0 sub_6332F0 | 29
+   CALL: sub_43C410 sub_69A840
+0x6333D0 CNRDCashShopBuyConfirmWindow__vmt40 | 15
+   CALL: sub_422E70 sub_4015C0
+0x633410 CNRDCashShopNoDoubleEventConfirmWindow__vmt40 | 16
+   CALL: sub_422E70 sub_4015C0
+0x633460 CNRDImportantItemUseConfirmWindow__vmt40 | 28
+   CALL: sub_422E70 sub_4015C0
+0x6334E0 CNRDCashShopLevelLimitConfirmWindow__vmt40 | 17
+   CALL: sub_422E70 sub_4015C0
+0x633550 CNRDTradeLastConfirmWindow__vmt40 | 13
+   CALL: sub_422E70 sub_4015C0
+0x633580 sub_633580 | 14
+0x633590 sub_633590 | 22
+0x6335C0 CNRDSkillBuyConfirmWindow__vmtC | 53
+   CALL: sub_69C340 sub_69C440 sub_47EB10 sub_550470 sub_5013F0 sub_41ACF0 sub_422E70 sub_69C360 sub_69C500 sub_69A5F0
+0x633730 CNRDSkillBuyConfirmWindow__vmt14 | 15
+   TAG: GET_SKILL
+   CALL: sub_47F890 sub_432EA0 sub_44ABE0
+0x633770 sub_633770 | 29
+   CALL: sub_43C410 sub_69A840
+0x633850 CNRDItemDeleteConfirmWindow__vmtC | 68
+   CALL: sub_422E70 sub_69C340 sub_69C440 sub_69C360 sub_69C500 sub_69A5F0
+0x633A00 CNRDItemDeleteConfirmWindow__vmt14 | 70
+   CALL: sub_484ED0 sub_422E70 sub_44E8D0 sub_432F00 sub_486070
+0x633B20 sub_633B20 | 29
+   CALL: sub_43C410 sub_69A840
+0x633C00 CNRDItemBuyConfirmWindow__vmt8 | 26
+   TAG: CLICK_BUTTON2
+   CALL: sub_69A650 sub_432EA0
+0x633C70 CNRDItemSealRemoveConfirmWindow__vmtC | 45
+   CALL: sub_422E70 sub_69C340 sub_69C440 sub_69C360 sub_69C500 sub_69A5F0
+0x633DB0 CNRDItemSealRemoveConfirmWindow__vmt14 | 27
+   CALL: sub_484ED0 sub_422E70 sub_44E8D0 sub_486820
+0x633E30 sub_633E30 | 29
+   CALL: sub_43C410 sub_69A840
+0x633F20 CNRDPopupMessageWindow__vmtC | 35
+   CALL: sub_541AE0 sub_69C340 sub_69C440 sub_69C360 sub_69C500 sub_69A5F0
+0x633FE0 CNRDPopupMessageWindow__vmt10 | 17
+   CALL: sub_41C860 sub_41D520
+0x634000 sub_634000 | 20
+   CALL: sub_43C410 sub_69A840
+0x634090 sub_634090 | 10
+0x6340A0 CNRDPopupTextBoxOnly__vmt8 | 10
+   CALL: sub_69A650
+0x6340B0 CNRDPopupTextBoxOnly__vmtC | 25
+   CALL: sub_69C340 sub_69C440 sub_69C360 sub_69C500 sub_69A5F0
+0x634130 sub_634130 | 15
+0x634150 CNRDResponsePeerWindow__vmt38 | 49
+   CALL: sub_429830 sub_422E70 sub_44E8D0 sub_456690 sub_484FA0 sub_42EAF0 sub_423200 sub_423290 sub_423380
+0x634270 CNRDResponsePeerWindow__vmt8 | 32
+   TAG: CLICK_BUTTON2
+   CALL: sub_69A650 sub_429830 sub_699000 sub_432EA0
+0x634310 CNRDResponsePeerWindow__vmt0 | 24
+0x634360 sub_634360 | 29
+   CALL: sub_43C410 sub_69A840
+0x634440 CNRDResponsePeerWindow__vmtC | 209
+   TAG: POP_UP
+   CALL: sub_634440 sub_48B740 sub_429830 sub_41A5E0 sub_422E70 sub_49EFE0 sub_432EA0 sub_48FE30 sub_42A410 sub_4332F0 sub_69C340 sub_69C440 sub_69C360 sub_69C500 sub_69A5F0 sub_698F90
+0x6347E0 CNRDCharacterDeleteConfirmWindow__vmt8 | 47
+   TAG: CLICK_BUTTON2
+   CALL: sub_69A650 sub_40BF00 sub_423200 sub_423290 sub_41C100 sub_423380 sub_432EA0
+0x6348E0 sub_6348E0 | 29
+   CALL: sub_43C410 sub_69A840
+0x6349C0 sub_6349C0 | 16
+   CALL: sub_4015C0
+0x6349F0 CNRDCharacterDeleteConfirmWindow__vmtC | 42
+   CALL: sub_4015C0 sub_69C340 sub_69C440 sub_69C360 sub_422E70 sub_69C500 sub_69A5F0
+0x634B10 CNRDNoticeMessageWindow__vmtC | 32
+   CALL: sub_69C340 sub_69C440 sub_69C360 sub_69C500 sub_69A5F0
+0x634BB0 sub_634BB0 | 20
+   CALL: sub_43C410 sub_69A840
+0x634C40 sub_634C40 | 13
+0x634C50 CNRDQuestGiveupConfirmWindow__vmt8 | 28
+   TAG: CLICK_BUTTON2
+   CALL: sub_69A650 sub_47C080 sub_432EA0
+0x634CE0 CNRDQuestGiveupConfirmWindow__vmt14 | 14
+   TAG: QUEST_ABANDON
+   CALL: sub_47C080 sub_47B820 sub_432EA0
+0x634D30 CNRDQuestGiveupConfirmWindow__vmtC | 48
+   CALL: sub_422E70 sub_69C340 sub_69C440 sub_69C360 sub_69C500 sub_69A5F0
+0x634E60 sub_634E60 | 29
+   CALL: sub_43C410 sub_69A840
+0x634F40 sub_634F40 | 13
+0x634F50 CNRDWalkoutConfirmWindow__vmt8 | 28
+   TAG: CLICK_BUTTON2
+   CALL: sub_69A650 sub_429830 sub_432EA0
+0x634FF0 CNRDWalkoutConfirmWindow__vmt14 | 32
+   CALL: sub_48F500
+0x635050 CNRDWalkoutConfirmWindow__vmtC | 46
+   CALL: sub_429830 sub_422E70 sub_69C340 sub_69C440 sub_69C360 sub_69C500 sub_69A5F0
+0x635170 sub_635170 | 29
+   CALL: sub_43C410 sub_69A840
+0x635250 sub_635250 | 31
+0x6352A0 sub_6352A0 | 41
+0x635310 CNRDPVPRoomCreateWindow__vmt8 | 144
+   TAG: CLICK_BUTTON2
+   CALL: sub_635310 sub_69A650 sub_522500 sub_540870 sub_69B740 sub_423200 sub_423290 sub_41C100 sub_423380 sub_422E70 sub_44E8D0 sub_432EA0 sub_69BCC0 sub_402AE0 sub_4BF300
+0x635630 CNRDPVPRoomCreateWindow__vmtC | 47
+   CALL: sub_69A5F0 sub_43B920 sub_69BCC0 sub_402AE0
+0x635710 CNRDPVPRoomCreateWindow__vmt10 | 22
+0x635760 CNRDPVPRoomCreateWindow__vmt0 | 66
+   CALL: sub_418DD0 sub_491530 sub_491630
+0x6358C0 sub_6358C0 | 82
+   CALL: sub_43C060 sub_69A5F0 sub_69A840 sub_43C410 sub_426BD0 sub_69C6B0
+0x635B00 CNRDPVPRoomInfoWindow__vmtC | 12
+   CALL: sub_69A5F0
+0x635B40 CNRDPVPRoomInfoWindow__vmt10 | 10
+0x635B50 CNRDPVPRoomInfoWindow__vmt8 | 36
+   TAG: CLICK_BUTTON2
+   CALL: sub_69A650 sub_432EA0 sub_487420 sub_48F6C0 sub_423200 sub_423290 sub_423380
+0x635C40 CNRDPVPRoomInfoWindow__vmt0 | 125
+   CALL: sub_554930 sub_418DD0 sub_487420 sub_48F690 sub_42B340 sub_452580 sub_491530 sub_40FC80 sub_491630 sub_42A430 sub_42A410
+0x635ED0 sub_635ED0 | 54
+   CALL: sub_43C410 sub_69A5F0 sub_69A840
+0x636030 sub_636030 | 13
+0x636040 CNRDPartyInfoWindow__vmt8 | 36
+   TAG: CLICK_BUTTON2
+   CALL: sub_545510 sub_69A650 sub_432EA0 sub_4569F0 sub_56A720 sub_429830 sub_4564A0
+0x636140 CNRDPartyInfoWindow__vmtC | 12
+   CALL: sub_69A5F0
+0x636180 CNRDPartyInfoWindow__vmt10 | 10
+0x636190 sub_636190 | 27
+   CALL: sub_56A680
+0x6361D0 CNRDPartyInfoWindow__vmt0 | 175
+   CALL: sub_554930 sub_418DD0 sub_4569F0 sub_56A680 sub_42B340 sub_456480 sub_41A5E0 sub_4B0EC0 sub_422E70 sub_4649B0
+0x636500 sub_636500 | 70
+   CALL: sub_43C410 sub_69A5F0 sub_69A840
+0x6366C0 sub_6366C0 | 26
+0x636700 sub_636700 | 55
+0x6367A0 CNRDPartyCreateWindow__vmtC | 49
+   CALL: sub_69A5F0 sub_429830 sub_69BCC0 sub_402AE0 sub_43B920
+0x6368F0 CNRDPartyCreateWindow__vmt0 | 110
+   CALL: sub_418DD0 sub_429830 sub_491530 sub_491630
+0x636B30 CNRDPartyCreateWindow__vmt8 | 242
+   TAG: CLICK_BUTTON2
+   CALL: sub_636B30 sub_545510 sub_69A650 sub_522500 sub_540870 sub_69AC60 sub_69AC70 sub_464740 sub_40BE20 sub_69B740 sub_429830 sub_6307E0 sub_422E70 sub_44E8D0 sub_56A720 sub_423200 sub_423290 sub_41C100 sub_423380 sub_48B740 sub_43BEE0 sub_48B7C0 sub_432EA0 sub_69BCC0
+0x637070 sub_637070 | 133
+   CALL: sub_43C060 sub_69A5F0 sub_69A840 sub_43C410 sub_426BD0 sub_69C6B0 sub_69C6C0 sub_69C780 sub_69C7B0
+0x6373B0 CNRDPartyLeaveSuggestWindow__vmt8 | 34
+   TAG: CLICK_BUTTON2
+   CALL: sub_69A650 sub_429830 sub_456390 sub_432EA0 sub_423200 sub_423380
+0x637490 CNRDPartyLeaveSuggestWindow__vmtC | 47
+   CALL: sub_429830 sub_422E70 sub_69C340 sub_69C440 sub_69C360 sub_69C500 sub_69A5F0
+0x6375A0 sub_6375A0 | 29
+   CALL: sub_43C410 sub_69A840
+0x637680 sub_637680 | 27
+0x6376C0 CNRDFriendAddRemoveWindow__vmt8 | 82
+   TAG: CLICK_BUTTON2
+   CALL: sub_545510 sub_69A650 sub_69AC60 sub_69AC70 sub_464740 sub_69B740 sub_44E8D0 sub_422E70 sub_432EA0
+0x637870 CNRDFriendAddRemoveWindow__vmt0 | 35
+   CALL: sub_418DD0
+0x637920 sub_637920 | 44
+   CALL: sub_43C060 sub_69A5F0 sub_69A840 sub_43C410
+0x637A80 sub_637A80 | 15
+0x637AA0 CNRDMemberAddRemoveWindow__vmt8 | 68
+   TAG: CLICK_BUTTON2
+   CALL: sub_545510 sub_69A650 sub_69B740 sub_44E8D0 sub_422E70 sub_432EA0
+0x637C10 CNRDFriendAddRemoveWindow__vmtC | 29
+   CALL: sub_69A5F0 sub_43B920 sub_69BCC0
+0x637CB0 CNRDMemberAddRemoveWindow__vmt0 | 35
+   CALL: sub_418DD0
+0x637D60 sub_637D60 | 44
+   CALL: sub_43C060 sub_69A5F0 sub_69A840 sub_43C410
+0x637EC0 CNRDFriendRemoveConfirmWindow__vmt8 | 32
+   TAG: CLICK_BUTTON2
+   CALL: sub_69A650 sub_432EA0
+0x637F50 sub_637F50 | 30
+   CALL: sub_69C3C0 sub_43C410 sub_69A840
+0x638040 CNRDFriendRemoveConfirmWindow__vmtC | 61
+   CALL: sub_4015C0 sub_479290 sub_422E70 sub_44E8D0 sub_69C340 sub_69C440 sub_69C360 sub_69C500 sub_69A5F0
+0x6381B0 CNRDStaminaRecoverConfirmWindow__vmt8 | 30
+   TAG: CLICK_BUTTON2
+   CALL: sub_69A650 sub_423200 sub_423380 sub_432EA0
+0x638250 CNRDStaminaRecoverConfirmWindow__vmtC | 26
+   CALL: sub_422E70 sub_44E8D0 sub_69A5F0 sub_69C340 sub_69C360
+0x6382E0 sub_6382E0 | 29
+0x638350 CNRDStaminaRecoverConfirmWindow__vmt0 | 65
+   CALL: sub_418DD0 sub_422E70 sub_429830 sub_41A5E0 sub_6382E0
+0x638520 sub_638520 | 73
+   CALL: sub_69A5F0 sub_69C440 sub_43C410 sub_69A840
+0x6386E0 sub_6386E0 | 13
+0x6386F0 CNRDInformCashShopWindow__vmtC | 12
+   CALL: sub_69A5F0
+0x638710 CNRDCashShopDoubleEventWindow__vmtC | 12
+   CALL: sub_69A5F0
+0x638730 CNRDInformCashShopWindow__vmt8 | 19
+   TAG: CLICK_BUTTON2
+   CALL: sub_69A650 sub_432EA0
+0x638770 CNRDInformCashShopWindow__vmt0 | 27
+   CALL: sub_418DD0
+0x6387C0 CNRDCashShopDoubleEventWindow__vmt0 | 37
+   RES: interface/cashshop/cashshopdoubleevent.img
+   CALL: sub_418DD0
+0x638870 sub_638870 | 41
+   CALL: sub_426BD0 sub_69A840 sub_43C410 sub_69A5F0
+0x638990 sub_638990 | 31
+   CALL: sub_426BD0 sub_69A840 sub_43C410 sub_69A5F0
+0x638A70 sub_638A70 | 15
+0x638A90 sub_638A90 | 27
+0x638AD0 CNRDGuildWindow__vmt8 | 49
+   TAG: CLICK_BUTTON2
+   CALL: sub_69A650 sub_423200 sub_423380 sub_432EA0
+0x638B80 sub_638B80 | 57
+   CALL: sub_69C340 sub_69A5F0 sub_422E70 sub_69C360 sub_69C500
+0x638CA0 CNRDGuildWindow__vmtC | 16
+   TAG: POP_UP
+   CALL: sub_638B80 sub_69A5F0 sub_432EA0
+0x638D00 CNRDGuildWindow__vmt0 | 51
+   CALL: sub_418DD0 sub_422E70
+0x638DF0 sub_638DF0 | 59
+   CALL: sub_43C410 sub_69A840
+0x638F70 CNRDGuildConfirmWindow__vmt8 | 111
+   TAG: CLICK_BUTTON2
+   CALL: sub_69A650 sub_432EA0
+0x6391F0 CNRDGuildConfirmWindow__vmtC | 33
+   CALL: sub_69C340 sub_69C440 sub_69C360 sub_69C500 sub_69A5F0
+0x6392D0 sub_6392D0 | 29
+   CALL: sub_43C410 sub_69A840
+0x6393B0 CNRDMoveToHomeConfirmWindow__vmt8 | 26
+   TAG: CLICK_BUTTON2
+   CALL: sub_69A650 sub_432EA0
+0x639420 CNRDMoveToHomeConfirmWindow__vmtC | 28
+   CALL: sub_69C340 sub_69C440 sub_69C360 sub_69C500 sub_69A5F0
+0x6394D0 CNRDMoveToHomeConfirmWindow__vmt14 | 12
+   CALL: sub_541F10
+0x6394F0 sub_6394F0 | 29
+   CALL: sub_43C410 sub_69A840
+0x6395D0 CNRDPrivateStoreItemBuyConfirmWindow__vmt14 | 55
+   CALL: sub_541A30 sub_541B20 sub_422E70 sub_44E8D0
+0x639690 sub_639690 | 29
+   CALL: sub_43C410 sub_69A840
+0x639770 CNRDPrivateStoreItemBuyConfirmWindow__vmtC | 115
+   CALL: sub_4015C0 sub_541A30 sub_541B20 sub_422E70 sub_44E8D0 sub_4022F0 sub_4F36B0 sub_4021F0 sub_69C340 sub_69C440 sub_69C360 sub_69C500 sub_69A5F0
+0x639A50 CNRDMemberRemoveConfirmWindow__vmt8 | 32
+   TAG: CLICK_BUTTON2
+   CALL: sub_69A650 sub_432EA0
+0x639AE0 sub_639AE0 | 30
+   CALL: sub_69C3C0 sub_43C410 sub_69A840
+0x639BD0 sub_639BD0 | 12
+   CALL: sub_4015C0
+0x639BF0 CNRDMemberRemoveConfirmWindow__vmtC | 46
+   CALL: sub_4015C0 sub_69C340 sub_69C440 sub_69C360 sub_422E70 sub_69C500 sub_69A5F0
+0x639D20 CNRDResponseMemberWindow__vmtC | 39
+   CALL: sub_422E70 sub_69C340 sub_69C440 sub_69C360 sub_69C500 sub_69A5F0 sub_698F90
+0x639E30 CNRDResponseMemberWindow__vmt38 | 16
+   CALL: sub_423200 sub_423290 sub_423380
+0x639E70 CNRDResponseMemberWindow__vmt3C | 16
+   CALL: sub_423200 sub_423290 sub_423380
+0x639EB0 CNRDResponseMemberWindow__vmt8 | 41
+   TAG: CLICK_BUTTON2
+   CALL: sub_69A650 sub_699000 sub_432EA0
+0x639F50 sub_639F50 | 29
+   CALL: sub_43C410 sub_69A840
+0x63A030 sub_63A030 | 15
+0x63A050 CNRDUpgradeConfirmWindow__vmt8 | 52
+   TAG: CLICK_BUTTON2
+   CALL: sub_69A650 sub_484ED0 sub_422E70 sub_44E8D0 sub_54D470 sub_432EA0
+0x63A140 CNRDUpgradeConfirmWindow__vmt0 | 165
+   CALL: sub_63A140 sub_554930 sub_418DD0 sub_484ED0 sub_40FC80 sub_41A5E0 sub_4F9F40 sub_43B560 sub_422E70 sub_4F33A0 sub_4F2CE0 sub_4F2D60 sub_4F2DF0
+0x63A4C0 CNRDUpgradeConfirmWindow__vmtC | 16
+   CALL: sub_69A5F0
+0x63A500 CNRDUpgradeConfirmWindow__vmt10 | 14
+   CALL: sub_44ABE0
+0x63A520 sub_63A520 | 63
+   CALL: sub_69C3C0 sub_69A5F0 sub_69C340 sub_69C440 sub_422E70 sub_69C360 sub_43C410 sub_69A840
+0x63A6D0 sub_63A6D0 | 13
+0x63A6E0 sub_63A6E0 | 17
+0x63A700 CNRDUpgradeResultWindow__vmt8 | 19
+   TAG: CLICK_BUTTON2
+   CALL: sub_69A650 sub_432EA0
+0x63A740 sub_63A740 | 31
+   CALL: sub_69A5F0
+0x63A7C0 sub_63A7C0 | 30
+0x63A7F0 CNRDUpgradeResultWindow__vmt0 | 144
+   CALL: sub_554930 sub_63A740 sub_418DD0 sub_4F33A0 sub_4F2CE0 sub_422E70 sub_4F2D60 sub_4F2DF0 sub_484ED0 sub_40FC80
+0x63AAD0 sub_63AAD0 | 40
+   CALL: sub_43C410 sub_69A840
+0x63ABB0 sub_63ABB0 | 23
+   CALL: sub_4015C0 sub_401740
+0x63AC20 CNRDUpgradeResultWindow__vmtC | 66
+   TAG: EQUIP_BROKEN STRENGTHEN_FAIL STRENGTHEN_SUCCESS STRENGTHEN_ZERO
+   CALL: sub_63A740 sub_432EA0 sub_422E70 sub_54D0C0 sub_484ED0 sub_41A5E0 sub_69A5F0
+0x63AD80 sub_63AD80 | 122
+   CALL: sub_63ABB0 sub_44BD30 sub_5E51F0 sub_41FEB0 sub_44BD00 sub_63A7C0
+0x63AFD0 sub_63AFD0 | 28
+   CALL: sub_63A7C0 sub_63AD80
+0x63B040 sub_63B040 | 14
+   CALL: sub_63AFD0
+0x63B070 sub_63B070 | 20
+0x63B0A0 sub_63B0A0 | 27
+0x63B0E0 sub_63B0E0 | 17
+0x63B100 sub_63B100 | 17
+0x63B120 CNRDItemBoxWindow__vmt38 | 78
+   CALL: sub_422E70 sub_44E8D0 sub_41A5E0
+0x63B260 CNRDItemBoxWindow__vmt10 | 15
+   CALL: sub_44E850
+0x63B280 sub_63B280 | 53
+   CALL: sub_484ED0 sub_484E80 sub_422E70 sub_44E8D0 sub_41A5E0 sub_4F8F40
+0x63B360 sub_63B360 | 29
+   CALL: sub_422E70 sub_44E8D0 sub_63B280 sub_698F90
+0x63B3C0 sub_63B3C0 | 32
+0x63B400 sub_63B400 | 20
+0x63B450 CNRDItemBoxWindow__vmtC | 38
+   CALL: sub_44AB50 sub_44BBA0
+0x63B4D0 CNRDItemBoxWindow__vmt8 | 111
+   TAG: CLICK_BUTTON2
+   CALL: sub_432EA0 sub_699000 sub_63B280 sub_484ED0 sub_484E80 sub_486F40 sub_422E70 sub_44E8D0 sub_63B400 sub_69A500 sub_44E850
+0x63B6D0 CNRDItemBoxWindow__vmt0 | 106
+   CALL: sub_418DD0 sub_484ED0 sub_4F33A0 sub_63B400 sub_4F2E40 sub_699000 sub_491530 sub_491630 sub_4F2E80
+0x63B900 sub_63B900 | 56
+   RES: etc/reseal.etc
+   CALL: sub_43C410 sub_69A5F0 sub_69A840 sub_4FAA40
+0x63BAB0 sub_63BAB0 | 16
+0x63BAD0 sub_63BAD0 | 22
+0x63BB00 CNRDResetOrResealConfirmWindow__vmt0 | 101
+   CALL: sub_418DD0 sub_484ED0 sub_4F33A0 sub_4F2CE0 sub_422E70 sub_4F2D60 sub_4F2DF0
+0x63BD30 sub_63BD30 | 58
+   CALL: sub_69C3C0 sub_69A5F0 sub_69C440 sub_43C410 sub_69A840
+0x63BEB0 CNRDResetOrResealConfirmWindow__vmt8 | 42
+   TAG: CLICK_BUTTON2
+   CALL: sub_69A650 sub_63B360 sub_432EA0 sub_63B100
+0x63BF80 CNRDResetOrResealConfirmWindow__vmtC | 67
+   CALL: sub_69C340 sub_422E70 sub_69C360 sub_41A5E0 sub_4F8F40 sub_69A5F0 sub_63B0E0
+0x63C0D0 sub_63C0D0 | 15
+0x63C0F0 sub_63C0F0 | 33
+0x63C170 CNRDWarRoomDifficultListWindow__vmt10 | 10
+0x63C180 sub_63C180 | 21
+   TAG: CLICK_BUTTON2
+   CALL: sub_42EAF0 sub_5403D0 sub_432EA0
+0x63C1E0 CNRDWarRoomDifficultListWindow__vmt8 | 32
+   TAG: CLICK_BUTTON2
+   CALL: sub_69A650 sub_432EA0 sub_63C180
+0x63C270 CNRDWarRoomDifficultListWindow__vmt0 | 193
+   CALL: sub_63C270 sub_554930 sub_418DD0 sub_491530 sub_491630 sub_69A110 sub_699FC0 sub_49EF60 sub_49EEE0 sub_422E70 sub_4649B0
+0x63C660 sub_63C660 | 66
+   CALL: sub_49EE90
+0x63C780 sub_63C780 | 147
+   CALL: sub_426BD0 sub_69C780 sub_69C7B0 sub_69A5F0 sub_69A840 sub_699E20 sub_699E40
+0x63CA70 CNRDWarRoomDifficultListWindow__vmtC | 17
+   CALL: sub_69A5F0 sub_63C660
+0x63CAC0 CNRDWarRoomInfoWindow__vmt8 | 41
+   TAG: CLICK_BUTTON2
+   CALL: sub_69A650 sub_432EA0 sub_49EDC0 sub_48FBB0 sub_48FBF0 sub_4902A0 sub_423200 sub_423290 sub_423380
+0x63CBD0 CNRDWarRoomInfoWindow__vmtC | 12
+   CALL: sub_69A5F0
+0x63CC10 CNRDWarRoomInfoWindow__vmt10 | 10
+0x63CC20 CNRDWarRoomInfoWindow__vmt0 | 102
+   CALL: sub_418DD0 sub_49EDC0 sub_578E80 sub_42B340 sub_491530 sub_491630
+0x63CE30 sub_63CE30 | 54
+   CALL: sub_43C410 sub_69A5F0 sub_69A840
+0x63CFA0 sub_63CFA0 | 15
+0x63CFC0 CNRDItemDisjointConfirmWindow__vmt8 | 26
+   TAG: CLICK_BUTTON2
+   CALL: sub_69A650 sub_432EA0
+0x63D030 CNRDItemDisjointConfirmWindow__vmt14 | 29
+   CALL: sub_422E70 sub_44E8D0 sub_484ED0 sub_54D470 sub_44ABE0
+0x63D0B0 CNRDItemDisjointConfirmWindow__vmt0 | 58
+   CALL: sub_418DD0
+0x63D1A0 sub_63D1A0 | 57
+   CALL: sub_69C3C0 sub_69A5F0 sub_43C410 sub_69A840
+0x63D300 CNRDItemDisjointConfirmWindow__vmtC | 41
+   CALL: sub_4015C0 sub_69C340 sub_69C440 sub_422E70 sub_69C360 sub_69A5F0
+0x63D400 sub_63D400 | 16
+0x63D420 CNRDLotteryItemWindow__vmt10 | 15
+   CALL: sub_432EE0
+0x63D440 CNRDLotteryItemWindow__vmt8 | 44
+   TAG: CLICK_BUTTON2
+   CALL: sub_69A650 sub_699000 sub_484E80 sub_423200 sub_423290 sub_423380 sub_432EA0
+0x63D510 CNRDLotteryItemWindow__vmt0 | 131
+   CALL: sub_63D510 sub_554930 sub_422E70 sub_418DD0 sub_699000 sub_4049C0 sub_488670
+0x63D7F0 sub_63D7F0 | 59
+   CALL: sub_43C410 sub_69A5F0 sub_69A840
+0x63D940 CNRDLotteryItemWindow__vmtC | 48
+   TAG: GAMBLE_OPEN_LOOP GAMBLE_RESULT_COMMON GAMBLE_RESULT_GOOD
+   CALL: sub_4015C0 sub_69A5F0 sub_698F90 sub_432EA0
+0x63DA90 sub_63DA90 | 37
+0x63DB00 CNRDItemDisjointResultWindow__vmt0 | 78
+   CALL: sub_69C690 sub_418DD0
+0x63DC50 sub_63DC50 | 105
+   CALL: sub_69A5F0 sub_69C460 sub_69C480 sub_69C440 sub_43C410 sub_69A840 sub_426BD0 sub_69C780 sub_69CA20 sub_43C630
+0x63DED0 CNRDItemDisjointResultWindow__vmtC | 22
+   TAG: DISSOLVE_ITEM
+   CALL: sub_69C340 sub_422E70 sub_69C360 sub_69A5F0 sub_44CA70 sub_432EA0
+0x63DF50 sub_63DF50 | 30
+   CALL: sub_4014D0
+0x63DFB0 sub_63DFB0 | 112
+   CALL: sub_459700 sub_4014D0 sub_63DF50 sub_477AF0 sub_4015C0 sub_418DD0 sub_422E70 sub_45A340
+0x63E1E0 sub_63E1E0 | 17
+0x63E200 CNRDPlayDungeonResultWindow__vmt0 | 72
+   CALL: sub_418DD0
+0x63E340 CNRDPlayDungeonResultWindow__vmt3C | 33
+   CALL: sub_422E70 sub_69C440 sub_69C340 sub_69C360 sub_418DD0
+0x63E400 sub_63E400 | 47
+   CALL: sub_69A5F0 sub_69C3C0 sub_69C460 sub_69C480 sub_43C410 sub_69A840
+0x63E520 CNRDPlayDungeonResultWindow__vmt38 | 100
+   CALL: sub_69C440 sub_69C340 sub_422E70 sub_69C360 sub_418DD0 sub_4CE8A0 sub_40BEA0
+0x63E6B0 CNRDPlayDungeonResultWindow__vmtC | 12
+   TAG: REWARD_OPEN2
+   CALL: sub_44CA70 sub_432EA0
+0x63E6D0 CNRDPlayDungeonResultWindow__vmt40 | 34
+   CALL: sub_459700 sub_4015C0 sub_45A340 sub_69A5F0 sub_477AF0
+0x63E7E0 sub_63E7E0 | 16
+0x63E800 CNRDItemTradeResultWindow__vmt8 | 21
+   TAG: CLICK_BUTTON2
+   CALL: sub_69A650 sub_429830 sub_432EA0
+0x63E870 CNRDItemTradeResultWindow__vmt10 | 17
+0x63E890 CNRDItemTradeResultWindow__vmt0 | 103
+   CALL: sub_418DD0 sub_429830 sub_42B340 sub_69C690
+0x63EA50 sub_63EA50 | 105
+   CALL: sub_69A5F0 sub_69C460 sub_69C480 sub_69C440 sub_43C410 sub_69A840 sub_426BD0 sub_69C780 sub_69CA20 sub_43C630
+0x63ECD0 CNRDItemTradeResultWindow__vmtC | 47
+   CALL: sub_422E70 sub_429830 sub_69C340 sub_69C360 sub_69A5F0 sub_44CA70
+0x63EDD0 sub_63EDD0 | 69
+   CALL: sub_459700 sub_4015C0 sub_418DD0 sub_422E70 sub_45A340 sub_477AF0
+0x63EF60 sub_63EF60 | 40
+   CALL: sub_63EDD0 sub_422E70 sub_4015C0
+0x63F020 CNRDCompoundResultWindow__vmt0 | 89
+   CALL: sub_418DD0 sub_422E70
+0x63F1E0 sub_63F1E0 | 42
+   CALL: sub_43C410 sub_69A840
+0x63F2D0 CNRDCompoundResultWindow__vmtC | 13
+   CALL: sub_44CA70
+0x63F2F0 sub_63F2F0 | 75
+   CALL: sub_459700 sub_4015C0 sub_418DD0 sub_422E70 sub_45A340 sub_69A5F0 sub_477AF0
+0x63F4C0 CNRDSeriasPresentListWindow__vmt8 | 19
+   TAG: CLICK_BUTTON2
+   CALL: sub_69A650 sub_432EA0
+0x63F500 CNRDQuestRewardWindow__vmt0 | 83
+   CALL: sub_418DD0
+0x63F660 sub_63F660 | 40
+   CALL: sub_43C410 sub_69A840
+0x63F740 CNRDQuestRewardWindow__vmtC | 27
+   CALL: sub_44CA70 sub_69A5F0
+0x63F7E0 sub_63F7E0 | 75
+   CALL: sub_459700 sub_4015C0 sub_418DD0 sub_422E70 sub_45A340 sub_69A5F0 sub_477AF0
+0x63F9B0 CNRDClassChangeWindow__vmt8 | 19
+   TAG: CLICK_BUTTON2
+   CALL: sub_69A650 sub_432EA0
+0x63F9F0 sub_63F9F0 | 93
+   CALL: sub_41ACF0
+0x63FBC0 CNRDClassChangeWindow__vmt0 | 322
+   CALL: sub_554930 sub_418DD0 sub_422E70 sub_47DF50 sub_63F9F0

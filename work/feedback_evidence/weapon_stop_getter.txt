@@ -1,0 +1,30 @@
+004B1910 56                   push     esi
+004B1911 8bf1                 mov      esi, ecx
+004B1913 8b8664190000         mov      eax, dword ptr [esi + 0x1964]
+004B1919 85c0                 test     eax, eax
+004B191B 7421                 je       0x4b193e
+004B191D 8b06                 mov      eax, dword ptr [esi]
+004B191F ff9048040000         call     dword ptr [eax + 0x448]
+004B1925 8b96f01d0000         mov      edx, dword ptr [esi + 0x1df0]
+004B192B 85d2                 test     edx, edx
+004B192D 740f                 je       0x4b193e
+004B192F 8b8ef41d0000         mov      ecx, dword ptr [esi + 0x1df4]
+004B1935 2bca                 sub      ecx, edx
+004B1937 c1f902               sar      ecx, 2
+004B193A 3bc8                 cmp      ecx, eax
+004B193C 7704                 ja       0x4b1942
+004B193E 33c0                 xor      eax, eax
+004B1940 5e                   pop      esi
+004B1941 c3                   ret      
+004B1942 8b8ef01d0000         mov      ecx, dword ptr [esi + 0x1df0]
+004B1948 8d0481               lea      eax, [ecx + eax*4]
+004B194B 8b00                 mov      eax, dword ptr [eax]
+004B194D 5e                   pop      esi
+004B194E c3                   ret      
+004B194F cc                   int3     
+004B1950 55                   push     ebp
+004B1951 8bec                 mov      ebp, esp
+004B1953 51                   push     ecx
+004B1954 56                   push     esi
+004B1955 8bf1                 mov      esi, ecx
+004B1957 8b06                 mov      eax, dword ptr [esi]

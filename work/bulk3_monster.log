@@ -1,0 +1,8 @@
+IDA has found an unpacked version of database: E:\DOF LX\【40JP逆向源代码工程】\work\ARAD_recon.i64
+on the disk.
+It appears IDA did not close properly;
+it is probably safer to restart your work from the packed database -> ~R~estore packed base
+E:\DOF LX\【40JP逆向源代码工程】\work\ARAD_recon.id0: Permission denied -> OK
+Database initialization failed with error 4
+Open database failed with result: 4
+ -> OK

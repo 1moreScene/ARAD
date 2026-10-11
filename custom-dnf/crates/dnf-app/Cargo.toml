@@ -1,0 +1,11 @@
+[package]
+name = "dnf-app"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+description = "DNF 同人客户端 —— 可执行入口：Win32 窗口（GDI 呈现 / GetAsyncKeyState 输入）+ 无头确定性回放"
+
+[dependencies]
+dnf-core = { path = "../dnf-core" }
+dnf-data = { path = "../dnf-data" }
+dnf-render = { path = "../dnf-render" }

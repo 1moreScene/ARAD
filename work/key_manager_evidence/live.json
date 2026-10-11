@@ -1,0 +1,84 @@
+{
+  "pid": 6032,
+  "checker_vtable": "0x6c490c",
+  "bindings": [
+    {
+      "id": 0,
+      "device": 0,
+      "slot": 2,
+      "dik": 200
+    },
+    {
+      "id": 1,
+      "device": 0,
+      "slot": 3,
+      "dik": 208
+    },
+    {
+      "id": 2,
+      "device": 0,
+      "slot": 0,
+      "dik": 203
+    },
+    {
+      "id": 3,
+      "device": 0,
+      "slot": 1,
+      "dik": 205
+    },
+    {
+      "id": 4,
+      "device": 0,
+      "slot": 80,
+      "dik": 44
+    },
+    {
+      "id": 5,
+      "device": 0,
+      "slot": 78,
+      "dik": 45
+    },
+    {
+      "id": 6,
+      "device": 0,
+      "slot": 57,
+      "dik": 46
+    },
+    {
+      "id": 7,
+      "device": 0,
+      "slot": 76,
+      "dik": 47
+    },
+    {
+      "id": 8,
+      "device": 0,
+      "slot": 13,
+      "dik": 57
+    }
+  ],
+  "records": [],
+  "commands": {
+    "attack": {
+      "mode": 1,
+      "state": 0,
+      "enabled": 1
+    },
+    "jump": {
+      "mode": 1,
+      "state": 0,
+      "enabled": 1
+    },
+    "right_right": {
+      "mode": 1,
+      "state": 0,
+      "enabled": 1
+    },
+    "left_left": {
+      "mode": 1,
+      "state": 0,
+      "enabled": 1
+    }
+  },
+  "retention_ms": 10000
+}

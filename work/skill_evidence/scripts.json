@@ -1,0 +1,170 @@
+{
+  "skill/swordmanskill.lst": {
+    "sha256": "4a15bcd6fbeefd540bed15e9719e5f0eba2086b2b7604974c8fae47f633b1782",
+    "bytes": 3801
+  },
+  "skill/swordman/hardattack.skl": {
+    "sha256": "511f562f2a3e21efa51f8bae777e6028a2ef1502e1ef31284fe62213d153170b",
+    "bytes": 983
+  },
+  "skill/swordman/upperslash.skl": {
+    "sha256": "46fc62f364b45a77a272d2aca5784b6b5b7ebc977402331fc68077a8fe99cd29",
+    "bytes": 986
+  },
+  "skill/swordman/hardattackcharge.skl": {
+    "sha256": "5aac5cf5e61bc335d1b8956f055ba1c5c3277805ca7f0806295ac5e5d09891ea",
+    "bytes": 1001
+  },
+  "character/swordman/swordman.chr": {
+    "sha256": "882321bd7813a8391919cd08ca1c52eedfc189988a95452ceed961069eacf27e",
+    "bytes": 4697
+  },
+  "character/swordman/animation/hardattack.ani": {
+    "sha256": "ee9b7dce8f52aef20f4eee05da54233e71d6998b8b61b62bab003d3cb1d75a7f",
+    "bytes": 5982
+  },
+  "character/swordman/attackinfo/hardattack.atk": {
+    "sha256": "37e13009532ca2b8af638e45a92e9666fdcfdd047c708c007b1757f52dd9bb9d",
+    "bytes": 554
+  },
+  "character/swordman/effect/animation/hardattack1.ani": {
+    "sha256": "ff8a9be483c1de6985d0c04039b600febe9f7428799cf32f21f34a5ef6e798d7",
+    "bytes": 2009
+  },
+  "character/swordman/effect/animation/hardattack2.ani": {
+    "sha256": "476d097a64fb32d4dea8f576a018e66b6ef430c782ca802fcf08ad580b0ec749",
+    "bytes": 2067
+  },
+  "skill/fighter/cancelbackstep.skl": {
+    "sha256": "4841f1461b311f27b58353317938505f792a23b4fd39f3b38ddcc185f278fc87",
+    "bytes": 561
+  },
+  "skill/gunner/canceltreadshoot.skl": {
+    "sha256": "74332b9863d373291e4f7e1c39fc1ce32a79911b828582ecf7868605decc0622",
+    "bytes": 595
+  },
+  "skill/mage/cancelhandstrike.skl": {
+    "sha256": "7266fc09ff4aa4fe439bfbb439bed604ebdcb9f3da682981a614a211b178d359",
+    "bytes": 567
+  },
+  "skill/fighter/cancelgrabexplosion.skl": {
+    "sha256": "e1abbde1ff323a20a12aef78d5d927cc582a23dc1d41bb9e67c76d033c61031c",
+    "bytes": 630
+  },
+  "skill/fighter/cancelthrowsand.skl": {
+    "sha256": "6cd08d67b5ffc0b6a28bb06c5142eb4393ad6a94adb64395ec66471aa13669cf",
+    "bytes": 652
+  },
+  "skill/gunner/cancelflamethrower.skl": {
+    "sha256": "67982b88dd7b507fa74a3e3ed9481ba37d8ed4c8ab626481096ddfecda6f95ac",
+    "bytes": 607
+  },
+  "skill/gunner/cancelaerialgatling.skl": {
+    "sha256": "7d4cce51dae51271e607f2f9483a12be2a67b99b60ecfd1a9b5bbfbfb86b0264",
+    "bytes": 596
+  },
+  "skill/gunner/cancelbackstep.skl": {
+    "sha256": "4841f1461b311f27b58353317938505f792a23b4fd39f3b38ddcc185f278fc87",
+    "bytes": 561
+  },
+  "skill/mage/cancelbackstep.skl": {
+    "sha256": "1d8fbaa408465b26a09e32faa698c4585f18c85d41ad07fce4f6a8d5fcb252c2",
+    "bytes": 577
+  },
+  "skill/gunner/cancelgatling.skl": {
+    "sha256": "1fdd408e37f992a1b77a440fe312d7b9af484b0edb2b4e1aca55a9368380f3e2",
+    "bytes": 611
+  },
+  "skill/mage/cancelupperswing.skl": {
+    "sha256": "155f862edfc92dd892e90a18ecedebc5db18e11fd41e090df90b4bbca17feccd",
+    "bytes": 567
+  },
+  "skill/fighter/cancelenergyball.skl": {
+    "sha256": "2baddf6bf1fe52b61ed07745b72a46d01a2e9b9a2e24634ef41518ea861625b7",
+    "bytes": 648
+  },
+  "skill/fighter/cancelsuplex.skl": {
+    "sha256": "a36aabe66c864a9c2ac64e03cf06707ddc56dbc3d09cc21aea3d5f13678f60ac",
+    "bytes": 646
+  },
+  "skill/swordman/cancelwave.skl": {
+    "sha256": "5b8693b40e4aa9bf08db68db7306b5369df5135ba809d26539d6793a6ac9e21e",
+    "bytes": 629
+  },
+  "skill/swordman/canceltripleslash.skl": {
+    "sha256": "6a49bda060df3e8baa6235c1fb00ff7e33769aad42573a527163ec09ada17dd6",
+    "bytes": 651
+  },
+  "skill/swordman/cancelhardattack.skl": {
+    "sha256": "8d0ade1edebfab4ef832edbf72b9d33521a64ac8c13ba71b18a94e3ab778dee7",
+    "bytes": 740
+  },
+  "skill/swordman/cancelgrabblastblood.skl": {
+    "sha256": "7acf756719ec749866732682d76a1e31e35636e662aa9fc03ab4fddc44aacca8",
+    "bytes": 629
+  },
+  "skill/fighter/cancelthrowitem.skl": {
+    "sha256": "055de04c8a256538d9c9e1b97b2079f7723142c50174e349fbd96764bd18d28a",
+    "bytes": 509
+  },
+  "skill/fighter/cancelthrowenemy.skl": {
+    "sha256": "d379f6a5439959937c120ccb78b54faef6511df69b09b319bc2e192271aed970",
+    "bytes": 651
+  },
+  "skill/fighter/cancelclosepunch.skl": {
+    "sha256": "3f61e8997b790e2b05f36c0c3d542a4f9c0163b3e8669f443364191c8b1024ed",
+    "bytes": 656
+  },
+  "skill/mage/cancelthrowitem.skl": {
+    "sha256": "92253457ad00cd9a33248a3d93a6966a49d9750cc8271f583822cc5201016db6",
+    "bytes": 511
+  },
+  "skill/gunner/cancelfastknee.skl": {
+    "sha256": "450a8d767592d75f870f37c84db24bedf9622c1eeb8722e6e7f2a2a957ba673c",
+    "bytes": 612
+  },
+  "skill/gunner/cancelheadshot.skl": {
+    "sha256": "cef8e9a93a3ff896441b6ebf1dc397efb44cc534b32269de0d2977ed3b0fabd3",
+    "bytes": 584
+  },
+  "skill/swordman/cancelupperslash.skl": {
+    "sha256": "815c121b23b3a2f2b76f0fbc0cafe546d376a1b0875ebb62676d88b9aa393785",
+    "bytes": 654
+  },
+  "skill/fighter/cancelliftupper.skl": {
+    "sha256": "b77b4c66d840bc7931510ad889be5595e8356d0975341e4b78abf7dd18153f71",
+    "bytes": 581
+  },
+  "skill/swordman/cancelbackstep.skl": {
+    "sha256": "1d8fbaa408465b26a09e32faa698c4585f18c85d41ad07fce4f6a8d5fcb252c2",
+    "bytes": 577
+  },
+  "skill/fighter/cancelsinglekick.skl": {
+    "sha256": "a1c096a94158d6e395a3729ea75dc7858fb55398954197b55c7673d183795c49",
+    "bytes": 648
+  },
+  "skill/swordman/cancelguard.skl": {
+    "sha256": "bf2f27a6f6902fa8f42cd5b48f98cb6ef1bfaeb6338d91d8cd5872ade830eed0",
+    "bytes": 592
+  },
+  "skill/swordman/cancelthrowitem.skl": {
+    "sha256": "92253457ad00cd9a33248a3d93a6966a49d9750cc8271f583822cc5201016db6",
+    "bytes": 511
+  },
+  "skill/mage/cancelmagicmissile.skl": {
+    "sha256": "dcdb9367adf3da4ba3d0ea73098ec9e1016deca25b66731fd6c436f4ead885e8",
+    "bytes": 592
+  },
+  "skill/fighter/canceljumpsuplex.skl": {
+    "sha256": "ebd92a2d08dde7796f31875c06dca07785eba0030a933d8b383ae72ae71bb48a",
+    "bytes": 649
+  },
+  "skill/fighter/cancellowkick.skl": {
+    "sha256": "91227249f3953c068c682f4e61987c6b4f07fa745479eddcd4cf75f14ef9336f",
+    "bytes": 581
+  },
+  "skill/gunner/cancelthrowitem.skl": {
+    "sha256": "92253457ad00cd9a33248a3d93a6966a49d9750cc8271f583822cc5201016db6",
+    "bytes": 511
+  }
+}

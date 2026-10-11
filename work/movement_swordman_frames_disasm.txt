@@ -1,0 +1,17 @@
+ARAD.exe size=3948544 sha256=09d45918d5ca7d67532329f4fa8ac2c5519454ebe4615c3c0ddb27e33a34e4ed
+005EEE40 55                   push     ebp
+005EEE41 8bec                 mov      ebp, esp
+005EEE43 51                   push     ecx
+005EEE44 56                   push     esi
+005EEE45 8bf1                 mov      esi, ecx
+005EEE47 b802000000           mov      eax, 2
+005EEE4C 57                   push     edi
+005EEE4D 8dbed41e0000         lea      edi, [esi + 0x1ed4]
+005EEE53 8986881a0000         mov      dword ptr [esi + 0x1a88], eax
+005EEE59 89868c1a0000         mov      dword ptr [esi + 0x1a8c], eax
+005EEE5F 8986901a0000         mov      dword ptr [esi + 0x1a90], eax
+005EEE65 c786941a000003000000 mov      dword ptr [esi + 0x1a94], 3
+005EEE6F c786981a000004000000 mov      dword ptr [esi + 0x1a98], 4
+005EEE79 c786d01a000001000000 mov      dword ptr [esi + 0x1ad0], 1
+005EEE83 c786d41a000008000000 mov      dword ptr [esi + 0x1ad4], 8
+005EEE8D c786d81a00000f000000 mov      dword ptr [esi + 0x1ad8], 0xf

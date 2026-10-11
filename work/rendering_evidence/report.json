@@ -1,0 +1,46 @@
+{
+  "pid": 27420,
+  "renderer": "0x53dc018",
+  "sprite": "0x54e9210",
+  "sprite_begin": "0x67f1c6",
+  "requested_depth": 16,
+  "backbuffer": [
+    640,
+    480,
+    22
+  ],
+  "awareness": 0,
+  "physical_size": [
+    800,
+    600
+  ],
+  "logical_size": [
+    640,
+    480
+  ],
+  "dpi_scale_comparison": {
+    "static_visible_roi": [
+      36,
+      84,
+      328,
+      548
+    ],
+    "mean_absolute_channel_error": {
+      "point": 12.405647240592032,
+      "linear": 0.7535919540229884,
+      "cubic": 4.443025704613446
+    }
+  },
+  "a1r5g5b5_comparison": {
+    "samples": 14367,
+    "frame_origin": [
+      29,
+      63
+    ],
+    "mean_absolute_channel_error": {
+      "shift": 1.7768497250643838,
+      "unorm_round": 0.17892856314238648,
+      "bit_replication": 0.0
+    }
+  }
+}

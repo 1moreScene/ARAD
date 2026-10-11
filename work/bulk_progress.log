@@ -1,0 +1,261 @@
+=== PART=monster begin ===
+=== PART=engine begin ===
+=== PART=combat begin ===
+funcs=1577 skipped_big=1
+part combat 0/1577
+part combat 50/1577
+part combat 100/1577
+part combat 150/1577
+part combat 200/1577
+part combat 250/1577
+part combat 300/1577
+part combat 350/1577
+part combat 400/1577
+part combat 450/1577
+part combat 500/1577
+part combat 550/1577
+part combat 600/1577
+part combat 650/1577
+part combat 700/1577
+part combat 750/1577
+part combat 800/1577
+part combat 850/1577
+part combat 900/1577
+part combat 950/1577
+part combat 1000/1577
+part combat 1050/1577
+part combat 1100/1577
+part combat 1150/1577
+part combat 1200/1577
+part combat 1250/1577
+part combat 1300/1577
+part combat 1350/1577
+part combat 1400/1577
+part combat 1450/1577
+part combat 1500/1577
+part combat 1550/1577
+part combat DONE 1577
+=== PART=miscb begin ===
+funcs=759 skipped_big=3
+part miscb 0/759
+part miscb 50/759
+part miscb 100/759
+part miscb 150/759
+part miscb 200/759
+part miscb 250/759
+part miscb 300/759
+part miscb 350/759
+part miscb 400/759
+part miscb 450/759
+part miscb 500/759
+part miscb 550/759
+part miscb 600/759
+part miscb 650/759
+part miscb 700/759
+part miscb 750/759
+part miscb DONE 759
+ALL DONE total=2336
+=== PART=skills begin ===
+funcs=1703 skipped_big=5
+part skills 0/1703
+part skills 50/1703
+part skills 100/1703
+part skills 150/1703
+part skills 200/1703
+part skills 250/1703
+part skills 300/1703
+part skills 350/1703
+part skills 400/1703
+part skills 450/1703
+part skills 500/1703
+part skills 550/1703
+part skills 600/1703
+part skills 650/1703
+part skills 700/1703
+part skills 750/1703
+part skills 800/1703
+part skills 850/1703
+part skills 900/1703
+part skills 950/1703
+part skills 1000/1703
+part skills 1050/1703
+part skills 1100/1703
+part skills 1150/1703
+part skills 1200/1703
+part skills 1250/1703
+part skills 1300/1703
+part skills 1350/1703
+part skills 1400/1703
+part skills 1450/1703
+part skills 1500/1703
+part skills 1550/1703
+part skills 1600/1703
+part skills 1650/1703
+part skills 1700/1703
+part skills DONE 1703
+=== PART=uilogin begin ===
+funcs=1004 skipped_big=2
+part uilogin 0/1004
+part uilogin 50/1004
+part uilogin 100/1004
+part uilogin 150/1004
+part uilogin 200/1004
+part uilogin 250/1004
+part uilogin 300/1004
+part uilogin 350/1004
+part uilogin 400/1004
+part uilogin 450/1004
+part uilogin 500/1004
+part uilogin 550/1004
+part uilogin 600/1004
+part uilogin 650/1004
+part uilogin 700/1004
+part uilogin 750/1004
+part uilogin 800/1004
+part uilogin 850/1004
+part uilogin 900/1004
+part uilogin 950/1004
+part uilogin 1000/1004
+part uilogin DONE 1004
+ALL DONE total=2707
+=== PART=monster begin ===
+=== PART=engine begin ===
+=== PART=monster begin ===
+funcs=1219 skipped_big=0
+part monster 0/1219
+=== PART=engine begin ===
+funcs=812 skipped_big=0
+part engine 0/812
+part engine 50/812
+part monster 50/1219
+part engine 100/812
+part engine 150/812
+part monster 100/1219
+part engine 200/812
+part engine 250/812
+part engine 300/812
+part monster 150/1219
+part engine 350/812
+part monster 200/1219
+part engine 400/812
+part engine 450/812
+part monster 250/1219
+part monster 300/1219
+part engine 500/812
+part engine 550/812
+part monster 350/1219
+part engine 600/812
+part monster 400/1219
+part engine 650/812
+part engine 700/812
+part monster 450/1219
+part engine 750/812
+part monster 500/1219
+part engine 800/812
+part engine DONE 812
+=== PART=misca begin ===
+funcs=1933 skipped_big=3
+part misca 0/1933
+part monster 550/1219
+part misca 50/1933
+part monster 600/1219
+part misca 100/1933
+part monster 650/1219
+part misca 150/1933
+part misca 200/1933
+part monster 700/1219
+part misca 250/1933
+part monster 750/1219
+part misca 300/1933
+part monster 800/1219
+part misca 350/1933
+part misca 400/1933
+part monster 850/1219
+part misca 450/1933
+part misca 500/1933
+part monster 900/1219
+part misca 550/1933
+part misca 600/1933
+part monster 950/1219
+part misca 650/1933
+part monster 1000/1219
+part misca 700/1933
+part misca 750/1933
+part monster 1050/1219
+part misca 800/1933
+part misca 850/1933
+part misca 900/1933
+part misca 950/1933
+part monster 1100/1219
+part misca 1000/1933
+part misca 1050/1933
+part misca 1100/1933
+part monster 1150/1219
+part misca 1150/1933
+part monster 1200/1219
+part misca 1200/1933
+part monster DONE 1219
+ALL DONE total=1219
+part misca 1250/1933
+part misca 1300/1933
+part misca 1350/1933
+part misca 1400/1933
+part misca 1450/1933
+part misca 1500/1933
+part misca 1550/1933
+part misca 1600/1933
+part misca 1650/1933
+part misca 1700/1933
+part misca 1750/1933
+part misca 1800/1933
+part misca 1850/1933
+part misca 1900/1933
+part misca DONE 1933
+ALL DONE total=2745
+=== PART=tail_a begin ===
+funcs=179 skipped_big=0
+part tail_a 0/179
+=== PART=tail_b begin ===
+funcs=165 skipped_big=0
+part tail_b 0/165
+=== PART=tail_c begin ===
+funcs=1312 skipped_big=4
+part tail_c 0/1312
+part tail_c 50/1312
+part tail_a 50/179
+part tail_b 50/165
+part tail_c 100/1312
+part tail_a 100/179
+part tail_b 100/165
+part tail_a 150/179
+part tail_b 150/165
+part tail_a DONE 179
+ALL DONE total=179
+part tail_b DONE 165
+ALL DONE total=165
+part tail_c 150/1312
+part tail_c 200/1312
+part tail_c 250/1312
+part tail_c 300/1312
+part tail_c 350/1312
+part tail_c 400/1312
+part tail_c 450/1312
+part tail_c 500/1312
+part tail_c 550/1312
+part tail_c 600/1312
+part tail_c 650/1312
+part tail_c 700/1312
+part tail_c 750/1312
+part tail_c 800/1312
+part tail_c 850/1312
+part tail_c 900/1312
+part tail_c 950/1312
+part tail_c 1000/1312
+part tail_c 1050/1312
+part tail_c 1100/1312
+part tail_c 1150/1312
+part tail_c 1200/1312
+part tail_c 1250/1312
+part tail_c 1300/1312
+part tail_c DONE 1312
+ALL DONE total=1312

@@ -1,0 +1,7 @@
+{
+  // 本仓库根目录不是 Cargo 工程：真正的 workspace 在 custom-dnf/ 下。
+  // 不声明 linkedProjects 时，rust-analyzer 会把 .rs 当"单文件"分析，
+  // 因而报出大量假错误（E0308 等）。改完请执行 Reload Window。
+  "rust-analyzer.linkedProjects": ["custom-dnf/Cargo.toml"],
+  "rust-analyzer.cargo.allTargets": true
+}

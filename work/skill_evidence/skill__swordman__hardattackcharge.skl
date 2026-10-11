@@ -1,0 +1,66 @@
+[purchase cost] 
+30
+[/purchase cost]
+[pre required skill] 
+5 10			// ｱﾍﾂ� ｷｹｺｧ 10
+[/pre required skill]
+[required level]  20			// ｽｺﾅｳﾀｻ ｹ霑�ｱ� ﾀｧﾇﾘ ﾇﾊｿ萇ﾑ ﾄｳｸｯﾅﾍﾀﾇ ﾃﾖｼﾒ ｷｹｺｧ.
+[required level range]  2
+
+[type]  `[passive]`
+[skill class]  3
+[maximum level]  20
+[growtype maximum level]  0 0 10 0 0
+[skill fitness growtype] 
+2
+[/skill fitness growtype]
+[icon] 
+`Character/Swordman/Effect/SkillIcon.img` 46
+`Character/Swordman/Effect/SkillIcon.img` 47
+
+[static data] 
+100	// ｸｸｱ篋ｦ ｽﾃﾀﾛﾇﾏｱ� ﾀｧﾇﾘ ﾅｰｸｦ ｴｩｸ｣ｰ� ﾀﾖｾ﨨ﾟ ﾇﾏｴﾂ ｽﾃｰ｣
+2000	// ﾃﾖｴ� ｸｸｱ� ｽﾃｰ｣
+[/static data]
+[level info]
+1
+// 0. ｿﾏﾃ貎ﾃ ｰﾝｷﾂ+
+495
+543
+591
+639
+687
+735
+783
+831
+879
+927
+975
+1023
+1071
+1119
+1167
+1215
+1263
+1311
+1359
+1407
+[/level info]
+
+
+
+
+[name]  <12::name_17765>
+[explain] 
+<12::explain_17770>
+[name2]  <12::name2_17775>
+[command key explain]  <12::command_key_explain_17780>
+
+[level property] 
+1 99
+<12::level_property_17785>
+1 1 0.001
+-1 0 1.0
+[/level property]
+
+

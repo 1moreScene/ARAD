@@ -1,0 +1,210 @@
+[job]  `[swordman]`
+[width]  40 10
+
+[initial value] 
+[HP MAX]  150.0
+[MP MAX]  150.0
+[physical attack]  5.0
+[physical defense]  5.0
+[magical attack]  6.0
+[magical defense]  5.0
+[dark resistance]  20.0
+[light resistance]  -20.0
+[inventory limit]  40000.0
+[MP regen speed]  15.0
+[move speed]  850.0
+[attack speed]  850.0
+[cast speed]  700.0
+[hit recovery]  600.0
+[jump power]  430.0
+[weight]  68000.0
+[jump speed]  95
+[skill] 
+181 2 // ｼｼｰ�
+182 2 // ｹ戝�
+184 1 // ﾈｭﾇﾐ
+173 1 // ﾁﾟｰｩ
+179 5 // ﾇﾘﾃｼ
+5 1 // ｱﾍﾂ�
+46 1 // ｾ鏆ﾛｽｽｷ｡ｽｬ
+[/skill]
+[growtype 1]  // ｱ篌ｻ
+[HP MAX]  52.5
+[MP MAX]  17.5
+[physical attack]  3.0
+[physical defense]  3.0
+[magical attack]  3.5
+[magical defense]  2.5
+[inventory limit]  300.0
+[hit recovery]  2.0
+
+[growtype 2]  // ｿｸｶ
+[HP MAX]  40.0
+[MP MAX]  30.0
+[physical attack]  3.5
+[physical defense]  3.0
+[magical attack]  3.0
+[magical defense]  2.5
+[inventory limit]  300.0
+[attack speed]  1.0
+[hit recovery]  3.0
+[skill] 
+27 1  // ｹｫｱ簑ﾇ ﾅｸｰ昕ｭ ｰｨｰ｢
+33 1  // ｱ､ｰﾋ ｻ鄙� ｰ｡ｴﾉ
+37 1  // ｽﾅｼﾓﾇﾑ ｹｫｱ� ｱｳﾃｼ
+172 1 // ｰ豌ｩｸｶｽｺﾅﾍｸｮ
+[/skill]
+[growtype 3]  // ｼﾒｿ�ｺ�ｸｵｾ�
+[HP MAX]  35.0
+[MP MAX]  35.0
+[physical attack]  2.0
+[physical defense]  2.0
+[magical attack]  4.0
+[magical defense]  4.0
+[dark resistance]  0.8
+[inventory limit]  300.0
+[MP regen speed]  2.0
+[cast speed]  2.0
+[hit recovery]  1.0
+[skill] 
+35 1  // ｻ鄂ｽﾇﾘﾁｦ
+29 1  // ｾ鋙ﾒﾀﾇ ﾄ｣ﾈｭ
+187 1 //ﾃｵ ｸｶｽｺﾅﾍｸｮ
+[/skill]
+[growtype 4]  // ｹｭﾄｿ
+[HP MAX]  55.0
+[MP MAX]  15.0
+[physical attack]  4.0
+[physical defense]  4.5
+[magical attack]  1.5
+[magical defense]  2.0
+[inventory limit]  300.0
+[move speed]  1.0
+[hit recovery]  4.0
+[skill] 
+34 1  // ｴﾙﾀﾌﾇﾏｵ�
+181 0 // ｼｼｰｦｰﾅ
+182 0 // ｹ戝ｦｰﾅ
+[/skill]
+[growtype 5]  // ｾﾆｼ�
+[HP MAX]  52.5
+[MP MAX]  17.5
+[physical attack]  3.0
+[physical defense]  3.0
+[magical attack]  3.0
+[magical defense]  3.0
+[inventory limit]  300.0
+[MP regen speed]  0.5
+[cast speed]  1.0
+[hit recovery]  2.0
+[skill] 
+47 1 // ﾀ眤酥ﾄｵｿﾇﾘﾁｦ
+174 1 //ﾆﾇｱﾝ ｸｶｽｺﾅﾍｸｮ
+[/skill]
+[waiting motion]  `Animation/Stay.ani`
+[move motion]  `Animation/Move.ani`
+[sit motion]  `Animation/Sit.ani`
+[damage motion 1]  `Animation/Damage1.ani`
+[damage motion 2]  `Animation/Damage2.ani`
+[down motion]  `Animation/Down.ani`
+[overturn motion]  `Animation/Overturn.ani`
+[jump motion]  `Animation/Jump.ani`
+[jumpattack motion]  `Animation/JumpAttack.ani`
+[rest motion]  `Animation/Rest.ani`
+[throw motion 1-1]  `Animation/Throw1.ani`
+[throw motion 1-2]  `Animation/Throw2.ani`
+[throw motion 2-1]  `Animation/Summon1.ani`
+[throw motion 2-2]  `Animation/Summon2.ani`
+[dash motion]  `Animation/Dash.ani`
+[dashattack motion]  `Animation/DashAttack.ani`
+[getitem motion]  `Animation/GetItem.ani`
+[buff motion]  `Animation/Summon2.ani`
+[attack motion] 
+`Animation/Attack1.ani`
+`Animation/Attack2.ani`
+`Animation/Attack3.ani`
+[/attack motion]
+[etc motion] 
+`Animation/Guard.ani`
+`Animation/HardAttack.ani`
+`Animation/HitBack.ani`
+`Animation/TripleSlash.ani`
+`Animation/TripleSlashFinal.ani`
+`Animation/MomentarySlash.ani`
+`Animation/Wave.ani`
+`Animation/Grab.ani`
+[/etc motion]
+[jumpattack info]  `AttackInfo/JumpAttack.atk`
+[dashattack info]  `AttackInfo/DashAttack.atk`
+[attack info] 
+`AttackInfo/Attack1.atk`
+`AttackInfo/Attack2.atk`
+`AttackInfo/Attack3.atk`
+[/attack info]
+[etc attack info] 
+`AttackInfo/HardAttack.atk`
+`AttackInfo/HitBack.atk`
+`AttackInfo/TripleSlash1.atk`
+`AttackInfo/TripleSlash2.atk`
+`AttackInfo/TripleSlash3.atk`
+`AttackInfo/MomentarySlash.atk`
+`AttackInfo/GiveBlood.atk`
+`AttackInfo/AshenFork.atk`
+`AttackInfo/UpperSlash.atk`
+`AttackInfo/Grab.atk`
+`AttackInfo/GrabBlastBlood.atk`
+[/etc attack info]
+[weapon wav] 
+`R_MINERALSWDA`
+`MINERALSWDB`
+`R_MINERALSWDA_HIT`
+`MINERAL_SWDB_HIT`
+[/weapon wav]
+[weapon wav] 
+`R_KATANAA`
+`KATANAB`
+`R_KATANAA_HIT`
+`KATANAB_HIT`
+[/weapon wav]
+[weapon wav] 
+`R_STICKA`
+`STICKB_01`
+`R_STICKA_HIT`
+`STICKB_HIT_01`
+[/weapon wav]
+[weapon wav] 
+`R_SQUARESWDA`
+`SQUARESWDB`
+`R_SQUARESWDA_HIT`
+`SQUARESWDB_HIT`
+[/weapon wav]
+[weapon wav] 
+`R_SQUARESWDA`
+`SQUARESWDB`
+`R_SQUARESWDA_HIT`
+`SQUARESWDB_HIT`
+[/weapon wav]
+[weapon wav] 
+`R_BEAMSWDA`
+`BEAMSWDB`
+`R_BEAMSWDA_HIT`
+`BEAMSWDB_HIT`
+[/weapon wav]
+[weapon hit info] 
+`[cut]` `[blood]` 100 1.00	// ｰﾋ
+`[cut]` `[blood]` 70 0.86	// ｵｵ
+`[blow]` `[no blood]` 110 1.05	// ｵﾐｱ�
+`[cut]` `[blood]` 170 1.20	// ﾁﾟｰﾋ
+`[cut]` `[blood]` 110 1.00	
+`[cut]` `[blood]` 60 0.85	// ｱ､ｰﾋ
+[/weapon hit info]
+
+
+
+
+[growtype name]  <0::growtype_name_75> <0::growtype_name_80> <0::growtype_name_85> <0::growtype_name_90> <0::growtype_name_95>
+ 
+
+ 
+
+

@@ -1,0 +1,18 @@
+{
+  "exe_sha256": "09d45918d5ca7d67532329f4fa8ac2c5519454ebe4615c3c0ddb27e33a34e4ed",
+  "resource": {
+    "type": "File",
+    "id": 115,
+    "language": 1042,
+    "codepage": 0,
+    "size": 61268,
+    "sha256": "d2cf6c691c93c29a0c2fb9f3d68afaa302e8332787d266558b92775fbb89f4b2"
+  },
+  "messages": [
+    "853>クールタイム中です。",
+    "854>MPが足りません。",
+    "855>アイテムが足りません。"
+  ],
+  "gauge_tint_argb": "0xff969696",
+  "notice_argb": "0xff9bc8e6"
+}

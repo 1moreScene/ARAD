@@ -1,0 +1,60 @@
+0047EA80 push     ebp
+0047EA81 mov      ebp, esp
+0047EA83 push     ecx
+0047EA84 mov      eax, dword ptr [ebp + 8]
+0047EA87 cmp      eax, -1
+0047EA8A push     esi
+0047EA8B mov      esi, ecx
+0047EA8D jne      0x47ea9a
+0047EA8F lea      ecx, [esi + 0x1fe]
+0047EA95 call     0x41a5e0
+0047EA9A mov      ecx, dword ptr [esi + 0x12c]
+0047EAA0 dec      eax
+0047EAA1 imul     eax, eax, 0xe
+0047EAA4 add      eax, ecx
+0047EAA6 mov      ecx, eax
+0047EAA8 call     0x41a5e0
+0047EAAD lea      ecx, [esi + 0x20c]
+0047EAB3 mov      dword ptr [ebp + 8], eax
+0047EAB6 call     0x41a5e0
+0047EABB fild     dword ptr [ebp + 8]
+0047EABE mov      dword ptr [ebp - 4], eax
+0047EAC1 fmul     dword ptr [ebp - 4]
+0047EAC4 call     0x66c544
+0047EAC9 pop      esi
+0047EACA mov      esp, ebp
+0047EACC pop      ebp
+0047EACD ret      4
+0047EAD0 push     ebp
+0047EAD1 mov      ebp, esp
+0047EAD3 mov      eax, dword ptr [ebp + 8]
+0047EAD6 cmp      eax, -1
+0047EAD9 push     esi
+0047EADA mov      esi, ecx
+0047EADC jne      0x47eae9
+0047EADE lea      ecx, [esi + 0x1fe]
+0047EAE4 call     0x41a5e0
+0047EAE9 mov      ecx, dword ptr [esi + 0x15c]
+0047EAEF dec      eax
+0047EAF0 imul     eax, eax, 0xe
+0047EAF3 add      eax, ecx
+0047EAF5 mov      ecx, eax
+0047EAF7 call     0x41a5e0
+0047EAFC pop      esi
+0047EAFD pop      ebp
+0047EAFE ret      4
+0047EB01 int3     
+0047EB02 int3     
+0047EB03 int3     
+0047EB04 int3     
+0047EB05 int3     
+0047EB06 int3     
+0047EB07 int3     
+0047EB08 int3     
+0047EB09 int3     
+0047EB0A int3     
+0047EB0B int3     
+0047EB0C int3     
+0047EB0D int3     
+0047EB0E int3     
+0047EB0F int3     

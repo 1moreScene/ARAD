@@ -1,0 +1,47 @@
+004A0550 55                   push     ebp
+004A0551 8bec                 mov      ebp, esp
+004A0553 56                   push     esi
+004A0554 8bf1                 mov      esi, ecx
+004A0556 8b4624               mov      eax, dword ptr [esi + 0x24]
+004A0559 85c0                 test     eax, eax
+004A055B 8b4d08               mov      ecx, dword ptr [ebp + 8]
+004A055E 7504                 jne      0x4a0564
+004A0560 85c9                 test     ecx, ecx
+004A0562 7550                 jne      0x4a05b4
+004A0564 0fafc1               imul     eax, ecx
+004A0567 85c0                 test     eax, eax
+004A0569 7f49                 jg       0x4a05b4
+004A056B f7d8                 neg      eax
+004A056D d1e0                 shl      eax, 1
+004A056F 85c9                 test     ecx, ecx
+004A0571 894508               mov      dword ptr [ebp + 8], eax
+004A0574 db4508               fild     dword ptr [ebp + 8]
+004A0577 d9fa                 fsqrt    
+004A0579 d95d08               fstp     dword ptr [ebp + 8]
+004A057C 7d08                 jge      0x4a0586
+004A057E d94508               fld      dword ptr [ebp + 8]
+004A0581 d9e0                 fchs     
+004A0583 d95d08               fstp     dword ptr [ebp + 8]
+004A0586 8b0e                 mov      ecx, dword ptr [esi]
+004A0588 85c9                 test     ecx, ecx
+004A058A 7428                 je       0x4a05b4
+004A058C 8b01                 mov      eax, dword ptr [ecx]
+004A058E ff9034010000         call     dword ptr [eax + 0x134]
+004A0594 84c0                 test     al, al
+004A0596 741c                 je       0x4a05b4
+004A0598 d94508               fld      dword ptr [ebp + 8]
+004A059B d94618               fld      dword ptr [esi + 0x18]
+004A059E dae9                 fucompp  
+004A05A0 dfe0                 fnstsw   ax
+004A05A2 f6c444               test     ah, 0x44
+004A05A5 7b0d                 jnp      0x4a05b4
+004A05A7 8b4d08               mov      ecx, dword ptr [ebp + 8]
+004A05AA 894e18               mov      dword ptr [esi + 0x18], ecx
+004A05AD c686c400000001       mov      byte ptr [esi + 0xc4], 1
+004A05B4 5e                   pop      esi
+004A05B5 5d                   pop      ebp
+004A05B6 c20400               ret      4
+004A05B9 cc                   int3     
+004A05BA cc                   int3     
+004A05BB cc                   int3     
+004A05BC cc                   int3     
