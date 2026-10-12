@@ -1,0 +1,63 @@
+004A2BB0 push     ebp
+004A2BB1 mov      ebp, esp
+004A2BB3 push     ecx
+004A2BB4 push     esi
+004A2BB5 push     edi
+004A2BB6 mov      edi, ecx
+004A2BB8 mov      eax, dword ptr [edi]
+004A2BBA call     dword ptr [eax + 0x260]
+004A2BC0 test     al, al
+004A2BC2 je       0x4a2c2c
+004A2BC4 mov      esi, dword ptr [edi + 0x78]
+004A2BC7 test     esi, esi
+004A2BC9 je       0x4a2c2c
+004A2BCB cmp      dword ptr [esi + 0x94], -1
+004A2BD2 jne      0x4a2bdb
+004A2BD4 mov      ecx, esi
+004A2BD6 call     0x4938f0
+004A2BDB mov      eax, dword ptr [esi + 0x88]
+004A2BE1 test     eax, eax
+004A2BE3 je       0x4a2c2c
+004A2BE5 mov      ecx, dword ptr [esi + 0x8c]
+004A2BEB sub      ecx, eax
+004A2BED mov      eax, 0x2aaaaaab
+004A2BF2 imul     ecx
+004A2BF4 sar      edx, 2
+004A2BF7 mov      ecx, edx
+004A2BF9 shr      ecx, 0x1f
+004A2BFC add      ecx, edx
+004A2BFE mov      dword ptr [ebp - 4], ecx
+004A2C01 je       0x4a2c2c
+004A2C03 mov      al, byte ptr [edi + 0x282]
+004A2C09 test     al, al
+004A2C0B je       0x4a2c15
+004A2C0D mov      eax, dword ptr [edi + 0x284]
+004A2C13 jmp      0x4a2c1c
+004A2C15 mov      ecx, edi
+004A2C17 call     0x4a2c40
+004A2C1C cmp      eax, 2
+004A2C1F je       0x4a2c2c
+004A2C21 pop      edi
+004A2C22 mov      eax, 1
+004A2C27 pop      esi
+004A2C28 mov      esp, ebp
+004A2C2A pop      ebp
+004A2C2B ret      
+004A2C2C pop      edi
+004A2C2D xor      eax, eax
+004A2C2F pop      esi
+004A2C30 mov      esp, ebp
+004A2C32 pop      ebp
+004A2C33 ret      
+004A2C34 int3     
+004A2C35 int3     
+004A2C36 int3     
+004A2C37 int3     
+004A2C38 int3     
+004A2C39 int3     
+004A2C3A int3     
+004A2C3B int3     
+004A2C3C int3     
+004A2C3D int3     
+004A2C3E int3     
+004A2C3F int3     

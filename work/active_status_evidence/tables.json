@@ -1,0 +1,223 @@
+[
+  {
+    "id": 0,
+    "token": "[slow]",
+    "fixed_seconds": 20,
+    "level1_level40": [
+      0.8999999761581421,
+      0.4000000059604645
+    ],
+    "secondary": [
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 1,
+    "token": "[freeze]",
+    "fixed_seconds": 0,
+    "level1_level40": [
+      2.0,
+      30.0
+    ],
+    "secondary": [
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 2,
+    "token": "[poison]",
+    "fixed_seconds": 7,
+    "level1_level40": [
+      6.0,
+      249.0
+    ],
+    "secondary": [
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 3,
+    "token": "[stun]",
+    "fixed_seconds": 0,
+    "level1_level40": [
+      1.0,
+      14.0
+    ],
+    "secondary": [
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 4,
+    "token": "[curse]",
+    "fixed_seconds": 20,
+    "level1_level40": [
+      0.8999999761581421,
+      0.4000000059604645
+    ],
+    "secondary": [
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 5,
+    "token": "[blind]",
+    "fixed_seconds": 0,
+    "level1_level40": [
+      5.0,
+      40.0
+    ],
+    "secondary": [
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 6,
+    "token": "[lightning]",
+    "fixed_seconds": 15,
+    "level1_level40": [
+      18.0,
+      600.0
+    ],
+    "secondary": [
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 7,
+    "token": "[stone]",
+    "fixed_seconds": 0,
+    "level1_level40": [
+      4.0,
+      20.0
+    ],
+    "secondary": [
+      120.0,
+      2000.0
+    ]
+  },
+  {
+    "id": 8,
+    "token": "[sleep]",
+    "fixed_seconds": 0,
+    "level1_level40": [
+      5.0,
+      20.0
+    ],
+    "secondary": [
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 9,
+    "token": "[burn]",
+    "fixed_seconds": 7,
+    "level1_level40": [
+      6.0,
+      195.1999969482422
+    ],
+    "secondary": [
+      4.0,
+      130.10000610351562
+    ]
+  },
+  {
+    "id": 10,
+    "token": "[deadlystrike]",
+    "fixed_seconds": 0,
+    "level1_level40": [
+      0.0,
+      0.0
+    ],
+    "secondary": [
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 11,
+    "token": "[bleeding]",
+    "fixed_seconds": 10,
+    "level1_level40": [
+      6.0,
+      99.0
+    ],
+    "secondary": [
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 12,
+    "token": "[haste]",
+    "fixed_seconds": 20,
+    "level1_level40": [
+      1.100000023841858,
+      1.4500000476837158
+    ],
+    "secondary": [
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 13,
+    "token": "[bless]",
+    "fixed_seconds": 20,
+    "level1_level40": [
+      1.100000023841858,
+      1.4500000476837158
+    ],
+    "secondary": [
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 14,
+    "token": "[element]",
+    "fixed_seconds": 0,
+    "level1_level40": [
+      0.0,
+      0.0
+    ],
+    "secondary": [
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 15,
+    "token": "[confuse]",
+    "fixed_seconds": 0,
+    "level1_level40": [
+      1.0,
+      10.0
+    ],
+    "secondary": [
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "id": 16,
+    "token": "[hold]",
+    "fixed_seconds": 0,
+    "level1_level40": [
+      4.0,
+      20.0
+    ],
+    "secondary": [
+      0.0,
+      0.0
+    ]
+  }
+]

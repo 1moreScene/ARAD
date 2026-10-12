@@ -1,7 +1,7 @@
-# 技能ID：5=鬼斩，46=上挑，0=空。slot1..6默认对应A/S/D/F/G/H。
-slot1 = 5
-slot2 = 46
-slot3 = 0
+# 技能ID：5=鬼斩，46=上挑，31=噬魂之手，0=空。slot1..6默认对应A/S/D/F/G/H。
+slot1 = 31
+slot2 = 5
+slot3 = 46
 slot4 = 0
 slot5 = 0
 slot6 = 0

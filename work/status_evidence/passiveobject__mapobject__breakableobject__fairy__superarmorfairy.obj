@@ -1,0 +1,42 @@
+[width]  58 20
+[floating height]  50
+[layer]  `[normal]`
+[pass type]  `[pass all]`
+
+[basic motion]  `Animation/SuperArmorFairy.ani`
+[etc motion] 
+`Animation/SuperArmorFairyEF.ani`
+`Animation/Heart.ani`
+[/etc motion]
+[attack info]  `AttackInfo/Fairy.atk`
+
+[int data] 
+1			// ｾﾗｼﾇﾀﾌ ﾀﾏｾ鋧ｯ ｱ暲ﾌ
+1			// ｿﾏﾀ�ﾆﾄｱｫｱ暲ﾌ
+1			// 1 = ｿﾏﾀ�ﾆﾄｱｫｰ｡ｴﾉ, 0 = ｿﾏﾀ�ﾆﾄｱｫｺﾒｰ｡
+0 0 0
+1			// ﾃｼｷﾂ
+[/int data]
+
+
+
+
+[name]  <9::name_4875>
+[string data] 
+``					// ﾃ豬ｹｽﾃ ﾆﾄﾆｼﾅｬ
+``					// ﾅｸｰﾝｽﾃ ﾆﾄﾆｼﾅｬ
+``
+
+``					// ﾃ豬ｹｽﾃ ｻ鄙鋙�
+``					// ﾅｸｰﾝｽﾃ ｻ鄙鋙�
+``
+
+`Animation/SuperArmorFairyDestroy.ani`	// ﾆﾄｱｫｾﾖｴﾏｸﾞﾀﾌｼﾇ
+`Animation/HeartDestroy.ani`
+
+<9::string_data_4880>
+<9::string_data_4885>
+<9::string_data_4890>
+[/string data]
+
+

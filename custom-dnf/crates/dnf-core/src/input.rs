@@ -37,6 +37,10 @@ impl InputState {
     pub fn set(&mut self, dik: Dik, pressed: bool) {
         self.down[dik.code() as usize] = pressed;
     }
+    /// Internal substeps retain held keys, but a physical edge is delivered once.
+    pub fn settle_edges(&mut self) {
+        self.prev = self.down;
+    }
 
     pub fn is_down(&self, dik: Dik) -> bool {
         self.down[dik.code() as usize]

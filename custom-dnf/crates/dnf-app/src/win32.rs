@@ -1,6 +1,6 @@
 //! Win32/GDI presentation: original 640×480 canvas, explicit bilinear DPI enlargement.
 //! DirectInput8 keyboard; GetAsyncKeyState only when device initialization fails.
-//! Uncapped rendering with a separate 60Hz simulation clock, IME/focus policies.
+//! Uncapped rendering with a separate 300Hz simulation clock, IME/focus policies.
 
 // FFI 类型名刻意与 Win32 SDK 保持一致（WNDCLASSW / BITMAPINFO 等），便于对照官方头文件。
 #![allow(clippy::upper_case_acronyms)]
@@ -120,10 +120,6 @@ pub const WM_DESTROY: UINT = 0x0002;
 pub const WM_CLOSE: UINT = 0x0010;
 pub const WM_QUIT: UINT = 0x0012;
 pub const WM_PAINT: UINT = 0x000F;
-pub const WM_KEYDOWN: UINT = 0x0100;
-pub const WM_KEYUP: UINT = 0x0101;
-pub const WM_SYSKEYDOWN: UINT = 0x0104;
-pub const WM_SYSKEYUP: UINT = 0x0105;
 pub const WM_INPUTLANGCHANGE: UINT = 0x0051;
 pub const WM_IME_SETCONTEXT: UINT = 0x0281;
 pub const WM_IME_STARTCOMPOSITION: UINT = 0x010D;
@@ -183,18 +179,10 @@ extern "system" {
     fn EndPaint(hwnd: HWND, ps: *const PAINTSTRUCT) -> BOOL;
     fn SetProcessDPIAware() -> BOOL;
     fn GetDpiForSystem() -> UINT;
-    fn SetForegroundWindow(hwnd: HWND) -> BOOL;
     fn GetForegroundWindow() -> HWND;
-    fn SetFocus(hwnd: HWND) -> HWND;
     fn GetFocus() -> HWND;
-    fn GetWindowThreadProcessId(hwnd: HWND, process_id: *mut u32) -> u32;
-    fn AttachThreadInput(from_thread: u32, to_thread: u32, attach: BOOL) -> BOOL;
-    fn BringWindowToTop(hwnd: HWND) -> BOOL;
     fn IsIconic(hwnd: HWND) -> BOOL;
     fn IsWindow(hwnd: HWND) -> BOOL;
-    fn SetWindowPos(hwnd: HWND, after: HWND, x: i32, y: i32, cx: i32, cy: i32, flags: UINT)
-        -> BOOL;
-    fn SetWindowTextW(hwnd: HWND, title: LPCWSTR) -> BOOL;
 }
 
 #[link(name = "imm32")]
@@ -390,14 +378,15 @@ pub fn rgba_to_bgra(fb: &Framebuffer, out: &mut [u8]) {
 
 /// 帧呈现器：把 RGBA 帧缓冲转成 BGRA 并拉伸到目标 DC。
 pub struct Presenter {
+    pub performance: crate::performance::Snapshot,
+    pub last_render_ms: f64,
+    last_present: crate::performance::FrameTime,
     pub hwnd: HWND,
     bgra: Vec<u8>,
     pub width: i32,
     pub height: i32,
     pub input_active: bool,
     pub fps: f64,
-    focus_pinned: bool,
-    title: String,
     display: std::cell::RefCell<(dnf_render::sampling::LinearScaler, Vec<u8>)>,
     keyboard: Option<crate::keyboard::Keyboard>,
 }
@@ -412,14 +401,15 @@ impl Presenter {
             }
         };
         Presenter {
+            performance: crate::performance::Snapshot::default(),
+            last_render_ms: 0.0,
+            last_present: crate::performance::FrameTime::default(),
             hwnd,
             bgra: vec![0; (width * height * 4) as usize],
             width,
             height,
             input_active: false,
             fps: 0.0,
-            focus_pinned: false,
-            title: String::new(),
             display: std::cell::RefCell::new((
                 dnf_render::sampling::LinearScaler::new(
                     (width as usize, height as usize),
@@ -442,53 +432,9 @@ impl Presenter {
         }
     }
 
-    fn set_focus_pinned(&mut self, pinned: bool) {
-        self.focus_pinned = pinned;
+    /// Observe Windows focus only. Never make the window topmost or reclaim input.
+    fn refresh_focus(&mut self) {
         unsafe {
-            let after = if pinned { -1isize } else { -2isize } as HWND;
-            SetWindowPos(self.hwnd, after, 0, 0, 0, 0, 0x0001 | 0x0002 | 0x0010);
-            let suffix = if pinned {
-                "焦点已钉住 · F10解除"
-            } else {
-                "焦点自由 · F10钉住"
-            };
-            SetWindowTextW(
-                self.hwnd,
-                wide(&format!("{} · {}", self.title, suffix)).as_ptr(),
-            );
-        }
-    }
-
-    fn refresh_focus(&mut self, reclaim: bool) {
-        unsafe {
-            if reclaim
-                && self.focus_pinned
-                && IsIconic(self.hwnd) == 0
-                && GetForegroundWindow() != self.hwnd
-            {
-                SetForegroundWindow(self.hwnd);
-                if GetForegroundWindow() != self.hwnd {
-                    // Temporarily share input queues for our requested focus
-                    // transition, then detach immediately. No key injection.
-                    let foreground = GetForegroundWindow();
-                    let from = GetCurrentThreadId();
-                    let to = GetWindowThreadProcessId(foreground, std::ptr::null_mut());
-                    if to != 0 && from != to && AttachThreadInput(from, to, 1) != 0 {
-                        BringWindowToTop(self.hwnd);
-                        SetForegroundWindow(self.hwnd);
-                        if GetForegroundWindow() == self.hwnd {
-                            SetFocus(self.hwnd);
-                        }
-                        AttachThreadInput(from, to, 0);
-                    }
-                }
-            }
-            if IsIconic(self.hwnd) == 0
-                && GetForegroundWindow() == self.hwnd
-                && GetFocus() != self.hwnd
-            {
-                SetFocus(self.hwnd);
-            }
             self.input_active = IsIconic(self.hwnd) == 0
                 && GetForegroundWindow() == self.hwnd
                 && GetFocus() == self.hwnd;
@@ -504,9 +450,9 @@ impl Presenter {
     }
 
     /// 把当前 DIB 位图拉伸铺满给定 DC 的客户区（`WM_PAINT` 与主动刷新共用）。
-    pub fn blit_to(&self, hdc: HDC) {
+    pub fn blit_to(&self, hdc: HDC) -> crate::performance::FrameTime {
         if hdc.is_null() {
-            return;
+            return crate::performance::FrameTime::default();
         }
         unsafe {
             let mut rc = RECT::default();
@@ -521,8 +467,11 @@ impl Presenter {
                 );
             }
             let (scaler, pixels) = &mut *display;
+            let start = std::time::Instant::now();
             scaler.render(&self.bgra, pixels);
+            let scale_ms = crate::performance::ms(start);
             let info = BITMAPINFO::top_down_rgba(cw, ch);
+            let start = std::time::Instant::now();
             // Filtering is done explicitly once; GDI then copies the physical-size DIB 1:1.
             SetStretchBltMode(hdc, COLORONCOLOR);
             StretchDIBits(
@@ -540,25 +489,34 @@ impl Presenter {
                 DIB_RGB_COLORS,
                 SRCCOPY,
             );
+            crate::performance::FrameTime {
+                scale: scale_ms,
+                gdi: crate::performance::ms(start),
+                ..Default::default()
+            }
         }
     }
 
     /// 取窗口客户区 DC 后刷新。
-    pub fn blit(&self) {
+    pub fn blit(&self) -> crate::performance::FrameTime {
         unsafe {
             let hdc = GetDC(self.hwnd);
             if hdc.is_null() {
-                return;
+                return crate::performance::FrameTime::default();
             }
-            self.blit_to(hdc);
+            let times = self.blit_to(hdc);
             ReleaseDC(self.hwnd, hdc);
+            times
         }
     }
 
     /// 更新 + 呈现（等价于 `update_from` + `blit`）。
     pub fn present(&mut self, fb: &Framebuffer) {
+        let start = std::time::Instant::now();
         self.update_from(fb);
-        self.blit();
+        let convert = crate::performance::ms(start);
+        self.last_present = self.blit();
+        self.last_present.convert = convert;
     }
 }
 
@@ -754,7 +712,7 @@ fn window_class_name() -> Vec<u16> {
     wide("DnfWhiteboxWindow")
 }
 
-/// Uncapped rendering, independent 60Hz logic. Callback flags are (advance, render).
+/// Uncapped rendering, independent300Hz world updates. Callback flags are(advance,render).
 ///
 /// `screenshot` = `Some((第几帧后, 输出路径))`：到点把**窗口客户区的真实内容**截成 PNG 并退出，
 /// 用来验证「窗口上确实有画面」而不是只验证离屏帧缓冲。
@@ -837,7 +795,6 @@ where
         ImmAssociateContextEx(hwnd, std::ptr::null_mut(), 1); // existing children
 
         let mut presenter = Box::new(Presenter::new(hwnd, CLIENT_W, CLIENT_H));
-        presenter.title = title.to_string();
         SetWindowLongPtrW(
             hwnd,
             GWLP_USERDATA,
@@ -853,18 +810,16 @@ where
         }
         ShowWindow(hwnd, SW_SHOW);
         UpdateWindow(hwnd);
-        presenter.set_focus_pinned(true);
-        presenter.refresh_focus(true);
+        presenter.refresh_focus();
         let mut actual = RECT::default();
         GetClientRect(hwnd, &mut actual);
         let context = ImmGetContext(hwnd);
         println!(
-            "窗口策略: 客户区={}x{} IME线程禁用={} IME上下文={} 焦点钉住={} 输入焦点={}",
+            "窗口策略: 客户区={}x{} IME线程禁用={} IME上下文={} 自由焦点=true 输入焦点={}",
             actual.right - actual.left,
             actual.bottom - actual.top,
             ime_disabled,
             !context.is_null(),
-            presenter.focus_pinned,
             presenter.input_active
         );
         if !context.is_null() {
@@ -877,14 +832,15 @@ where
         println!("采样策略: 精灵缩放/旋转LINEAR；DPI显示BILINEAR；16位素材颜色完整位扩展。");
 
         let freq = qpc_frequency();
-        let mut clock = dnf_core::clock::FixedClock::default();
+        let mut clock = dnf_core::clock::FixedClock::new(dnf_core::clock::WORLD_MS);
         let started = qpc();
         let mut previous = started;
-        let mut last_reclaim = started;
         let mut fps_started = started;
         let mut fps_frames = 0u64;
         let mut rendered = 0u64;
-        println!("帧率策略: 渲染无上限；逻辑60Hz；FPS为实际呈现次数/墙钟时间。");
+        let mut performance = crate::performance::Monitor::default();
+        let mut last_presented = started;
+        println!("帧率策略: 渲染无上限；世界逻辑300Hz；FPS为窗口绘制/提交次数，区别于显示器Hz。");
 
         let mut msg = MSG {
             hwnd: std::ptr::null_mut(),
@@ -918,25 +874,25 @@ where
             }
 
             let now = qpc();
+            let mut logic_ms = 0.0;
             let steps = clock.advance((now - previous) as f64 * 1000.0 / freq as f64);
             previous = now;
             if steps > 0 {
-                let reclaim = now - last_reclaim >= freq / 4;
-                presenter.refresh_focus(reclaim);
-                if reclaim {
-                    last_reclaim = now;
-                }
+                presenter.refresh_focus();
                 for _ in 0..steps {
+                    let logic_start = std::time::Instant::now();
                     if !tick(&mut presenter, true, false) {
                         running = false;
                         break;
                     }
+                    logic_ms += crate::performance::ms(logic_start);
                     frames += 1;
-                    // Native screenshot frame numbers remain logic steps, independent of FPS.
-                    if screenshot
-                        .as_ref()
-                        .is_some_and(|(after, _)| frames >= *after)
-                    {
+                    // Screenshot parameters retain the legacy60Hz reference timebase:
+                    // shot-after240 =4seconds, independent of world/render frequency.
+                    if screenshot.as_ref().is_some_and(|(after, _)| {
+                        frames as f64 * dnf_core::clock::WORLD_MS + 1e-7
+                            >= *after as f64 * dnf_core::clock::LOGIC_MS
+                    }) {
                         break;
                     }
                 }
@@ -946,6 +902,7 @@ where
             }
             if now - fps_started >= freq / 4 {
                 presenter.fps = fps_frames as f64 * freq as f64 / (now - fps_started) as f64;
+                presenter.performance = performance.snapshot();
                 fps_frames = 0;
                 fps_started = now;
             }
@@ -955,9 +912,19 @@ where
                 }
                 rendered += 1;
                 fps_frames += 1;
+                let end = qpc();
+                performance.push(crate::performance::FrameTime {
+                    frame: (end - last_presented) as f64 * 1000.0 / freq as f64,
+                    logic: logic_ms,
+                    render: presenter.last_render_ms,
+                    ..presenter.last_present
+                });
+                last_presented = end;
             }
             if let Some((after, path)) = screenshot.as_ref() {
-                if frames >= *after {
+                if frames as f64 * dnf_core::clock::WORLD_MS + 1e-7
+                    >= *after as f64 * dnf_core::clock::LOGIC_MS
+                {
                     match capture_client(hwnd, display_w, display_h) {
                         Ok(fb) => {
                             let non_black = fb
@@ -991,7 +958,9 @@ where
         }
         let elapsed = (qpc() - started) as f64 / freq as f64;
         println!("呈现统计: logic_steps={frames} rendered={rendered} elapsed_s={elapsed:.3} average_fps={:.1} uncapped=true",rendered as f64/elapsed.max(0.001));
-        // Detach userdata before freeing Presenter; also releases topmost state.
+        let p = performance.snapshot();
+        println!("PERF samples={} mean_frame_ms={:.3} p95_frame_ms={:.3} p99_frame_ms={:.3} slow_frames={} logic_ms={:.3} render_ms={:.3} convert_ms={:.3} scale_ms={:.3} gdi_ms={:.3}",p.samples,p.avg.frame,p.p95,p.p99,p.slow_frames,p.avg.logic,p.avg.render,p.avg.convert,p.avg.scale,p.avg.gdi);
+        // Detach userdata before freeing Presenter.
         if IsWindow(hwnd) != 0 {
             SetWindowLongPtrW(hwnd, GWLP_USERDATA, 0);
             DestroyWindow(hwnd);
@@ -1002,14 +971,6 @@ where
 
 unsafe extern "system" fn wnd_proc(hwnd: HWND, msg: UINT, w: WPARAM, l: LPARAM) -> LRESULT {
     match msg {
-        WM_KEYDOWN | WM_SYSKEYDOWN if w == 0x79 => {
-            let ptr = GetWindowLongPtrW(hwnd, GWLP_USERDATA) as *mut Presenter;
-            if !ptr.is_null() && (l as usize & (1 << 30)) == 0 {
-                (*ptr).set_focus_pinned(!(*ptr).focus_pinned);
-            }
-            0
-        }
-        WM_KEYUP | WM_SYSKEYUP if w == 0x79 => 0,
         WM_INPUTLANGCHANGE => {
             ImmAssociateContextEx(hwnd, std::ptr::null_mut(), 0);
             0

@@ -1,0 +1,50 @@
+{
+  "passiveobject/character/swordman/grabblastblood.obj": {
+    "sha256": "7738b5789ace59d41d075e5b74f97c4dc8a25dcb980f32807f96d0c238ba1124",
+    "bytes": 621
+  },
+  "character/swordman/attackinfo/grabblastblood.atk": {
+    "sha256": "7b7c8aae6356025efef009bdd7255a80e1d798e6cbd82da54e25d4684187d328",
+    "bytes": 580
+  },
+  "skill/swordman/cancelgrabblastblood.skl": {
+    "sha256": "7acf756719ec749866732682d76a1e31e35636e662aa9fc03ab4fddc44aacca8",
+    "bytes": 629
+  },
+  "character/swordman/animation/grab.ani": {
+    "sha256": "090f650bd58f77441069e781c9b19db469aee122bbea3845b8a196b889d648b0",
+    "bytes": 5919
+  },
+  "passiveobject/character/swordman/attackinfo/grabblastblood.atk": {
+    "sha256": "1980608574ad63f074d39f39741ca8c55026b3ee0102465976b825041d9d0170",
+    "bytes": 657
+  },
+  "skill/swordmanskill.lst": {
+    "sha256": "4a15bcd6fbeefd540bed15e9719e5f0eba2086b2b7604974c8fae47f633b1782",
+    "bytes": 3801
+  },
+  "passiveobject/character/swordman/animation/grabblastblood1.ani": {
+    "sha256": "d487e2aa33b8deb74e3a7f951f7e5effd7833cbb1c2b931a96d5be7925bd5b02",
+    "bytes": 1581
+  },
+  "character/swordman/effect/animation/grabblastblood.ani": {
+    "sha256": "1824762ce8592d44e424393ed28d71e7e0d39af331fab9d358ed4fa9d8bc2e10",
+    "bytes": 3117
+  },
+  "passiveobject/character/swordman/animation/grabblastblood2.ani": {
+    "sha256": "ff390d57ec32e713a789eff7e248ac185c6a63ca48495a19f3ec326fb71f1882",
+    "bytes": 2674
+  },
+  "monster/goblin/goblin.mob": {
+    "sha256": "fc08419d1ccc6aaf632a094a7a1db0ebe9d343c617f3fd66b49b526f41681ddf",
+    "bytes": 1881
+  },
+  "skill/swordman/grabblastblood.skl": {
+    "sha256": "f35b0cb9a1b42844ee7d1698e76a4946566cb5ae7d3daeadccf56c0263b32a41",
+    "bytes": 1728
+  },
+  "character/swordman/swordman.chr": {
+    "sha256": "882321bd7813a8391919cd08ca1c52eedfc189988a95452ceed961069eacf27e",
+    "bytes": 4697
+  }
+}

@@ -1,0 +1,89 @@
+[name2]  `Bloodlust`
+
+[purchase cost] 
+40
+[/purchase cost]
+[steel learning skill] 
+1 // ｹｫﾁｶｰﾇ 1
+50 // ﾃﾖｴ� ｷｹｺｧ ｸｮｵ狄ｺ%
+200 // ﾃﾟｰ｡ ｱｸﾀﾔｺ�%
+4 // ﾃﾟｰ｡ ｿ莖ｸｷｹｺｧ+
+[required level]  18			// ｽｺﾅｳﾀｻ ｹ霑�ｱ� ﾀｧﾇﾘ ﾇﾊｿ萇ﾑ ﾄｳｸｯﾅﾍﾀﾇ ﾃﾖｼﾒ ｷｹｺｧ.
+[required level range]  2
+
+[pre required skill] 
+[/pre required skill]
+[cool time]  4000 4000
+[type]  `[active]`
+[skill class]  2
+[maximum level]  30
+[growtype maximum level]  0 10 10 20 10
+[skill fitness growtype] 
+3
+[/skill fitness growtype]
+[consume MP]  25 56
+[consume item] 			// ｽｺﾅｳ ｻ鄙�ﾀｻ ﾀｧﾇﾘ ﾇﾊｿ萇ﾑ ｾﾆﾀﾌﾅﾛ
+[/consume item]
+[shake screen]  2 400
+
+[icon] 
+`Character/Swordman/Effect/SkillIcon.img` 98
+`Character/Swordman/Effect/SkillIcon.img` 99
+
+[command] 
+[/command]
+[static data] 
+1200	// ﾀ簑ｺ ｵﾚ ｽﾃｰ｣
+[/static data]
+[level info]
+4
+// 0.ﾇﾇｸｦ ｻ｡ ｶｧﾀﾇ ｰﾝｷﾂ 1.ｺﾐﾃ篆ﾃ ｰﾝｷﾂ
+// 2.ﾈ� ｻﾂ ｹﾁ ｽﾃｰ｣ 3.ﾈ�+
+164 	328 	5000 	20 
+182 	363 	5000 	21 
+199 	398 	5000 	22 
+217 	434 	5000 	23 
+234 	469 	5000 	24 
+252 	504 	5000 	25 
+270 	539 	5000 	26 
+287 	575 	5000 	27 
+305 	610 	5000 	28 
+323 	645 	5000 	29 
+340 	680 	5000 	30 
+358 	716 	5000 	31 
+375 	751 	5000 	32 
+393 	786 	5000 	33 
+411 	821 	5000 	34 
+428 	857 	5000 	36 
+446 	892 	5000 	37 
+464 	927 	5000 	38 
+481 	962 	5000 	39 
+499 	998 	5000 	40 
+516 	1033 	5000 	41 
+534 	1068 	5000 	42 
+552 	1103 	5000 	43 
+569 	1139 	5000 	44 
+587 	1174 	5000 	45 
+605 	1209 	5000 	46 
+622 	1244 	5000 	47 
+640 	1280 	5000 	48 
+657 	1315 	5000 	49 
+675 	1350 	5000 	50 
+[/level info]
+
+
+
+
+[name]  <12::name_17670>
+[explain] 
+<12::explain_17675>
+[level property] 
+1 99
+<12::level_property_17680>
+-1 0 1.0
+-1 1 1.0
+-1 2 0.001
+-1 3 1.0
+[/level property]
+
+

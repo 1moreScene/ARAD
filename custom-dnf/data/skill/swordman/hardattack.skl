@@ -1,0 +1,70 @@
+// 中文描述覆盖；战斗数值仍取当前官方 PVF。
+[purchase cost]
+10
+20
+30
+[/purchase cost]
+[type]  `[active]`
+[skill class]  3
+[maximum level]  30
+[growtype maximum level]  20 20 20 20 20
+[skill fitness growtype]
+0
+1
+2
+3
+4
+[/skill fitness growtype]
+[required level]  1
+[required level range]  2
+[consume MP]  23 73
+[cool time]  8000 8000
+[icon]
+`Character/Swordman/Effect/SkillIcon.img` 10
+`Character/Swordman/Effect/SkillIcon.img` 11
+[level info]
+1
+40
+89
+138
+188
+237
+286
+335
+385
+434
+483
+532
+582
+631
+680
+729
+779
+828
+877
+926
+976
+1025
+1074
+1123
+1173
+1222
+1271
+1320
+1370
+1419
+1468
+[/level info]
+[command]
+(SKILL)
+[/command]
+[name] 鬼斩
+[explain]
+将鬼神之力注入武器，向前方斩击并造成伤害。可强制中断普通攻击。
+[name2] 鬼斩
+[command key explain] 可在技能栏绑定快捷键
+[level property]
+1 99
+附加物理攻击力：+<int>
+-1 0 1.0
+[/level property]

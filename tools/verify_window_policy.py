@@ -1,4 +1,4 @@
-"""Launch only our built client; verify native window properties and F10 handler.
+"""Launch only our built client; verify free-focus native window properties.
 
 The game closes itself after its screenshot. No global keyboard injection or
 changes to another application's input method are used.
@@ -7,13 +7,16 @@ import ctypes as c
 import json
 import subprocess
 import time
+import os
 from pathlib import Path
 
 root=Path(__file__).resolve().parents[1]
 cwd=root/"custom-dnf"
 output=cwd/"out/window-policy"
 output.mkdir(parents=True,exist_ok=True)
-exe=cwd/"target/movement-verified/release/dnf-app.exe"
+exe=Path(os.environ.get('DNF_TEST_EXE',cwd/'target/debug-controls/release/dnf-app.exe'))
+source=(cwd/'crates/dnf-app/src/win32.rs').read_text(encoding='utf-8')
+assert all(token not in source for token in ['SetForegroundWindow(', 'SetFocus(', 'AttachThreadInput(', 'SetWindowPos(', 'focus_pinned', 'last_reclaim'])
 user=c.WinDLL("user32",use_last_error=True)
 user.SetProcessDPIAware()
 user.GetDpiForSystem.restype=c.c_uint32
@@ -63,15 +66,11 @@ report={"client":[rect.right-rect.left,rect.bottom-rect.top],
         "maximize_disabled":not bool(user.GetWindowLongPtrW(hwnd,-16)&0x00010000)}
 def topmost():
     return bool(user.GetWindowLongPtrW(hwnd,-20)&0x8)
-report["pinned_initially"]=topmost()
-user.SendMessageW(hwnd,0x104,0x79,1)  # F10 system-keydown, to our window only
-report["f10_unpins"]=not topmost()
-user.SendMessageW(hwnd,0x104,0x79,(1<<30)|1)
-report["repeat_does_not_toggle"]=not topmost()
-user.SendMessageW(hwnd,0x105,0x79,0)
-user.SendMessageW(hwnd,0x104,0x79,1)
-user.SendMessageW(hwnd,0x105,0x79,0)
-report["f10_repins"]=topmost()
+report["not_topmost_initially"]=not topmost()
+report["pin_and_reclaim_code_removed"]=all(token not in source for token in ['focus_pinned','SetForegroundWindow(','SetFocus(','AttachThreadInput(','SetWindowPos('])
+# F10 now belongs to standard Windows menu processing, not a game pinning hook.
+# Sending WM_SYSKEYDOWN synchronously can enter the OS modal menu loop.
+report["f10_pinning_hook_removed"]='w == 0x79' not in source
 log=process.communicate(timeout=10)[0].decode("utf-8",errors="replace")
 (output/"window.log").write_text(log,encoding="utf-8")
 report["exit_code"]=process.returncode
@@ -109,7 +108,6 @@ assert report["scale_one_client"]==[640,480]
 (output/"verification.json").write_text(json.dumps(report,ensure_ascii=False,indent=2),encoding="utf-8")
 print(json.dumps(report,ensure_ascii=False,indent=2))
 assert report["client"]==expected_size
-assert report["foreground"],"foreground acquisition did not succeed on this desktop"
-assert all(report[name] for name in ["resize_disabled","maximize_disabled","pinned_initially","f10_unpins",
-    "repeat_does_not_toggle","f10_repins","ime_context_detached","thread_ime_disabled","screenshot_saved","close_stops_process"])
+assert all(report[name] for name in ["resize_disabled","maximize_disabled","not_topmost_initially","pin_and_reclaim_code_removed",
+    "f10_pinning_hook_removed","ime_context_detached","thread_ime_disabled","screenshot_saved","close_stops_process"])
 assert process.returncode==0

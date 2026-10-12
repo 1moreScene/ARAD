@@ -36,7 +36,7 @@ impl HudAssets {
     }
 }
 pub const BOOK: (i32, i32, i32, i32) = (174, 12, 291, 380);
-pub const SKILLS: [i32; 2] = [5, 46];
+pub const SKILLS: [i32; 3] = [5, 46, 31];
 pub const SLOT_Y: i32 = 447;
 pub fn slot_rect(i: usize) -> (i32, i32, i32, i32) {
     (381 + 31 * i as i32, SLOT_Y, 28, 28)
@@ -51,10 +51,11 @@ fn slot_at(p: (i32, i32)) -> Option<usize> {
     (0..6).find(|&i| inside(p, slot_rect(i)))
 }
 pub fn skill_name(id: i32) -> &'static str {
-    if id == 5 {
-        "鬼斩"
-    } else {
-        "上挑"
+    match id {
+        5 => "鬼斩",
+        46 => "上挑",
+        31 => "噬魂之手",
+        _ => "未知技能",
     }
 }
 #[derive(Copy, Clone, Debug)]
@@ -139,7 +140,7 @@ pub struct Hud {
 impl Default for Hud {
     fn default() -> Self {
         Self {
-            slots: [Some(5), Some(46), None, None, None, None],
+            slots: [Some(5), Some(46), Some(31), None, None, None],
             library_open: false,
             pointer: (-1, -1, false),
             down: false,
@@ -267,8 +268,9 @@ impl Hud {
         result
     }
     pub fn bindings_text(&self) -> String {
-        let mut out =
-            String::from("# 技能ID：5=鬼斩，46=上挑，0=空。slot1..6默认对应A/S/D/F/G/H。\n");
+        let mut out = String::from(
+            "# 技能ID：5=鬼斩，46=上挑，31=噬魂之手，0=空。slot1..6默认对应A/S/D/F/G/H。\n",
+        );
         for (i, id) in self.slots.iter().enumerate() {
             out.push_str(&format!("slot{} = {}\n", i + 1, id.unwrap_or(0)));
         }
@@ -378,10 +380,8 @@ impl Hud {
             if self.drag.is_some_and(|d| d.source == Some(i)) {
                 continue;
             }
-            let skill = if id == 5 {
-                &game.actor.ghost_skill
-            } else {
-                &game.actor.upper_skill
+            let Some(skill) = game.actor.active_skill(id) else {
+                continue;
             };
             let inactive =
                 !game.actor.resource_failures(skill).is_empty() || !game.actor.can_skill(skill);
@@ -455,10 +455,8 @@ impl Hud {
         let Some(definition) = data.skills.iter().find(|s| s.id == id) else {
             return;
         };
-        let skill = if id == 5 {
-            &game.actor.ghost_skill
-        } else {
-            &game.actor.upper_skill
+        let Some(skill) = game.actor.active_skill(id) else {
+            return;
         };
         let mut lines = vec![format!("{}  Lv.{}", skill_name(id), skill.level)];
         lines.extend(wrap(&definition.text("explain", &data.skill_strings), 260));
@@ -531,11 +529,10 @@ impl Hud {
     }
 }
 fn cooldown(game: &Game, id: i32) -> f64 {
-    if id == 5 {
-        game.actor.ghost_cooldown_ms()
-    } else {
-        game.actor.upper_cooldown_ms()
-    }
+    game.actor
+        .skill_cooldown_remaining_ms(id)
+        .unwrap_or(0.0)
+        .max(0.0)
 }
 fn ready_flash_index(remaining: Option<f64>) -> Option<usize> {
     let value = remaining?;
@@ -808,6 +805,7 @@ mod tests {
             library_open: true,
             ..Hud::default()
         };
+        hud.slots[2] = None; // explicit free destination for this drag test
         let keys = InputState::new();
         assert!(hud.input(&keys, (226, 83, true)).captures_pointer);
         assert_eq!(hud.slots, [Some(5), Some(46), None, None, None, None]);
@@ -879,6 +877,7 @@ mod tests {
         let Some((_data, mut game)) = fixture() else {
             return;
         };
+        game.hud.slots[2] = None;
         tick(&mut game, Some(Dik::K));
         game.panel.pointer = (226, 83, true);
         tick(&mut game, None);
@@ -943,9 +942,7 @@ mod tests {
         game.hud.pointer = (226, 83, false);
         assert_eq!(game.hud.hovered_skill(), Some(5));
         let skill = data.skills.iter().find(|s| s.id == 5).unwrap();
-        assert!(skill
-            .text("explain", &data.skill_strings)
-            .contains("物理攻撃"));
+        assert!(skill.text("explain", &data.skill_strings).contains("鬼神"));
         assert!(skill
             .level_description(1, &data.skill_strings)
             .unwrap()

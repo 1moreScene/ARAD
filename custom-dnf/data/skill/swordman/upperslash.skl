@@ -1,0 +1,46 @@
+// 中文描述覆盖；战斗数值仍取当前官方 PVF。
+[name2] ??
+[purchase cost]
+20
+[/purchase cost]
+[pre required skill]
+[/pre required skill]
+[type]  `[active]`
+[skill class]  1
+[maximum level]  8
+[growtype maximum level]  5 5 5 5 5
+[skill fitness growtype]
+0
+1
+2
+3
+4
+[/skill fitness growtype]
+[required level]  1
+[required level range]  3
+[consume MP]  7 13
+[cool time]  2000 2000
+[icon]
+`Character/Swordman/Effect/SkillIcon.img` 94
+`Character/Swordman/Effect/SkillIcon.img` 95
+[level info]
+3
+10 	300 	100
+20 	341 	100
+30 	383 	100
+40 	424 	100
+50 	466 	100
+60 	507 	100
+70 	549 	100
+80 	590 	100
+[/level info]
+[name] 上挑
+[explain]
+向上挥剑，使敌人浮空。起手前两帧为霸体，后续动作不具备自带霸体。可强制中断普通攻击。
+[level property]
+1 99
+附加物理攻击力：+<int>
+浮空力：<int>%
+-1 0 1.0
+-1 1 0.33333333333334
+[/level property]

@@ -1,0 +1,42 @@
+// ｾｽ ｻ邵ﾁ ﾆﾄﾆｼﾅｬ //
+
+[random range] 40			// ｷ｣ｴ ｹ�ﾀｧ (%ｰｪ)
+
+[creation pos] 320 270 0		// ｻｼｺ x, y, z ﾁﾂﾇ･
+
+[gravity] 600
+
+[z axis]				// ﾀﾌｵｿ ﾆ暿ﾇﾒ ﾃ�. ﾀﾌ ﾇ･ｽﾃ ﾀﾌﾈﾄﾀﾇ ｰｪﾀｺ xﾃ�
+[move type] `[straight line]`		// ﾀﾌｵｿ ﾅｸﾀﾔ. `[stop]` `[straight line]` `[sin]` `[cos]` ﾁﾟ ﾅﾃﾀﾏ
+[move variable 1] 80 80		// ﾀﾌｵｿ ｺｯｼ� 1. ﾃﾊｱ箍ｪｰ� ﾃﾖﾁｾｰｪ
+
+[x axis]				// ﾀﾌｵｿ ﾆ暿ﾇﾒ ﾃ�. ﾀﾌ ﾇ･ｽﾃ ﾀﾌﾈﾄﾀﾇ ｰｪﾀｺ xﾃ�
+[move type] `[straight line]`		// ﾀﾌｵｿ ﾅｸﾀﾔ. `[stop]` `[straight line]` `[sin]` `[cos]` ﾁﾟ ﾅﾃﾀﾏ
+[move variable 1] 150 150		// ﾀﾌｵｿ ｺｯｼ� 1. ﾃﾊｱ箍ｪｰ� ﾃﾖﾁｾｰｪ
+
+[changing term] 1000		// ﾃﾊｱ箍ｪｰ� ﾃﾖﾁｾｰｪ ｻ鄲ﾌﾀﾇ ｺｯﾈｭ ｰ｣ｰﾝ
+[changing type] `freezeparticle.ptl`		// ﾃﾊｱ箍ｪｰ� ﾃﾖﾁｾｰｪ ｻ鄲ﾌﾀﾇ ｺｯﾈｭ ﾅｸﾀﾔ. `[keep changing]` `[keep last value]` `ﾇﾎﾆ
+
+[rotation angle range type] `[circle]`	// ｻｼｺｰ｢ﾀﾇ ｹ�ﾀｧｸｦ ﾁ､ﾇﾏｴﾂ ｹ貉. `[rectangle]`ｰ� `[circle]`ﾁﾟ ﾅﾃﾀﾏ
+[rotation angle variable] 90 90		// ｻｼｺｰ｢ﾀﾇ ｺｯｼ� 1, 2
+
+[rotation angle] 0 90 0		// ﾈｸﾀ�ｰ｢. ｼ｢ / ｼ｢ / ﾈｸﾀ�ｰ｢
+
+[creation frequency] -1			// ﾃﾊｴ� ﾆﾄﾆｼﾅｬ ｻｼｺ ｺｵ
+[maximum create number] 60		// ﾆﾄﾆｼﾅｬ ﾃﾖｴ� ｻｼｺｼ�
+[maximum create time] 0		// ﾆﾄﾆｼﾅｬ ﾃﾖｴ� ｻｼｺｽﾃｰ｣
+
+[object type] `[animation]`
+[object]			// ｿﾀｺ�ﾁｧﾆｮ ｸｮｽｺﾆｮ
+`../Animation/FreezeParticle2.ani` -1
+`../Animation/FreezeParticle2.ani` -1
+`../Animation/FreezeParticle2.ani` -1
+`../Animation/FreezeParticle1.ani` -1
+[/object]			// ﾀﾌｰﾍﾀｸｷﾎ ｴﾝｾﾆﾁ狎ﾟ ﾇﾔ
+
+[life time] 1000
+
+[landing type] `[vanish]`
+
+[create area size] 120 120 100	// ｻｼｺ ｰ｣ ﾅｩｱ�
+[display effect rate] 50 75 100		// ﾀﾌﾆ衄ｮ ｵ鉷ﾞ (ﾇﾏ-ﾁﾟ-ｻ�) ｿ｡ｼｭ ｻｼｺﾇﾏｴﾂ ﾆﾄﾆｼﾅｬ ｺｲ. %ｰｪ (ｱ篌ｻﾀｺ 100 100 100)

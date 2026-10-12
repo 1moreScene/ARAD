@@ -163,14 +163,24 @@ impl SkillDefinition {
         if bounds.len() != 2 || level < bounds[0] || level > bounds[1] {
             return None;
         }
-        let mut template = strings.resolve(lines.get(1)?);
+        // Localized SKL templates may span several lines before numeric bindings.
+        // A binding is exactly three numbers; text lines are part of the template.
+        lines.get(1)?;
+        let end = lines[1..]
+            .iter()
+            .position(|line| {
+                let words: Vec<_> = line.split_whitespace().collect();
+                words.len() == 3 && words.iter().all(|s| s.parse::<f64>().is_ok())
+            })
+            .map_or(lines.len(), |n| n + 1);
+        let mut template = strings.resolve(&lines[1..end].join("\n"));
         let statics = numbers(
             self.fields
                 .get("static data")
                 .map(String::as_str)
                 .unwrap_or(""),
         );
-        for line in &lines[2..] {
+        for line in &lines[end..] {
             let v: Vec<f64> = line
                 .split_whitespace()
                 .filter_map(|s| s.parse().ok())

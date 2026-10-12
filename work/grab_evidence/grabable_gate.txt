@@ -1,0 +1,27 @@
+004D5C10 push     esi
+004D5C11 mov      esi, ecx
+004D5C13 mov      al, byte ptr [esi + 0x1a54]
+004D5C19 test     al, al
+004D5C1B jne      0x4d5c21
+004D5C1D xor      al, al
+004D5C1F pop      esi
+004D5C20 ret      
+004D5C21 mov      al, byte ptr [esi + 0x1998]
+004D5C27 test     al, al
+004D5C29 jne      0x4d5c1d
+004D5C2B mov      eax, dword ptr [esi]
+004D5C2D push     1
+004D5C2F mov      ecx, esi
+004D5C31 call     dword ptr [eax + 0x308]
+004D5C37 test     al, al
+004D5C39 jne      0x4d5c1d
+004D5C3B mov      edx, dword ptr [esi]
+004D5C3D push     7
+004D5C3F mov      ecx, esi
+004D5C41 call     dword ptr [edx + 0x308]
+004D5C47 neg      al
+004D5C49 sbb      al, al
+004D5C4B inc      al
+004D5C4D pop      esi
+004D5C4E ret      
+004D5C4F int3     

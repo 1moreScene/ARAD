@@ -1,0 +1,50 @@
+00493400 push     ebp
+00493401 mov      ebp, esp
+00493403 push     ebx
+00493404 mov      ebx, dword ptr [ebp + 8]
+00493407 push     esi
+00493408 mov      esi, ecx
+0049340A cmp      ebx, dword ptr [esi + 0x94]
+00493410 je       0x49346b
+00493412 mov      eax, dword ptr [esi + 0x2c]
+00493415 mov      dword ptr [esi + 0x94], ebx
+0049341B imul     ebx, ebx, 0x58
+0049341E push     edi
+0049341F mov      edi, dword ptr [esi + 0x9c]
+00493425 add      eax, ebx
+00493427 mov      dword ptr [esi + 0x98], edi
+0049342D fild     dword ptr [eax + 0x30]
+00493430 fdiv     dword ptr [esi + 0xa4]
+00493436 fmul     dword ptr [0x6caf20]
+0049343C call     0x66c544
+00493441 sub      edi, eax
+00493443 mov      dword ptr [esi + 0x9c], edi
+00493449 lea      edi, [esi + 0x3c]
+0049344C mov      ecx, edi
+0049344E call     0x430b70
+00493453 mov      eax, dword ptr [esi + 0x2c]
+00493456 add      eax, ebx
+00493458 push     eax
+00493459 mov      ecx, edi
+0049345B call     0x493120
+00493460 mov      dword ptr [esi + 0xac], 0
+0049346A pop      edi
+0049346B pop      esi
+0049346C pop      ebx
+0049346D pop      ebp
+0049346E ret      4
+00493471 int3     
+00493472 int3     
+00493473 int3     
+00493474 int3     
+00493475 int3     
+00493476 int3     
+00493477 int3     
+00493478 int3     
+00493479 int3     
+0049347A int3     
+0049347B int3     
+0049347C int3     
+0049347D int3     
+0049347E int3     
+0049347F int3     

@@ -1,0 +1,82 @@
+// ｰﾋｻ鄲ﾇ ｽｺﾅｳ ｸｮｽｺﾆｮ ﾆﾄﾀﾏ //
+
+// ｰ暲ｯｹ｣ `ﾆﾄﾀﾏﾀﾌｸｧ` ﾀｸｷﾎ ｵﾈ ｸｮｽｺﾆｮｸｦ ﾀﾛｼｺﾇﾑｴﾙ.
+// ｰ暲ｯｹ｣ｴﾂ ｹﾝｵ蠖ﾃ ｿｬｼﾓﾀ釥ﾌｰﾅｳｪ ｼｭｴ�ｷﾎ ﾁ､ｷﾄﾇﾒ ﾇﾊｿ莇ﾂ ｾｸｸ�, ﾁﾟｺｹｵﾇﾁ� ｸｻｾﾆｾﾟ ﾇﾑｴﾙ.
+// ﾁ� - 0:ｱﾍｰﾋｻ� 1:ｿﾆﾝｸｶｽｺﾅﾍ 2:ｼﾒｿ�ｺ�ｸｵｾ� 3:ｹｭﾄｿ 4:ｾﾆｼ�
+// ｰ霑ｭ - 0:ﾃｼｼ� 1:ｱ箴� 2:ｺ昞ｯｵ� 3:ｰ晳ｺﾆｮ 4:ﾀﾏｹﾝ
+
+1	`Swordman/Guard.skl`			// ｰ｡ｵ�
+2	`Swordman/ReflectGuard.skl`		// ｱﾍｹｮｹﾝ
+3	`Swordman/AutoGuard.skl`		// ｿﾀﾅ� ｰ｡ｵ�
+4	`Swordman/LightSwordMastery.skl`	// ｱ､ｰﾋ ｸｶｽｺﾅﾍｸｮ
+5	`Swordman/HardAttack.skl`		// ｱﾍﾂ�
+6	`Swordman/HardAttackCharge.skl`		// ｱﾍﾂ� ｵ蠍ﾌｺ�
+7	`Swordman/HitBack.skl`			// ﾀﾌｸ� ｵﾚﾁｱ�
+8	`Swordman/TripleSlash.skl`		// ｻ�ｴﾜｺ｣ｱ�
+9	`Swordman/MomentarySlash.skl`		// ｹﾟｵｵ
+10	`Swordman/CancelWave.skl`		// ﾄｵｽｽ ｿﾀﾌｺ�
+11	`Swordman/DashAttackMultiHit.skl`	// ｾｲｷｯｽｺﾆｮ
+12	`Swordman/ShortSwordMastery.skl`	// ｼﾒｰﾋ ｸｶｽｺﾅﾍｸｮ
+13	`Swordman/BladeMastery.skl`		// ｵｵ ｸｶｽｺﾅﾍｸｮ
+14	`Swordman/HeavySwordMastery.skl`	// ｴ�ｰﾋ ｸｶｽｺﾅﾍｸｮ
+15	`Swordman/BluntMastery.skl`		// ｵﾐｱ� ｸｶｽｺﾅﾍｸｮ
+16	`Swordman/AshenFork.skl`		// ｿ｡ｽｨﾆｩ
+17	`Swordman/JumpAttackMulti.skl`		// ｰﾟ ｿｬｼﾓ ｺ｣ｱ�
+18	`Swordman/GhostStep.skl`		// ｱﾍｿｵｺｸ
+19	`Swordman/PinchPowerUp.skl`		// ﾇﾊﾀﾚ
+20	`Swordman/NormalWave.skl`		// ｳ�ｸﾖ ｿﾀﾌｺ�
+21	`Swordman/IceWave.skl`			// ｾﾆﾀﾌｽｺ ｿﾀﾌｺ�
+22	`Swordman/FireWave.skl`			// ﾆﾄﾀﾌｾ� ｿﾀﾌｺ�
+23	`Swordman/Sacrifice.skl`		// ｻｩｸｮﾆﾄﾀﾌｽｺ
+24	`Swordman/BloodBlast.skl`		// ﾇﾇﾆﾟ
+25	`Swordman/Khazan.skl`			// ﾄｫﾀﾜ
+26	`Swordman/CancelTripleSlash.skl`	// ﾄｵｽｽ ｻ�ｴﾜｺ｣ｱ�
+27	`Swordman/WeaponMasteryUp.skl`		// ｹｫｱ簑ﾇ ｱﾘﾀﾇ
+28	`Swordman/CancelHardAttack.skl`		// ﾄｵｽｽ ｱﾍﾂ�
+29	`Swordman/DarkFriendship.skl`		// ｾ鋙ﾒﾀﾇ ﾄ｣ﾈｭ
+30	`Swordman/DarkToleranceUp.skl`		// ｴﾞﾀﾇ ﾄｿﾆｰ
+31	`Swordman/GrabBlastBlood.skl`		// ｺ昞ｯｵ� ｷｯｽｺﾆｮ
+32	`Swordman/ReleaseWave.skl`		// ﾆﾄｵｿ ﾇﾘﾁｦ
+33	`Swordman/EquipLightSword.skl`		// ｱ､ｰﾋ ｻ鄙� ｰ｡ｴﾉ
+34	`Swordman/DieHard.skl`			// ｴﾙﾀﾌﾇﾏｵ�
+35	`Swordman/GhostPowerUp.skl`		// ｻ鄂ｽ ﾇﾘﾁｦ
+36	`Swordman/Saya.skl`			// ｳﾃｱ簑ﾇ ｻ鄒ﾟ
+37	`Swordman/FastEquip.skl`		// ｽﾅｼﾓﾇﾑ ｹｫｱ� ｱｳﾃｼ
+38	`Swordman/OverDrive.skl`		// ｿﾀｹ蠍ﾌｺ�
+39	`Swordman/DurabilityUp.skl`		// ﾀﾁｦｵﾈ ｰﾝ
+40	`Swordman/Reckless.skl`			// ﾆﾖ
+41	`Swordman/Bremen.skl`			// ｸﾕﾇﾑ ｴｫﾀﾇ ｺ�ｷｹｸ�
+42	`Swordman/DisjointItemDark.skl`		// ｱﾍｽﾄ
+43	`Swordman/JumpAttackHighFast.skl`	// ﾃﾊｻ� : ｺｸｷﾟ
+44	`Swordman/TombStoneRain.skl`		// ﾅｺﾅ�
+45	`Swordman/CancelGuard.skl`		// ﾄｵｽｽ ｰ｡ｵ�
+46	`Swordman/UpperSlash.skl`		// ｾ鏆ﾛ ｽｽｷ｡ｽｬ
+47	`Swordman/ReleaseWaveOnDamage.skl`	// ﾀ眤� ﾆﾄｵｿ ﾇﾘﾁｦ
+48	`Swordman/CancelUpperSlash.skl`		// ﾄｵｽｽ ｾ鏆ﾛ ｽｽｷ｡ｽｬ
+49	`Swordman/BackStepCutter.skl`		// ｹ鮨ｺﾅﾜ ﾄｿﾅﾍ
+50	`Swordman/GrandWave.skl`		// ﾁ�
+51	`Swordman/GrandWaveCharge.skl`		// ｼ� ﾁ�
+52	`Swordman/DOTArea.skl`			// ｻ�ﾀﾇﾀﾇ ﾆﾄｵｿ
+53	`Swordman/MindFlash.skl`		// ﾁ､ｽﾅﾀﾌ ｹｽ!
+54	`Swordman/CancelGrabBlastBlood.skl`	// ﾄｵｽｽ ｺ昞ｯｵ蟾ｯｽｺﾆｮ
+
+// ﾀﾌﾇﾏｴﾂ ﾄｳｸｯﾅﾍ ｰ� ｽｺﾅｳ
+169	`Swordman/BackStep.skl`			// ｹ鮨ｺﾅﾜ
+170	`Swordman/CancelBackStep.skl`		// ﾄｵｽｽ ｹ鮨ｺﾅﾜ
+171	`Swordman/CancelThrowItem.skl`		// ﾄｵｽｽ ﾅｴ
+172	`Swordman/ArmorMasteryLight.skl`	// ｰ豌ｩ ｸｶｽｺﾅﾍｸｮ
+173	`Swordman/ArmorMasteryHeavy.skl`	// ﾁﾟｰｩ ｸｶｽｺﾅﾍｸｮ
+174	`Swordman/ArmorMasteryPlate.skl`	// ﾆﾇｱﾝ ｸｶｽｺﾅﾍｸｮ
+175	`Swordman/JumpPowerUp.skl`		// ｵｵｾ�
+176	`Swordman/MagicalAttackUp.skl`		// ｰ昻�ﾀﾇ ｱ篝�
+177	`Swordman/ThrowMastery.skl`		// ﾅｴ ｸｶｽｺﾅﾍｸｮ
+178	`Swordman/BackAttackCritical.skl`	// ｹ� ｾ鎤ﾃ
+179	`Swordman/DisjointItem.skl`		// ｾﾆﾀﾌﾅﾛ ﾇﾘﾃｼ
+180	`Swordman/SuperArmorOnCast.skl`		// ｺﾒｱｼﾀﾇ ﾀﾇﾁ�
+181	`Swordman/CompoundCraft.skl`		// ｼｼｰ�
+182	`Swordman/CompoundWeaving.skl`		// ｹ戝�
+183	`Swordman/CompoundMachine.skl`		// ｱ箍�
+184	`Swordman/CompoundChemistry.skl`	// ﾈｭﾇﾐ
+185	`Swordman/ArmorMasteryLeather.skl`	// ｰ｡ﾁﾗ ｸｶｽｺﾅﾍｸｮ
+186	`Swordman/CriticalHitUp.skl`		// ﾅｩｸｮﾆｼﾄﾃ ﾈｮ
+187	`Swordman/ArmorMasteryCloth.skl`	// ﾃｵ ｸｶｽｺﾅﾍｸｮ

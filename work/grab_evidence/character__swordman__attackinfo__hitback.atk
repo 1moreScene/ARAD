@@ -1,0 +1,8 @@
+[attack type] `[physic]`		// ｰﾝﾀﾇ ﾅｸﾀﾔ. `[physic]` `[magic]` ﾁﾟ ﾅﾃ1
+[weapon damage apply] 1
+[attack enemy] 1			// ﾀ�(ﾀﾚｽﾅｰ� ｾﾆｱｺﾀｻ ﾁｦｿﾜﾇﾑ ｸﾎ)ﾀｻ ｰﾝﾇﾒﾁ� ｿｩｺﾎ. ｱ篌ｻｰｪ 1
+[elemental property] `[no element]`			// ｰﾝﾀﾇ ｿﾒｼﾓｼｺ. `[no element]` `[fire element]` `[water element]` `[dark element]` `[light element]` ﾁﾟ ﾅﾃ1. ｾﾈｾｲｸ� ｱ篌ｻｰｪ `[no element]`
+[damage reaction] `[down]`		// ｰﾝｿ｡ ｸﾂｾﾒﾀｻ ｶｧﾀﾇ ｹﾝﾀﾀ `[none]` `[damage]` `[down]` ﾁﾟ ﾅﾃ1
+[push aside] 200			// ｵﾚｷﾎ ｳｯｸｮｴﾂ ﾈ�
+[lift up] 500			// ﾀｧｷﾎ ｶ鄙�ｴﾂ ﾈ�
+[attack direction] `[hit lift up]`

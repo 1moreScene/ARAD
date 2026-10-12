@@ -1,0 +1,88 @@
+[name2]  `Wave`
+
+[purchase cost] 
+10
+20
+30
+[/purchase cost]
+[required level]  2
+[required level range]  2
+
+[type]  `[active]`
+[skill class]  0
+[maximum level]  30
+[growtype maximum level]  20 20 20 20 20
+[skill fitness growtype] 
+0
+1
+2
+3
+4
+[/skill fitness growtype]
+[consume MP]  8 26
+[casting time]  200 200
+
+[cool time]  200 200
+
+
+[icon] 
+`Character/Swordman/Effect/SkillIcon.img` 6
+`Character/Swordman/Effect/SkillIcon.img` 7
+
+[command] 
+(DOWN), (RIGHT), (ATTACK)
+[/command]
+[static data] 
+500	// ｹﾟｻ� ﾈﾄ ｵｹﾀﾌ
+[/static data]
+[level info]
+3
+// 0.ﾀｯﾁﾃｰ｣ 1.ｰﾝｷﾂ 2.ﾈｮｴ�ﾀｲ (%)
+325 	40 	80 
+345 	70 	83 
+365 	100 	86 
+384 	130 	89 
+404 	161 	92 
+424 	191 	96 
+444 	221 	99 
+464 	251 	102 
+484 	281 	105 
+503 	311 	108 
+523 	341 	111 
+543 	372 	114 
+563 	402 	117 
+583 	432 	120 
+603 	462 	123 
+622 	492 	127 
+642 	522 	130 
+662 	552 	133 
+682 	582 	136 
+702 	613 	139 
+722 	643 	142 
+741 	673 	145 
+761 	703 	148 
+781 	733 	151 
+801 	763 	154 
+821 	793 	158 
+841 	824 	161 
+860 	854 	164 
+880 	884 	167 
+900 	914 	170 
+[/level info]
+
+
+
+
+[name]  <12::name_17925>
+[explain] 
+<12::explain_17930>
+[command key explain]  <12::command_key_explain_15105>
+
+[level property] 
+1 99
+<12::level_property_17935>
+-1 1 1.0
+-1 0 0.5	// ｼﾓｵｵｰ｡ 500px/s ﾀﾌｹﾇｷﾎ 0.5ｸｦ ｰﾑｴﾙ.
+[/level property]
+
+

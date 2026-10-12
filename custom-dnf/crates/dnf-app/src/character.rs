@@ -184,6 +184,7 @@ pub struct SpriteLayer {
 /// 某动作某帧的贴图信息（来自官方身体层 `.ani`）。
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct MotionFrame {
+    pub damage_type: dnf_data::ani::DamageType,
     /// 在 `sm_body.img` 里的帧号。
     pub image_index: i32,
     /// 该帧的 `[IMAGE POS]`（画布原点相对脚点）。
@@ -252,6 +253,7 @@ pub fn build_visual(assets: &ClientAssets, chr: &dnf_data::chr::ChrFile) -> Char
                 .frames
                 .iter()
                 .map(|f| MotionFrame {
+                    damage_type: dnf_data::ani::DamageType::from_token(&f.damage_type),
                     image_index: f.image_index,
                     image_pos: f.image_pos,
                 })
@@ -280,6 +282,7 @@ pub fn build_visual(assets: &ClientAssets, chr: &dnf_data::chr::ChrFile) -> Char
                 a.frames
                     .iter()
                     .map(|f| MotionFrame {
+                        damage_type: dnf_data::ani::DamageType::from_token(&f.damage_type),
                         image_index: f.image_index,
                         image_pos: f.image_pos,
                     })
@@ -298,6 +301,7 @@ pub fn build_visual(assets: &ClientAssets, chr: &dnf_data::chr::ChrFile) -> Char
                 a.frames
                     .iter()
                     .map(|f| MotionFrame {
+                        damage_type: dnf_data::ani::DamageType::from_token(&f.damage_type),
                         image_index: f.image_index,
                         image_pos: f.image_pos,
                     })
@@ -305,10 +309,44 @@ pub fn build_visual(assets: &ClientAssets, chr: &dnf_data::chr::ChrFile) -> Char
             ));
         }
     }
+    let relative = chr
+        .resource_list("etc motion")
+        .get(7)
+        .cloned()
+        .unwrap_or_else(|| "Animation/Grab.ani".into());
+    if let Some(a) = assets.ani(&format!("{CHARACTER_DIR}/{relative}")) {
+        clips.grab = Clip::new("Grab", a.delays(), false);
+        motions.push((
+            "Grab".into(),
+            a.frames
+                .iter()
+                .map(|f| MotionFrame {
+                    damage_type: dnf_data::ani::DamageType::from_token(&f.damage_type),
+                    image_index: f.image_index,
+                    image_pos: f.image_pos,
+                })
+                .collect(),
+        ));
+    }
     CharacterVisual { clips, motions }
 }
 
 impl CharacterVisual {
+    pub fn protection(&self, motion: &str, frame: usize) -> dnf_core::protection::Protection {
+        use dnf_core::protection::Protection;
+        use dnf_data::ani::DamageType;
+        let kind = self
+            .motions
+            .iter()
+            .find(|(n, _)| n == motion)
+            .and_then(|(_, frames)| frames.get(frame))
+            .map_or(DamageType::Normal, |f| f.damage_type);
+        match kind {
+            DamageType::Normal => Protection::Normal,
+            DamageType::SuperArmor => Protection::SuperArmor,
+            DamageType::Unbreakable => Protection::Invincible,
+        }
+    }
     /// 某动作第 `frame` 帧的 `[IMAGE POS]`（身体层权威值）。
     pub fn image_pos(&self, motion: &str, frame: usize) -> (i32, i32) {
         self.motions

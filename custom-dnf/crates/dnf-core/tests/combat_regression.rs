@@ -2,6 +2,83 @@ use dnf_core::actor::SWORDMAN_COMBO_FRAMES;
 use dnf_core::*;
 
 #[test]
+fn upper_protection_is_owned_by_action_and_teleport_preserves_independent_buff() {
+    use dnf_core::protection::{DamageOutcome, Protection};
+    let mut r = Replay::new();
+    r.step(&[Command::Skill]);
+    assert_eq!(r.actor.motion, Motion::UpperSlash);
+    assert_eq!(r.actor.protection.effective(), Protection::SuperArmor);
+    let hp = r.actor.hp;
+    assert_eq!(r.actor.receive_damage(10), DamageOutcome::Armored);
+    assert_eq!(r.actor.hp, hp - 10);
+    r.actor.protection.grant(1, Protection::Invincible, None);
+    r.actor.teleport(100, 200);
+    assert_eq!(r.actor.protection.effective(), Protection::Invincible);
+    r.actor.protection.remove(1);
+    assert_eq!(r.actor.protection.effective(), Protection::Normal);
+}
+
+#[test]
+fn upper_protection_exits_and_timers_follow_world_clock_during_hit_stop() {
+    use dnf_core::protection::Protection;
+    let mut r = Replay::new();
+    r.step(&[Command::Skill]);
+    for _ in 0..90 {
+        r.step(&[]);
+    }
+    assert_eq!(r.actor.protection.effective(), Protection::Normal);
+    r.actor
+        .protection
+        .grant(2, Protection::Invincible, Some(50.0));
+    r.actor.advance_hit_stop(50.0);
+    assert_eq!(r.actor.protection.effective(), Protection::Normal);
+}
+
+#[test]
+fn upper_armor_ends_at_frame_two_at_each_attack_speed_before_action_finishes() {
+    use dnf_core::protection::{DamageOutcome, Protection};
+    for speed in [425.0, 850.0, 1700.0] {
+        let mut r = Replay::new();
+        r.actor.spec.attack_speed = speed;
+        r.step(&[Command::Skill]);
+        let mut saw_frame_one = false;
+        while r.actor.anim().frame() < 2 {
+            assert_eq!(r.actor.motion, Motion::UpperSlash);
+            assert_eq!(r.actor.protection.effective(), Protection::SuperArmor);
+            saw_frame_one |= r.actor.anim().frame() == 1;
+            r.step(&[]);
+        }
+        assert!(saw_frame_one, "speed={speed}");
+        assert_eq!(r.actor.anim().frame(), 2);
+        assert_eq!(r.actor.motion, Motion::UpperSlash);
+        assert!(!r.actor.anim().finished());
+        assert_eq!(r.actor.protection.effective(), Protection::Normal);
+        assert_eq!(r.actor.receive_damage(1), DamageOutcome::React);
+        while r.actor.motion == Motion::UpperSlash {
+            r.step(&[]);
+            assert_eq!(r.actor.protection.effective(), Protection::Normal);
+        }
+    }
+}
+
+#[test]
+fn upper_frame_gate_preserves_separate_armor_buff_and_hit_stop_preserves_startup_armor() {
+    use dnf_core::protection::Protection;
+    let mut r = Replay::new();
+    r.step(&[Command::Skill]);
+    r.actor.advance_hit_stop(500.0); // world time alone cannot consume animation-frame armor
+    assert_eq!(r.actor.protection.effective(), Protection::SuperArmor);
+    r.actor.protection.grant(101, Protection::SuperArmor, None);
+    while r.actor.anim().frame() < 2 {
+        r.step(&[]);
+    }
+    assert_eq!(r.actor.protection.effective(), Protection::SuperArmor);
+    r.actor.protection.remove(101);
+    assert_eq!(r.actor.motion, Motion::UpperSlash);
+    assert_eq!(r.actor.protection.effective(), Protection::Normal);
+}
+
+#[test]
 fn resource_rejection_is_atomic_and_shared_vibration_preserves_cancelled_attack() {
     use dnf_core::actor::SkillFailure;
     let mut r = Replay::new();

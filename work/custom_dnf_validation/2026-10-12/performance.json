@@ -1,0 +1,132 @@
+{
+  "cpu": {
+    "after": {
+      "normal_1": {
+        "monsters": 1.0,
+        "mean_render_ms": 0.8427,
+        "p95_render_ms": 1.8364,
+        "mean_scale_ms": 1.4881,
+        "p95_scale_ms": 2.0846,
+        "cpu_fps": 429.0
+      },
+      "normal_6": {
+        "monsters": 6.0,
+        "mean_render_ms": 0.8046,
+        "p95_render_ms": 1.5067,
+        "mean_scale_ms": 1.3965,
+        "p95_scale_ms": 1.9697,
+        "cpu_fps": 454.3
+      },
+      "normal_32": {
+        "monsters": 32.0,
+        "mean_render_ms": 1.0331,
+        "p95_render_ms": 1.7083,
+        "mean_scale_ms": 1.3376,
+        "p95_scale_ms": 1.6498,
+        "cpu_fps": 421.8
+      },
+      "armor_32": {
+        "monsters": 32.0,
+        "mean_render_ms": 3.2681,
+        "p95_render_ms": 5.364,
+        "mean_scale_ms": 1.4689,
+        "p95_scale_ms": 2.196,
+        "cpu_fps": 211.1
+      },
+      "debug_panel": {
+        "monsters": 6.0,
+        "mean_render_ms": 1.505,
+        "p95_render_ms": 2.1606,
+        "mean_scale_ms": 1.6077,
+        "p95_scale_ms": 2.3256,
+        "cpu_fps": 321.3
+      },
+      "grab_hold_6": {
+        "monsters": 6.0,
+        "mean_render_ms": 0.7401,
+        "p95_render_ms": 1.1967,
+        "mean_scale_ms": 1.5469,
+        "p95_scale_ms": 2.2736,
+        "cpu_fps": 437.3
+      },
+      "grab_burst_32": {
+        "monsters": 32.0,
+        "mean_render_ms": 1.5098,
+        "p95_render_ms": 2.3696,
+        "mean_scale_ms": 1.5185,
+        "p95_scale_ms": 2.2535,
+        "cpu_fps": 330.2
+      },
+      "active_status_1": {
+        "monsters": 1.0,
+        "mean_render_ms": 0.4307,
+        "p95_render_ms": 0.7493,
+        "mean_scale_ms": 1.3806,
+        "p95_scale_ms": 2.1322,
+        "cpu_fps": 552.1
+      },
+      "active_status_32": {
+        "monsters": 32.0,
+        "mean_render_ms": 4.9226,
+        "p95_render_ms": 6.9315,
+        "mean_scale_ms": 1.7293,
+        "p95_scale_ms": 2.3847,
+        "cpu_fps": 150.3
+      },
+      "active_status_panel": {
+        "monsters": 6.0,
+        "mean_render_ms": 2.3031,
+        "p95_render_ms": 3.4067,
+        "mean_scale_ms": 1.5461,
+        "p95_scale_ms": 2.3024,
+        "cpu_fps": 259.8
+      }
+    }
+  },
+  "native": {
+    "after": {
+      "fps": 468.4,
+      "samples": 240.0,
+      "mean_frame_ms": 2.088,
+      "p95_frame_ms": 2.657,
+      "p99_frame_ms": 2.951,
+      "slow_frames": 0.0,
+      "logic_ms": 0.013,
+      "render_ms": 0.335,
+      "convert_ms": 0.205,
+      "scale_ms": 1.32,
+      "gdi_ms": 0.188
+    },
+    "panel": {
+      "fps": 323.9,
+      "samples": 240.0,
+      "mean_frame_ms": 3.024,
+      "p95_frame_ms": 3.802,
+      "p99_frame_ms": 4.014,
+      "slow_frames": 0.0,
+      "logic_ms": 0.012,
+      "render_ms": 1.269,
+      "convert_ms": 0.2,
+      "scale_ms": 1.316,
+      "gdi_ms": 0.193
+    }
+  },
+  "gates": {
+    "native_fps": true,
+    "native_p95": true,
+    "native_slow_frame_ratio": true,
+    "normal_1": true,
+    "normal_6": true,
+    "normal_32": true,
+    "armor_32": true,
+    "debug_panel": true,
+    "grab_hold_6": true,
+    "grab_burst_32": true,
+    "active_status_1": true,
+    "active_status_32": true,
+    "active_status_panel": true
+  },
+  "quality": {},
+  "comparison": {},
+  "quality_comparison_performed": false
+}

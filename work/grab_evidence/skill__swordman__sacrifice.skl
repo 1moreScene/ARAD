@@ -1,0 +1,51 @@
+[name2]  `The Sacrifice`
+
+[purchase cost] 
+40
+
+
+[/purchase cost]
+[required level]  26			// ｽｺﾅｳﾀｻ ｹ霑�ｱ� ﾀｧﾇﾘ ﾇﾊｿ萇ﾑ ﾄｳｸｯﾅﾍﾀﾇ ﾃﾖｼﾒ ｷｹｺｧ.
+[required level range]  2
+
+[type]  `[active]`
+[skill class]  2
+[maximum level]  1
+[growtype maximum level]  0 0 0 1 0
+[skill fitness growtype] 
+3
+[/skill fitness growtype]
+[consume MP]  0 0
+[casting time]  250 250
+
+[cool time]  120000 120000
+
+
+[icon] 
+`Character/Swordman/Effect/SkillIcon.img` 50
+`Character/Swordman/Effect/SkillIcon.img` 51
+
+[static data] 
+30	// ｱﾌｴﾂ HP ｺｲ (ﾃﾖｴ� HPﾀﾇ x%)
+110	// ｵｿｷ皺｡ 1ｸ暲ﾏ ｶｧ ｹ霄ﾐ ｺｲ (ｱﾎ HPﾀﾇ x%ｾｿ) : ｼ､ｽﾃ [explain] ｼ､
+65	// ｵｿｷ皺｡ 2ｸ暲ﾏ ｶｧ ｹ霄ﾐ ｺｲ (ｱﾎ HPﾀﾇ x%ｾｿ) : ｼ､ｽﾃ [explain] ｼ､
+50	// ｵｿｷ皺｡ 3ｸ暲ﾏ ｶｧ ｹ霄ﾐ ｺｲ (ｱﾎ HPﾀﾇ x%ｾｿ) : ｼ､ｽﾃ [explain] ｼ､
+0	// ﾈｸｺｹ ｿｵｿｪ - x ｽﾃﾀﾛ ｰﾅｸｮ
+170	// ﾈｸｺｹ ｿｵｿｪ - x ﾆ�
+-50	// ﾈｸｺｹ ｿｵｿｪ - y ｽﾃﾀﾛ ｰﾅｸｮ
+100	// ﾈｸｺｹ ｿｵｿｪ - y ﾆ�
+500	// ﾄｳｽｺﾆﾃ ﾈﾄ ｵｹﾀﾌ
+[/static data]
+
+
+
+
+[name]  <12::name_18035>
+[explain] 
+<12::explain_18040>
+
+ 
+
+ 
+
+

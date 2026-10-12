@@ -56,6 +56,14 @@ pub fn quoted(s: &str) -> Option<&str> {
     Some(&s[begin..end])
 }
 impl MobFile {
+    /// Compatibility flag for newer/local monster scripts. 40JP Goblin omits it.
+    /// This does not map SUPERARMOR into non-grabable.
+    pub fn grabable(&self) -> bool {
+        self.values
+            .get("grabable")
+            .and_then(|v| v.first())
+            .is_none_or(|&v| v != 0.0)
+    }
     pub fn motion(&self, tag: &str) -> Option<&str> {
         self.motions.get(tag).map(String::as_str)
     }

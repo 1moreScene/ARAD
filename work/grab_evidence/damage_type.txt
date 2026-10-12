@@ -1,0 +1,33 @@
+004AED20 mov      al, byte ptr [ecx + 0x282]
+004AED26 test     al, al
+004AED28 je       0x4aed31
+004AED2A mov      eax, dword ptr [ecx + 0x284]
+004AED30 ret      
+004AED31 push     esi
+004AED32 mov      esi, dword ptr [ecx + 0x78]
+004AED35 test     esi, esi
+004AED37 je       0x4aed4e
+004AED39 cmp      dword ptr [esi + 0x94], -1
+004AED40 jne      0x4aed49
+004AED42 mov      ecx, esi
+004AED44 call     0x4938f0
+004AED49 mov      eax, dword ptr [esi + 0x70]
+004AED4C pop      esi
+004AED4D ret      
+004AED4E xor      eax, eax
+004AED50 pop      esi
+004AED51 ret      
+004AED52 int3     
+004AED53 int3     
+004AED54 int3     
+004AED55 int3     
+004AED56 int3     
+004AED57 int3     
+004AED58 int3     
+004AED59 int3     
+004AED5A int3     
+004AED5B int3     
+004AED5C int3     
+004AED5D int3     
+004AED5E int3     
+004AED5F int3     

@@ -1,0 +1,83 @@
+00605920 push     esi
+00605921 mov      esi, ecx
+00605923 call     0x5f66c0
+00605928 mov      esi, dword ptr [esi + 4]
+0060592B mov      eax, dword ptr [esi]
+0060592D mov      ecx, esi
+0060592F call     dword ptr [eax + 0x268]
+00605935 test     al, al
+00605937 je       0x605948
+00605939 mov      edx, dword ptr [esi]
+0060593B mov      ecx, esi
+0060593D call     dword ptr [edx + 0x26c]
+00605943 cmp      eax, 1
+00605946 je       0x605956
+00605948 mov      eax, dword ptr [esi]
+0060594A push     1
+0060594C push     1
+0060594E mov      ecx, esi
+00605950 call     dword ptr [eax + 0x264]
+00605956 mov      edx, dword ptr [esi]
+00605958 mov      ecx, esi
+0060595A call     dword ptr [edx + 0x2d4]
+00605960 test     al, al
+00605962 jne      0x605998
+00605964 mov      eax, dword ptr [esi]
+00605966 mov      ecx, esi
+00605968 call     dword ptr [eax + 0x120]
+0060596E test     al, al
+00605970 je       0x605983
+00605972 mov      edx, dword ptr [esi]
+00605974 mov      ecx, esi
+00605976 call     dword ptr [edx + 0x124]
+0060597C cmp      eax, 0xff0000ff
+00605981 je       0x605998
+00605983 mov      eax, dword ptr [esi]
+00605985 push     2
+00605987 push     1
+00605989 push     0xff0000ff
+0060598E push     1
+00605990 mov      ecx, esi
+00605992 call     dword ptr [eax + 0x11c]
+00605998 pop      esi
+00605999 ret      
+0060599A int3     
+0060599B int3     
+0060599C int3     
+0060599D int3     
+0060599E int3     
+0060599F int3     
+006059A0 push     ebp
+006059A1 mov      ebp, esp
+006059A3 mov      al, byte ptr [ebp + 8]
+006059A6 test     al, al
+006059A8 push     esi
+006059A9 mov      esi, ecx
+006059AB jne      0x6059cf
+006059AD mov      ecx, dword ptr [esi + 4]
+006059B0 mov      eax, dword ptr [ecx]
+006059B2 push     0
+006059B4 push     0
+006059B6 call     dword ptr [eax + 0x264]
+006059BC mov      ecx, dword ptr [esi + 4]
+006059BF mov      edx, dword ptr [ecx]
+006059C1 push     2
+006059C3 push     1
+006059C5 push     0
+006059C7 push     0
+006059C9 call     dword ptr [edx + 0x11c]
+006059CF pop      esi
+006059D0 pop      ebp
+006059D1 ret      4
+006059D4 int3     
+006059D5 int3     
+006059D6 int3     
+006059D7 int3     
+006059D8 int3     
+006059D9 int3     
+006059DA int3     
+006059DB int3     
+006059DC int3     
+006059DD int3     
+006059DE int3     
+006059DF int3     

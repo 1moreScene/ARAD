@@ -1,0 +1,52 @@
+[name2]  `Hyper Armor`
+[purchase cost] 
+40
+[/purchase cost]
+[required level]  18
+[required level range]  4
+
+[pre required skill] 
+7 1
+[/pre required skill]
+[type]  `[active]`
+[skill class]  1
+[maximum level]  8
+[growtype maximum level]  0 0 5 0 0
+[skill fitness growtype] 
+2
+[/skill fitness growtype]
+[consume MP]  52 87
+[casting time]  700 700
+
+[cool time]  30000 65000
+
+[icon] 
+`Character/Fighter/Effect/SkillIcon.img` 14
+`Character/Fighter/Effect/SkillIcon.img` 15
+
+[level info]
+1
+// 0.ｹﾟｵｿ ｽﾃｰ｣
+8000 
+13000 
+18000 
+23000 
+28000 
+33000 
+38000 
+43000 
+[/level info]
+
+
+
+
+[name]  <12::name_15750>
+[explain] 
+<12::explain_15755>
+[level property] 
+1 99
+<12::level_property_15760>
+-1 0 0.001
+[/level property]
+
+

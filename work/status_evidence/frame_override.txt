@@ -1,0 +1,93 @@
+004E5C10 push     ebp
+004E5C11 mov      ebp, esp
+004E5C13 push     esi
+004E5C14 mov      esi, ecx
+004E5C16 mov      al, byte ptr [esi + 0x282]
+004E5C1C test     al, al
+004E5C1E je       0x4e5c83
+004E5C20 push     ebx
+004E5C21 mov      bl, byte ptr [ebp + 8]
+004E5C24 test     bl, bl
+004E5C26 jne      0x4e5c6e
+004E5C28 push     edi
+004E5C29 mov      edi, dword ptr [esi + 0x78]
+004E5C2C test     edi, edi
+004E5C2E je       0x4e5c58
+004E5C30 mov      ecx, edi
+004E5C32 call     0x4910e0
+004E5C37 mov      eax, dword ptr [edi + 0x20]
+004E5C3A push     eax
+004E5C3B mov      ecx, edi
+004E5C3D call     0x493a60
+004E5C42 mov      ecx, dword ptr [ebp + 0xc]
+004E5C45 pop      edi
+004E5C46 mov      byte ptr [esi + 0x282], bl
+004E5C4C pop      ebx
+004E5C4D mov      dword ptr [esi + 0x284], ecx
+004E5C53 pop      esi
+004E5C54 pop      ebp
+004E5C55 ret      8
+004E5C58 mov      edx, dword ptr [ebp + 0xc]
+004E5C5B pop      edi
+004E5C5C mov      byte ptr [esi + 0x282], bl
+004E5C62 pop      ebx
+004E5C63 mov      dword ptr [esi + 0x284], edx
+004E5C69 pop      esi
+004E5C6A pop      ebp
+004E5C6B ret      8
+004E5C6E mov      eax, dword ptr [ebp + 0xc]
+004E5C71 mov      byte ptr [esi + 0x282], bl
+004E5C77 pop      ebx
+004E5C78 mov      dword ptr [esi + 0x284], eax
+004E5C7E pop      esi
+004E5C7F pop      ebp
+004E5C80 ret      8
+004E5C83 mov      cl, byte ptr [ebp + 8]
+004E5C86 mov      edx, dword ptr [ebp + 0xc]
+004E5C89 mov      byte ptr [esi + 0x282], cl
+004E5C8F mov      dword ptr [esi + 0x284], edx
+004E5C95 pop      esi
+004E5C96 pop      ebp
+004E5C97 ret      8
+004E5C9A int3     
+004E5C9B int3     
+004E5C9C int3     
+004E5C9D int3     
+004E5C9E int3     
+004E5C9F int3     
+004E5CA0 push     esi
+004E5CA1 push     edi
+004E5CA2 mov      edi, ecx
+004E5CA4 mov      esi, 0xc8
+004E5CA9 lea      esp, [esp]
+004E5CB0 mov      eax, dword ptr [edi]
+004E5CB2 mov      ecx, edi
+004E5CB4 call     dword ptr [eax + 0x178]
+004E5CBA cmp      esi, eax
+004E5CBC je       0x4e5ccc
+004E5CBE inc      esi
+004E5CBF cmp      esi, 0xcd
+004E5CC5 jl       0x4e5cb0
+004E5CC7 pop      edi
+004E5CC8 xor      al, al
+004E5CCA pop      esi
+004E5CCB ret      
+004E5CCC pop      edi
+004E5CCD mov      al, 1
+004E5CCF pop      esi
+004E5CD0 ret      
+004E5CD1 int3     
+004E5CD2 int3     
+004E5CD3 int3     
+004E5CD4 int3     
+004E5CD5 int3     
+004E5CD6 int3     
+004E5CD7 int3     
+004E5CD8 int3     
+004E5CD9 int3     
+004E5CDA int3     
+004E5CDB int3     
+004E5CDC int3     
+004E5CDD int3     
+004E5CDE int3     
+004E5CDF int3     

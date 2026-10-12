@@ -1,0 +1,29 @@
+004A2C40 push     esi
+004A2C41 mov      esi, dword ptr [ecx + 0x78]
+004A2C44 test     esi, esi
+004A2C46 je       0x4a2c5d
+004A2C48 cmp      dword ptr [esi + 0x94], -1
+004A2C4F jne      0x4a2c58
+004A2C51 mov      ecx, esi
+004A2C53 call     0x4938f0
+004A2C58 mov      eax, dword ptr [esi + 0x70]
+004A2C5B pop      esi
+004A2C5C ret      
+004A2C5D xor      eax, eax
+004A2C5F pop      esi
+004A2C60 ret      
+004A2C61 int3     
+004A2C62 int3     
+004A2C63 int3     
+004A2C64 int3     
+004A2C65 int3     
+004A2C66 int3     
+004A2C67 int3     
+004A2C68 int3     
+004A2C69 int3     
+004A2C6A int3     
+004A2C6B int3     
+004A2C6C int3     
+004A2C6D int3     
+004A2C6E int3     
+004A2C6F int3     

@@ -1,0 +1,7 @@
+case,driver_hz,world_hz,world_updates,matching_snapshots,sound_events
+movement,60,300,1200,80,9
+movement,120,300,1200,80,9
+movement,300,300,1200,80,9
+combat,60,300,1200,80,27
+combat,120,300,1200,80,27
+combat,300,300,1200,80,27

@@ -1,0 +1,51 @@
+00493120 push     ebp
+00493121 mov      ebp, esp
+00493123 push     esi
+00493124 mov      esi, ecx
+00493126 push     edi
+00493127 mov      edi, dword ptr [ebp + 8]
+0049312A mov      eax, dword ptr [edi]
+0049312C mov      dword ptr [esi], eax
+0049312E mov      ecx, dword ptr [edi + 4]
+00493131 mov      dword ptr [esi + 4], ecx
+00493134 mov      edx, dword ptr [edi + 8]
+00493137 mov      dword ptr [esi + 8], edx
+0049313A mov      eax, dword ptr [edi + 0xc]
+0049313D mov      dword ptr [esi + 0xc], eax
+00493140 mov      ecx, dword ptr [edi + 0x10]
+00493143 mov      dword ptr [esi + 0x10], ecx
+00493146 mov      edx, dword ptr [edi + 0x14]
+00493149 mov      dword ptr [esi + 0x14], edx
+0049314C mov      eax, dword ptr [edi + 0x18]
+0049314F mov      dword ptr [esi + 0x18], eax
+00493152 mov      ecx, dword ptr [edi + 0x1c]
+00493155 mov      dword ptr [esi + 0x1c], ecx
+00493158 mov      edx, dword ptr [edi + 0x20]
+0049315B mov      dword ptr [esi + 0x20], edx
+0049315E mov      al, byte ptr [edi + 0x24]
+00493161 mov      byte ptr [esi + 0x24], al
+00493164 mov      ecx, dword ptr [edi + 0x28]
+00493167 mov      dword ptr [esi + 0x28], ecx
+0049316A mov      edx, dword ptr [edi + 0x2c]
+0049316D mov      dword ptr [esi + 0x2c], edx
+00493170 mov      eax, dword ptr [edi + 0x30]
+00493173 mov      dword ptr [esi + 0x30], eax
+00493176 mov      ecx, dword ptr [edi + 0x34]
+00493179 lea      edx, [edi + 0x38]
+0049317C mov      dword ptr [esi + 0x34], ecx
+0049317F push     edx
+00493180 lea      ecx, [esi + 0x38]
+00493183 call     0x492e80
+00493188 add      edi, 0x48
+0049318B push     edi
+0049318C lea      ecx, [esi + 0x48]
+0049318F call     0x492e80
+00493194 pop      edi
+00493195 mov      eax, esi
+00493197 pop      esi
+00493198 pop      ebp
+00493199 ret      4
+0049319C int3     
+0049319D int3     
+0049319E int3     
+0049319F int3     

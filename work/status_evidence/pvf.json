@@ -1,0 +1,218 @@
+{
+  "pvf_sha256": "6a65b5422dead9f9ec6462aebd6fe8b1e9174263a2e51420e2b4bb579a746c46",
+  "scripts": {
+    "passiveobject/mapobject/breakableobject/fairy/superarmorfairy.obj": {
+      "sha256": "4f3d3aba66b70b524a7d8c3cdde3393833153b8736c95c12bd65fc81fc689ad9",
+      "bytes": 743
+    },
+    "skill/fighter/superarmor.skl": {
+      "sha256": "01d5011ddc64318f5bbf4ba2d1d8a0c416ecbea9b040ce2d832402ceded6f81a",
+      "bytes": 761
+    },
+    "character/swordman/animation/hardattack.ani": {
+      "sha256": "ee9b7dce8f52aef20f4eee05da54233e71d6998b8b61b62bab003d3cb1d75a7f",
+      "bytes": 5982
+    },
+    "monster/spider/spiderbossani/burrowstart.ani": {
+      "sha256": "e03df2dd365169dda4484dbebba0ba766cd113a1b8cc3de1b58a1a7216550a5c",
+      "bytes": 3453
+    },
+    "passiveobject/mapobject/breakableobject/fairy/animation/superarmorfairyef.ani": {
+      "sha256": "8a12054377016376b0108786816db6a9860ebed656f601b94d21dca1619e17d2",
+      "bytes": 299
+    },
+    "skill/fighter/superarmoroncast.skl": {
+      "sha256": "cb86d7736ad0f80a79406935c2652705254dd83d968df67f037fcd5ba1ea7e23",
+      "bytes": 835
+    },
+    "passiveobject/mapobject/breakableobject/fairy/superarmorfairyfactory.obj": {
+      "sha256": "a852bda9e8d1f2a55ff99dd321145ca062553a344464746277c0661f8e02dbdd",
+      "bytes": 202
+    },
+    "passiveobject/mapobject/breakableobject/fairy/animation/invinsiblefairy.ani": {
+      "sha256": "d8cf3e694f59488f0c4d23afdb0c21f8d3acaa6090673a807623957ba0a9818e",
+      "bytes": 1789
+    },
+    "character/swordman/animation/attack3.ani": {
+      "sha256": "23efe8ea264a5764bf6bdfe9441523612a6b5d82581684fecd98a6cc2b17b367",
+      "bytes": 3129
+    },
+    "common/commoneffect/animation/superarmorbody.ani": {
+      "sha256": "ae1b789d46e6bc2dda3cca2edd3627521c3ce274aead0c75c335d5c35ea56c8f",
+      "bytes": 636
+    },
+    "character/swordman/animation/jump.ani": {
+      "sha256": "34387794d7a563cd1c433b21a97baffeb8640fd9aa9b1a2b9584f98920cd202c",
+      "bytes": 5004
+    },
+    "passiveobject/mapobject/breakableobject/fairy/animation/invinsiblefairyef.ani": {
+      "sha256": "93c273add4daeb586516be11a93c2ad818338aaba7c0ce67cc89afc0db3cb6b4",
+      "bytes": 299
+    },
+    "skill/mage/superarmoroncast.skl": {
+      "sha256": "cb86d7736ad0f80a79406935c2652705254dd83d968df67f037fcd5ba1ea7e23",
+      "bytes": 835
+    },
+    "passiveobject/mapobject/breakableobject/fairy/animation/superarmorfairydestroy.ani": {
+      "sha256": "c8173337b6804530007eeab92baacbc526fd77ee9d7c45664a523864d92d1818",
+      "bytes": 2413
+    },
+    "passiveobject/mapobject/breakableobject/fairy/invinsiblefairy.obj": {
+      "sha256": "2ef581584c494f0de9639f74b0f20bf0a5fa8de87a74200a85a1b8b7a557b390",
+      "bytes": 725
+    },
+    "passiveobject/mapobject/breakableobject/fairy/invinsiblefairyfactory.obj": {
+      "sha256": "c93cb0552f3737d45567ba1933590e67fd3bb9eef7c68beeb83e1ec110d1cdc8",
+      "bytes": 202
+    },
+    "skill/gunner/superarmoroncast.skl": {
+      "sha256": "cb86d7736ad0f80a79406935c2652705254dd83d968df67f037fcd5ba1ea7e23",
+      "bytes": 835
+    },
+    "passiveobject/mapobject/breakableobject/fairy/animation/superarmorfairy.ani": {
+      "sha256": "68c45be59f85983ad3769050afad7455ba1d94b302de78b2698aaed61cb70247",
+      "bytes": 1789
+    },
+    "common/commoneffect/animation/superarmoreffect.ani": {
+      "sha256": "8a7d22e63a98c54102b004197799059e6e11f084956457654cbccff295229687",
+      "bytes": 985
+    },
+    "skill/swordman/superarmoroncast.skl": {
+      "sha256": "cb86d7736ad0f80a79406935c2652705254dd83d968df67f037fcd5ba1ea7e23",
+      "bytes": 835
+    },
+    "passiveobject/mapobject/breakableobject/fairy/animation/invinsiblefairydestroy.ani": {
+      "sha256": "7aca7b93fd48f81def8ce893560c084431454b9c9f4846fe87a0d7d41ea7dbf6",
+      "bytes": 2404
+    }
+  },
+  "damage_types": {
+    "NORMAL": [
+      "passiveobject/monster/ghoul/animation/skullbombsub.ani",
+      "equipment/character/mage/avatar/hair/hair_a/rest.ani",
+      "equipment/character/gunner/avatar/pants/pants_d/overturn.ani"
+    ],
+    "SUPERARMOR": [
+      "monster/zepplin/zepplinani/readytopress.ani",
+      "monster/magma/animation_goliath/upperattack.ani",
+      "monster/dendroid/golani/unrooting.ani",
+      "equipment/monster/hunter/hh/clothes/spitpoison.ani",
+      "monster/hunter/masterani/spitpoison2.ani",
+      "equipment/monster/hunter/hh/horn/spitpoison2.ani",
+      "monster/magma/animation_atlas/throwweb.ani",
+      "monster/soceress/animation_vinoshu/risingattack.ani",
+      "monster/dendroid/golani/spitingseed.ani",
+      "monster/dendroid/rodani/rootattack.ani",
+      "monster/vehicle/battlingramani/sit.ani",
+      "equipment/monster/hunter/hh/hair/cry.ani",
+      "monster/spider/spiderbossani/burrowstart.ani",
+      "monster/dendroid/rodani/spitingseed.ani",
+      "monster/zepplin/maczepani/readytopress.ani",
+      "equipment/monster/hunter/hh/clothes/spitpoison2.ani",
+      "monster/hunter/hunterani/attack.ani",
+      "monster/lotus/lotusani/attackfoward.ani",
+      "monster/hunter/alexani/attack.ani",
+      "character/fighter/animation/liftupper.ani",
+      "monster/zealot/darkani/cast.ani",
+      "equipment/monster/hunter/hh/horn/attack.ani",
+      "monster/hunter/masterani/attack.ani",
+      "monster/lotus/lotusani/mindattack.ani",
+      "monster/magma/animation_titan/upperattack.ani",
+      "monster/spikeking/animation_spikeking/cast.ani",
+      "equipment/monster/hunter/hh/clothes/cry.ani",
+      "equipment/monster/hunter/hh/hair/spitpoison2.ani",
+      "monster/soceress/animation_luis/risingattack.ani",
+      "monster/magma/animation_goliath/downattack.ani",
+      "equipment/monster/spikeking/animation_spikeking_glow/cast.ani",
+      "equipment/monster/hunter/hh/horn/spitpoison.ani",
+      "equipment/monster/hunter/hh/horn/cry.ani",
+      "monster/dendroid/denani/unrooting.ani",
+      "monster/vehicle/battlingramani/move.ani",
+      "equipment/monster/spikeking/animation_spikeking_hair/cast.ani",
+      "monster/lotus/lotusani/multiattacklong.ani",
+      "equipment/monster/hunter/hh/hair/attack.ani",
+      "monster/magma/animation_atlas/upperattack.ani",
+      "monster/spider/spiderbossani/summonstart.ani",
+      "character/gunner/animation/aerialknee.ani",
+      "monster/dendroid/denani/rooting.ani",
+      "monster/spider/spiderbossani/missileout.ani",
+      "monster/zepplin/zepplinani/press.ani",
+      "equipment/monster/hunter/hh/clothes/attack.ani",
+      "monster/zepplin/maczepani/press.ani",
+      "equipment/monster/hunter/hh/claws/cry.ani",
+      "monster/dendroid/rodani/attack1.ani",
+      "monster/vehicle/battlingramani/stay.ani",
+      "monster/vehicle/battlingramani/attack.ani",
+      "equipment/monster/hunter/hh/hair/spitpoison.ani",
+      "monster/spider/spiderbossani/burrowend.ani",
+      "equipment/monster/spikeking/animation_spikeking_clothes/cast.ani",
+      "equipment/monster/hunter/hh/claws/spitpoison2.ani",
+      "character/gunner/animation/randomshoot.ani",
+      "monster/magma/animation_titan/downattack.ani",
+      "monster/hunter/masterani/spitpoison.ani",
+      "monster/lotus/lotusani/multiattackshort.ani",
+      "monster/dendroid/golani/rooting.ani",
+      "monster/dendroid/rodani/rooting.ani",
+      "monster/tau/armyanimation/attack2.ani",
+      "monster/magma/animation_atlas/downattack.ani",
+      "monster/hunter/masterani/cry.ani",
+      "equipment/monster/spikeking/animation_spikeking_acc/cast.ani",
+      "monster/dendroid/denani/spitingseed.ani",
+      "monster/magma/animation_titan/wideareadisenchant.ani",
+      "equipment/monster/hunter/hh/claws/attack.ani",
+      "monster/mage/animation/provocationdoll1.ani",
+      "monster/dendroid/rodani/unrooting.ani",
+      "equipment/monster/hunter/hh/claws/spitpoison.ani"
+    ],
+    "NONE": [
+      "equipment/monster/soceress/hair01animation/risingattack_300.ani",
+      "equipment/monster/soceress/luis_weapon01animation/risingattack_300.ani",
+      "equipment/monster/soceress/luis_hair01animation/risingattack_300.ani",
+      "equipment/monster/soceress/acc01animation/risingattack_300.ani",
+      "equipment/monster/soceress/luis_cloth01animation/risingattack_300.ani",
+      "equipment/monster/soceress/cloth01animation/risingattack_300.ani",
+      "equipment/monster/soceress/luis_acc01animation/risingattack_300.ani",
+      "equipment/monster/soceress/luis_weapon02animation/risingattack_300.ani",
+      "equipment/monster/soceress/weapon01animation/risingattack_300.ani",
+      "character/mage/effect/animation/chaser/waterhit1.ani"
+    ],
+    "UNBREAKABLE": [
+      "monster/starfish/greatanimation/jumpattackrolling.ani",
+      "equipment/monster/hunter/hm/clothes/cry.ani",
+      "monster/spider/spiderbossani/jumpattackrolling.ani",
+      "monster/starfish/greatanimation/crazylandrollingreadyeffect.ani",
+      "monster/spider/spiderbossani/burrowstart.ani",
+      "monster/lotus/lotusani/gotoceilingforlegattack.ani",
+      "monster/zealot/fatherani/suicide.ani",
+      "monster/starfish/sfanimation/jumpattackrolling.ani",
+      "monster/zealot/raxy-bani/suicide.ani",
+      "passiveobject/monster/spider/ani/bossmissile.ani",
+      "monster/starfish/rukanimation/jumpattackrolling.ani",
+      "monster/spider/spiderbossani/spikefalling.ani",
+      "equipment/monster/hunter/hm/hair/cry.ani",
+      "monster/starfish/greatanimation/crazylandrollingready.ani",
+      "monster/draconian/dlani/ef_hallucination1.ani",
+      "monster/lordoflight/lol/risingattack.ani",
+      "monster/spider/spiderbossani/raisingsky.ani",
+      "monster/spider/spiderbossani/summonstart.ani",
+      "monster/starfish/tentacleanimation/jumpattackrolling.ani",
+      "monster/zealot/popeani/suicide.ani",
+      "equipment/monster/hunter/hm/horn/cry.ani",
+      "monster/zealot/raxy-aani/suicide.ani",
+      "monster/draconian/siusani/ef_hallucination1.ani",
+      "monster/tau/armyanimation/attack2.ani",
+      "monster/lotus/lotusani/gotoceilingfordroppingrock.ani"
+    ],
+    "LINEARDODGE": [
+      "map/magmacave/animation/mcfog.ani",
+      "map/magmacave/animation/mcstreamfog.ani"
+    ]
+  },
+  "damage_type_entry_counts": {
+    "NORMAL": 12774,
+    "SUPERARMOR": 70,
+    "NONE": 10,
+    "UNBREAKABLE": 25,
+    "LINEARDODGE": 2
+  }
+}

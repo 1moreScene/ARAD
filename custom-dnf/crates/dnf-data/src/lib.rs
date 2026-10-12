@@ -14,6 +14,7 @@
 //! | [`equ`] | `.equ` | 装备/时装：`[variation]` → 精灵模板、`[LAYER]`、动作映射 |
 //! | [`avatar`] | `.equ` 部件表 | 官方绘制层（`[LAYER]`）+ 时装部件目录，角色外观分层合成 |
 
+pub mod active_status;
 pub mod ani;
 pub mod audio;
 pub mod avatar;
@@ -25,6 +26,7 @@ pub mod mapfile;
 pub mod messages;
 pub mod mob;
 pub mod npk;
+pub mod particle;
 pub mod pvf;
 pub mod skill;
 pub mod strings;
@@ -43,7 +45,10 @@ pub use til::TilFile;
 use std::path::{Path, PathBuf};
 
 /// 本机官方客户端目录中 `Script.pvf` 的常用相对位置。
-const CLIENT_SUBPATHS: [&str; 3] = [
+const CLIENT_SUBPATHS: [&str; 6] = [
+    "40jp-client/Arad40",
+    "../40jp-client/Arad40",
+    "../../40jp-client/Arad40",
     "40jp-client/40jp单机版",
     "../40jp-client/40jp单机版",
     "../../40jp-client/40jp单机版",

@@ -1,0 +1,23 @@
+[floating height]  1		// 0ﾀﾌｸ� ﾁ�, 1ﾀﾌｻﾌｸ� ｺﾎﾀｯﾇ� (ｰｪ = ｺﾎﾀｯ ｳﾌ)
+[layer]  `[normal]`		// ｱﾗｸｮｱ� ｷｹﾀﾌｾ�. `[normal]` `[bottom]` `[closeback]` `[middleback]` `[distantback]` ﾁﾟ ﾅﾃﾀﾏ
+[pass type]  `[pass all]`	// `[pass all]` `[pass only float type]` `[do not pass]` ﾁﾟ ﾅﾃﾀﾏ
+[piercing power]  1000
+
+// ｾﾖｴﾏｸﾞﾀﾌｼﾇ ｸｮｽｺﾆｮ. ｾﾂ ｰﾍﾀｺ ﾀ鈆� ｾﾊｾﾆｵｵ ｵﾊ. ﾈ､ﾀｺ ``ｷﾎ ｳﾖﾀｸｸ� ｾﾂ ｰﾍﾀｸｷﾎ ﾃｳｸｮ //
+[basic motion]  `Animation/GrabBlastBlood2.ani`
+[etc motion] 
+`Animation/GrabBlastBlood1.ani`
+[/etc motion]
+[attack info]  `AttackInfo/GrabBlastBlood.atk`
+
+ 
+
+
+
+
+[name]  <9::name_4405>	// ｿﾀｺ�ﾁｧﾆｮﾀﾇ ﾀﾌｸｧ
+ 
+
+ 
+
+

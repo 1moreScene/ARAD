@@ -1,0 +1,98 @@
+004D6030 push     ebp
+004D6031 mov      ebp, esp
+004D6033 mov      eax, dword ptr fs:[0]
+004D6039 push     -1
+004D603B push     0x6ac43b
+004D6040 push     eax
+004D6041 mov      dword ptr fs:[0], esp
+004D6048 push     ebx
+004D6049 push     esi
+004D604A mov      esi, ecx
+004D604C mov      eax, dword ptr [esi]
+004D604E push     edi
+004D604F call     dword ptr [eax + 0x2d4]
+004D6055 test     al, al
+004D6057 jne      0x4d610e
+004D605D mov      edi, dword ptr [ebp + 8]
+004D6060 mov      eax, edi
+004D6062 dec      eax
+004D6063 je       0x4d60a4
+004D6065 sub      eax, 6
+004D6068 je       0x4d60a4
+004D606A dec      eax
+004D606B jne      0x4d60b5
+004D606D mov      edx, dword ptr [esi]
+004D606F mov      ecx, esi
+004D6071 call     dword ptr [edx + 0x2b0]
+004D6077 mov      ecx, dword ptr [eax + 0x14]
+004D607A test     ecx, ecx
+004D607C je       0x4d610e
+004D6082 mov      eax, dword ptr [esi]
+004D6084 mov      ecx, esi
+004D6086 call     dword ptr [eax + 0x348]
+004D608C cmp      eax, 9
+004D608F jne      0x4d60b5
+004D6091 mov      ecx, dword ptr [ebp - 0xc]
+004D6094 mov      dword ptr fs:[0], ecx
+004D609B pop      edi
+004D609C pop      esi
+004D609D pop      ebx
+004D609E mov      esp, ebp
+004D60A0 pop      ebp
+004D60A1 ret      0xc
+004D60A4 mov      edx, dword ptr [esi]
+004D60A6 mov      ecx, esi
+004D60A8 call     dword ptr [edx + 0x2b0]
+004D60AE mov      ecx, dword ptr [eax + 0xc]
+004D60B1 test     ecx, ecx
+004D60B3 je       0x4d610e
+004D60B5 mov      eax, dword ptr [esi + edi*4 + 0x1854]
+004D60BC test     eax, eax
+004D60BE mov      ebx, dword ptr [ebp + 0xc]
+004D60C1 jne      0x4d60fd
+004D60C3 test     ebx, ebx
+004D60C5 je       0x4d610e
+004D60C7 push     0xd0
+004D60CC call     0x668444
+004D60D1 add      esp, 4
+004D60D4 mov      dword ptr [ebp + 8], eax
+004D60D7 test     eax, eax
+004D60D9 mov      dword ptr [ebp - 4], 0
+004D60E0 je       0x4d60ed
+004D60E2 push     esi
+004D60E3 push     edi
+004D60E4 mov      ecx, eax
+004D60E6 call     0x4d5e80
+004D60EB jmp      0x4d60ef
+004D60ED xor      eax, eax
+004D60EF mov      dword ptr [ebp - 4], 0xffffffff
+004D60F6 mov      dword ptr [esi + edi*4 + 0x1854], eax
+004D60FD mov      edx, dword ptr [ebp + 0x10]
+004D6100 mov      ecx, dword ptr [esi + edi*4 + 0x1854]
+004D6107 mov      eax, dword ptr [ecx]
+004D6109 push     edx
+004D610A push     ebx
+004D610B call     dword ptr [eax + 4]
+004D610E mov      ecx, dword ptr [ebp - 0xc]
+004D6111 pop      edi
+004D6112 pop      esi
+004D6113 mov      dword ptr fs:[0], ecx
+004D611A pop      ebx
+004D611B mov      esp, ebp
+004D611D pop      ebp
+004D611E ret      0xc
+004D6121 int3     
+004D6122 int3     
+004D6123 int3     
+004D6124 int3     
+004D6125 int3     
+004D6126 int3     
+004D6127 int3     
+004D6128 int3     
+004D6129 int3     
+004D612A int3     
+004D612B int3     
+004D612C int3     
+004D612D int3     
+004D612E int3     
+004D612F int3     

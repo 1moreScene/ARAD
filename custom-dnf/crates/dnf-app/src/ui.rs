@@ -164,10 +164,6 @@ impl Panel {
             self.open = false;
             return (true, None);
         }
-        if click && (337..594).contains(&x) && (186..210).contains(&y) {
-            self.debug = !self.debug;
-            self.selected = None;
-        }
         if !self.debug {
             return (true, None);
         }
@@ -313,16 +309,6 @@ impl Panel {
         }
         draw_img(fb, &a.weapon_icon, a.icon_index, 531, 112);
         text(fb, 342, 174, "损坏的铁剑 · 已装备", gold);
-        button(
-            fb,
-            (337, 186, 257, 24),
-            if self.debug {
-                "调试设置  [F6] · 收起"
-            } else {
-                "调试设置  [F6] · 展开"
-            },
-            false,
-        );
         if self.debug {
             fb.fill_rect(336, 212, 260, 217, rgba(21, 22, 21, 250));
             for (i, label) in ["基本 / 战斗", "动作参数", "角色属性"].iter().enumerate()
@@ -363,7 +349,7 @@ impl Panel {
             button(fb, (466, 403, 96, 22), "恢复默认", false);
         } else {
             text(fb, 342, 231, "装备栏：当前加载的默认武器", white);
-            text(fb, 342, 256, "点击调试设置可调整角色数值", gold);
+            text(fb, 342, 256, "F6 打开独立调试控制台", gold);
             text(fb, 342, 281, "打开面板时暂停战斗", white);
         }
         if (528..562).contains(&self.pointer.0) && (108..144).contains(&self.pointer.1) {
@@ -382,7 +368,7 @@ impl Panel {
             } else if self.debug && self.page == 2 && self.message.is_empty() {
                 "属性用于面板调试；当前攻击结算使用“物理攻击”"
             } else if self.message.is_empty() {
-                "M / I 关闭 · Tab 选择 · 输入数字后 Enter 应用 · Esc 关闭面板"
+                "M / I 关闭 · F6 调试控制台 · Esc 关闭面板"
             } else {
                 &self.message
             },

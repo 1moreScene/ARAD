@@ -17,6 +17,25 @@
 
 use std::collections::HashMap;
 
+/// 40JP parser maps these exact tokens to frame+52: 0 / 1 / 2.
+/// UNBREAKABLE excludes the frame from receiving hits; it is not merely armor.
+#[derive(Clone, Copy, Debug, Default, PartialEq, Eq)]
+pub enum DamageType {
+    #[default]
+    Normal,
+    SuperArmor,
+    Unbreakable,
+}
+impl DamageType {
+    pub fn from_token(token: &str) -> Self {
+        match token.trim().trim_matches('`').to_ascii_uppercase().as_str() {
+            "SUPERARMOR" => Self::SuperArmor,
+            "UNBREAKABLE" => Self::Unbreakable,
+            _ => Self::Normal, // Official parser only recognizes three tokens.
+        }
+    }
+}
+
 /// 一帧。
 #[derive(Clone, Debug, PartialEq)]
 pub struct AnimFrame {
@@ -271,6 +290,27 @@ pub fn parse(text: &str) -> AnimFile {
 #[cfg(test)]
 mod tests {
     use super::*;
+    #[test]
+    fn only_official_damage_tokens_activate_protection() {
+        assert_eq!(
+            DamageType::from_token(" `superarmor` "),
+            DamageType::SuperArmor
+        );
+        assert_eq!(
+            DamageType::from_token("UNBREAKABLE"),
+            DamageType::Unbreakable
+        );
+        for token in [
+            "NORMAL",
+            "SUPERARMO",
+            "Invisible",
+            "Invincible",
+            "NONE",
+            "LINEARDODGE",
+        ] {
+            assert_eq!(DamageType::from_token(token), DamageType::Normal, "{token}");
+        }
+    }
     #[test]
     fn scripted_transform_and_damage_type_are_preserved() {
         let a=parse("[FRAME MAX] 1\n[FRAME000]\n[IMAGE] `x.img` 0\n[IMAGE RATE] 1.25 -0.75\n[IMAGE ROTATE] 3.140022\n[RGBA] 120 200 255 80\n[DAMAGE TYPE] `SUPERARMOR`\n[DELAY] 10000");

@@ -19,6 +19,7 @@ pub enum Motion {
     DashAttack,
     UpperSlash,
     GhostSlash,
+    Bloodlust,
 }
 impl Motion {
     pub const fn label(self) -> &'static str {
@@ -32,6 +33,7 @@ impl Motion {
             Self::DashAttack => "DASHATK",
             Self::UpperSlash => "UPPER",
             Self::GhostSlash => "GHOST",
+            Self::Bloodlust => "GRAB",
         }
     }
 }
@@ -67,10 +69,12 @@ pub struct ActorClips {
     pub jump_attack: Clip,
     pub dash_attack: Clip,
     pub hard_attack: Clip,
+    pub grab: Clip,
 }
 impl ActorClips {
     pub fn swordman_official() -> Self {
         Self {
+            grab: Clip::new("Grab", vec![40; 17], false),
             hard_attack: Clip::new(
                 "HardAttack",
                 vec![
@@ -116,6 +120,7 @@ pub enum ActorEvent {
     DashAttacked,
     UpperSlashed,
     GhostSlashed,
+    BloodlustCast,
     NoMana,
     SkillRejected(SkillFailure),
 }
@@ -139,6 +144,9 @@ pub const SWORDMAN_JUMP_FRAMES: (usize, usize, usize) = (1, 8, 15);
 pub const OFFICIAL_CLIP_RATE: f32 = 100.0;
 /// 5EEE40 initializes this[1974] with these per-stage continuation frames.
 pub const SWORDMAN_COMBO_FRAMES: [usize; 3] = [5, 4, 5];
+/// 5F10C0 skill46 clears vt+612 override when animation.frame > 1.
+/// Zero-based frame2 is the first unprotected frame, independently of attack speed.
+pub const UPPER_ARMOR_END_FRAME: usize = 2;
 pub type DirState = (i32, i32);
 
 #[derive(Clone, Debug)]
@@ -172,6 +180,9 @@ struct GroundAttack {
 
 #[derive(Clone, Debug)]
 pub struct Actor {
+    pub protection: crate::protection::ProtectionState,
+    pub grab_state: crate::grab::GrabState,
+    grab_holding: bool,
     pub spec: ActorSpec,
     pub clips: ActorClips,
     pub x: i32,
@@ -193,6 +204,7 @@ pub struct Actor {
     /// Input-layer candidate, independent of effective state 11.
     pub dash_candidate: i32,
     ground_attack: Option<GroundAttack>,
+    upper_armor_active: bool,
     air_attack: bool,
     air_attacks_used: u32,
     pub mp: i32,
@@ -202,18 +214,30 @@ pub struct Actor {
     pub cast_vibration: crate::feedback::CastVibration,
     upper_ready_ms: f64,
     ghost_ready_ms: f64,
+    blood_ready_ms: f64,
     upper_committed_cooldown_ms: f64,
     ghost_committed_cooldown_ms: f64,
+    blood_committed_cooldown_ms: f64,
     shortcut_skill: Option<i32>,
     pub skill_slots: [Option<i32>; 6],
     pub upper_skill: ActiveSkill,
     pub ghost_skill: ActiveSkill,
+    pub blood_skill: ActiveSkill,
     pub cancelled_pose: Option<CancelPose>,
     last_plane_velocity: (f32, f32),
 }
 impl Actor {
+    /// Incoming-hit entry point. The caller applies hit-stop/reaction only when
+    /// the outcome permits it; invulnerability rejects before all hit feedback.
+    pub fn receive_damage(&mut self, damage: i32) -> crate::protection::DamageOutcome {
+        self.protection.apply_damage(&mut self.hp, damage)
+    }
+
     pub fn new(spec: ActorSpec, clips: ActorClips, x: i32, y: i32) -> Self {
         Self {
+            protection: crate::protection::ProtectionState::default(),
+            grab_state: Default::default(),
+            grab_holding: false,
             spec,
             clips: clips.clone(),
             x,
@@ -232,6 +256,7 @@ impl Actor {
             air_mode: MoveMode::Walk,
             dash_candidate: 0,
             ground_attack: None,
+            upper_armor_active: false,
             air_attack: false,
             air_attacks_used: 0,
             mp: 150,
@@ -241,8 +266,10 @@ impl Actor {
             cast_vibration: crate::feedback::CastVibration::default(),
             upper_ready_ms: 0.0,
             ghost_ready_ms: 0.0,
+            blood_ready_ms: 0.0,
             upper_committed_cooldown_ms: 0.0,
             ghost_committed_cooldown_ms: 0.0,
+            blood_committed_cooldown_ms: 0.0,
             shortcut_skill: None,
             skill_slots: [Some(5), Some(46), None, None, None, None],
             upper_skill: ActiveSkill {
@@ -252,6 +279,15 @@ impl Actor {
                 items: Vec::new(),
                 cooldown_ms: 2000.0,
                 values: vec![10, 300, 100],
+                cancel_skill: true,
+            },
+            blood_skill: ActiveSkill {
+                level: 1,
+                mp: 22,
+                hp: 0,
+                items: Vec::new(),
+                cooldown_ms: 4000.0,
+                values: vec![164, 328, 5000, 20],
                 cancel_skill: true,
             },
             ghost_skill: ActiveSkill {
@@ -299,6 +335,7 @@ impl Actor {
         let ready = match id {
             5 => self.ghost_ready_ms,
             46 => self.upper_ready_ms,
+            31 => self.blood_ready_ms,
             _ => return None,
         };
         (ready > 0.0 && self.skill_cooldown_total_ms(id) > 0.0).then_some(ready - self.time_ms)
@@ -307,6 +344,7 @@ impl Actor {
         match id {
             5 => self.ghost_committed_cooldown_ms,
             46 => self.upper_committed_cooldown_ms,
+            31 => self.blood_committed_cooldown_ms,
             _ => 0.0,
         }
     }
@@ -314,6 +352,7 @@ impl Actor {
     pub fn advance_hit_stop(&mut self, dt_ms: f64) {
         self.time_ms += dt_ms;
         self.cast_vibration.advance(dt_ms);
+        self.protection.advance(dt_ms);
     }
     pub fn air_attacks_used(&self) -> u32 {
         self.air_attacks_used
@@ -385,9 +424,32 @@ impl Actor {
             attack.kind = Motion::UpperSlash;
         }
         self.motion = Motion::UpperSlash;
+        self.upper_armor_active = true;
+        self.protection
+            .set_action(crate::protection::Protection::SuperArmor);
         self.mp -= self.upper_skill.mp;
         self.upper_committed_cooldown_ms = self.upper_skill.cooldown_ms;
         self.upper_ready_ms = self.time_ms + self.upper_committed_cooldown_ms;
+    }
+    pub fn active_skill(&self, id: i32) -> Option<&ActiveSkill> {
+        match id {
+            5 => Some(&self.ghost_skill),
+            46 => Some(&self.upper_skill),
+            31 => Some(&self.blood_skill),
+            _ => None,
+        }
+    }
+    pub fn hold_grab(&mut self) {
+        self.grab_holding = true;
+        self.anim.set_frame(16);
+    }
+    pub fn release_grab(&mut self) {
+        self.grab_holding = false;
+        if self.motion == Motion::Bloodlust {
+            self.ground_attack = None;
+            self.motion = Motion::Stand;
+            self.anim.set_clip(self.clips.stand.clone(), 100.0, true);
+        }
     }
     pub fn can_skill(&self, skill: &ActiveSkill) -> bool {
         skill.level > 0
@@ -421,6 +483,7 @@ impl Actor {
     pub fn try_skill(&mut self) -> Option<ActorEvent> {
         let shortcut = self.shortcut_skill.take();
         let ghost = shortcut == Some(5);
+        let blood = shortcut == Some(31);
         let z = self.commands.hit(key_manager::UPPER);
         let upper = z || shortcut == Some(46);
         if z {
@@ -428,6 +491,11 @@ impl Actor {
         }
         let (skill, ready) = if upper {
             (&self.upper_skill, self.upper_cooldown_ms())
+        } else if blood {
+            (
+                &self.blood_skill,
+                (self.blood_ready_ms - self.time_ms).max(0.0),
+            )
         } else if ghost {
             (&self.ghost_skill, self.ghost_cooldown_ms())
         } else {
@@ -472,6 +540,23 @@ impl Actor {
         if upper {
             self.start_upper_slash(self.read_direction());
             Some(ActorEvent::UpperSlashed)
+        } else if blood {
+            self.ground_attack = Some(GroundAttack {
+                stage: 0,
+                kind: Motion::Bloodlust,
+                velocity: 0.0,
+                acceleration: 0.0,
+            });
+            self.running = false;
+            self.grab_holding = false;
+            self.motion = Motion::Bloodlust;
+            self.anim
+                .set_clip(self.clips.grab.clone(), self.spec.attack_speed * 0.1, true);
+            self.anim.set_frame(3); // 5F39F0 state22 initial/miss branch.
+            self.mp -= self.blood_skill.mp;
+            self.blood_committed_cooldown_ms = self.blood_skill.cooldown_ms;
+            self.blood_ready_ms = self.time_ms + self.blood_committed_cooldown_ms;
+            Some(ActorEvent::BloodlustCast)
         } else {
             self.ground_attack = Some(GroundAttack {
                 stage: 0,
@@ -547,6 +632,24 @@ impl Actor {
     }
     /// World time is already advanced; animation/physics may advance by a shorter hit-stop remainder.
     pub fn step_at_current_time(&mut self, mt: &MoveTuning, jt: &JumpTuning) -> ActorEvent {
+        let event = self.step_motion(mt, jt);
+        // Official actor+8220 is a one-shot cleared flag. Never re-enable armor
+        // after crossing the frame gate, even if an animation is later rewound.
+        if self.motion != Motion::UpperSlash
+            || self.anim.frame() >= UPPER_ARMOR_END_FRAME
+            || self.anim.finished()
+        {
+            self.upper_armor_active = false;
+        }
+        self.protection.set_action(if self.upper_armor_active {
+            crate::protection::Protection::SuperArmor
+        } else {
+            crate::protection::Protection::Normal
+        });
+        event
+    }
+
+    fn step_motion(&mut self, mt: &MoveTuning, jt: &JumpTuning) -> ActorEvent {
         let dir = self.read_direction();
         self.dash_candidate = if self.commands.hit(key_manager::RUN_RIGHT) {
             1
@@ -587,8 +690,10 @@ impl Actor {
                     .step_position((self.x, self.y), (displacement / dt, 0.0), dt);
             attack.velocity = if duration < dt { 0.0 } else { v1 };
             self.motion = attack.kind;
-            self.anim.advance(jt.logic_ms);
-            if self.anim.finished() {
+            if !self.grab_holding {
+                self.anim.advance(jt.logic_ms);
+            }
+            if !self.grab_holding && self.anim.finished() {
                 self.ground_attack = None;
             }
             return event;
@@ -754,6 +859,13 @@ impl Actor {
         event
     }
     pub fn teleport(&mut self, x: i32, y: i32) {
+        self.grab_holding = false;
+        self.grab_state.clear();
+        self.upper_armor_active = false;
+        self.protection
+            .set_frame(crate::protection::Protection::Normal);
+        self.protection
+            .set_action(crate::protection::Protection::Normal);
         self.x = x;
         self.y = y;
         self.mover.reset();

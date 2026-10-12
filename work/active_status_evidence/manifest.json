@@ -1,0 +1,194 @@
+{
+  "exe_sha256": "09d45918d5ca7d67532329f4fa8ac2c5519454ebe4615c3c0ddb27e33a34e4ed",
+  "pvf_sha256": "6a65b5422dead9f9ec6462aebd6fe8b1e9174263a2e51420e2b4bb579a746c46",
+  "labels": [
+    "[slow]",
+    "[freeze]",
+    "[poison]",
+    "[stun]",
+    "[curse]",
+    "[blind]",
+    "[lightning]",
+    "[stone]",
+    "[sleep]",
+    "[burn]",
+    "[deadlystrike]",
+    "[bleeding]",
+    "[haste]",
+    "[bless]",
+    "[element]",
+    "[confuse]",
+    "[hold]",
+    "[none]"
+  ],
+  "scripts": {
+    "common/activestatus/animation/stonecursedestroy3.ani": "a525ab088c2e298133b6a9edb79f011166423f8e0c474b3ea147e357fa4d2b15",
+    "common/activestatus/animation/stonecursedestroy4.ani": "c157df512026edd17b62a6833f7f38315a327b02c64b8c5bc9ecb92e9243fb79",
+    "common/activestatus/particle/stonecursedestroy.ptl": "70d78ce3b98403c7efd190ad95a7636198d5441c93be83dabb26ee11cebe3843",
+    "common/activestatus/particle/poisonparticle.ptl": "c386887214b3bc5f7e146abb66dc51ad1ae3d926a7f6f36d90603af31a88d662",
+    "common/activestatus/animation/blind1.ani": "0112156016b04c920de6b2c606d31804eb3a10da3b308ec33bc7f805e7361a70",
+    "common/activestatus/animation/blind2.ani": "b3391b20472709b8df1d4dca8fc47c2a55643ee86328b5e2bae66455088138c6",
+    "common/activestatus/animation/stonecursing1.ani": "7060bda32695530411f00428b15d98d9b1bb445dfa2f8bd19b5adcd4e298b9f9",
+    "common/activestatus/animation/freezeparticle1.ani": "adaa2db1cf1afcf00b78426142a675d717c7e70c8bc388747589a45e060f959c",
+    "common/activestatus/animation/stonecursing2.ani": "b1e5207eb927116c2484e5ee5bacf5391f7e69317afa4bce719b8adb9b58e6f5",
+    "common/activestatus/animation/freezeparticle2.ani": "26b3c0742d31955d9d2dd951d100b894c9dd4808dc65229b64b8e1b8fa798242",
+    "common/activestatus/animation/stonecursing3.ani": "d5bff28f8811f45c69ffc9d6346c1c8c75239b59f065ded42da70f5ee6cc6e2c",
+    "common/activestatus/animation/stun1.ani": "2d7a3d7306e284cebc0beea41afaac62ef80220f38fe15fa683e9f121b624095",
+    "common/activestatus/animation/poisonfloor1.ani": "f4f95720a9d93475f9a70c82dd94cf4621d6fcb329ec16272e6b8411b8726b4c",
+    "common/activestatus/animation/stun2.ani": "d647c4cd38939a8a9d054ab5b73623132c65cdf2bcccc2a791ae7b939304cfc4",
+    "common/activestatus/animation/poisonfloor2.ani": "04ed9432ff2458869153aada7693154894094835ac2084dbe4fb5b7234012122",
+    "common/activestatus/animation/lightning.ani": "31b1216127b996b3e5da5f325f143df1e21640f96bc7fc0fde9308f6877b7881",
+    "common/activestatus/animation/hold.ani": "bf3d63518b989f4e2bf006b1a8e8ab05edfe9170b5f658c1244b1a9b6dc6be65",
+    "common/activestatus/particle/curseparticle.ptl": "debfaeee661ec3aba31c18b8f39d87e94ddcce948aeab1b97e8b9717db0b99a4",
+    "common/activestatus/animation/bless1.ani": "c01e92cb030cd6d219cefeb38a86f31991b38da016b5a7a806a6a2bf22d7fa0e",
+    "common/activestatus/animation/bless2.ani": "9914d1b64b2a52b2c7f0f35f12bc633ded08140a17ffcf75114ce8eea20baffc",
+    "common/activestatus/animation/bless3.ani": "94a85e60108a2c4c3f29050f246bda7e75b298d24d587f0f569cee75fc818bb1",
+    "common/activestatus/animation/bless4.ani": "1bba77b67813d772311452391b4e3eb65ce510758ef97b26aee77f56f777490e",
+    "common/activestatus/animation/freeze1.ani": "7f2a2d7921d7117257267e69482feda26dd1f41178bdfc350a271857476e0e1e",
+    "common/activestatus/animation/freeze2.ani": "f4fecf493088ffe15ee0c74a29bcc15725d7421eb57b175dcdb901091d0c448c",
+    "common/activestatus/animation/confuseglow.ani": "86485f9e2d3865b89fa347c1b60e20266de228d867eef6d20cdc333fde04e9f8",
+    "common/activestatus/animation/freeze3.ani": "cdb4cde18d6dc24b6dfc132de7ed4ff08c7e8e1edfa0e53ed4a7bdd19215950b",
+    "common/activestatus/animation/bleeding12age.ani": "3aeda30edc08e59e785f1bc0d040fad1d8508395086adaa113d2f1642f3e3848",
+    "common/activestatus/animation/freezedie.ani": "84b1ee8be0a5cce30fb1998ae2f13f0743d5d2f36d93696eb5af0e4672e9ff9a",
+    "common/activestatus/animation/stonecurse.ani": "394adedac1e3059660720fcdb4a6004004ba3693dee9968376f3cd1ea06965ff",
+    "common/activestatus/animation/curse.ani": "0efeec852e4733e0ffd862fa7e45eb28a2b2ab1e089976179f8dd33db0b35439",
+    "common/activestatus/animation/slow.ani": "6946c940113034eda271f41bab0485adc3125f54368d278d8ab553d41a17b05e",
+    "common/activestatus/animation/sleep.ani": "4e2cd8075e100014f2e638beca2dd9f946cddda196f8ab963e7eeae75b50475c",
+    "common/activestatus/animation/haste.ani": "1d1c41a19471718cf61cc1a651ea010dacc2c7537c66cf43211a4cf20106f1e0",
+    "common/activestatus/animation/bleeding.ani": "9fa598b17c79fa911ff775c5dec57e2a3cfc8735e2ab2f5d58e5adf9076e24fa",
+    "common/activestatus/particle/blessparticle1.ptl": "90bd728101f495e07b701e8ad3002f3cfa5df6edf07b16905adbf151333526ee",
+    "common/activestatus/particle/blessparticle2.ptl": "74599e59437e4fb32eee6f2c089836d6ef69394cfb68e5eb75e2d4c09bf7f1a7",
+    "common/activestatus/animation/bleeding15age.ani": "3086b7a9568e8b2202df2ba43ca112b983f67e8c941b0eb3efa2432d0a16442d",
+    "common/activestatus/animation/activestatus_burndamage_effect.ani": "4faa759580ff63a99cb46078c92553cc54d9b5f28016ba6411a6752e6184cb10",
+    "common/activestatus/animation/poisonparticle.ani": "4fcb131d64403ae29c02ac33cb7c2f4dbb918768b14fe8f5218740205482ae14",
+    "common/activestatus/particle/stonecursing.ptl": "711df74b512dd8daf73bfada5e7a383c6407f676777c13d5a4dbd27686ffdeac",
+    "common/activestatus/particle/freezeparticle.ptl": "696e95ca5c04e3b4c5de79b1f75bc70508444373016b11e7a46bc82637bf0d0e",
+    "common/activestatus/animation/confuse.ani": "7bf8a3c2ebaff9f8afe73cba6b4d901e8c841833d744a4bcd410f6a066c99e8b",
+    "common/activestatus/animation/stonecursedestroy1.ani": "284c50494a9f6488551fb7b44dbb40c7f1ee54cfae3814fe73158bb8c8ff1ab6",
+    "common/activestatus/animation/poisonparticle1.ani": "82bf8113f57e1797edc429570594eb4c8e08fce827342a78f8ac8bd66987c350",
+    "common/activestatus/animation/stonecursedestroy2.ani": "05d51b446119a81a14e616d67c063a0034ad96df17fdaf0f64f2c0ba18d2db24",
+    "common/activestatus/animation/poisonparticle2.ani": "528c90048875388b0b2f4859388a48184511b954a5cbc9c7a31675b1c472463c"
+  },
+  "attack_examples": [
+    {
+      "path": "passiveobject/monster/soceress/attackinfo/luis_iceniddle.atk",
+      "tags": [
+        "[active status] `[freeze]` 5 3"
+      ]
+    },
+    {
+      "path": "monster/dendroid/attackinfo/rodattack1.atk",
+      "tags": [
+        "[active status] `[stun]` 10 5"
+      ]
+    },
+    {
+      "path": "passiveobject/common/attackinfo/stonegas.atk",
+      "tags": [
+        "[active status] `[stone]` 65 10"
+      ]
+    },
+    {
+      "path": "monster/tau/attackinfo/beast.atk",
+      "tags": [
+        "[active status] `[stun]` 40 1"
+      ]
+    },
+    {
+      "path": "passiveobject/monster/golem/attackinfo/stonelaser.atk",
+      "tags": [
+        "[active status] `[stone]` 10 2"
+      ]
+    },
+    {
+      "path": "passiveobject/monster/goblin/attackinfo/bullseyesuriken.atk",
+      "tags": [
+        "[active status] `[poison]` 5 4"
+      ]
+    },
+    {
+      "path": "passiveobject/character/mage/attackinfo/thunderbolt.atk",
+      "tags": [
+        "[active status] `[lightning]` 0 0"
+      ]
+    },
+    {
+      "path": "monster/lugaru/attackinfo/jumpattack1_curse.atk",
+      "tags": [
+        "[active status] `[curse]` 30 4"
+      ]
+    },
+    {
+      "path": "passiveobject/monster/goblin/attackinfo/suriken.atk",
+      "tags": [
+        "[active status] `[poison]` 5 4"
+      ]
+    },
+    {
+      "path": "monster/spacefish/attack/sflattack.atk",
+      "tags": [
+        "[active status] `[confuse]` 20 10"
+      ]
+    },
+    {
+      "path": "monster/goblin/attackinfo/galokattack.atk",
+      "tags": [
+        "[active status] `[stun]` 30 5"
+      ]
+    },
+    {
+      "path": "passiveobject/monster/evileye/attackinfo/evileyesmalllaser.atk",
+      "tags": [
+        "[active status] `[stone]` 10 7"
+      ]
+    },
+    {
+      "path": "passiveobject/common/attackinfo/stonebubble.atk",
+      "tags": [
+        "[active status] `[stone]` 50 15"
+      ]
+    },
+    {
+      "path": "passiveobject/character/fighter/attackinfo/energyfield.atk",
+      "tags": [
+        "[active status] `[lightning]` 0 0"
+      ]
+    },
+    {
+      "path": "passiveobject/monster/monsterflower/attackinfo/poisonbug.atk",
+      "tags": [
+        "[active status] `[poison]` 50 10\t// \uff81\uff66\uff80\uff8f \uff7e\uff95\uff80\uff7a \uff70\ue64f\uff9d\uff7f\uff61 \uff80\uff87\uff87\uff98 \uff70\uff89\uff78\uff6e\uff74\uff82 \uff7b\ue2b8\uff82 \uff80\uff8c\uff7b\ufffd \uff81\uff7e\uff77\ufffd."
+      ]
+    },
+    {
+      "path": "passiveobject/monster/lordoflight/attackinfo/thunderbolt.atk",
+      "tags": [
+        "[active status] `[lightning]` 0 0"
+      ]
+    },
+    {
+      "path": "monster/hunter/alexattackinfo/attack.atk",
+      "tags": [
+        "[active status] `[bleeding]` 15 5"
+      ]
+    },
+    {
+      "path": "passiveobject/monster/soceress/attackinfo/iceniddlegroup.atk",
+      "tags": [
+        "[active status] `[freeze]` 5 3"
+      ]
+    },
+    {
+      "path": "passiveobject/common/attackinfo/cloudkill.atk",
+      "tags": [
+        "[active status] `[poison]` 40 2"
+      ]
+    },
+    {
+      "path": "passiveobject/common/attackinfo/sleepgas.atk",
+      "tags": [
+        "[active status] `[sleep]` 65 10"
+      ]
+    }
+  ]
+}

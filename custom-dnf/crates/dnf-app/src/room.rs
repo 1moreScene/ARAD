@@ -16,6 +16,7 @@ use crate::assets::ClientAssets;
 use dnf_data::img::ImgFrame;
 use dnf_data::mapfile::{MapFile, MapObject};
 use dnf_render::framebuffer::Framebuffer;
+use std::cell::RefCell;
 use std::rc::Rc;
 
 /// 一条已加载的瓦片带。
@@ -39,6 +40,7 @@ pub struct SceneObject {
 }
 
 pub struct Room {
+    backdrop_cache: RefCell<Option<(u64, Framebuffer)>>,
     pub map: MapFile,
     pub tiles: Vec<TileStrip>,
     pub backgrounds: Vec<Background>,
@@ -188,6 +190,7 @@ impl Room {
             walk_x.1
         ));
         Ok(Room {
+            backdrop_cache: RefCell::new(None),
             map,
             tiles,
             backgrounds,
@@ -229,6 +232,53 @@ impl Room {
     }
 
     /// 背景 + 瓦片（角色之前的一切）。
+    pub fn draw_cached_backdrop(&self, fb: &mut Framebuffer, camera_x: i32) {
+        // Camera, selected animation frames, image identities and placement are
+        // part of the key. Actors, foreground objects and UI remain dynamic.
+        let mut key = 14695981039346656037u64;
+        let mut mix = |value: u64| {
+            key = (key ^ value).wrapping_mul(1099511628211);
+        };
+        for v in [
+            camera_x as u64,
+            fb.width as u64,
+            fb.height as u64,
+            self.backgrounds.len() as u64,
+            self.tiles.len() as u64,
+        ] {
+            mix(v);
+        }
+        for bg in &self.backgrounds {
+            for v in [
+                Rc::as_ptr(&bg.image) as usize as u64,
+                bg.frame as u64,
+                bg.pos.0 as u64,
+                bg.pos.1 as u64,
+                bg.rate as u64,
+            ] {
+                mix(v);
+            }
+        }
+        for tile in &self.tiles {
+            for v in [
+                Rc::as_ptr(&tile.image) as usize as u64,
+                tile.frame as u64,
+                tile.x as u64,
+            ] {
+                mix(v);
+            }
+        }
+        let mut cache = self.backdrop_cache.borrow_mut();
+        if cache.as_ref().map_or(true, |(old, _)| *old != key) {
+            let mut image = Framebuffer::new(fb.width, fb.height);
+            image.clear(dnf_render::framebuffer::rgba(12, 14, 20, 255));
+            self.draw_backdrop(&mut image, camera_x);
+            *cache = Some((key, image));
+        }
+        fb.data.copy_from_slice(&cache.as_ref().unwrap().1.data);
+    }
+
+    /// 背景 + 瓦片的未缓存参考路径。
     pub fn draw_backdrop(&self, fb: &mut Framebuffer, camera_x: i32) {
         for bg in &self.backgrounds {
             let Some(f) = bg.image.frames.get(bg.frame) else {

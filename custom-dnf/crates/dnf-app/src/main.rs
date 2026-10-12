@@ -7,18 +7,26 @@
 //! dnf-app --shot-after 90    # 跑 90 帧后实拍窗口客户区（验证窗口真有画面）
 //! ```
 
+mod active_status;
+mod active_status_verify;
 mod assets;
 mod audio;
 mod battle;
 mod character;
 mod damage;
+mod debug_ui;
 mod game;
+mod grab_skill;
 mod hud;
 #[cfg(windows)]
 mod keyboard;
+mod localization;
 mod notice;
+mod performance;
+mod protection_visual;
 mod room;
 mod script;
+mod timing;
 mod ui;
 #[cfg(windows)]
 mod win32;
@@ -40,6 +48,13 @@ struct Args {
     window_replay: bool,
     panel: bool,
     ui_selftest: bool,
+    status_selftest: bool,
+    debug_selftest: bool,
+    debug_panel: bool,
+    performance_benchmark: bool,
+    timing_selftest: bool,
+    grab_selftest: bool,
+    active_status_selftest: bool,
     ui_replay: bool,
     hud_replay: bool,
     feedback_replay: bool,
@@ -71,6 +86,13 @@ impl Default for Args {
             window_replay: false,
             panel: false,
             ui_selftest: false,
+            status_selftest: false,
+            debug_selftest: false,
+            debug_panel: false,
+            performance_benchmark: false,
+            timing_selftest: false,
+            grab_selftest: false,
+            active_status_selftest: false,
             ui_replay: false,
             hud_replay: false,
             feedback_replay: false,
@@ -119,6 +141,13 @@ fn parse_args() -> Result<Args, String> {
             "--show-keys" => a.show_keys = true,
             "--panel" => a.panel = true,
             "--ui-selftest" => a.ui_selftest = true,
+            "--status-selftest" => a.status_selftest = true,
+            "--debug-selftest" => a.debug_selftest = true,
+            "--debug-panel" => a.debug_panel = true,
+            "--performance-benchmark" => a.performance_benchmark = true,
+            "--timing-selftest" => a.timing_selftest = true,
+            "--grab-selftest" => a.grab_selftest = true,
+            "--active-status-selftest" => a.active_status_selftest = true,
             "--ui-replay" => {
                 a.ui_replay = true;
                 a.window_replay = true;
@@ -189,11 +218,18 @@ DNF 同人客户端（官方真实素材：地图 + 鬼剑士精灵）
 
   （无选项）        打开窗口游玩
   --window-replay   在真实窗口回放 --script 指定的输入（验证模式）
-  --show-keys       启动时显示按键管理器记录与命令状态（F7开关）
+  --show-keys       启动时显示控制台内的按键记录（F7开关）
+  --debug-panel     启动时打开自绘调试控制台（F6开关）
+  --debug-selftest  验证人物/怪物调试与数量控制，并导出截图
+  --active-status-selftest 验证17状态编号、叠加与效果截图
+  --grab-selftest   验证噬魂之手抓取矩阵与技能截图
+  --timing-selftest 验证60/120/300Hz驱动下世界时序一致
+  --performance-benchmark 测量1/6/32怪物、霸体与面板的CPU渲染/缩放耗时
   --hud-replay      验证模式：回放技能拖放/快捷键施放/冷却/说明框
   --feedback-replay 验证模式：血蓝条缓动、悬停值及施放失败反馈
   --panel           启动时显示角色属性/装备窗口（M/I开关，F6调试设置）
   --ui-selftest     验证原版UI素材、调试编辑与伤害飘字，导出到 --out
+  --status-selftest 验证霸体/无敌/叠加恢复/上挑，导出截图到 --out
   --ui-replay       在真实窗口回放调试编辑与关闭面板后的普攻
   --scale N         显示倍率；默认随桌面DPI（125%时800×600）；1为物理640×480
   --headless        无头确定性回放并输出 PNG
@@ -476,6 +512,8 @@ fn run_headless(data: &game::GameData, km: KeyMap, args: &Args) -> i32 {
     let mut game = data.build_game(km.clone()).expect("装载房间");
     game.panel.open = args.panel;
     game.show_keys = args.show_keys;
+    game.debug_panel.open = args.debug_panel || args.show_keys;
+    game.debug_panel.tab = if args.show_keys { 2 } else { 0 };
     let mut audio_bank = if args.audio_out.is_some() {
         match data
             .audio
@@ -509,6 +547,7 @@ fn run_headless(data: &game::GameData, km: KeyMap, args: &Args) -> i32 {
         game.step();
         if let Some(bank) = &mut audio_bank {
             bank.set_loop(game.loop_sound, &mut mixer);
+            bank.set_status_loops(game.status_loop_tags(), &mut mixer);
             for tag in &game.sound_requests {
                 bank.play(tag, &mut mixer);
             }
@@ -549,6 +588,8 @@ fn run_headless(data: &game::GameData, km: KeyMap, args: &Args) -> i32 {
     let mut game = data.build_game(km).expect("装载房间");
     game.panel.open = args.panel;
     game.show_keys = args.show_keys;
+    game.debug_panel.open = args.debug_panel || args.show_keys;
+    game.debug_panel.tab = if args.show_keys { 2 } else { 0 };
     let mut exported = 0usize;
     for step in 0..args.frames {
         game.begin_input();
@@ -622,10 +663,13 @@ fn run_window_mode(data: &game::GameData, km: KeyMap, args: &Args) -> i32 {
             return 1;
         }
     };
+    game.jt.logic_ms = dnf_core::clock::WORLD_MS;
     let mut fb = Framebuffer::new(WIDTH, HEIGHT);
     println!("=== 窗口模式（官方素材）===");
     game.panel.open = args.panel;
     game.show_keys = args.show_keys;
+    game.debug_panel.open = args.debug_panel || args.show_keys;
+    game.debug_panel.tab = if args.show_keys { 2 } else { 0 };
     let skillbar_path = data_file("skillbar.txt");
     if !args.window_replay {
         if let Ok(raw) = std::fs::read_to_string(&skillbar_path) {
@@ -640,8 +684,11 @@ fn run_window_mode(data: &game::GameData, km: KeyMap, args: &Args) -> i32 {
     println!(
         "  方向键移动（单击走 / 双击冲刺） X普攻/跑动突刺 Z上挑 技能栏默认A鬼斩/S上挑（均默认强制） C跳跃/空中X F5重置哥布林与MP Esc退出"
     );
-    println!("  输入法已屏蔽；默认钉住焦点，F10解除/重新钉住；失焦仅停止接收输入，游戏继续运行。");
-    println!("  M / I 角色属性与装备，F6展开调试；F7显示按键管理器记录；Tab或鼠标选值，Enter应用，Esc先关闭面板。");
+    println!("  输入法已屏蔽；窗口不置顶、不抢焦点；失焦仅停止接收输入，游戏继续运行。");
+    println!("  M / I 角色属性与装备，F6独立自绘控制台，F7控制台运行信息；点击数值或Tab选择，Enter应用，Esc关闭。");
+    println!(
+        "  F8测试霸体红色轮廓，F9测试无敌白色轮廓；再按解除，F5清除测试状态。白色为本地显示约定。"
+    );
     println!(
         "  K或HUD技能按钮打开技能窗；拖放到六格快捷栏，悬停显示说明；布局自动保存，冷却随技能。"
     );
@@ -700,7 +747,9 @@ fn run_window_mode(data: &game::GameData, km: KeyMap, args: &Args) -> i32 {
                 // newly pressed game command. Establish an edge-free baseline.
                 if input_needs_baseline && presenter.input_active && sample_valid {
                     if !args.window_replay {
-                        game.hud.pointer_baseline(win32::poll_pointer(presenter));
+                        let pointer = win32::poll_pointer(presenter);
+                        game.hud.pointer_baseline(pointer);
+                        game.debug_panel.pointer_baseline(pointer.2);
                     }
                     game.begin_input();
                     for &(dik, down) in &sample {
@@ -720,7 +769,7 @@ fn run_window_mode(data: &game::GameData, km: KeyMap, args: &Args) -> i32 {
                     } else if args.ui_replay {
                         ui_replay(&mut game)
                     } else {
-                        script::sample(args.script, game.steps, &game.keymap)
+                        script::sample(args.script, game.replay_frame(), &game.keymap)
                     } {
                         game.set_key(dik, true);
                     }
@@ -742,6 +791,7 @@ fn run_window_mode(data: &game::GameData, km: KeyMap, args: &Args) -> i32 {
                 }
                 if let Some(sound) = &mut sound {
                     sound.set_loop(game.loop_sound);
+                    sound.set_status_loops(game.status_loop_tags());
                     sound.play(&game.sound_requests);
                 }
                 if args.trace {
@@ -754,7 +804,10 @@ fn run_window_mode(data: &game::GameData, km: KeyMap, args: &Args) -> i32 {
             }
             if render {
                 game.fps = presenter.fps;
+                game.performance = presenter.performance;
+                let start = std::time::Instant::now();
                 game.render(data, &mut fb);
+                presenter.last_render_ms = performance::ms(start);
                 presenter.present(&fb);
             }
             !game.exit_requested
@@ -770,7 +823,7 @@ fn run_window_mode(_data: &game::GameData, _km: KeyMap, _args: &Args) -> i32 {
 
 fn feedback_replay(game: &mut game::Game) -> Vec<dnf_core::keys::Dik> {
     use dnf_core::keys::Dik;
-    let t = game.steps;
+    let t = game.replay_frame();
     game.panel.pointer = match t {
         15..=24 => (22, 440, false),
         28..=34 => (617, 440, false),
@@ -807,7 +860,7 @@ fn feedback_replay(game: &mut game::Game) -> Vec<dnf_core::keys::Dik> {
 
 fn hud_replay(game: &mut game::Game) -> Vec<dnf_core::keys::Dik> {
     use dnf_core::keys::Dik;
-    let t = game.steps;
+    let t = game.replay_frame();
     game.panel.pointer = match t {
         3 => (226, 83, true),
         4 => (330, 265, true),
@@ -918,16 +971,16 @@ fn audio_selftest(data: &game::GameData, args: &Args) -> Result<(), String> {
 
 fn ui_replay(game: &mut game::Game) -> Vec<dnf_core::keys::Dik> {
     use dnf_core::keys::Dik;
-    let t = game.steps;
+    let t = game.replay_frame();
     game.panel.pointer = match t {
-        4 => (490, 334, true),
-        18 => (450, 230, true),
-        20 => (490, 250, true),
+        4 => (170, 200, true),
+        18 => (210, 120, true),
+        20 => (170, 144, true),
         _ => (-1, -1, false),
     };
     match t {
-        0 | 34 => vec![Dik::M],
-        2 => vec![Dik::F6],
+        0 => vec![Dik::M],
+        2 | 34 => vec![Dik::F6],
         6 => vec![Dik::KEY_1],
         8 => vec![Dik::KEY_2],
         10 => vec![Dik::KEY_3],
@@ -1069,6 +1122,53 @@ fn main() {
 
     if args.info {
         print_info(&data, &km, &notes);
+        return;
+    }
+    if args.performance_benchmark {
+        if let Err(error) = performance::benchmark(&data, &args.out) {
+            eprintln!("性能基准失败: {error}");
+            std::process::exit(1);
+        }
+        return;
+    }
+    if args.active_status_selftest {
+        if let Err(error) = active_status_verify::verify(&data, &args.out) {
+            eprintln!("ActiveStatus selftest failed: {error}");
+            std::process::exit(1);
+        }
+        println!("ActiveStatus selftest passed");
+        return;
+    }
+    if args.grab_selftest {
+        if let Err(error) = grab_skill::verify(&data, &args.out) {
+            eprintln!("grab selftest failed: {error}");
+            std::process::exit(1);
+        }
+        println!("grab skill31 selftest passed");
+        return;
+    }
+    if args.timing_selftest {
+        if let Err(error) = timing::verify(&data, &args.out) {
+            eprintln!("时序自检失败: {error}");
+            std::process::exit(1);
+        }
+        println!("时序自检通过：300Hz世界，60/120/300Hz调度的移动/动画/技能/碰撞与音效一致");
+        return;
+    }
+    if args.status_selftest {
+        if let Err(error) = protection_visual::selftest(&data, &args.out) {
+            eprintln!("状态自检失败: {error}");
+            std::process::exit(1);
+        }
+        println!("状态自检通过：霸体伤害、无敌拒绝命中、叠加恢复、上挑霸体和轮廓截图");
+        return;
+    }
+    if args.debug_selftest {
+        if let Err(error) = debug_ui::selftest(&data, &args.out) {
+            eprintln!("调试控制台自检失败: {error}");
+            std::process::exit(1);
+        }
+        println!("调试控制台自检通过：人物属性/状态、怪物单只/全部设置、0..32数量、输入隔离与无场景DEBUG文字");
         return;
     }
     if args.ui_selftest {

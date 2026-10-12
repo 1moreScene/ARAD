@@ -1,0 +1,64 @@
+[name2]  `Reverse attack from the backside`
+
+	
+[purchase cost] 
+40
+[/purchase cost]
+[steel learning skill] 
+1 // ｹｫﾁｶｰﾇ 1
+50 // ﾃﾖｴ� ｷｹｺｧ ｸｮｵ狄ｺ%
+200 // ﾃﾟｰ｡ ｱｸﾀﾔｺ�%
+4 // ﾃﾟｰ｡ ｿ莖ｸｷｹｺｧ+
+
+
+[type]  `[passive]`
+[skill class]  1
+[maximum level]  15
+[growtype maximum level]  0 6 3 3 3
+[skill fitness growtype] 
+1
+[/skill fitness growtype]
+[required level]  23           // ｽｺﾅｳﾀｻ ｹ霑�ｱ� ﾀｧﾇﾘ ﾇﾊｿ萇ﾑ ﾄｳｸｯﾅﾍﾀﾇ ﾃﾖｼﾒ ｷｹｺｧ.
+[required level range]  4
+[consume MP]  8 18		
+
+[pre required skill] 
+[/pre required skill]
+[icon] 
+`Character/Swordman/Effect/SkillIcon.img` 26
+`Character/Swordman/Effect/SkillIcon.img` 27
+
+[level info]
+2
+// 0.ｹﾟｵｿ ﾈｮｷ� (%) 1.ｰﾝｷﾂ
+13 	189 
+16 	221 
+19 	253 
+22 	285 
+25 	317 
+28 	349 
+31 	381 
+34 	413 
+37 	445 
+40 	477 
+43 	509 
+46 	541 
+49 	573 
+52 	605 
+55 	637 
+[/level info]
+
+
+
+
+[name]  <12::name_17805>
+[explain] 
+<12::explain_17810>
+[level property] 
+1 99
+<12::level_property_17815>
+-1 0 1.0
+-1 1 1.0
+[/level property]
+
+

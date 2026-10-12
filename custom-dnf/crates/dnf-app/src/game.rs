@@ -4,6 +4,7 @@ use crate::assets::ClientAssets;
 use crate::battle::{Box3, Goblin, GoblinAssets, Hit};
 use crate::character::{self, CharacterVisual, Outfit};
 use crate::room::{blit_frame, Room};
+use dnf_core::protection::{Protection, ProtectionState};
 use dnf_core::{
     actor::{Actor, ActorEvent, ActorSpec, Motion},
     input::InputState,
@@ -12,9 +13,11 @@ use dnf_core::{
     keys::Dik,
     movement::MoveTuning,
 };
-use dnf_render::font;
 use dnf_render::framebuffer::{rgba, Framebuffer};
 use std::path::Path;
+
+const DEBUG_ARMOR_SOURCE: u32 = 0xFFFF0001;
+const DEBUG_INVINCIBLE_SOURCE: u32 = 0xFFFF0002;
 
 /// 默认房间（洛兰森林 104：5 条瓦片带、视差 56/90/110、门 16..1104）。
 pub const DEFAULT_MAP: &str = "map/lorien/104.map";
@@ -23,6 +26,7 @@ pub const DEFAULT_MAP: &str = "map/lorien/104.map";
 pub const SWORDMAN_CHR: &str = "character/swordman/swordman.chr";
 
 pub struct GameData {
+    actor_layers: std::collections::HashMap<String, Vec<Vec<character::SpriteLayer>>>,
     pub assets: ClientAssets,
     pub spec: ActorSpec,
     pub visual: CharacterVisual,
@@ -42,6 +46,7 @@ pub struct GameData {
     pub hud_assets: crate::hud::HudAssets,
     pub learned_skills: Vec<(i32, i32)>,
     pub ghost_effects: Vec<std::rc::Rc<dnf_data::AnimFile>>,
+    pub grab_assets: std::rc::Rc<crate::grab_skill::Assets>,
     pub outfit: Outfit,
     /// 官方时装部件表（层值 + 部件目录）。
     pub avatar: dnf_data::avatar::AvatarTable,
@@ -217,7 +222,9 @@ impl GameData {
                 .pvf
                 .read_text(&path)
                 .map_err(|e| format!("skill commands {path}: {e}"))?;
-            skills.push(dnf_data::skill::SkillDefinition::parse(id, &path, &text)?);
+            let mut skill = dnf_data::skill::SkillDefinition::parse(id, &path, &text)?;
+            crate::localization::apply(&mut skill)?;
+            skills.push(skill);
             if let Some(template) =
                 dnf_core::key_manager::Definition::parse_skill(1000 + id as u32, &text)?
             {
@@ -227,7 +234,11 @@ impl GameData {
             }
         }
         report.push(format!("按键管理器: CNCommandChecker统一9类历史/四触发模式/优先级；{}个非空鬼剑士技能命令模板；UpperSlash.skl无command，基础Z入口保持角色专属映射",command_templates.len()));
-        let learned_skills = chr.skills.clone();
+        let mut learned_skills = chr.skills.clone();
+        if !learned_skills.iter().any(|&(id, _)| id == 31) {
+            learned_skills.push((31, 1));
+        } // training character unlock
+        let grab_assets = std::rc::Rc::new(crate::grab_skill::Assets::load(&assets, &skills)?);
         let skill_strings = dnf_data::strings::StringTable::load(&assets.pvf, 12)?;
         let system_messages = std::rc::Rc::new(dnf_data::messages::SystemMessages::load(
             &client_dir.join("ARAD.exe"),
@@ -300,7 +311,26 @@ impl GameData {
             base("dark resistance"),
         ];
         report.push(format!("UI: StatusWindow[0] 291x380, StatusIllust[0], ItemInventoryWindow[0]；伤害Combo.img[44..83,143..152]；武器icon[{}]",ui.icon_index));
+        // Outfit/weapon are fixed for this GameData instance. Resolve paths,
+        // atlas indices and stable layer order once, not on every render.
+        let actor_layers = visual
+            .motions
+            .iter()
+            .map(|(name, frames)| {
+                (
+                    name.clone(),
+                    (0..frames.len())
+                        .map(|frame| {
+                            character::compose(
+                                &assets, &avatar, &visual, &outfit, &weapon, name, frame,
+                            )
+                        })
+                        .collect(),
+                )
+            })
+            .collect();
         Ok(GameData {
+            actor_layers,
             assets,
             spec,
             visual,
@@ -319,11 +349,20 @@ impl GameData {
             hud_assets,
             learned_skills,
             ghost_effects,
+            grab_assets,
             outfit,
             avatar,
             map_path: map_path.to_string(),
             report,
         })
+    }
+
+    /// 生成游戏（装载房间）。
+    pub fn actor_layers(&self, motion: &str, frame: usize) -> &[character::SpriteLayer] {
+        self.actor_layers
+            .get(motion)
+            .and_then(|frames| frames.get(frame))
+            .map_or(&[], Vec::as_slice)
     }
 
     /// 生成游戏（装载房间）。
@@ -344,7 +383,11 @@ impl GameData {
         let mut actor = Actor::new(self.spec, self.visual.clips.clone(), spawn_x, spawn_y);
         actor.facing = 1;
         actor.mp = self.debug_defaults[2];
-        for (id, dst) in [(5, &mut actor.ghost_skill), (46, &mut actor.upper_skill)] {
+        for (id, dst) in [
+            (5, &mut actor.ghost_skill),
+            (46, &mut actor.upper_skill),
+            (31, &mut actor.blood_skill),
+        ] {
             let definition = self
                 .skills
                 .iter()
@@ -381,6 +424,9 @@ impl GameData {
             &self.goblin,
         );
         actor.hp = self.debug_defaults[0];
+        actor
+            .protection
+            .set_frame(self.visual.protection("Stay", 0));
         let mut hud = crate::hud::Hud::default();
         hud.update_gauges(
             actor.hp,
@@ -390,6 +436,28 @@ impl GameData {
             0.0,
         );
         Ok(Game {
+            world_updates: 0,
+            world_pending_ms: 0.0,
+            scheduler_ms: 0.0,
+            camera_precise: camera_x as f64,
+            performance: crate::performance::Snapshot::default(),
+            extra_monsters: Vec::new(),
+            monster_count: 1,
+            hit_targets: std::collections::HashSet::new(),
+            debug_panel: crate::debug_ui::DebugPanel::default(),
+            protection_frames: self
+                .visual
+                .motions
+                .iter()
+                .map(|(name, frames)| {
+                    (
+                        name.clone(),
+                        (0..frames.len())
+                            .map(|i| self.visual.protection(name, i))
+                            .collect(),
+                    )
+                })
+                .collect(),
             actor,
             room,
             camera_x,
@@ -419,6 +487,8 @@ impl GameData {
             exit_requested: false,
             show_keys: false,
             afterimages: Vec::new(),
+            grab_skill: Default::default(),
+            grab_assets: self.grab_assets.clone(),
             ghost_fx: Vec::new(),
             ghost_effects: self.ghost_effects.clone(),
             hud,
@@ -559,6 +629,16 @@ pub struct Afterimage {
 const CANCEL_AFTERIMAGE_MS: f64 = 600.0;
 const CANCEL_AFTERIMAGE_HOLD_MS: f64 = 120.0;
 pub struct Game {
+    pub world_updates: u64,
+    world_pending_ms: f64,
+    scheduler_ms: f64,
+    camera_precise: f64,
+    pub performance: crate::performance::Snapshot,
+    extra_monsters: Vec<Goblin>,
+    monster_count: usize,
+    hit_targets: std::collections::HashSet<usize>,
+    pub debug_panel: crate::debug_ui::DebugPanel,
+    protection_frames: std::collections::HashMap<String, Vec<Protection>>,
     pub actor: Actor,
     pub room: Room,
     pub camera_x: i32,
@@ -575,7 +655,7 @@ pub struct Game {
     pending_swing: Option<(usize, &'static str)>,
     pub loop_sound: Option<&'static str>,
     pub goblin: Goblin,
-    goblin_assets: std::rc::Rc<GoblinAssets>,
+    pub(crate) goblin_assets: std::rc::Rc<GoblinAssets>,
     attack_frames: std::collections::HashMap<&'static str, Vec<Vec<[i32; 6]>>>,
     attack_infos: std::collections::HashMap<&'static str, dnf_data::combat::AttackInfo>,
     hit_this_action: bool,
@@ -589,6 +669,8 @@ pub struct Game {
     pub exit_requested: bool,
     pub show_keys: bool,
     pub afterimages: Vec<Afterimage>,
+    pub(crate) grab_skill: crate::grab_skill::Runtime,
+    pub(crate) grab_assets: std::rc::Rc<crate::grab_skill::Assets>,
     ghost_fx: Vec<dnf_core::anim::AnimPlayer>,
     ghost_effects: Vec<std::rc::Rc<dnf_data::AnimFile>>,
     pub hud: crate::hud::Hud,
@@ -598,6 +680,288 @@ pub struct Game {
 }
 
 impl Game {
+    pub fn monster_count(&self) -> usize {
+        self.monster_count
+    }
+    pub fn monster_protection(&self, index: usize) -> Option<Protection> {
+        self.monster(index)
+            .map(|m| m.effective_protection(&self.goblin_assets))
+    }
+    pub fn monsters(&self) -> impl Iterator<Item = &Goblin> {
+        std::iter::once(&self.goblin)
+            .chain(self.extra_monsters.iter())
+            .take(self.monster_count)
+    }
+    pub fn monster(&self, index: usize) -> Option<&Goblin> {
+        if index >= self.monster_count {
+            None
+        } else if index == 0 {
+            Some(&self.goblin)
+        } else {
+            self.extra_monsters.get(index - 1)
+        }
+    }
+    pub(crate) fn monster_mut(&mut self, index: usize) -> Option<&mut Goblin> {
+        if index >= self.monster_count {
+            None
+        } else if index == 0 {
+            Some(&mut self.goblin)
+        } else {
+            self.extra_monsters.get_mut(index - 1)
+        }
+    }
+    pub fn set_monster_count(&mut self, count: usize) {
+        self.cancel_grab();
+        let count = count.min(crate::debug_ui::MAX_MONSTERS);
+        if self.monster_count == 0 && count > 0 {
+            let x = (self.actor.x + 90 * self.actor.facing)
+                .clamp(self.room.walk_x.0 + 20, self.room.walk_x.1 - 20);
+            let (lo, hi) = self.room.walk_band(x);
+            self.goblin
+                .reset(x, self.actor.y.clamp(lo, hi), &self.goblin_assets);
+        }
+        self.extra_monsters.truncate(count.saturating_sub(1));
+        while self.extra_monsters.len() + 1 < count {
+            let i = self.extra_monsters.len() + 1;
+            let x = (self.actor.x + (90 + (i % 6) as i32 * 44) * self.actor.facing)
+                .clamp(self.room.walk_x.0 + 20, self.room.walk_x.1 - 20);
+            let (lo, hi) = self.room.walk_band(x);
+            let y = (self.actor.y + (i / 6) as i32 * 24).clamp(lo, hi);
+            let mut monster = Goblin::new(x, y, &self.goblin_assets);
+            monster.max_hp = self.goblin.max_hp;
+            monster.hp = monster.max_hp;
+            monster.defense = self.goblin.defense;
+            monster.weight = self.goblin.weight;
+            monster.hit_recovery = self.goblin.hit_recovery;
+            monster.grab.grabable = self.goblin.grab.grabable;
+            self.extra_monsters.push(monster);
+        }
+        self.monster_count = count;
+        // Existing targets retain their once-per-action hit records when quantity changes.
+        self.hit_targets.retain(|&i| i < count);
+        self.debug_panel.selected_monster = self
+            .debug_panel
+            .selected_monster
+            .min(count.saturating_sub(1));
+    }
+    fn sync_protection(&mut self) {
+        let frame = self
+            .protection_frames
+            .get(self.motion_name())
+            .and_then(|frames| frames.get(self.actor.anim().frame()))
+            .copied()
+            .unwrap_or_default();
+        self.actor.protection.set_frame(frame);
+    }
+    pub fn apply_control(&mut self, command: crate::debug_ui::Control) {
+        use crate::debug_ui::Control;
+        if self.monster_count == 0
+            && matches!(
+                command,
+                Control::MonsterSet { field: 1..=5, .. }
+                    | Control::MonsterState { .. }
+                    | Control::MonsterGrabable { .. }
+                    | Control::Respawn(_)
+                    | Control::MonsterStatusAdd { .. }
+                    | Control::MonsterStatusRemove { .. }
+                    | Control::MonsterStatusClear { .. }
+                    | Control::MonsterDemo { .. }
+            )
+        {
+            self.debug_panel.message = "请先设置怪物数量".into();
+            return;
+        }
+        let assets = self.goblin_assets.clone();
+        if matches!(
+            command,
+            Control::Respawn(_) | Control::ResetMonsters | Control::ResetPlayer
+        ) {
+            self.cancel_grab();
+        }
+        match command {
+            Control::MonsterStatusAdd {
+                target,
+                kind,
+                level,
+            } => {
+                let count = self.apply_monster_status(target, kind, level);
+                self.debug_panel.message = if count > 0 {
+                    format!("已给 {} 只怪物添加{}，其他状态保留", count, kind.name())
+                } else if !kind.implemented() {
+                    "40JP保留编号没有效果，不伪造状态".into()
+                } else {
+                    "未添加：目标死亡/无敌，或眩晕与睡眠互斥".into()
+                };
+                return;
+            }
+            Control::MonsterStatusRemove { target, kind } => {
+                for i in 0..self.monster_count {
+                    if target.is_some() && target != Some(i) {
+                        continue;
+                    }
+                    let m = self.monster_mut(i).unwrap();
+                    if m.statuses.has(kind) {
+                        m.status_audio.push("CONDITION_REMOVE");
+                        if matches!(
+                            kind,
+                            dnf_core::active_status::ActiveStatus::Freeze
+                                | dnf_core::active_status::ActiveStatus::Stone
+                        ) {
+                            m.status_exits.push((kind, 0.0, false));
+                        }
+                    }
+                    if let Some(damage) = m.statuses.remove(kind) {
+                        let before = m.hp;
+                        m.hp = (m.hp - damage.amount).max(0);
+                        m.status_damage += before - m.hp;
+                        m.status_feedback += before - m.hp;
+                        if m.hp == 0 {
+                            m.set_hp(0, &assets);
+                        }
+                    }
+                }
+                self.debug_panel.message = format!("已移除{}，其他状态保留", kind.name());
+                return;
+            }
+            Control::MonsterStatusClear { target } => {
+                for i in 0..self.monster_count {
+                    if target.is_none() || target == Some(i) {
+                        self.monster_mut(i).unwrap().clear_active_statuses(false);
+                    }
+                }
+                self.debug_panel.message = "已清空异常状态，基础属性不变".into();
+                return;
+            }
+            Control::MonsterDemo { target, enabled } => {
+                for i in 0..self.monster_count {
+                    if target.is_none() || target == Some(i) {
+                        self.monster_mut(i).unwrap().demo_enabled = enabled;
+                    }
+                }
+                return;
+            }
+            Control::PlayerGrabable(value) => self.actor.grab_state.grabable = value,
+            Control::MonsterGrabable { target, value } => {
+                for i in 0..self.monster_count {
+                    if target.is_none() || target == Some(i) {
+                        self.monster_mut(i).unwrap().grab.grabable = value;
+                    }
+                }
+            }
+            Control::PlayerSet(field, value) => {
+                self.apply_debug(crate::ui::Command::Set(field, value))
+            }
+            Control::PlayerState(state) => {
+                self.actor.protection.remove(DEBUG_ARMOR_SOURCE);
+                self.actor.protection.remove(DEBUG_INVINCIBLE_SOURCE);
+                if state != Protection::Normal {
+                    self.actor.protection.grant(
+                        if state == Protection::SuperArmor {
+                            DEBUG_ARMOR_SOURCE
+                        } else {
+                            DEBUG_INVINCIBLE_SOURCE
+                        },
+                        state,
+                        None,
+                    );
+                }
+            }
+            Control::HealPlayer => {
+                self.actor.hp = self.debug[1];
+                self.actor.mp = self.debug[3];
+                self.debug[0] = self.actor.hp;
+            }
+            Control::ResetPlayer => {
+                self.actor.grab_state.grabable = true;
+                let monster_hp = self.debug[18];
+                self.debug = self.debug_defaults;
+                self.debug[18] = monster_hp;
+                self.actor.spec = self.defaults;
+                self.actor.hp = self.debug[0];
+                self.actor.mp = self.debug[2];
+                self.actor.protection.remove(DEBUG_ARMOR_SOURCE);
+                self.actor.protection.remove(DEBUG_INVINCIBLE_SOURCE);
+            }
+            Control::MonsterSet {
+                field: 0, value, ..
+            } => self
+                .set_monster_count(value.clamp(0, crate::debug_ui::MAX_MONSTERS as i32) as usize),
+            Control::MonsterSet {
+                target,
+                field,
+                value,
+            } => {
+                for i in 0..self.monster_count {
+                    if target.is_some() && target != Some(i) {
+                        continue;
+                    }
+                    let m = self.monster_mut(i).unwrap();
+                    match field {
+                        1 => {
+                            m.max_hp = value.clamp(1, 999999);
+                            m.hp = m.hp.min(m.max_hp);
+                        }
+                        2 => m.set_hp(value, &assets),
+                        3 => m.defense = value.clamp(0, 999999),
+                        4 => m.weight = value.clamp(1000, 200000) as f32,
+                        5 => m.hit_recovery = value.clamp(0, 2000),
+                        _ => {}
+                    }
+                }
+            }
+            Control::MonsterState { target, state } => {
+                for i in 0..self.monster_count {
+                    if target.is_some() && target != Some(i) {
+                        continue;
+                    }
+                    let m = self.monster_mut(i).unwrap();
+                    m.protection.remove(DEBUG_ARMOR_SOURCE);
+                    m.protection.remove(DEBUG_INVINCIBLE_SOURCE);
+                    if state != Protection::Normal {
+                        m.protection.grant(
+                            if state == Protection::SuperArmor {
+                                DEBUG_ARMOR_SOURCE
+                            } else {
+                                DEBUG_INVINCIBLE_SOURCE
+                            },
+                            state,
+                            None,
+                        );
+                    }
+                }
+            }
+            Control::Respawn(target) => {
+                for i in 0..self.monster_count {
+                    if target.is_some() && target != Some(i) {
+                        continue;
+                    }
+                    let m = self.monster_mut(i).unwrap();
+                    m.reset(m.x.round() as i32, m.y.round() as i32, &assets);
+                }
+                self.popups.clear();
+            }
+            Control::ResetMonsters => {
+                self.extra_monsters.clear();
+                self.monster_count = 1;
+                self.debug_panel.selected_monster = 0;
+                self.goblin = Goblin::new(
+                    (self.actor.x + 90).clamp(self.room.walk_x.0 + 20, self.room.walk_x.1 - 20),
+                    self.actor.y,
+                    &assets,
+                );
+                self.hit_targets.clear();
+                self.popups.clear();
+            }
+        }
+        self.debug[0] = self.actor.hp;
+        self.debug_panel.message = "已应用，本次运行有效".into();
+        let values = self.debug_values();
+        self.hud
+            .update_gauges(values[0], values[1], values[2], values[3], 0.0);
+        let view = crate::debug_ui::View::from_game(self);
+        self.debug_panel.acknowledge(&view);
+    }
+
     pub fn begin_input(&mut self) {
         self.input.begin_frame();
     }
@@ -610,6 +974,7 @@ impl Game {
         self.input = InputState::new();
         self.actor.clear_direction_input();
         self.panel.pointer = (-1, -1, false);
+        self.debug_panel.pointer_baseline(false);
         self.hud.cancel_drag();
     }
 
@@ -623,6 +988,7 @@ impl Game {
         values[16] = self.actor.spec.jump_speed as i32;
         values[17] = self.actor.spec.weight as i32;
         values[18] = self.goblin.max_hp;
+        values[8] += self.grab_skill.strength_bonus();
         values
     }
     pub fn apply_debug(&mut self, command: crate::ui::Command) {
@@ -675,17 +1041,79 @@ impl Game {
         self.panel.acknowledge(&values);
     }
 
-    /// 推进一个逻辑步（官方 60Hz 定步）。
+    /// Legacy replay frame index is time-derived, never the number of300Hz updates.
+    pub fn replay_frame(&self) -> u64 {
+        ((self.scheduler_ms / dnf_core::clock::LOGIC_MS) + 1e-7).floor() as u64
+    }
+    /// Accept elapsed milliseconds from any driver. Every world subsystem,
+    /// including collisions, runs the same300Hz quantum, so batching at60/120/
+    /// 300Hz cannot change simulation results for an identical input timeline.
     pub fn step(&mut self) {
+        let elapsed = self.jt.logic_ms;
+        assert!(elapsed.is_finite() && elapsed > 0.0);
+        self.scheduler_ms += elapsed;
+        self.world_pending_ms += elapsed;
+        let mut sounds = Vec::new();
+        let mut failures = Vec::new();
+        let mut event = ActorEvent::None;
+        self.jt.logic_ms = dnf_core::clock::WORLD_MS;
+        while self.world_pending_ms + 1e-7 >= dnf_core::clock::WORLD_MS {
+            self.step_quantum();
+            sounds.extend_from_slice(&self.sound_requests);
+            failures.extend_from_slice(&self.actor.skill_failures);
+            if self.last_event != ActorEvent::None {
+                event = self.last_event;
+            }
+            self.input.settle_edges();
+            self.world_pending_ms = (self.world_pending_ms - dnf_core::clock::WORLD_MS).max(0.0);
+            self.world_updates += 1;
+        }
+        self.jt.logic_ms = elapsed;
+        self.sound_requests = sounds;
+        self.actor.skill_failures = failures;
+        self.last_event = event;
+        self.steps += 1;
+    }
+
+    fn step_quantum(&mut self) {
         self.sound_requests.clear();
         self.actor.skill_failures.clear();
+        let debug_toggle = self.input.just_pressed(Dik::F6);
+        let keys_toggle = self.input.just_pressed(Dik::F7);
+        let was_debug_open = self.debug_panel.open;
+        if debug_toggle {
+            self.debug_panel.open = !self.debug_panel.open;
+        }
+        if keys_toggle {
+            self.debug_panel.open = !(self.debug_panel.open && self.debug_panel.tab == 2);
+            self.debug_panel.tab = 2;
+        }
+        if !was_debug_open && self.debug_panel.open && self.debug_panel.tab < 2 {
+            let view = crate::debug_ui::View::from_game(self);
+            self.debug_panel.acknowledge(&view);
+        }
+        if was_debug_open || self.debug_panel.open || debug_toggle || keys_toggle {
+            self.panel.open = false;
+            self.panel.debug = false;
+            self.hud.library_open = false;
+            self.hud.cancel_drag();
+            let view = crate::debug_ui::View::from_game(self);
+            if let Some(command) = self
+                .debug_panel
+                .input(&self.input, self.panel.pointer, &view)
+            {
+                self.apply_control(command);
+            }
+            self.hud.pointer_baseline(self.panel.pointer);
+            self.loop_sound = None;
+            self.actor.clear_direction_input();
+            self.last_event = ActorEvent::None;
+            return;
+        }
         self.notices.advance(self.jt.logic_ms);
         let v = self.debug_values();
         self.hud
             .update_gauges(v[0], v[1], v[2], v[3], self.jt.logic_ms);
-        if self.input.just_pressed(Dik::F7) {
-            self.show_keys = !self.show_keys;
-        }
         let values = self.debug_values();
         let hud_input = self.hud.input(&self.input, self.panel.pointer);
         if hud_input.changed {
@@ -709,7 +1137,6 @@ impl Game {
         if consumed {
             self.loop_sound = None;
             self.actor.clear_direction_input();
-            self.steps += 1;
             self.last_event = ActorEvent::None;
             return;
         }
@@ -717,15 +1144,37 @@ impl Game {
             self.exit_requested = true;
         }
         if self.input.just_pressed(Dik::F5) {
+            self.cancel_grab();
+            self.actor.protection = ProtectionState::default();
             self.goblin.reset(
                 (self.actor.x + 110).min(self.room.walk_x.1 - 20),
                 self.actor.y,
                 &self.goblin_assets,
             );
+            self.goblin.protection.remove(DEBUG_ARMOR_SOURCE);
+            self.goblin.protection.remove(DEBUG_INVINCIBLE_SOURCE);
+            for m in &mut self.extra_monsters {
+                m.reset(m.x.round() as i32, m.y.round() as i32, &self.goblin_assets);
+                m.protection.remove(DEBUG_ARMOR_SOURCE);
+                m.protection.remove(DEBUG_INVINCIBLE_SOURCE);
+            }
             self.actor.mp = self.debug[3];
             self.popups.clear();
             self.hit_this_action = true;
+            self.hit_targets = (0..self.monster_count).collect();
             self.actor_stop = dnf_core::feedback::HitStop::default();
+        }
+        for (key, source, protection) in [
+            (Dik::F8, DEBUG_ARMOR_SOURCE, Protection::SuperArmor),
+            (Dik::F9, DEBUG_INVINCIBLE_SOURCE, Protection::Invincible),
+        ] {
+            if self.input.just_pressed(key) {
+                if self.actor.protection.has_source(source) {
+                    self.actor.protection.remove(source);
+                } else {
+                    self.actor.protection.grant(source, protection, None);
+                }
+            }
         }
         self.actor.skill_slots = self.hud.slots;
         self.actor
@@ -750,6 +1199,7 @@ impl Game {
         if let Some(event) = skill_event {
             self.last_event = event;
         }
+        self.sync_protection();
         if let Some(pose) = self.actor.cancelled_pose.take() {
             self.afterimages.push(Afterimage { pose, age_ms: 0.0 });
         }
@@ -772,7 +1222,6 @@ impl Game {
         } else {
             self.ghost_fx.clear();
         }
-        self.steps += 1;
         match self.last_event {
             ActorEvent::Jumped => self.sound_requests.extend(["JUMP_START", "SM_JUMP"]),
             ActorEvent::Landed => self.sound_requests.push("JUMP_END"),
@@ -781,6 +1230,7 @@ impl Game {
             ActorEvent::DashAttacked => self.sound_requests.push("SM_THRUST"),
             ActorEvent::UpperSlashed => self.sound_requests.push("SM_UPPER_SLASH"),
             ActorEvent::GhostSlashed => self.sound_requests.push("R_SM_GUE"),
+            ActorEvent::BloodlustCast => self.sound_requests.push("SM_BLOOD_CAST"),
             ActorEvent::NoMana => self.sound_requests.push("SM_NOMANA"),
             ActorEvent::SkillRejected(_) => {}
             ActorEvent::None => {}
@@ -806,6 +1256,7 @@ impl Game {
         ) {
             self.pending_swing = self.swing_cues.get(self.motion_name()).copied();
             self.hit_this_action = false;
+            self.hit_targets.clear();
         }
         if !matches!(
             self.actor.motion,
@@ -841,8 +1292,12 @@ impl Game {
 
         // 相机水平跟随（单帧最多 32px，夹取到房间边界）
         let desired = clamp_cam(&self.room, self.actor.x);
-        let delta = (desired - self.camera_x).clamp(-32, 32);
-        self.camera_x += delta;
+        if self.camera_precise.round() as i32 != self.camera_x {
+            self.camera_precise = self.camera_x as f64;
+        }
+        let limit = 1920.0 * self.jt.logic_ms / 1000.0; // old32px at60Hz =1920px/s
+        self.camera_precise += (desired as f64 - self.camera_precise).clamp(-limit, limit);
+        self.camera_x = self.camera_precise.round() as i32;
 
         self.status = match self.last_event {
             ActorEvent::Jumped => "JUMP!".into(),
@@ -853,18 +1308,87 @@ impl Game {
             ActorEvent::DashAttacked => "DASH ATTACK".into(),
             ActorEvent::UpperSlashed => "UPPER SLASH".into(),
             ActorEvent::GhostSlashed => "鬼斩".into(),
+            ActorEvent::BloodlustCast => "噬魂之手".into(),
             ActorEvent::NoMana => "NO MP".into(),
             ActorEvent::SkillRejected(failure) => format!("SKILL REJECTED {failure:?}"),
         };
     }
 
     fn step_battle(&mut self, actor_active: bool) {
+        let actor_pos = (self.actor.x as f32, self.actor.y as f32);
+        for i in 0..self.monster_count {
+            self.monster_mut(i).unwrap().demo_target = Some(actor_pos);
+        }
         for popup in &mut self.popups {
             popup.age_ms += self.jt.logic_ms;
         }
         self.popups.retain(|p| p.age_ms < 500.0);
-        self.goblin
-            .step(&self.goblin_assets, self.room.walk_x, self.jt.logic_ms);
+        if self.monster_count > 0 {
+            self.goblin
+                .step(&self.goblin_assets, self.room.walk_x, self.jt.logic_ms);
+        }
+        for m in &mut self.extra_monsters {
+            m.step(&self.goblin_assets, self.room.walk_x, self.jt.logic_ms);
+        }
+        let mut grab = std::mem::take(&mut self.grab_skill);
+        grab.step(self);
+        self.grab_skill = grab;
+        for index in 0..self.monster_count {
+            self.resolve_monster_hit(actor_active, index);
+        }
+        let mut splash = Vec::new();
+        let monster_assets = self.goblin_assets.clone();
+        for i in 0..self.monster_count {
+            let m = self.monster_mut(i).unwrap();
+            let damage = std::mem::take(&mut m.status_splash);
+            if damage > 0 {
+                splash.push((i, m.x, m.y, damage));
+            }
+        }
+        for (source, x, y, damage) in splash {
+            for i in 0..self.monster_count {
+                if i == source {
+                    continue;
+                }
+                let m = self.monster_mut(i).unwrap();
+                if m.hp > 0
+                    && (m.x - x).powi(2) + (m.y - y).powi(2) < 200.0 * 200.0
+                    && m.effective_protection(&monster_assets) != Protection::Invincible
+                {
+                    let actual = (damage + m.statuses.on_hit()).min(m.hp);
+                    m.hp -= actual;
+                    m.status_damage += actual;
+                    m.status_feedback += actual;
+                }
+            }
+            if (self.actor.x as f32 - x).powi(2) + (self.actor.y as f32 - y).powi(2) < 200.0 * 200.0
+            {
+                self.actor.receive_damage(damage);
+                self.debug[0] = self.actor.hp;
+            }
+        }
+        let assets = self.goblin_assets.clone();
+        for i in 0..self.monster_count {
+            let m = self.monster_mut(i).unwrap();
+            let damage = std::mem::take(&mut m.status_feedback);
+            let sounds = std::mem::take(&mut m.status_audio);
+            if m.hp == 0 && damage > 0 {
+                m.set_hp(0, &assets);
+            }
+            if damage > 0 {
+                let point = [m.x, m.y, m.z + 70.0];
+                self.popups.push(crate::damage::DamagePopup {
+                    damage,
+                    point,
+                    age_ms: 0.0,
+                    style: self.debug[19],
+                });
+            }
+            self.sound_requests.extend(sounds);
+        }
+    }
+
+    fn resolve_monster_hit(&mut self, actor_active: bool, index: usize) {
         let attacking = matches!(
             self.actor.motion,
             Motion::Attack
@@ -876,8 +1400,8 @@ impl Game {
         if !actor_active
             || !attacking
             || self.actor.anim().finished()
-            || self.hit_this_action
-            || self.goblin.hp <= 0
+            || self.hit_targets.contains(&index)
+            || self.monster(index).map_or(true, |m| m.hp <= 0)
         {
             return;
         }
@@ -893,7 +1417,7 @@ impl Game {
             self.actor.y as f32,
             self.actor.altitude(),
         ];
-        let hurt = self.goblin.hurt_boxes(&self.goblin_assets);
+        let hurt = self.monster(index).unwrap().hurt_boxes(&self.goblin_assets);
         let contact = bounds.iter().find_map(|&b| {
             let attack = Box3::translated(b, origin, self.actor.facing);
             hurt.iter()
@@ -904,11 +1428,12 @@ impl Game {
             return;
         };
         let popup_point = point;
-        point[1] = self.goblin.y;
+        point[1] = self.monster(index).unwrap().y;
         let upper = self.actor.motion == Motion::UpperSlash;
         let Some(info) = self
             .attack_infos
             .get(if upper { "UpperSlash" } else { name })
+            .cloned()
         else {
             return;
         };
@@ -921,20 +1446,30 @@ impl Game {
         } else {
             0
         };
-        let damage = (self.debug[4] * (100 + bonus) / 100 + flat).max(1);
+        let base_damage = (self.debug[4] * (100 + bonus) / 100 + flat).max(1);
+        let base_damage = self.grab_skill.scale_physical(base_damage, self.debug[8]);
+        let damage = self.monster(index).unwrap().reduced_damage(base_damage);
         let feedback = info.feedback(&self.weapon_feedback);
-        if self.goblin.hit(
-            &self.goblin_assets,
-            info,
+        let assets = self.goblin_assets.clone();
+        let origin_facing = self.actor.facing;
+        if self.monster_mut(index).unwrap().hit(
+            &assets,
+            &info,
             &feedback,
             Hit {
                 damage,
-                facing: self.actor.facing,
+                facing: origin_facing,
                 upper,
                 point,
             },
         ) {
-            self.hit_this_action = true;
+            self.monster_mut(index)
+                .unwrap()
+                .apply_attack_statuses(&assets, &info);
+            self.hit_targets.insert(index);
+            if index == 0 {
+                self.hit_this_action = true;
+            }
             self.popups.push(crate::damage::DamagePopup {
                 damage,
                 point: popup_point,
@@ -947,11 +1482,12 @@ impl Game {
             } else {
                 "R_MINERALSWDA_HIT"
             });
-            self.sound_requests.push(if self.goblin.hp == 0 {
-                "R_GOBLIN_DIE"
-            } else {
-                "R_GOBLIN_DMG"
-            });
+            self.sound_requests
+                .push(if self.monster(index).unwrap().hp == 0 {
+                    "R_GOBLIN_DIE"
+                } else {
+                    "R_GOBLIN_DMG"
+                });
         }
     }
 
@@ -971,6 +1507,7 @@ impl Game {
             Motion::DashAttack => "DashAttack",
             Motion::UpperSlash => "Attack3",
             Motion::GhostSlash => "HardAttack",
+            Motion::Bloodlust => "Grab",
         }
     }
 
@@ -982,15 +1519,7 @@ impl Game {
                 2 => "Attack3",
                 _ => "Attack1",
             };
-            let layers = character::compose(
-                &data.assets,
-                &data.avatar,
-                &data.visual,
-                &data.outfit,
-                &data.weapon,
-                motion,
-                image.pose.frame,
-            );
+            let layers = data.actor_layers(motion, image.pose.frame);
             let flip = image.pose.facing < 0;
             let fade = (image.age_ms - CANCEL_AFTERIMAGE_HOLD_MS).max(0.0)
                 / (CANCEL_AFTERIMAGE_MS - CANCEL_AFTERIMAGE_HOLD_MS);
@@ -1022,15 +1551,7 @@ impl Game {
         }
         let motion = self.motion_name();
         let frame = self.actor.anim().frame();
-        let layers = character::compose(
-            &data.assets,
-            &data.avatar,
-            &data.visual,
-            &data.outfit,
-            &data.weapon,
-            motion,
-            frame,
-        );
+        let layers = data.actor_layers(motion, frame);
         let sy = self.actor.y - self.actor.altitude().round() as i32;
         let flip = self.actor.facing < 0;
 
@@ -1047,7 +1568,34 @@ impl Game {
             rgba(0, 0, 0, (110.0 * shrink) as u8),
         );
 
-        for l in &layers {
+        if let Some((color, offsets)) =
+            crate::protection_visual::outline(self.actor.protection.effective())
+        {
+            // All colored copies precede all normal layers: no colored equipment seams.
+            for (ox, oy) in offsets {
+                for l in layers {
+                    if let Some(f) = l.image.frames.get(l.frame) {
+                        let (dx, dy) = layer_screen_pos(
+                            self.actor.x + self.actor.cast_vibration.offset(),
+                            self.camera_x,
+                            l.offset,
+                            f.width as i32,
+                            flip,
+                        );
+                        fb.blit_silhouette(
+                            &f.rgba,
+                            f.width as usize,
+                            f.height as usize,
+                            dx + ox,
+                            sy + dy + oy,
+                            flip,
+                            color,
+                        );
+                    }
+                }
+            }
+        }
+        for l in layers {
             if let Some(f) = l.image.frames.get(l.frame) {
                 let (dx, dy) = layer_screen_pos(
                     self.actor.x + self.actor.cast_vibration.offset(),
@@ -1059,6 +1607,7 @@ impl Game {
                 blit_frame(fb, f, dx, sy + dy, flip);
             }
         }
+        self.grab_skill.draw(self, data, fb);
         for (effect, player) in self.ghost_effects.iter().zip(&self.ghost_fx) {
             if player.finished() {
                 continue;
@@ -1111,8 +1660,7 @@ impl Game {
 
     /// 完整一帧。
     pub fn render(&self, data: &GameData, fb: &mut Framebuffer) {
-        fb.clear(rgba(12, 14, 20, 255));
-        self.room.draw_backdrop(fb, self.camera_x);
+        self.room.draw_cached_backdrop(fb, self.camera_x);
         let cam = self.camera_x;
         self.room.draw_objects_and_actor(
             fb,
@@ -1120,134 +1668,33 @@ impl Game {
             self.actor.x,
             self.actor.y,
             &mut |fb: &mut Framebuffer| {
-                if self.goblin.y < self.actor.y as f32 {
-                    self.goblin.draw(&data.goblin, &data.assets, fb, cam);
-                    self.draw_actor(data, fb);
-                } else {
-                    self.draw_actor(data, fb);
-                    self.goblin.draw(&data.goblin, &data.assets, fb, cam);
+                let mut monsters: Vec<_> = self.monsters().collect();
+                monsters.sort_by(|a, b| a.y.total_cmp(&b.y));
+                for m in monsters.iter().filter(|m| m.y < self.actor.y as f32) {
+                    m.draw(&data.goblin, &data.assets, fb, cam);
+                }
+                self.draw_actor(data, fb);
+                for m in monsters.iter().filter(|m| m.y >= self.actor.y as f32) {
+                    m.draw(&data.goblin, &data.assets, fb, cam);
                 }
             },
         );
         for popup in &self.popups {
             popup.draw(&data.ui.numbers, fb, cam);
         }
-        self.draw_hud(fb);
         self.panel.draw(self, data, fb);
         self.hud.draw(self, data, fb);
         self.notices.draw(fb);
+        self.debug_panel.draw(self, data, fb);
+        // FPS is the one always-visible diagnostic requested for the game HUD.
         let label = format!("FPS {:.0}", self.fps);
         let w = crate::ui::measure_text(&label).0;
         fb.fill_rect(634 - w, 2, w + 6, 16, rgba(0, 0, 0, 180));
         crate::ui::text(fb, 637 - w, 4, &label, rgba(255, 238, 160, 255));
     }
 
-    fn draw_hud(&self, fb: &mut Framebuffer) {
-        let white = rgba(245, 247, 250, 255);
-        let accent = rgba(150, 230, 170, 255);
-        fb.fill_rect(0, 0, 640, 14, rgba(0, 0, 0, 150));
-        font::draw_text(fb, 4, 4, self.actor.motion.label(), accent);
-        fb.fill_rect(0, 14, 640, 14, rgba(0, 0, 0, 150));
-        font::draw_text(
-            fb,
-            4,
-            18,
-            &format!(
-                "GOBLIN {}/{} HIT {}",
-                self.goblin.hp, self.goblin.max_hp, self.goblin.hits
-            ),
-            white,
-        );
-        font::draw_text(
-            fb,
-            340,
-            18,
-            &format!(
-                "MP {} Z {:.1}s A {:.1}s",
-                self.actor.mp,
-                self.actor.upper_cooldown_ms() / 1000.0,
-                self.actor.ghost_cooldown_ms() / 1000.0
-            ),
-            accent,
-        );
-        fb.fill_rect(0, 466, 640, 14, rgba(0, 0, 0, 150));
-        font::draw_text(
-            fb,
-            4,
-            470,
-            "X ATTACK / Z UPPER / A GHOST / M INFO / F6 DEBUG / F5 RESET",
-            white,
-        );
-        let line = format!(
-            "X{:>5} Y{:>4} Z{:>4.0}",
-            self.actor.x,
-            self.actor.y,
-            self.actor.altitude()
-        );
-        font::draw_text(fb, 60, 4, &line, white);
-        let l2 = format!(
-            "{:02}/{:02}",
-            self.actor.anim().frame() + 1,
-            self.actor.anim().clip().frame_count()
-        );
-        font::draw_text(fb, 238, 4, &l2, white);
-        let mut extra = format!(
-            "{} {:.0}%",
-            self.motion_name(),
-            self.actor.anim().rate_percent()
-        );
-        if !self.status.is_empty() {
-            extra.push(' ');
-            extra.push_str(&self.status);
-        }
-        font::draw_text(fb, 306, 4, &extra, rgba(250, 200, 120, 255));
-        if self.show_keys {
-            fb.fill_rect(0, 32, 640, 110, rgba(0, 0, 0, 210));
-            font::draw_text(
-                fb,
-                4,
-                36,
-                &format!("KEY MANAGER {}ms / F7 CLOSE", self.actor.commands.now_ms),
-                accent,
-            );
-            for (row, record) in self.actor.commands.records.iter().rev().take(7).enumerate() {
-                font::draw_text(
-                    fb,
-                    4,
-                    50 + row as i32 * 12,
-                    &format!(
-                        "{:?}  T{} HOLD{}  DOWN{} EDGE{}",
-                        record.command,
-                        record.press_ms,
-                        record.hold_ms,
-                        record.held as u8,
-                        record.changed as u8
-                    ),
-                    white,
-                );
-            }
-            for (row, d) in self
-                .actor
-                .commands
-                .definitions
-                .iter()
-                .filter(|d| d.enabled || d.state != dnf_core::key_manager::MatchState::Idle)
-                .take(7)
-                .enumerate()
-            {
-                font::draw_text(
-                    fb,
-                    390,
-                    50 + row as i32 * 12,
-                    &format!("ID{} {:?} EN{}", d.id, d.state, d.enabled as u8),
-                    accent,
-                );
-            }
-        }
-    }
-
     pub fn trace_line(&self) -> String {
-        format!(
+        let line = format!(
             "step={:4} motion={:5} x={:5} y={:4} z={:6.1} facing={:+} frame={:2}/{:2} phase={:?} dash_candidate={:+} attack_stage={} air_attacks={} audio_tags={:?} loop={:?} goblin_hp={} hits={} goblin_z={:.1} mp={} upper_cd={:.0} goblin_motion={} goblin_frame={} bounce={} actor_stop={:.1} target_stop={:.1} panel={} debug={} move_speed={:.0} physical_attack={} popups={} key_records={} key_clock={} ghost_cd={:.0} afterimages={} ghost_fx={} hud_slots={:?} hud_open={} hud_hover={:?} hud_drag={} failures={:?} vibration={} notices={} hp={} capsule_hover={:?}",
             self.steps,
             self.actor.motion.label(),
@@ -1269,6 +1716,13 @@ impl Game {
             self.actor.ghost_cooldown_ms(),self.afterimages.len(),self.ghost_fx.len(),
             self.hud.slots,self.hud.library_open,self.hud.hovered_skill(),self.hud.dragging(),
             self.actor.skill_failures,self.actor.cast_vibration.offset(),self.notices.len(),self.actor.hp,self.hud.capsule_hover(),
+        );
+        format!(
+            "{line} protection={:?} world_hz={} world_updates={} elapsed_ms={:.3}",
+            self.actor.protection.effective(),
+            dnf_core::clock::WORLD_HZ,
+            self.world_updates,
+            self.scheduler_ms
         )
     }
 }
@@ -1276,7 +1730,222 @@ impl Game {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use crate::timing::frequency_replay;
     use dnf_core::Command;
+    #[test]
+    fn world_three_hundred_hz_is_identical_under_sixty_one_twenty_and_three_hundred_hz_drivers() {
+        let Some(dir) = dnf_data::locate_client_dir() else {
+            return;
+        };
+        let data = GameData::load(&dir, DEFAULT_MAP, Outfit::default_basic()).unwrap();
+        for combat in [false, true] {
+            let reference = frequency_replay(&data, 300, combat);
+            assert!(!reference.1.is_empty());
+            if combat {
+                assert!(reference
+                    .0
+                    .iter()
+                    .any(|p| p.targets.iter().any(|m| m.3 > 0)));
+            }
+            assert_eq!(
+                frequency_replay(&data, 60, combat),
+                reference,
+                "60Hz batching combat={combat}"
+            );
+            assert_eq!(
+                frequency_replay(&data, 120, combat),
+                reference,
+                "120Hz batching combat={combat}"
+            );
+        }
+    }
+    #[test]
+    fn backdrop_cache_keeps_parallax_pixels_and_invalidates_for_camera_and_frame_changes() {
+        let Some(dir) = dnf_data::locate_client_dir() else {
+            return;
+        };
+        let data = GameData::load(&dir, DEFAULT_MAP, Outfit::default_basic()).unwrap();
+        let mut room = Room::load(&data.assets, DEFAULT_MAP).unwrap();
+        for camera in [0, 9, 128, 0] {
+            let mut expected = Framebuffer::default();
+            expected.clear(rgba(12, 14, 20, 255));
+            room.draw_backdrop(&mut expected, camera);
+            let mut actual = Framebuffer::default();
+            room.draw_cached_backdrop(&mut actual, camera);
+            assert_eq!(actual.data, expected.data);
+        }
+        room.tiles[0].x += 16;
+        let mut expected = Framebuffer::default();
+        expected.clear(rgba(12, 14, 20, 255));
+        room.draw_backdrop(&mut expected, 0);
+        let mut actual = Framebuffer::default();
+        room.draw_cached_backdrop(&mut actual, 0);
+        assert_eq!(actual.data, expected.data);
+        for (name, frames) in &data.visual.motions {
+            for frame in 0..frames.len() {
+                let reference = character::compose(
+                    &data.assets,
+                    &data.avatar,
+                    &data.visual,
+                    &data.outfit,
+                    &data.weapon,
+                    name,
+                    frame,
+                );
+                let prepared = data.actor_layers(name, frame);
+                assert_eq!(prepared.len(), reference.len());
+                for (a, b) in prepared.iter().zip(&reference) {
+                    assert_eq!(
+                        (a.frame, a.offset, a.layer, &a.image_name),
+                        (b.frame, b.offset, b.layer, &b.image_name)
+                    );
+                }
+            }
+        }
+    }
+    #[test]
+    fn multiple_targets_receive_one_hit_each_per_action_and_zero_count_has_no_hits() {
+        let Some(dir) = dnf_data::locate_client_dir() else {
+            return;
+        };
+        let data = GameData::load(&dir, DEFAULT_MAP, Outfit::default_basic()).unwrap();
+        let mut g = data.build_game(KeyMap::official_default()).unwrap();
+        g.actor.teleport(250, 329);
+        g.set_monster_count(3);
+        for i in 0..3 {
+            g.monster_mut(i).unwrap().reset(300, 329, &data.goblin);
+        }
+        g.begin_input();
+        g.set_key(Dik::X, true);
+        g.step();
+        for _ in 0..50 {
+            g.begin_input();
+            g.set_key(Dik::X, false);
+            g.step();
+        }
+        let damage = g.goblin.last_damage;
+        assert!(damage > 0);
+        assert!(g.monsters().all(|m| m.hits == 1 && m.hp == 300 - damage));
+        g.set_monster_count(0);
+        g.begin_input();
+        g.set_key(Dik::X, true);
+        g.step();
+        for _ in 0..50 {
+            g.begin_input();
+            g.set_key(Dik::X, false);
+            g.step();
+        }
+        assert_eq!(g.monsters().count(), 0);
+        assert_eq!(g.goblin.hits, 1);
+    }
+    #[test]
+    fn single_target_invulnerability_does_not_block_other_hits_and_mixed_values_are_visible() {
+        use crate::debug_ui::{Control, View};
+        let Some(dir) = dnf_data::locate_client_dir() else {
+            return;
+        };
+        let data = GameData::load(&dir, DEFAULT_MAP, Outfit::default_basic()).unwrap();
+        let mut g = data.build_game(KeyMap::official_default()).unwrap();
+        g.actor.teleport(250, 329);
+        g.set_monster_count(3);
+        for i in 0..3 {
+            g.monster_mut(i).unwrap().reset(300, 329, &data.goblin);
+        }
+        g.apply_control(Control::MonsterState {
+            target: Some(0),
+            state: Protection::Invincible,
+        });
+        g.apply_control(Control::MonsterSet {
+            target: Some(1),
+            field: 3,
+            value: 1000,
+        });
+        let v = View::from_game(&g);
+        assert!(v.mixed[3]);
+        assert_eq!(v.monster_state, None);
+        g.begin_input();
+        g.set_key(Dik::X, true);
+        g.step();
+        for _ in 0..50 {
+            g.begin_input();
+            g.set_key(Dik::X, false);
+            g.step();
+        }
+        assert_eq!(g.monster(0).unwrap().hits, 0);
+        let raw = g.monster(2).unwrap().last_damage;
+        assert!(raw > 0);
+        assert_eq!(g.monster(1).unwrap().last_damage, (raw / 2).max(1));
+        assert_eq!(g.monster(1).unwrap().hits, 1);
+        assert_eq!(g.monster(2).unwrap().hits, 1);
+    }
+    #[test]
+    fn monster_weight_and_recovery_edits_change_real_launch_and_stun() {
+        use crate::debug_ui::Control;
+        let Some(dir) = dnf_data::locate_client_dir() else {
+            return;
+        };
+        let data = GameData::load(&dir, DEFAULT_MAP, Outfit::default_basic()).unwrap();
+        let mut g = data.build_game(KeyMap::official_default()).unwrap();
+        g.set_monster_count(2);
+        g.apply_control(Control::MonsterSet {
+            target: Some(1),
+            field: 4,
+            value: 90000,
+        });
+        g.apply_control(Control::MonsterSet {
+            target: Some(1),
+            field: 5,
+            value: 1800,
+        });
+        let hit = crate::battle::Hit {
+            damage: 10,
+            facing: 1,
+            upper: true,
+            point: [0.0, 0.0, 0.0],
+        };
+        let info = g.attack_infos["UpperSlash"].clone();
+        let feedback = info.feedback(&g.weapon_feedback);
+        for i in 0..2 {
+            g.monster_mut(i).unwrap().reset(300, 329, &data.goblin);
+            assert!(g.monster_mut(i).unwrap().hit(
+                &data.goblin,
+                &info,
+                &feedback,
+                crate::battle::Hit { ..hit }
+            ));
+        }
+        for _ in 0..10 {
+            g.goblin.step(&data.goblin, g.room.walk_x, 1000.0 / 60.0);
+            g.extra_monsters[0].step(&data.goblin, g.room.walk_x, 1000.0 / 60.0);
+        }
+        assert!(g.monster(0).unwrap().z > g.monster(1).unwrap().z);
+        let normal = g.attack_infos["Attack1"].clone();
+        let feedback = normal.feedback(&g.weapon_feedback);
+        for i in 0..2 {
+            g.monster_mut(i).unwrap().reset(300, 329, &data.goblin);
+            g.monster_mut(i).unwrap().hit(
+                &data.goblin,
+                &normal,
+                &feedback,
+                crate::battle::Hit {
+                    upper: false,
+                    ..hit
+                },
+            );
+        }
+        for _ in 0..10 {
+            g.goblin.step(&data.goblin, g.room.walk_x, 1000.0 / 60.0);
+            g.extra_monsters[0].step(&data.goblin, g.room.walk_x, 1000.0 / 60.0);
+        }
+        assert_eq!(
+            g.monster(0).unwrap().reaction,
+            crate::battle::Reaction::Hurt
+        );
+        assert_eq!(
+            g.monster(1).unwrap().reaction,
+            crate::battle::Reaction::Idle
+        );
+    }
     #[test]
     fn ghost_uses_real_skl_weapon_boxes_effects_sound_and_once_per_action_hit() {
         let Some(dir) = dnf_data::locate_client_dir() else {

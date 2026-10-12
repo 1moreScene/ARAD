@@ -1,0 +1,53 @@
+[name2]  `Great Willpower`
+
+[purchase cost] 
+30
+[/purchase cost]
+[required level]  15			// ｽｺﾅｳﾀｻ ｹ霑�ｱ� ﾀｧﾇﾘ ﾇﾊｿ萇ﾑ ﾄｳｸｯﾅﾍﾀﾇ ﾃﾖｼﾒ ｷｹｺｧ.
+[required level range]  3
+[type]  `[active]`
+[skill class]  4
+[maximum level]  8
+[growtype maximum level]  5 5 5 5 5
+[skill fitness growtype] 
+0
+1
+2
+3
+4
+[/skill fitness growtype]
+[consume MP]  69 106
+[casting time]  200 200
+[cool time]  30000 100000
+
+[icon] 
+`Character/Common/SkillIcon.img` 20
+`Character/Common/SkillIcon.img` 21
+
+[level info]
+2
+// 0.ﾄｵｽｽ ｾﾈｵﾉ ﾈｮｷ� (0.1%) 1.ｽﾃｰ｣
+200 	20000 
+400 	30000 
+600 	40000 
+800 	50000 
+1000 	60000 
+1200 	70000 
+1400 	80000 
+1600 	90000 
+[/level info]
+
+
+
+
+[name]  <12::name_15765>
+[explain] 
+<12::explain_15770>
+[level property] 
+1 99
+<12::level_property_15775>
+-1 1 0.001
+-1 0 0.1
+[/level property]
+
+

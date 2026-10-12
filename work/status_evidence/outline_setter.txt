@@ -1,0 +1,50 @@
+0042A8D0 push     ebp
+0042A8D1 mov      ebp, esp
+0042A8D3 mov      al, byte ptr [ebp + 8]
+0042A8D6 mov      edx, dword ptr [ebp + 0xc]
+0042A8D9 mov      byte ptr [ecx + 0xf8], al
+0042A8DF mov      al, byte ptr [ebp + 0x10]
+0042A8E2 mov      dword ptr [ecx + 0xfc], edx
+0042A8E8 mov      edx, dword ptr [ebp + 0x14]
+0042A8EB mov      byte ptr [ecx + 0x100], al
+0042A8F1 mov      dword ptr [ecx + 0x104], edx
+0042A8F7 pop      ebp
+0042A8F8 ret      0x10
+0042A8FB int3     
+0042A8FC int3     
+0042A8FD int3     
+0042A8FE int3     
+0042A8FF int3     
+0042A900 mov      al, byte ptr [ecx + 0xf8]
+0042A906 ret      
+0042A907 int3     
+0042A908 int3     
+0042A909 int3     
+0042A90A int3     
+0042A90B int3     
+0042A90C int3     
+0042A90D int3     
+0042A90E int3     
+0042A90F int3     
+0042A910 mov      eax, dword ptr [ecx + 0xfc]
+0042A916 ret      
+0042A917 int3     
+0042A918 int3     
+0042A919 int3     
+0042A91A int3     
+0042A91B int3     
+0042A91C int3     
+0042A91D int3     
+0042A91E int3     
+0042A91F int3     
+0042A920 mov      al, byte ptr [ecx + 0x108]
+0042A926 ret      
+0042A927 int3     
+0042A928 int3     
+0042A929 int3     
+0042A92A int3     
+0042A92B int3     
+0042A92C int3     
+0042A92D int3     
+0042A92E int3     
+0042A92F int3     

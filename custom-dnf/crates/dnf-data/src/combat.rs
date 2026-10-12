@@ -58,6 +58,28 @@ pub struct AttackInfo {
     pub raw_text: String,
 }
 impl AttackInfo {
+    /// [active status] `[poison]` probability(float percent) level(integer).
+    /// Keep every independent payload; none17 is filtered at the runtime boundary.
+    pub fn active_statuses(&self) -> impl Iterator<Item = (&str, f32, u8)> {
+        self.fields
+            .get("active status")
+            .into_iter()
+            .flatten()
+            .filter_map(|raw| {
+                let mut words = raw.split_whitespace();
+                let token = words
+                    .next()?
+                    .trim_matches('`')
+                    .trim_matches(|c| c == '[' || c == ']');
+                let probability = words.next()?.parse::<f32>().ok()?;
+                let level = words.next()?.parse::<u8>().ok()?;
+                (probability.is_finite() && probability > 0.0 && level > 0).then_some((
+                    token,
+                    probability.clamp(0.0, 100.0),
+                    level.clamp(1, 40),
+                ))
+            })
+    }
     pub fn feedback(&self, weapon: &HitInfo) -> HitInfo {
         let mut info = self
             .fields

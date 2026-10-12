@@ -1,6 +1,7 @@
 //! Official goblin script motions and the verified 58E920/58FC30 reaction subset.
 //! Stationary target HP/damage and automatic respawn remain testing facilities.
 use crate::assets::ClientAssets;
+use dnf_core::protection::{DamageOutcome, Protection, ProtectionState};
 use dnf_core::{
     anim::{AnimPlayer, Clip, HOLD_DELAY_MS},
     feedback::{recovery_ms, HitStop},
@@ -12,6 +13,7 @@ use dnf_data::{
     mob::MobFile,
 };
 use dnf_render::framebuffer::{rgba, Framebuffer, SpriteTransform};
+use std::cell::RefCell;
 use std::{collections::HashMap, rc::Rc};
 
 #[derive(Clone, Copy, Debug)]
@@ -66,6 +68,8 @@ pub struct MonsterLayer {
     pub motions: HashMap<&'static str, Rc<AnimFile>>,
 }
 pub struct GoblinAssets {
+    pub status_assets: Rc<crate::active_status::Assets>,
+    outlines: RefCell<HashMap<(&'static str, usize), Rc<OutlineMask>>>,
     pub definition: MobFile,
     pub motions: HashMap<&'static str, Rc<AnimFile>>,
     pub layers: Vec<MonsterLayer>,
@@ -161,7 +165,21 @@ impl GoblinAssets {
         let hit_recovery = definition
             .at_level("hit recovery", 1)
             .ok_or("goblin missing hit recovery")? as i32;
+        let frame = &motions["Damage2"].frames[0];
+        let image = assets
+            .img(&frame.image)
+            .ok_or("missing status sizing image")?;
+        let image = image
+            .frames
+            .get(frame.image_index.max(0) as usize)
+            .ok_or("invalid status sizing frame")?;
+        let status_size = (
+            image.width as f32 * frame.image_rate.0,
+            image.height as f32 * frame.image_rate.1,
+        );
         Ok(Self {
+            status_assets: Rc::new(crate::active_status::Assets::load(assets, status_size)?),
+            outlines: RefCell::new(HashMap::new()),
             definition,
             motions,
             layers,
@@ -173,6 +191,75 @@ impl GoblinAssets {
             land_frame,
         })
     }
+    fn outline_mask(
+        &self,
+        assets: &ClientAssets,
+        motion: &'static str,
+        frame: usize,
+        alpha: f32,
+    ) -> Rc<OutlineMask> {
+        if alpha == 1.0 {
+            if let Some(mask) = self.outlines.borrow().get(&(motion, frame)) {
+                return mask.clone();
+            }
+        }
+        let mut image = Framebuffer::new(256, 256);
+        let anchor = (128, 220);
+        for layer in self.layers.iter().filter(|l| l.layer < 0) {
+            if let Some(ani) = layer.motions.get(motion) {
+                draw_frame(ani, frame, assets, &mut image, anchor, -1, alpha);
+            }
+        }
+        draw_frame(
+            &self.motions[motion],
+            frame,
+            assets,
+            &mut image,
+            anchor,
+            -1,
+            alpha,
+        );
+        for layer in self.layers.iter().filter(|l| l.layer >= 0) {
+            if let Some(ani) = layer.motions.get(motion) {
+                draw_frame(ani, frame, assets, &mut image, anchor, -1, alpha);
+            }
+        }
+        let (mut x0, mut y0, mut x1, mut y1) = (256, 256, 0, 0);
+        for (i, p) in image.data.chunks_exact(4).enumerate() {
+            if p[3] != 0 {
+                x0 = x0.min(i % 256);
+                x1 = x1.max(i % 256 + 1);
+                y0 = y0.min(i / 256);
+                y1 = y1.max(i / 256 + 1);
+            }
+        }
+        let w = x1.saturating_sub(x0);
+        let h = y1.saturating_sub(y0);
+        let mut pixels = Vec::with_capacity(w * h * 4);
+        if w > 0 && h > 0 {
+            for y in y0..y1 {
+                pixels.extend_from_slice(&image.data[(y * 256 + x0) * 4..(y * 256 + x1) * 4]);
+            }
+        }
+        let mask = Rc::new(OutlineMask {
+            width: w,
+            height: h,
+            offset: (x0 as i32 - 128, y0 as i32 - 220),
+            pixels,
+        });
+        if alpha == 1.0 {
+            self.outlines
+                .borrow_mut()
+                .insert((motion, frame), mask.clone());
+        }
+        mask
+    }
+}
+struct OutlineMask {
+    width: usize,
+    height: usize,
+    offset: (i32, i32),
+    pixels: Vec<u8>,
 }
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Reaction {
@@ -181,6 +268,9 @@ pub enum Reaction {
     Air,
     Down,
     GettingUp,
+    Grabbed,
+    Stunned,
+    Sleeping,
     Dead,
 }
 struct Impact {
@@ -196,6 +286,27 @@ pub struct Hit {
     pub point: [f32; 3],
 }
 pub struct Goblin {
+    pub status_audio: Vec<&'static str>,
+    pub status_exits: Vec<(dnf_core::active_status::ActiveStatus, f64, bool)>,
+    pub statuses: dnf_core::active_status::ActiveStatuses,
+    pub status_damage: i32,
+    pub status_splash: i32,
+    pub status_feedback: i32,
+    status_dot_serial: [u64; 3],
+    status_dot_pending: [i32; 3],
+    status_dot_next: [f64; 3],
+    pub status_resistance: [i32; 17],
+    pub elemental_resistance: [i32; 4],
+    pub demo_enabled: bool,
+    pub demo_target: Option<(f32, f32)>,
+    demo_moving: bool,
+    demo_direction: i32,
+    demo_clock: f64,
+    pub grab: dnf_core::grab::GrabState,
+    pub defense: i32,
+    pub weight: f32,
+    pub hit_recovery: i32,
+    pub protection: ProtectionState,
     pub x: f32,
     pub y: f32,
     pub z: f32,
@@ -204,13 +315,14 @@ pub struct Goblin {
     pub hits: u64,
     pub reaction: Reaction,
     pub last_damage: i32,
-    pub damage_ticks: u32,
+    pub damage_feedback_ms: f64,
     pub stop: HitStop,
     spawn: (f32, f32),
     vx: f32,
     vz: f32,
     ax: f32,
     recovery_left: f64,
+    grab_down_ms: f64,
     anim: AnimPlayer,
     impact: Option<Impact>,
     variant: usize,
@@ -225,6 +337,37 @@ impl Goblin {
     pub const MAX_HP: i32 = 300;
     pub fn new(x: i32, y: i32, data: &GoblinAssets) -> Self {
         Self {
+            status_exits: Vec::new(),
+            status_audio: Vec::new(),
+            statuses: Default::default(),
+            status_damage: 0,
+            status_splash: 0,
+            status_feedback: 0,
+            status_dot_serial: [0; 3],
+            status_dot_pending: [0; 3],
+            status_dot_next: [500.0; 3],
+            status_resistance: std::array::from_fn(|i| {
+                data.definition
+                    .at_level(
+                        &format!(
+                            "{} resistance",
+                            dnf_core::active_status::ActiveStatus::ALL[i].token()
+                        ),
+                        1,
+                    )
+                    .unwrap_or(0.0) as i32
+            }),
+            elemental_resistance: [0; 4],
+            demo_enabled: false,
+            demo_target: None,
+            demo_moving: false,
+            demo_direction: 1,
+            demo_clock: 0.0,
+            grab: dnf_core::grab::GrabState::new(data.definition.grabable()),
+            defense: 0,
+            weight: data.weight,
+            hit_recovery: data.hit_recovery,
+            protection: ProtectionState::default(),
             x: x as f32,
             y: y as f32,
             z: 0.0,
@@ -233,13 +376,14 @@ impl Goblin {
             hits: 0,
             reaction: Reaction::Idle,
             last_damage: 0,
-            damage_ticks: 0,
+            damage_feedback_ms: 0.0,
             stop: HitStop::default(),
             spawn: (x as f32, y as f32),
             vx: 0.0,
             vz: 0.0,
             ax: 0.0,
             recovery_left: 0.0,
+            grab_down_ms: 0.0,
             anim: AnimPlayer::new(clip(data, "Stay"), 100.0),
             impact: None,
             variant: 0,
@@ -253,9 +397,174 @@ impl Goblin {
     }
     pub fn reset(&mut self, x: i32, y: i32, data: &GoblinAssets) {
         let max_hp = self.max_hp;
+        let grabable = self.grab.grabable;
+        let (defense, weight, hit_recovery, protection) = (
+            self.defense,
+            self.weight,
+            self.hit_recovery,
+            self.protection.clone(),
+        );
         *self = Self::new(x, y, data);
+        self.grab.grabable = grabable;
         self.max_hp = max_hp;
         self.hp = max_hp;
+        self.defense = defense;
+        self.weight = weight;
+        self.hit_recovery = hit_recovery;
+        self.protection = protection;
+    }
+    pub fn set_hp(&mut self, hp: i32, data: &GoblinAssets) {
+        let hp = hp.clamp(0, self.max_hp);
+        if hp > 0 && self.hp == 0 {
+            self.reset(self.x.round() as i32, self.y.round() as i32, data);
+        }
+        self.hp = hp;
+        if hp == 0 {
+            self.clear_active_statuses(true);
+            self.reaction = Reaction::Dead;
+            self.z = 0.0;
+            self.vx = 0.0;
+            self.vz = 0.0;
+            self.corpse_ms = 0.0;
+            self.respawn_ms = 3000.0;
+            self.set_motion(data);
+            self.anim.set_frame(data.land_frame);
+        }
+    }
+    /// Training damage reduction, intentionally separate from the full official formula.
+    pub fn reduced_damage(&self, damage: i32) -> i32 {
+        let defense = (self.defense.max(0) as f64 * self.statuses.stat_rate()) as i64
+            + self.statuses.stone_vitality() as i64 * 2;
+        ((damage.max(1) as i64 * 1000) / (1000 + defense)).max(1) as i32
+    }
+    pub fn effective_protection(&self, data: &GoblinAssets) -> Protection {
+        self.protection_state(data).effective()
+    }
+    pub fn clear_active_statuses(&mut self, death: bool) {
+        if !self.statuses.is_empty() {
+            self.status_audio.push("CONDITION_REMOVE");
+        }
+        for kind in [
+            dnf_core::active_status::ActiveStatus::Freeze,
+            dnf_core::active_status::ActiveStatus::Stone,
+        ] {
+            if self.statuses.has(kind) {
+                self.status_exits.push((kind, 0.0, death));
+            }
+        }
+        if self
+            .statuses
+            .has(dnf_core::active_status::ActiveStatus::Stone)
+        {
+            self.status_audio.push("STONE_DIE");
+        }
+        if death
+            && self
+                .statuses
+                .has(dnf_core::active_status::ActiveStatus::Freeze)
+        {
+            self.status_audio.push("FROZEN_DIE");
+        }
+        self.statuses.clear();
+    }
+    pub fn apply_attack_statuses(&mut self, data: &GoblinAssets, info: &AttackInfo) {
+        use dnf_core::active_status::ActiveStatus;
+        if self.hp <= 0 || self.effective_protection(data) == Protection::Invincible {
+            return;
+        }
+        for (token, chance, level) in info.active_statuses() {
+            let Some(kind) = ActiveStatus::from_token(token) else {
+                continue;
+            };
+            if kind == ActiveStatus::Sleep && self.reaction == Reaction::Grabbed {
+                continue;
+            }
+            let resistance = (self.status_resistance[kind as usize]
+                + self.statuses.resistance_delta(kind))
+            .clamp(0, 100);
+            let rate = chance * (100 - resistance) as f32 / 100.0;
+            if rate * 100.0 > (self.rand() % 10000) as f32 {
+                let had = self.statuses.has(kind);
+                if self
+                    .statuses
+                    .apply(kind, level, data.status_assets.config(kind, level), 0)
+                    && !had
+                {
+                    if let Some(tag) = crate::active_status::sound_tag(kind) {
+                        self.status_audio.push(tag);
+                    }
+                }
+            }
+        }
+    }
+    pub fn acquire_grab(&mut self, owner: u64, data: &GoblinAssets) -> bool {
+        if self.statuses.blocks_grab() {
+            return false;
+        }
+        let state = self.effective_protection(data);
+        if !self.grab.acquire(owner, self.hp > 0, state) {
+            return false;
+        }
+        self.reaction = Reaction::Grabbed;
+        self.vx = 0.0;
+        self.vz = 0.0;
+        self.ax = 0.0;
+        self.stop = HitStop::default();
+        self.set_motion(data);
+        true
+    }
+    /// Absorb/burst on the bound target bypasses ordinary hurt animation and
+    /// slash feedback. Invincibility still rejects damage; ownership is separate.
+    pub fn grab_damage(&mut self, data: &GoblinAssets, damage: i32) -> bool {
+        if self
+            .protection_state(data)
+            .apply_damage(&mut self.hp, damage)
+            == DamageOutcome::Rejected
+        {
+            return false;
+        }
+        self.hits += 1;
+        let shock = self.statuses.on_hit();
+        if shock > 0 && self.hp > 0 {
+            let before = self.hp;
+            self.hp = (self.hp - shock).max(0);
+            self.status_damage += before - self.hp;
+            self.status_feedback += before - self.hp;
+        }
+        self.last_damage = damage;
+        self.damage_feedback_ms = 750.0;
+        if self.hp == 0 {
+            self.respawn_ms = 3000.0;
+            self.clear_active_statuses(true);
+        }
+        true
+    }
+    pub fn release_grab(
+        &mut self,
+        owner: u64,
+        data: &GoblinAssets,
+        blast: Option<(&AttackInfo, i32)>,
+        down_ms: f64,
+    ) {
+        if self.grab.owner() != Some(owner) {
+            return;
+        }
+        self.grab.release(owner);
+        if let Some((info, facing)) = blast {
+            let push = info.number("push aside").unwrap_or(0);
+            let lift = info.number("lift up").unwrap_or(0);
+            let horizontal = (launch_velocity(push as f32, self.weight, 100.0) as i32) / 2;
+            let vertical = launch_velocity(lift as f32, self.weight, 100.0) as i32;
+            self.launch(horizontal, vertical * vertical / 3000, facing);
+            self.bounce = false;
+            self.grab_down_ms = down_ms;
+        } else if self.hp > 0 {
+            self.reaction = Reaction::Idle;
+            self.z = 0.0;
+        } else {
+            self.set_hp(0, data);
+        }
+        self.set_motion(data);
     }
     fn rand(&mut self) -> u32 {
         self.random = self.random.wrapping_mul(214013).wrapping_add(2531011);
@@ -263,8 +572,16 @@ impl Goblin {
     }
     pub fn motion(&self) -> &'static str {
         match self.reaction {
-            Reaction::Idle => "Stay",
-            Reaction::Hurt => {
+            Reaction::Idle => {
+                if self.demo_moving {
+                    "Move"
+                } else {
+                    "Stay"
+                }
+            }
+            Reaction::Stunned => "Damage1",
+            Reaction::Sleeping => "Down",
+            Reaction::Hurt | Reaction::Grabbed => {
                 if self.variant == 0 {
                     "Damage1"
                 } else {
@@ -284,14 +601,23 @@ impl Goblin {
     fn set_motion(&mut self, data: &GoblinAssets) {
         self.anim.set_clip(clip(data, self.motion()), 100.0, true);
     }
-    fn damage_type<'a>(&self, data: &'a GoblinAssets) -> &'a str {
-        data.motions[self.motion()]
+    fn protection_state(&self, data: &GoblinAssets) -> ProtectionState {
+        let kind = data.motions[self.motion()]
             .frames
             .get(self.anim.frame())
-            .map_or("NORMAL", |f| f.damage_type.as_str())
+            .map_or(dnf_data::ani::DamageType::Normal, |f| {
+                dnf_data::ani::DamageType::from_token(&f.damage_type)
+            });
+        let mut state = self.protection.clone();
+        state.set_frame(match kind {
+            dnf_data::ani::DamageType::Normal => Protection::Normal,
+            dnf_data::ani::DamageType::SuperArmor => Protection::SuperArmor,
+            dnf_data::ani::DamageType::Unbreakable => Protection::Invincible,
+        });
+        state
     }
     pub fn hurt_boxes(&self, data: &GoblinAssets) -> Vec<Box3> {
-        if self.hp <= 0 || self.damage_type(data) == "UNBREAKABLE" {
+        if self.hp <= 0 || self.protection_state(data).effective() == Protection::Invincible {
             return Vec::new();
         }
         data.motions[self.motion()]
@@ -327,14 +653,22 @@ impl Goblin {
             upper,
             point,
         } = hit;
-        if self.hp <= 0 || self.damage_type(data) == "UNBREAKABLE" {
+        let outcome = self
+            .protection_state(data)
+            .apply_damage(&mut self.hp, damage);
+        if outcome == DamageOutcome::Rejected {
             return false;
         }
-        let armor = self.damage_type(data) == "SUPERARMOR";
-        self.hp = (self.hp - damage).max(0);
+        let shock = self.statuses.on_hit();
+        if shock > 0 && self.hp > 0 {
+            let before = self.hp;
+            self.hp = (self.hp - shock).max(0);
+            self.status_damage += before - self.hp;
+            self.status_feedback += before - self.hp;
+        }
         self.hits += 1;
         self.last_damage = damage;
-        self.damage_ticks = 45;
+        self.damage_feedback_ms = 750.0;
         self.stop.apply(feedback.stop_ms.max(0) as f64);
         let big = self.rand() % 2 == 0;
         let direction = match info.token("attack direction") {
@@ -352,7 +686,19 @@ impl Goblin {
         if self.hp == 0 {
             self.respawn_ms = 3000.0;
         }
-        if armor && self.hp > 0 {
+        if self.hp == 0 {
+            self.clear_active_statuses(true);
+        } else if self
+            .statuses
+            .has(dnf_core::active_status::ActiveStatus::Stone)
+        {
+            self.status_audio.push("STONE_CUT");
+        }
+        if self.hp > 0
+            && (outcome == DamageOutcome::Armored
+                || self.reaction == Reaction::Grabbed
+                || self.statuses.frozen())
+        {
             return true;
         }
         if info.token("damage reaction") == Some("none") && self.hp > 0 {
@@ -367,8 +713,8 @@ impl Goblin {
             let was_bouncing = self.bounce;
             let lift = info.number("lift up").unwrap_or(0);
             let push = info.number("push aside").unwrap_or(0);
-            let horizontal = (launch_velocity(push as f32, data.weight, 100.0) as i32) / 2;
-            let vertical = launch_velocity(lift as f32, data.weight, 100.0) as i32;
+            let horizontal = (launch_velocity(push as f32, self.weight, 100.0) as i32) / 2;
+            let vertical = launch_velocity(lift as f32, self.weight, 100.0) as i32;
             let mut height = vertical * vertical / 3000;
             if was_down && was_bouncing {
                 height /= 4;
@@ -398,7 +744,7 @@ impl Goblin {
             let special = info.number("knuck back") == Some(1);
             let burn = feedback.kind == "burn";
             self.recovery_left =
-                recovery_ms(data.hit_recovery, (rate * 100.0) as i32, special) as f64;
+                recovery_ms(self.hit_recovery, (rate * 100.0) as i32, special) as f64;
             let duration = if special {
                 333
             } else if burn {
@@ -421,7 +767,13 @@ impl Goblin {
         true
     }
     pub fn step(&mut self, data: &GoblinAssets, walk_x: (i32, i32), dt_ms: f64) {
-        self.damage_ticks = self.damage_ticks.saturating_sub(1);
+        use dnf_core::active_status::ActiveStatus;
+        for (_, age, _) in &mut self.status_exits {
+            *age += dt_ms;
+        }
+        self.status_exits.retain(|(_, age, _)| *age < 1500.0);
+        self.protection.advance(dt_ms);
+        self.damage_feedback_ms = (self.damage_feedback_ms - dt_ms).max(0.0);
         if let Some(impact) = &mut self.impact {
             impact.anim.advance(dt_ms);
             if impact.anim.finished() {
@@ -438,8 +790,156 @@ impl Goblin {
             }
         }
         let active = self.stop.active_ms(dt_ms);
+        if self.hp > 0 {
+            let before = self.statuses.mask();
+            let dot_kinds = [
+                ActiveStatus::Poison,
+                ActiveStatus::Burn,
+                ActiveStatus::Bleeding,
+            ];
+            let dot_before = dot_kinds.map(|kind| self.statuses.get(kind).copied());
+            for (i, s) in dot_before.iter().enumerate() {
+                if let Some(s) = s {
+                    if self.status_dot_serial[i] != s.serial {
+                        self.status_dot_serial[i] = s.serial;
+                        self.status_dot_pending[i] = 0;
+                        self.status_dot_next[i] = 500.0;
+                    }
+                }
+            }
+            let fire = self.elemental_resistance[0]
+                - if self.statuses.has(ActiveStatus::Freeze) {
+                    50
+                } else {
+                    0
+                };
+            let dots = self.statuses.advance(
+                active,
+                self.demo_moving || self.vx != 0.0,
+                [
+                    (1.0 - self.status_resistance[2] as f64 / 100.0).clamp(0.0, 1.0),
+                    (1.0 - self.status_resistance[9] as f64 / 100.0).clamp(0.0, 1.0)
+                        * (1.0 - fire as f64 / 150.0).max(0.0),
+                    1.0,
+                ],
+            );
+            for dot in dots.into_iter().flatten() {
+                self.status_splash += dot.splash;
+                if dot.amount > 0 {
+                    let before = self.hp;
+                    self.hp = (self.hp - dot.amount).max(0);
+                    self.status_damage += before - self.hp;
+                    let channel = match dot.kind {
+                        ActiveStatus::Poison => 0,
+                        ActiveStatus::Burn => 1,
+                        _ => 2,
+                    };
+                    self.status_dot_pending[channel] += before - self.hp;
+                }
+            }
+            // HP is continuous; official poison/burn number observers report
+            // accumulated damage every500ms. Bleed reports its discrete1s tick.
+            for (i, s) in dot_before.iter().enumerate() {
+                if let Some(s) = s {
+                    let elapsed = s.elapsed_ms + active.min(s.remaining_ms);
+                    if i == 2
+                        || elapsed + 1e-7 >= self.status_dot_next[i]
+                        || !self.statuses.has(dot_kinds[i])
+                        || self.hp == 0
+                    {
+                        self.status_feedback += std::mem::take(&mut self.status_dot_pending[i]);
+                        while elapsed + 1e-7 >= self.status_dot_next[i] {
+                            self.status_dot_next[i] += 500.0;
+                        }
+                    }
+                }
+            }
+            for kind in [ActiveStatus::Freeze, ActiveStatus::Stone] {
+                if before & (1 << kind as usize) != 0 && !self.statuses.has(kind) {
+                    self.status_exits.push((kind, 0.0, false));
+                }
+            }
+            if before & !self.statuses.mask() != 0 {
+                self.status_audio.push("CONDITION_REMOVE");
+            }
+            if self.hp == 0 {
+                self.set_hp(0, data);
+            }
+        }
         if active == 0.0 {
             return;
+        }
+        if self.hp > 0 {
+            if self.reaction == Reaction::Grabbed {
+                return;
+            }
+            if self.statuses.frozen() {
+                return;
+            }
+            if self.statuses.has(ActiveStatus::Sleep)
+                && matches!(
+                    self.reaction,
+                    Reaction::Idle | Reaction::Hurt | Reaction::Stunned | Reaction::Sleeping
+                )
+            {
+                if self.reaction != Reaction::Sleeping {
+                    self.reaction = Reaction::Sleeping;
+                    self.z = 0.0;
+                    self.vx = 0.0;
+                    self.set_motion(data);
+                    self.anim.set_frame(data.land_frame);
+                }
+                return;
+            }
+            if self.statuses.has(ActiveStatus::Stun)
+                && matches!(
+                    self.reaction,
+                    Reaction::Idle | Reaction::Hurt | Reaction::Stunned
+                )
+            {
+                if self.reaction != Reaction::Stunned {
+                    self.reaction = Reaction::Stunned;
+                    self.vx = 0.0;
+                    self.set_motion(data);
+                }
+                return;
+            }
+            if matches!(self.reaction, Reaction::Stunned | Reaction::Sleeping) {
+                self.reaction = Reaction::Idle;
+                self.set_motion(data);
+            }
+            let moving = self.demo_enabled
+                && self.reaction == Reaction::Idle
+                && !self.statuses.blocks_move()
+                && self.demo_target.is_none_or(|(x, y)| {
+                    !self.statuses.has(ActiveStatus::Blind)
+                        || (self.x - x).abs() <= 250.0 && (self.y - y).abs() <= 250.0
+                });
+            if self.demo_moving != moving {
+                self.demo_moving = moving;
+                self.set_motion(data);
+            }
+            if moving {
+                self.demo_clock -= active;
+                if self.demo_clock <= 0.0 {
+                    self.demo_clock = 1000.0;
+                    self.demo_direction = if self.x > self.spawn.0 + 60.0 {
+                        -1
+                    } else if self.x < self.spawn.0 - 60.0 {
+                        1
+                    } else {
+                        self.demo_direction
+                    };
+                    if self.statuses.has(ActiveStatus::Confuse) && self.rand() % 100 < 60 {
+                        self.demo_direction = -self.demo_direction;
+                    }
+                }
+                let speed = data.definition.at_level("move speed", 1).unwrap_or(400.0) as f32
+                    / 10.0
+                    * self.statuses.speed_rate() as f32;
+                self.x = (self.x + speed * self.demo_direction as f32 * active as f32 / 1000.0)
+                    .clamp((walk_x.0 + 20) as f32, (walk_x.1 - 20) as f32);
+            }
         }
         let dt = active as f32 / 1000.0;
         let duration = if self.ax != 0.0 {
@@ -451,7 +951,11 @@ impl Goblin {
         self.x = (self.x + (self.vx + end) * 0.5 * duration)
             .clamp((walk_x.0 + 20) as f32, (walk_x.1 - 20) as f32);
         self.vx = if duration < dt { 0.0 } else { end };
-        self.anim.advance(active);
+        self.anim.advance(if self.demo_moving {
+            active * self.statuses.speed_rate()
+        } else {
+            active
+        });
         match self.reaction {
             Reaction::Hurt => {
                 self.recovery_left -= active;
@@ -495,6 +999,11 @@ impl Goblin {
                 }
             }
             Reaction::Down => {
+                self.grab_down_ms = (self.grab_down_ms - active).max(0.0);
+                if self.grab_down_ms > 0.0 {
+                    self.anim.set_frame(data.land_frame);
+                    return;
+                }
                 if self.anim.finished() {
                     self.reaction = Reaction::GettingUp;
                     self.set_motion(data);
@@ -509,7 +1018,7 @@ impl Goblin {
             Reaction::Dead => {
                 self.corpse_ms += active;
             }
-            Reaction::Idle => {}
+            Reaction::Idle | Reaction::Grabbed | Reaction::Stunned | Reaction::Sleeping => {}
         }
     }
     pub fn draw(
@@ -522,18 +1031,36 @@ impl Goblin {
         let x = self.x.round() as i32;
         let y = self.y.round() as i32;
         let z = self.z.round() as i32;
+        let tint = crate::active_status::body_tint(&self.statuses);
+        data.status_assets.draw(self, assets, fb, camera, true);
         let alpha = if self.reaction == Reaction::Dead {
             ((self.corpse_duration - self.corpse_ms) / 100.0).clamp(0.0, 1.0) as f32
         } else {
             1.0
         };
         if alpha > 0.0 {
+            if let Some((color, offsets)) =
+                crate::protection_visual::outline(self.effective_protection(data))
+            {
+                let mask = data.outline_mask(assets, self.motion(), self.frame(), alpha);
+                for &(ox, oy) in offsets {
+                    fb.blit_silhouette(
+                        &mask.pixels,
+                        mask.width,
+                        mask.height,
+                        x - camera + mask.offset.0 + ox,
+                        y - z + mask.offset.1 + oy,
+                        false,
+                        color,
+                    );
+                }
+            }
             if data.motions[self.motion()].shadow {
                 fb.fill_ellipse(x - camera, y, 18, 5, rgba(0, 0, 0, (90.0 * alpha) as u8));
             }
             for layer in data.layers.iter().filter(|l| l.layer < 0) {
                 if let Some(ani) = layer.motions.get(self.motion()) {
-                    draw_frame(
+                    draw_frame_tinted(
                         ani,
                         self.frame(),
                         assets,
@@ -541,10 +1068,11 @@ impl Goblin {
                         (x - camera, y - z),
                         -1,
                         alpha,
+                        tint,
                     );
                 }
             }
-            draw_frame(
+            draw_frame_tinted(
                 &data.motions[self.motion()],
                 self.frame(),
                 assets,
@@ -552,10 +1080,11 @@ impl Goblin {
                 (x - camera, y - z),
                 -1,
                 alpha,
+                tint,
             );
             for layer in data.layers.iter().filter(|l| l.layer >= 0) {
                 if let Some(ani) = layer.motions.get(self.motion()) {
-                    draw_frame(
+                    draw_frame_tinted(
                         ani,
                         self.frame(),
                         assets,
@@ -563,10 +1092,37 @@ impl Goblin {
                         (x - camera, y - z),
                         -1,
                         alpha,
+                        tint,
                     );
                 }
             }
         }
+        data.status_assets.draw(self, assets, fb, camera, false);
+        for kind in [
+            dnf_core::active_status::ActiveStatus::Poison,
+            dnf_core::active_status::ActiveStatus::Burn,
+            dnf_core::active_status::ActiveStatus::Bleeding,
+        ] {
+            if let Some(s) = self.statuses.get(kind) {
+                let a = (50.0 + (s.elapsed_ms * 0.008975979).sin() * 25.0) as u8;
+                let color = if kind == dnf_core::active_status::ActiveStatus::Poison {
+                    rgba(255, 0, 255, a)
+                } else {
+                    rgba(255, 0, 0, a)
+                };
+                let mask = data.outline_mask(assets, self.motion(), self.frame(), alpha);
+                fb.blit_silhouette(
+                    &mask.pixels,
+                    mask.width,
+                    mask.height,
+                    x - camera + mask.offset.0,
+                    y - z + mask.offset.1,
+                    false,
+                    color,
+                );
+            }
+        }
+        data.status_assets.draw_exits(self, fb, camera);
         if let Some(effect) = &self.impact {
             let p = effect.position;
             draw_frame(
@@ -596,7 +1152,7 @@ fn clip(data: &GoblinAssets, name: &str) -> Clip {
     let ani = &data.motions[name];
     Clip::new(name, ani.delays(), ani.looping)
 }
-fn draw_frame(
+pub(crate) fn draw_frame(
     ani: &AnimFile,
     frame: usize,
     assets: &ClientAssets,
@@ -604,6 +1160,27 @@ fn draw_frame(
     anchor: (i32, i32),
     facing: i32,
     alpha: f32,
+) {
+    draw_frame_tinted(
+        ani,
+        frame,
+        assets,
+        fb,
+        anchor,
+        facing,
+        alpha,
+        dnf_render::framebuffer::Color::WHITE,
+    );
+}
+fn draw_frame_tinted(
+    ani: &AnimFile,
+    frame: usize,
+    assets: &ClientAssets,
+    fb: &mut Framebuffer,
+    anchor: (i32, i32),
+    facing: i32,
+    alpha: f32,
+    tint: dnf_render::framebuffer::Color,
 ) {
     if let Some(f) = ani.frames.get(frame) {
         if let Some(img) = assets.img(&f.image) {
@@ -617,7 +1194,12 @@ fn draw_frame(
                         offset: (f.image_pos.0 + image.x, f.image_pos.1 + image.y),
                         rate: (f.image_rate.0 * facing as f32, f.image_rate.1),
                         angle: f.image_rotate,
-                        tint: rgba(c[0], c[1], c[2], (c[3] as f32 * alpha) as u8),
+                        tint: rgba(
+                            (c[0] as u32 * tint.r as u32 / 255) as u8,
+                            (c[1] as u32 * tint.g as u32 / 255) as u8,
+                            (c[2] as u32 * tint.b as u32 / 255) as u8,
+                            (c[3] as f32 * alpha) as u8,
+                        ),
                     },
                 );
             }

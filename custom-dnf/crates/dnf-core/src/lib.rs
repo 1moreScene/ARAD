@@ -23,6 +23,7 @@ pub mod key_manager;
 pub mod keymap;
 pub mod keys;
 pub mod movement;
+pub mod protection;
 
 pub use actor::{Actor, ActorClips, ActorEvent, ActorSpec, JumpPhase, Motion};
 pub use anim::{AnimPlayer, Clip, HOLD_DELAY_MS};
@@ -816,3 +817,6 @@ mod tests {
         assert!(a.x < 0);
     }
 }
+
+pub mod active_status;
+pub mod grab;

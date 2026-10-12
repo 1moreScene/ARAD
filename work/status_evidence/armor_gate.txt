@@ -1,0 +1,94 @@
+004D5B30 push     ebp
+004D5B31 mov      ebp, esp
+004D5B33 push     ecx
+004D5B34 push     ebx
+004D5B35 push     esi
+004D5B36 mov      esi, ecx
+004D5B38 mov      al, byte ptr [esi + 0x282]
+004D5B3E test     al, al
+004D5B40 push     edi
+004D5B41 je       0x4d5b4b
+004D5B43 mov      edi, dword ptr [esi + 0x284]
+004D5B49 jmp      0x4d5b65
+004D5B4B mov      edi, dword ptr [esi + 0x78]
+004D5B4E test     edi, edi
+004D5B50 je       0x4d5b72
+004D5B52 cmp      dword ptr [edi + 0x94], -1
+004D5B59 jne      0x4d5b62
+004D5B5B mov      ecx, edi
+004D5B5D call     0x4938f0
+004D5B62 mov      edi, dword ptr [edi + 0x70]
+004D5B65 test     edi, edi
+004D5B67 je       0x4d5b72
+004D5B69 cmp      edi, 1
+004D5B6C mov      byte ptr [ebp - 1], 0
+004D5B70 jne      0x4d5b76
+004D5B72 mov      byte ptr [ebp - 1], 1
+004D5B76 mov      eax, dword ptr [esi]
+004D5B78 mov      ecx, esi
+004D5B7A call     dword ptr [eax + 0x2b0]
+004D5B80 mov      ebx, dword ptr [eax + 0xc]
+004D5B83 mov      edx, dword ptr [esi]
+004D5B85 test     ebx, ebx
+004D5B87 mov      ecx, esi
+004D5B89 setne    bl
+004D5B8C call     dword ptr [edx + 0x2b0]
+004D5B92 mov      edi, dword ptr [eax + 0x14]
+004D5B95 mov      eax, dword ptr [esi]
+004D5B97 test     edi, edi
+004D5B99 push     1
+004D5B9B mov      ecx, esi
+004D5B9D setne    byte ptr [ebp - 3]
+004D5BA1 call     dword ptr [eax + 0x308]
+004D5BA7 test     al, al
+004D5BA9 jne      0x4d5bbf
+004D5BAB mov      edx, dword ptr [esi]
+004D5BAD push     7
+004D5BAF mov      ecx, esi
+004D5BB1 call     dword ptr [edx + 0x308]
+004D5BB7 test     al, al
+004D5BB9 mov      byte ptr [ebp - 2], 1
+004D5BBD je       0x4d5bc3
+004D5BBF mov      byte ptr [ebp - 2], 0
+004D5BC3 mov      al, byte ptr [esi + 0x264]
+004D5BC9 test     al, al
+004D5BCB je       0x4d5bfe
+004D5BCD mov      eax, dword ptr [esi]
+004D5BCF mov      ecx, esi
+004D5BD1 call     dword ptr [eax + 0x348]
+004D5BD7 cmp      eax, 9
+004D5BDA je       0x4d5bfe
+004D5BDC mov      al, byte ptr [ebp - 1]
+004D5BDF test     al, al
+004D5BE1 je       0x4d5bfe
+004D5BE3 test     bl, bl
+004D5BE5 je       0x4d5bfe
+004D5BE7 mov      al, byte ptr [ebp - 3]
+004D5BEA test     al, al
+004D5BEC je       0x4d5bfe
+004D5BEE mov      al, byte ptr [ebp - 2]
+004D5BF1 test     al, al
+004D5BF3 je       0x4d5bfe
+004D5BF5 pop      edi
+004D5BF6 pop      esi
+004D5BF7 mov      al, 1
+004D5BF9 pop      ebx
+004D5BFA mov      esp, ebp
+004D5BFC pop      ebp
+004D5BFD ret      
+004D5BFE pop      edi
+004D5BFF pop      esi
+004D5C00 xor      al, al
+004D5C02 pop      ebx
+004D5C03 mov      esp, ebp
+004D5C05 pop      ebp
+004D5C06 ret      
+004D5C07 int3     
+004D5C08 int3     
+004D5C09 int3     
+004D5C0A int3     
+004D5C0B int3     
+004D5C0C int3     
+004D5C0D int3     
+004D5C0E int3     
+004D5C0F int3     

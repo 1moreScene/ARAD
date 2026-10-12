@@ -127,6 +127,14 @@ impl Bank {
         let sound = tag.and_then(|tag| self.loop_sound(tag));
         mixer.set_loop(tag, sound);
     }
+    pub fn set_status_loops(&mut self, tags: [Option<&'static str>; 4], mixer: &mut Mixer) {
+        for (i, tag) in tags.into_iter().enumerate() {
+            if mixer.status_loop_tags[i] != tag {
+                let sound = tag.and_then(|tag| self.loop_sound(tag));
+                mixer.set_loop_slot(i + 1, tag, sound);
+            }
+        }
+    }
     fn loop_sound(&mut self, tag: &str) -> Option<(Arc<Pcm>, f32, i32, f32)> {
         let (pcm, gain, priority) = self.select(tag)?;
         let delay = self.catalog.effects.get(tag).map_or(0.0, |e| e.loop_delay);
@@ -140,12 +148,14 @@ struct Voice {
     gain: f32,
     priority: i32,
     loop_cycle: Option<f64>,
+    loop_slot: usize,
 }
 pub struct Mixer {
     voices: Vec<Voice>,
     volume: f32,
     limiter: Limiter,
     loop_tag: Option<&'static str>,
+    status_loop_tags: [Option<&'static str>; 4],
     pub peak_voices: usize,
 }
 impl Mixer {
@@ -155,6 +165,7 @@ impl Mixer {
             volume: volume.clamp(0.0, 1.0),
             limiter: Limiter::new(),
             loop_tag: None,
+            status_loop_tags: [None; 4],
             peak_voices: 0,
         }
     }
@@ -164,7 +175,13 @@ impl Mixer {
                 .voices
                 .iter()
                 .enumerate()
-                .min_by_key(|(_, v)| v.priority)
+                .min_by_key(|(_, v)| {
+                    if v.loop_cycle.is_some() {
+                        i32::MAX
+                    } else {
+                        v.priority
+                    }
+                })
                 .unwrap();
             if priority < lowest.priority {
                 return false;
@@ -177,6 +194,7 @@ impl Mixer {
             gain,
             priority,
             loop_cycle: None,
+            loop_slot: 0,
         });
         self.peak_voices = self.peak_voices.max(self.voices.len());
         true
@@ -185,15 +203,30 @@ impl Mixer {
         self.voices.clear();
         self.limiter = Limiter::new();
         self.loop_tag = None;
+        self.status_loop_tags = [None; 4];
     }
     fn set_loop(&mut self, tag: Option<&'static str>, sound: Option<(Arc<Pcm>, f32, i32, f32)>) {
-        self.voices.retain(|v| v.loop_cycle.is_none());
-        self.loop_tag = tag;
+        self.set_loop_slot(0, tag, sound);
+    }
+    fn set_loop_slot(
+        &mut self,
+        slot: usize,
+        tag: Option<&'static str>,
+        sound: Option<(Arc<Pcm>, f32, i32, f32)>,
+    ) {
+        self.voices
+            .retain(|v| v.loop_cycle.is_none() || v.loop_slot != slot);
+        if slot == 0 {
+            self.loop_tag = tag;
+        } else {
+            self.status_loop_tags[slot - 1] = tag;
+        }
         if let Some((pcm, gain, priority, delay)) = sound {
             let cycle = pcm.samples.len() as f64 / pcm.channels as f64
                 + delay as f64 * pcm.sample_rate as f64;
-            if self.play(pcm, gain, priority) {
+            if self.play(pcm, gain, priority.max(1000)) {
                 self.voices.last_mut().unwrap().loop_cycle = Some(cycle);
+                self.voices.last_mut().unwrap().loop_slot = slot;
             }
         }
     }
@@ -566,6 +599,12 @@ mod output {
     enum Command {
         Play(Arc<Pcm>, f32, i32, u64),
         Shutdown,
+        StatusLoop(
+            usize,
+            Option<&'static str>,
+            Option<(Arc<Pcm>, f32, i32, f32)>,
+            u64,
+        ),
         Loop(Option<&'static str>, Option<(Arc<Pcm>, f32, i32, f32)>, u64),
     }
     pub struct Engine {
@@ -576,6 +615,7 @@ mod output {
         event: Arc<Event>,
         active: bool,
         loop_tag: Option<&'static str>,
+        status_loop_tags: [Option<&'static str>; 4],
         pub stats: Arc<Stats>,
     }
     impl Engine {
@@ -644,6 +684,11 @@ mod output {
                                         mixer.set_loop(tag, sound);
                                     }
                                 }
+                                Ok(Command::StatusLoop(slot, tag, sound, issued)) => {
+                                    if issued == epoch {
+                                        mixer.set_loop_slot(slot, tag, sound);
+                                    }
+                                }
                                 Err(TryRecvError::Empty) => break,
                             }
                         }
@@ -667,6 +712,7 @@ mod output {
                     event,
                     active: true,
                     loop_tag: None,
+                    status_loop_tags: [None; 4],
                     stats,
                 }),
                 Err(error) => {
@@ -682,6 +728,7 @@ mod output {
             if self.active && !active {
                 self.generation.fetch_add(1, Ordering::AcqRel);
                 self.loop_tag = None;
+                self.status_loop_tags = [None; 4];
                 self.event.signal();
             }
             self.active = active;
@@ -710,6 +757,28 @@ mod output {
         }
     }
     impl Engine {
+        pub fn set_status_loops(&mut self, tags: [Option<&'static str>; 4]) {
+            if !self.active {
+                return;
+            }
+            for (i, tag) in tags.into_iter().enumerate() {
+                if self.status_loop_tags[i] == tag {
+                    continue;
+                }
+                let sound = tag.and_then(|tag| self.bank.loop_sound(tag));
+                let epoch = self.generation.load(Ordering::Acquire);
+                if self
+                    .sender
+                    .try_send(Command::StatusLoop(i + 1, tag, sound, epoch))
+                    .is_ok()
+                {
+                    self.status_loop_tags[i] = tag;
+                    self.event.signal();
+                } else {
+                    self.stats.dropped.fetch_add(1, Ordering::Relaxed);
+                }
+            }
+        }
         pub fn set_loop(&mut self, tag: Option<&'static str>) {
             if !self.active || self.loop_tag == tag {
                 return;
@@ -773,6 +842,37 @@ pub fn write_wave(path: &std::path::Path, samples: &[i16]) -> Result<(), String>
 #[cfg(test)]
 mod tests {
     use super::*;
+    #[test]
+    fn status_loops_coexist_with_movement_and_stop_independently() {
+        let pcm = Arc::new(Pcm {
+            sample_rate: RATE,
+            channels: 1,
+            samples: vec![0.2; 441],
+        });
+        let mut m = Mixer::new(1.0);
+        m.set_loop(Some("walk"), Some((pcm.clone(), 0.5, 0, 0.0)));
+        m.set_loop_slot(1, Some("poison"), Some((pcm.clone(), 0.5, 0, 0.01)));
+        m.set_loop_slot(3, Some("shock"), Some((pcm.clone(), 0.5, 0, 0.01)));
+        assert_eq!(m.voices.len(), 3);
+        m.set_loop_slot(1, None, None);
+        assert_eq!(m.voices.len(), 2);
+        assert_eq!(m.loop_tag, Some("walk"));
+        assert_eq!(m.status_loop_tags[2], Some("shock"));
+        for _ in 0..40 {
+            m.play(pcm.clone(), 0.5, 0);
+        }
+        assert!(m
+            .voices
+            .iter()
+            .any(|v| v.loop_cycle.is_some() && v.loop_slot == 0));
+        assert!(m
+            .voices
+            .iter()
+            .any(|v| v.loop_cycle.is_some() && v.loop_slot == 3));
+        m.stop();
+        assert!(m.voices.is_empty());
+        assert_eq!(m.status_loop_tags, [None; 4]);
+    }
     fn pcm(rate: u32, channels: u16, samples: Vec<f32>) -> Arc<Pcm> {
         Arc::new(Pcm {
             sample_rate: rate,

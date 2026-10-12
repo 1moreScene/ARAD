@@ -156,10 +156,10 @@ impl AnimPlayer {
                 break;
             }
             let dur = self.frame_ms().max(0.001) as f64;
-            if self.elapsed_ms < dur {
+            if self.elapsed_ms + 1e-7 < dur {
                 break;
             }
-            self.elapsed_ms -= dur;
+            self.elapsed_ms = (self.elapsed_ms - dur).max(0.0);
             if self.frame + 1 < self.clip.frame_count() {
                 self.frame += 1;
             } else if self.clip.looping {

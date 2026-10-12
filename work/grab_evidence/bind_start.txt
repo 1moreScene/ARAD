@@ -1,0 +1,61 @@
+00650E80 push     esi
+00650E81 mov      esi, ecx
+00650E83 mov      ecx, dword ptr [esi + 0x50]
+00650E86 mov      eax, dword ptr [ecx]
+00650E88 call     dword ptr [eax + 0x98]
+00650E8E mov      ecx, dword ptr [esi + 4]
+00650E91 neg      eax
+00650E93 sbb      eax, eax
+00650E95 and      eax, 0x56
+00650E98 add      eax, -0x2b
+00650E9B mov      dword ptr [esi + 0x54], eax
+00650E9E mov      dword ptr [esi + 0x58], 0xffffffff
+00650EA5 mov      edx, dword ptr [ecx]
+00650EA7 call     dword ptr [edx + 0xc0]
+00650EAD mov      ecx, 0x6e
+00650EB2 sub      ecx, eax
+00650EB4 cmp      ecx, 0xa
+00650EB7 jle      0x650ecd
+00650EB9 mov      ecx, dword ptr [esi + 4]
+00650EBC mov      edx, dword ptr [ecx]
+00650EBE call     dword ptr [edx + 0xc0]
+00650EC4 mov      ecx, 0x6e
+00650EC9 sub      ecx, eax
+00650ECB jmp      0x650ed2
+00650ECD mov      ecx, 0xa
+00650ED2 mov      dword ptr [esi + 0x5c], ecx
+00650ED5 mov      ecx, dword ptr [esi + 4]
+00650ED8 mov      eax, dword ptr [ecx]
+00650EDA push     3
+00650EDC call     dword ptr [eax + 0x308]
+00650EE2 test     al, al
+00650EE4 je       0x650f11
+00650EE6 mov      ecx, dword ptr [esi + 4]
+00650EE9 mov      edx, dword ptr [ecx]
+00650EEB push     0
+00650EED call     dword ptr [edx + 0x22c]
+00650EF3 mov      ecx, dword ptr [esi + 4]
+00650EF6 mov      eax, dword ptr [ecx]
+00650EF8 push     0
+00650EFA push     0
+00650EFC push     3
+00650EFE call     dword ptr [eax + 0x300]
+00650F04 mov      ecx, dword ptr [esi + 4]
+00650F07 mov      edx, dword ptr [ecx]
+00650F09 push     1
+00650F0B call     dword ptr [edx + 0x22c]
+00650F11 pop      esi
+00650F12 ret      
+00650F13 int3     
+00650F14 int3     
+00650F15 int3     
+00650F16 int3     
+00650F17 int3     
+00650F18 int3     
+00650F19 int3     
+00650F1A int3     
+00650F1B int3     
+00650F1C int3     
+00650F1D int3     
+00650F1E int3     
+00650F1F int3     

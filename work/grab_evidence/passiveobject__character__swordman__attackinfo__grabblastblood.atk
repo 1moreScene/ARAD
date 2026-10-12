@@ -1,0 +1,9 @@
+[attack type] `[physic]`		// ｰﾝﾀﾇ ﾅｸﾀﾔ. `[physic]` `[magic]` ﾁﾟ ﾅﾃ1
+[attack enemy] 1			// ﾀ�(ﾀﾚｽﾅｰ� ｾﾆｱｺﾀｻ ﾁｦｿﾜﾇﾑ ｸﾎ)ﾀｻ ｰﾝﾇﾒﾁ� ｿｩｺﾎ. ｱ篌ｻｰｪ 1
+[elemental property] `[no element]`			// ｰﾝﾀﾇ ｿﾒｼﾓｼｺ. `[no element]` `[fire element]` `[water element]` `[dark element]` `[light element]` ﾁﾟ ﾅﾃ1. ｾﾈｾｲｸ� ｱ篌ｻｰｪ `[no element]`
+[damage reaction] `[down]`		// ｰﾝｿ｡ ｸﾂｾﾒﾀｻ ｶｧﾀﾇ ｹﾝﾀﾀ `[none]` `[damage]` `[down]` ﾁﾟ ﾅﾃ1
+[push aside] 500			// ｵﾚｷﾎ ｳｯｸｮｴﾂ ﾈ�
+[lift up] 100			// ﾀｧｷﾎ ｶ鄙�ｴﾂ ﾈ� (ﾁﾟｽﾉｿ｡ｼｭ ｸﾂｾﾒﾀｻ ｶｧﾀﾇ ﾈ�)
+[hit wav] `FIRE_PILLAR_HIT` // ﾅｸｰﾝｽﾃ ﾃ箙ﾂﾇﾒ ﾈｿｰ惕ｽﾀﾇ ﾅﾂｱﾗ
+[attack direction] `[hit horizon]`
+[hit info] `[blow]` `[no blood]` 50 1.0

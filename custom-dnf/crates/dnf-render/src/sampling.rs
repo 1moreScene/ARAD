@@ -44,6 +44,18 @@ impl LinearScaler {
             return;
         }
         out.resize(self.dest.0 * self.dest.1 * 4, 0);
+        #[cfg(target_arch = "x86_64")]
+        if std::is_x86_feature_detected!("sse4.1") {
+            // Guarded by CPU detection; all tap offsets and output bounds are
+            // established by new() and the source-length assertion above.
+            unsafe {
+                self.render_sse41(src, out);
+            }
+            return;
+        }
+        self.render_scalar(src, out);
+    }
+    fn render_scalar(&self, src: &[u8], out: &mut [u8]) {
         for (row, y) in self.y.iter().enumerate() {
             let row0 = y.first * self.source.0 * 4;
             let row1 = y.second * self.source.0 * 4;
@@ -61,6 +73,52 @@ impl LinearScaler {
                     out[at + channel] =
                         ((top * (256 - y.weight) + bottom * y.weight + 32768) >> 16) as u8;
                 }
+            }
+        }
+    }
+
+    #[cfg(target_arch = "x86_64")]
+    #[target_feature(enable = "sse4.1")]
+    unsafe fn render_sse41(&self, src: &[u8], out: &mut [u8]) {
+        use std::arch::x86_64::*;
+        let zero = _mm_setzero_si128();
+        let rounding = _mm_set1_epi32(32768);
+        for (row, y) in self.y.iter().enumerate() {
+            let row0 = y.first * self.source.0 * 4;
+            let row1 = y.second * self.source.0 * 4;
+            let wy0 = _mm_set1_epi32((256 - y.weight) as i32);
+            let wy1 = _mm_set1_epi32(y.weight as i32);
+            for (col, x) in self.x.iter().enumerate() {
+                let first = x.first * 4;
+                let second = x.second * 4;
+                let a = _mm_cvtepu8_epi32(_mm_cvtsi32_si128(std::ptr::read_unaligned(
+                    src.as_ptr().add(row0 + first).cast::<i32>(),
+                )));
+                let b = _mm_cvtepu8_epi32(_mm_cvtsi32_si128(std::ptr::read_unaligned(
+                    src.as_ptr().add(row0 + second).cast::<i32>(),
+                )));
+                let c = _mm_cvtepu8_epi32(_mm_cvtsi32_si128(std::ptr::read_unaligned(
+                    src.as_ptr().add(row1 + first).cast::<i32>(),
+                )));
+                let d = _mm_cvtepu8_epi32(_mm_cvtsi32_si128(std::ptr::read_unaligned(
+                    src.as_ptr().add(row1 + second).cast::<i32>(),
+                )));
+                let wx0 = _mm_set1_epi32((256 - x.weight) as i32);
+                let wx1 = _mm_set1_epi32(x.weight as i32);
+                let top = _mm_add_epi32(_mm_mullo_epi32(a, wx0), _mm_mullo_epi32(b, wx1));
+                let bottom = _mm_add_epi32(_mm_mullo_epi32(c, wx0), _mm_mullo_epi32(d, wx1));
+                let sum = _mm_add_epi32(
+                    _mm_add_epi32(_mm_mullo_epi32(top, wy0), _mm_mullo_epi32(bottom, wy1)),
+                    rounding,
+                );
+                let values = _mm_srli_epi32::<16>(sum);
+                let packed = _mm_packus_epi16(_mm_packs_epi32(values, zero), zero);
+                std::ptr::write_unaligned(
+                    out.as_mut_ptr()
+                        .add((row * self.dest.0 + col) * 4)
+                        .cast::<i32>(),
+                    _mm_cvtsi128_si32(packed),
+                );
             }
         }
     }
@@ -95,6 +153,25 @@ pub fn sample_linear(src: &[u8], size: (usize, usize), u: f32, v: f32) -> [u8; 4
 #[cfg(test)]
 mod tests {
     use super::*;
+    #[test]
+    fn optimized_scaling_is_byte_exact_for_alpha_edges_and_arbitrary_sizes() {
+        for (source, dest) in [
+            ((7, 5), (11, 9)),
+            ((7, 5), (3, 2)),
+            ((1, 3), (8, 7)),
+            ((640, 480), (800, 600)),
+        ] {
+            let pixels: Vec<u8> = (0..source.0 * source.1 * 4)
+                .map(|i| ((i * 37 + i / 13) % 256) as u8)
+                .collect();
+            let plan = LinearScaler::new(source, dest);
+            let mut reference = vec![0; dest.0 * dest.1 * 4];
+            plan.render_scalar(&pixels, &mut reference);
+            let mut actual = Vec::new();
+            plan.render(&pixels, &mut actual);
+            assert_eq!(actual, reference, "{source:?} -> {dest:?}");
+        }
+    }
     #[test]
     fn linear_enlargement_interpolates_and_identity_is_exact() {
         let pixels = [0, 0, 0, 255, 255, 255, 255, 255];
